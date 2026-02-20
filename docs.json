@@ -1,0 +1,53 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "FieldCamp Docs",
+  "logo": {
+    "light": "/images/logo-light.svg",
+    "dark": "/images/logo-dark.svg"
+  },
+  "favicon": "/images/favicon.svg",
+  "colors": {
+    "primary": "#2563EB",
+    "light": "#3B82F6",
+    "dark": "#1D4ED8"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Features",
+            "pages": [
+              "features/jobs",
+              "features/scheduling",
+              "features/invoicing",
+              "features/clients",
+              "features/team-management"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": ["guides/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API",
+            "pages": ["api-reference/overview"]
+          }
+        ]
+      }
+    ]
+  },
+  "footerSocials": {
+    "website": "https://fieldcamp.ai"
+  }
+}
