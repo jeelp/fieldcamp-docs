@@ -1,16 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
   "name": "FieldCamp Docs",
-  "logo": {
-    "light": "/images/logo-light.svg",
-    "dark": "/images/logo-dark.svg"
-  },
-  "favicon": "/images/favicon.svg",
   "colors": {
     "primary": "#2563EB",
     "light": "#3B82F6",
     "dark": "#1D4ED8"
   },
+  "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
@@ -47,7 +44,9 @@
       }
     ]
   },
-  "footerSocials": {
-    "website": "https://fieldcamp.ai"
+  "footer": {
+    "socials": {
+      "website": "https://fieldcamp.ai"
+    }
   }
 }
