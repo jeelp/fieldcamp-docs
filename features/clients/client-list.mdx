@@ -1,0 +1,326 @@
+---
+title: "Client List & Views"
+description: "Filter, sort, group, and organize your client database"
+---
+
+# Client List & Views
+
+FieldCamp offers powerful list management with table views, kanban boards, grouping, filtering, and saved views. Organize thousands of clients efficiently.
+
+## View Types
+
+Switch between view types using the buttons in the toolbar:
+
+### Table View
+
+The default view shows clients in a sortable, filterable table.
+
+<!-- TODO: Screenshot of client table view -->
+
+**Features:**
+- Multi-column sorting
+- Inline editing (click any cell to edit)
+- Bulk selection with checkboxes
+- Column reordering (drag & drop headers)
+- Show/hide columns
+- Export to CSV/Excel
+
+**Default Columns:**
+- Client name
+- Email
+- Phone
+- Property address (city)
+- Stage
+- Last activity date
+- Lifetime value (total invoiced)
+
+### Kanban Board View
+
+Visual pipeline with drag-and-drop stage management.
+
+<!-- TODO: Screenshot of kanban board -->
+
+Clients appear as cards organized into columns by stage:
+- New Lead
+- Active Client
+- Inactive Client
+- Archived
+
+**Drag clients between stages** to update their status. Changes save automatically.
+
+Each card shows:
+- Client name and company
+- Contact info
+- Number of jobs
+- Outstanding balance
+
+### Grouped View
+
+Organize clients into collapsible groups based on any field.
+
+<!-- TODO: Screenshot of grouped view -->
+
+**Common grouping options:**
+- By City (see all clients in each service area)
+- By Assigned Tech (see each team member's clients)
+- By Stage (similar to kanban but with full details)
+- By Lead Source (track which marketing channels work best)
+- By Custom Property (any custom field)
+
+**Group pagination:**
+- Control how many groups appear per page
+- Set records per group
+- Expand/collapse individual groups
+
+## Filtering Clients
+
+Build complex filters to find exactly the clients you need.
+
+### Quick Filters
+
+Use the stage tabs at the top:
+- **All** - every client
+- **Leads** - only New Lead stage
+- **Active** - Active Client stage
+- **Inactive** - Inactive Client stage
+- **Archived** - Archived clients
+
+### Advanced Filters
+
+Click **Filter** to build custom filter rules:
+
+1. Select a field (name, email, stage, city, etc.)
+2. Choose a condition:
+   - **Contains** - text appears anywhere
+   - **Equals** - exact match
+   - **Starts with** - text at beginning
+   - **Greater than / Less than** - for numbers and dates
+   - **Is empty / Is not empty**
+3. Enter a value
+4. Click **Add Filter** to combine multiple rules
+
+**Example filters:**
+
+<CodeGroup>
+```text Find VIP clients in New York
+Field: City → Equals → New York
+AND
+Field: Tags → Contains → VIP
+```
+
+```text Inactive clients with outstanding balance
+Field: Stage → Equals → Inactive Client
+AND
+Field: Balance → Greater than → 0
+```
+
+```text Leads added in the last 7 days
+Field: Created Date → Greater than → (7 days ago)
+```
+</CodeGroup>
+
+Filters apply to table, kanban, and grouped views.
+
+## Sorting Clients
+
+### Single Column Sort
+
+Click any column header to sort:
+- First click: ascending (A→Z, 0→9)
+- Second click: descending (Z→A, 9→0)
+- Third click: remove sort
+
+### Multi-Column Sort
+
+Click **Sort** in the toolbar to build complex sorts:
+
+1. Add primary sort (e.g., City A→Z)
+2. Add secondary sort (e.g., Last Name A→Z)
+3. Add tertiary sort (e.g., Created Date newest first)
+
+Useful for organizing lists like:
+- By City, then by Street
+- By Assigned Tech, then by Last Activity Date
+- By Stage, then by Lifetime Value (highest first)
+
+## Searching Clients
+
+Use the search box (top left) for instant text search across:
+- First name and last name
+- Company name
+- Email address
+- Phone number
+- Street address
+
+Search is fuzzy-matched and case-insensitive.
+
+## Column Management
+
+### Show/Hide Columns
+
+Click the **Columns** button to:
+- Check boxes for visible columns
+- Uncheck to hide columns you don't need
+
+Hidden columns are still searchable and filterable.
+
+### Reorder Columns
+
+Drag column headers left/right to reorder. Your column order is saved per user.
+
+### Resize Columns
+
+Drag the column separator to resize. FieldCamp remembers your column widths.
+
+## Saved Views
+
+Save your filter/sort/group/column combinations as named views.
+
+### Creating a Saved View
+
+1. Set up your ideal filters, sorting, grouping, and columns
+2. Click **Save View**
+3. Name it (e.g., "NYC VIP Clients", "Leads This Week", "Inactive with Balance")
+4. Click **Save**
+
+### Using Saved Views
+
+Click the view dropdown (next to **Save View**) to switch between:
+- Default view (no filters)
+- Your saved views
+- Shared team views (if admin created them)
+
+Saved views persist across sessions and devices.
+
+### Editing a View
+
+1. Load the view
+2. Change filters/sorting/columns as needed
+3. Click **Update View** to save changes
+
+### Sharing Views (Admins Only)
+
+Admins can share views with the entire team:
+1. Create a view
+2. Check **Share with team**
+3. Save
+
+Shared views appear in everyone's view dropdown.
+
+## Bulk Operations
+
+Select multiple clients using checkboxes (left column):
+
+### Bulk Actions Available:
+- **Export** - download selected clients to CSV/Excel
+- **Delete** - remove multiple clients (with confirmation)
+- **Change Stage** - move all selected to a new stage
+- **Assign Tech** - set preferred technician for all
+- **Add Tags** - bulk tagging
+
+<!-- TODO: Screenshot of bulk actions -->
+
+<Warning>
+  **Bulk delete** will fail if any selected client has active jobs. Use **Force Delete** (with caution) to cascade delete jobs and related data.
+</Warning>
+
+### Selecting Clients
+
+- **Click checkbox** - select single client
+- **Click header checkbox** - select all on current page
+- **Select All** button (above table) - select all matching current filters (even across pages)
+
+Selection persists across page navigation within the same filter/view.
+
+## Pagination
+
+Control how many clients appear per page:
+
+- 10 per page (fast loading, more clicking)
+- 30 per page (default, balanced)
+- 50 per page (fewer page changes)
+- 100 per page (maximum)
+- **All** (no pagination, loads everything - use with filters!)
+
+Page controls:
+- ← Prev / Next → buttons
+- Jump to page number
+- Current page indicator (e.g., "Page 3 of 12")
+
+<Tip>
+  For large client lists (1000+), use filters and grouping to reduce the result set before setting pagination to "All".
+</Tip>
+
+## View Permissions
+
+What you see depends on your role:
+
+| Role | What You See |
+|------|--------------|
+| **Owner/Admin** | All clients in organization |
+| **Manager** | All clients (if "View All" permission) OR only assigned clients |
+| **Technician** | Only clients assigned to them |
+| **Custom Role** | Based on Clients module permissions (View All / View Assigned) |
+
+Admins can configure per-role permissions in **Settings → Team → Roles**.
+
+## Mobile View
+
+On phones and tablets, the client list switches to a card layout:
+
+<!-- TODO: Screenshot of mobile card view -->
+
+Each card shows:
+- Client name and company
+- Phone (tap to call)
+- Email (tap to email)
+- Property address (tap for directions)
+- Stage badge
+- Swipe actions (delete, edit, view details)
+
+Filters, search, and sorting still work in mobile view.
+
+## Performance Tips
+
+For large client databases (5,000+ clients):
+
+1. **Use filters** before loading "All" pagination
+2. **Save filtered views** for common queries
+3. **Group by fields with few unique values** (stage, city) rather than many (name)
+4. **Hide unnecessary columns** to speed up table rendering
+5. **Use search** instead of scrolling through pages
+
+FieldCamp indexes clients for fast queries on:
+- Stage
+- Created date
+- Deleted status
+- Integration IDs (Xero, Wave, QuickBooks)
+
+## Exporting Client Lists
+
+Export the current view (with filters applied) to:
+- **CSV** - import into Excel, Google Sheets
+- **Excel (.xlsx)** - formatted spreadsheet
+
+Exported files include all visible columns for selected/filtered clients.
+
+To export:
+1. Apply desired filters
+2. (Optional) Select specific clients
+3. Click **Export**
+4. Choose CSV or Excel
+5. File downloads automatically
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Kanban Pipeline" icon="columns" href="/features/clients/stages-pipeline">
+    Manage leads visually with drag-and-drop
+  </Card>
+  <Card title="Client Details" icon="user" href="/features/clients/client-detail">
+    Deep dive into individual client profiles
+  </Card>
+  <Card title="Import Clients" icon="file-import" href="/features/clients/importing">
+    Bulk upload from spreadsheet or accounting software
+  </Card>
+</CardGroup>

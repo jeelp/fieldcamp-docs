@@ -1,0 +1,147 @@
+---
+title: "Client Management Overview"
+description: "Complete CRM system for managing customers, leads, and contacts"
+---
+
+# Client Management
+
+FieldCamp's client management system is your complete CRM for field service businesses. Track every customer from first contact through lifetime value — contacts, jobs, invoices, communication history, and more.
+
+## What is a Client?
+
+A **client** in FieldCamp can be:
+- An individual customer (homeowner, property manager)
+- A business/company (property management firm, commercial building)
+- A lead you're nurturing into a customer
+
+Every client has a complete profile with contact details, addresses, job history, invoices, and communication records.
+
+## Client Lifecycle Stages
+
+Clients move through stages as you work with them:
+
+<CardGroup cols={2}>
+  <Card title="New Lead" icon="user-plus" color="#1565C0">
+    Just captured, not yet contacted
+  </Card>
+  <Card title="Active Client" icon="check-circle" color="#2D6B42">
+    Paying customer with ongoing service
+  </Card>
+  <Card title="Inactive Client" icon="pause-circle" color="#DC2626">
+    No recent activity, may need re-engagement
+  </Card>
+  <Card title="Archived" icon="archive" color="#9C9B99">
+    Removed from active lists, history preserved
+  </Card>
+</CardGroup>
+
+## Key Features
+
+<AccordionGroup>
+  <Accordion title="Complete Contact Management">
+    - Personal and company information
+    - Multiple phone numbers with international support
+    - Email addresses with validation
+    - Custom fields and tags
+  </Accordion>
+
+  <Accordion title="Multi-Address Support">
+    - **Property Address** - where the work happens
+    - **Billing Address** - where invoices go
+    - **Company Address** - for commercial clients
+    - GPS coordinates and Google Maps integration
+  </Accordion>
+
+  <Accordion title="Lead Tracking">
+    - Track lead source (website, referral, advertisement)
+    - Lead stages and conversion tracking
+    - Conversion date when they become active
+    - Backup stage for stage rollback
+  </Accordion>
+
+  <Accordion title="Complete Activity History">
+    - All jobs and visits
+    - Invoices and payment records
+    - Email and SMS history
+    - Call recordings (Twilio integration)
+    - File attachments and documents
+  </Accordion>
+
+  <Accordion title="Integration & Sync">
+    - Xero contact sync (bidirectional)
+    - Wave customer export
+    - QuickBooks integration (coming soon)
+    - Stripe customer records for payments
+  </Accordion>
+
+  <Accordion title="Team Collaboration">
+    - Preferred technician assignments
+    - Notification preferences
+    - Internal notes (not visible to client)
+    - Activity change history (audit trail)
+  </Accordion>
+</AccordionGroup>
+
+## Client Types
+
+### Individual Clients
+Residential customers (homeowners, renters). Track:
+- Personal contact details
+- Single or multiple service addresses
+- Household preferences
+
+### Company Clients
+Commercial/business customers. Track:
+- Company name and tax number
+- Multiple properties/locations
+- Billing department contact
+- Website and company address
+
+## Views & Organization
+
+FieldCamp offers multiple ways to view and organize clients:
+
+| View | Best For |
+|------|----------|
+| **Table View** | Bulk operations, sorting, filtering |
+| **Kanban Board** | Visual pipeline, drag-and-drop stage changes |
+| **Grouped View** | Organizing by location, tech, status, custom fields |
+| **Mobile Cards** | Quick access on phones/tablets |
+
+## Permissions
+
+Client access is controlled by role-based permissions:
+
+- **View All** - See all organization clients
+- **View Assigned** - Only clients assigned to you
+- **Create** - Add new clients
+- **Edit** - Update client information
+- **Delete** - Remove clients (with job dependency checks)
+
+Admins and owners have full access. Technicians typically see only assigned clients.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Create Your First Client" icon="plus" href="/features/clients/creating-clients">
+    Add clients manually or import from spreadsheet
+  </Card>
+  <Card title="Organize with Stages" icon="columns" href="/features/clients/stages-pipeline">
+    Use kanban boards to track leads and conversions
+  </Card>
+  <Card title="Import Existing Contacts" icon="file-import" href="/features/clients/importing">
+    Bulk import from CSV, Excel, or accounting software
+  </Card>
+  <Card title="Enable Client Portal" icon="globe" href="/features/clients/portal">
+    Let clients book jobs and view invoices online
+  </Card>
+</CardGroup>
+
+---
+
+## Related Features
+
+- [Jobs](/features/jobs) - Create jobs for clients
+- [Invoicing](/features/invoicing) - Bill clients for completed work
+- [Scheduling](/features/scheduling) - Book appointments at client properties
+- [Team Management](/features/team-management) - Assign preferred technicians

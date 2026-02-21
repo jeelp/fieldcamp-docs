@@ -1,0 +1,263 @@
+---
+title: "Creating & Editing Clients"
+description: "Add and update client information with validation and geocoding"
+---
+
+# Creating & Editing Clients
+
+Add clients to FieldCamp manually via the UI, or let the system create them automatically when you book a job for a new customer.
+
+## Adding a Client Manually
+
+1. Navigate to **Clients** in the sidebar
+2. Click **+ Add Client** (top right)
+3. Fill in client information
+4. Click **Save**
+
+<!-- TODO: Screenshot of Add Client modal -->
+
+## Required vs Optional Fields
+
+### Required Information
+Only **one of the following** is required to create a client:
+- First name OR last name
+- Company name
+- Email address
+
+All other fields are optional but recommended for complete profiles.
+
+### Recommended Fields
+- **Phone number** - for calls, SMS, and WhatsApp
+- **Property address** - where you'll do the work
+- **Email** - for invoice delivery and portal access
+
+## Client Information Fields
+
+### Basic Contact Details
+
+<ParamField path="firstName" type="string">
+  Client's first name. Can be empty if company name is provided.
+</ParamField>
+
+<ParamField path="lastName" type="string">
+  Client's last name. Can be empty if company name is provided.
+</ParamField>
+
+<ParamField path="email" type="string">
+  Email address (validated format). Used for invoices, portal login, and communication.
+</ParamField>
+
+<ParamField path="phoneNumber" type="object">
+  Phone number with international support:
+  ```json
+  {
+    "dialCode": "+1",
+    "isoCode": "us",
+    "number": "5551234567"
+  }
+  ```
+  Auto-detected based on your company country. Supports libphonenumber validation.
+</ParamField>
+
+<ParamField path="companyName" type="string">
+  Company or business name (for commercial clients).
+</ParamField>
+
+<ParamField path="clientType" type="string" default="individual">
+  Type of client:
+  - `individual` - residential customer
+  - `company` - business/commercial customer
+</ParamField>
+
+<ParamField path="website" type="string">
+  Client's website URL (for company clients).
+</ParamField>
+
+<ParamField path="taxNumber" type="string">
+  Tax ID or VAT number (for business clients).
+</ParamField>
+
+### Addresses
+
+FieldCamp supports three address types for each client:
+
+#### Property Address
+**Where the work happens.** This address:
+- Shows on job worksheets
+- Used for route optimization and GPS navigation
+- Auto-geocoded to latitude/longitude for maps
+
+Fields:
+- Street address
+- House/Building number
+- City
+- State/Province
+- Country
+- ZIP/Postal code
+
+<!-- TODO: Screenshot of address autocomplete -->
+
+<Tip>
+  **Address Autocomplete:** Start typing and FieldCamp will suggest addresses via Google Places API. Selecting a suggestion auto-fills all address fields and geocodes the location.
+</Tip>
+
+#### Billing Address
+Where invoices are sent (if different from property address). Useful for:
+- Property management companies
+- Commercial clients with separate billing departments
+- Rental properties billed to landlords
+
+#### Company Address
+For commercial clients' headquarters or main office.
+
+### Advanced Coordinate Entry
+
+For precise GPS locations, you can enter coordinates in multiple formats:
+
+<CodeGroup>
+```text Decimal Degrees (DD)
+40.7128, -74.0060
+```
+
+```text Degrees Minutes Seconds (DMS)
+40°42'46"N 74°0'22"W
+```
+
+```text Plus Codes
+87G8Q2M8+2Q
+```
+</CodeGroup>
+
+FieldCamp automatically parses and converts to latitude/longitude.
+
+### Lead Information
+
+<ParamField path="stage" type="string" default="New Lead">
+  Current stage in the sales pipeline:
+  - New Lead
+  - Active Client
+  - Inactive Client
+  - Archived
+</ParamField>
+
+<ParamField path="leadSource" type="string">
+  Where this lead came from:
+  - website
+  - referral
+  - advertisement
+  - phone call
+  - walk-in
+  - social media
+  - (custom sources)
+</ParamField>
+
+<ParamField path="conversionDate" type="datetime">
+  Automatically set when stage changes to "Active Client". Used for conversion analytics.
+</ParamField>
+
+### Preferences
+
+<ParamField path="preferredTechnicianIds" type="array">
+  List of technician IDs this client prefers. AI Dispatcher will prioritize these techs when auto-assigning jobs.
+</ParamField>
+
+<ParamField path="notificationPreferences" type="object">
+  Communication preferences (JSON):
+  ```json
+  {
+    "emailNotifications": true,
+    "smsNotifications": false,
+    "appointmentReminders": true
+  }
+  ```
+</ParamField>
+
+<ParamField path="notes" type="string">
+  Internal notes about this client (not visible to client). Useful for:
+  - Gate codes and access instructions
+  - Pet information
+  - Special handling requirements
+</ParamField>
+
+### Custom Properties
+
+Add unlimited custom fields via the **Properties** tab:
+- Text fields
+- Dropdowns
+- Dates
+- Numbers
+- Yes/No toggles
+
+Custom properties are stored as JSON and can be used for filtering and grouping.
+
+## Editing Clients
+
+To edit an existing client:
+
+1. Click the client row in the Clients table
+2. Edit any field inline or via the detail modal
+3. Changes save automatically
+
+### Change History
+
+Every edit is tracked in the client's history:
+- Which field was changed
+- Old value → New value
+- Who made the change
+- Timestamp
+
+Access change history via the **Activity** tab on the client detail page.
+
+<!-- TODO: Screenshot of change history -->
+
+<Warning>
+  Editing a client's stage will update their `conversionDate` if moving to "Active Client" for the first time.
+</Warning>
+
+## Validation Rules
+
+FieldCamp validates client data on save:
+
+| Field | Validation |
+|-------|------------|
+| Email | Must be valid email format (RFC 5322) |
+| Phone | Must be valid for selected country (via libphonenumber) |
+| Website | Must be valid URL |
+| Address | Must geocode successfully (if entered) |
+
+Invalid data will show an error message and prevent saving until corrected.
+
+## Automatic Client Creation
+
+Clients are created automatically when you:
+
+1. **Create a job** and enter a new customer name
+2. **Receive a booking** via the client portal
+3. **Import from integrations** (QuickBooks, Xero, Wave)
+
+Auto-created clients will have minimal information (name only). Edit them later to add addresses and contact details.
+
+## Duplicate Detection
+
+<Info>
+  **Coming soon:** FieldCamp will detect potential duplicates based on:
+  - Matching email addresses
+  - Similar names + same address
+  - Identical phone numbers
+  
+  You'll be prompted to merge or keep as separate records.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Import Bulk Clients" icon="file-import" href="/features/clients/importing">
+    Upload CSV or sync from accounting software
+  </Card>
+  <Card title="Organize by Stage" icon="columns" href="/features/clients/stages-pipeline">
+    Track leads through your sales pipeline
+  </Card>
+  <Card title="View Client History" icon="clock" href="/features/clients/client-detail">
+    See all jobs, invoices, and communication
+  </Card>
+</CardGroup>
