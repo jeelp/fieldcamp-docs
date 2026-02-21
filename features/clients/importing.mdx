@@ -1,0 +1,344 @@
+---
+title: "Importing Clients"
+description: "Bulk import from CSV, Excel, or accounting software integrations"
+---
+
+# Importing Clients
+
+Import your existing customer database into FieldCamp from spreadsheets or accounting software. FieldCamp handles phone number parsing, address geocoding, and duplicate detection automatically.
+
+## Import Sources
+
+<CardGroup cols={3}>
+  <Card title="CSV/Excel" icon="file-csv">
+    Upload spreadsheet with your client data
+  </Card>
+  <Card title="Xero" icon="link">
+    Sync contacts from Xero automatically
+  </Card>
+  <Card title="Wave" icon="link">
+    Import customers from Wave Accounting
+  </Card>
+  <Card title="QuickBooks" icon="link">
+    Sync customers from QuickBooks Online
+  </Card>
+</CardGroup>
+
+## Importing from CSV/Excel
+
+### Step 1: Prepare Your File
+
+Download the **CSV template** from FieldCamp:
+1. Go to **Clients** page
+2. Click **Import**
+3. Click **Download Template**
+
+The template includes these columns:
+
+| Column | Required? | Format | Example |
+|--------|-----------|--------|---------|
+| firstName | Optional* | Text | John |
+| lastName | Optional* | Text | Smith |
+| companyName | Optional* | Text | Smith Plumbing LLC |
+| email | Optional | email@domain.com | john@smithplumbing.com |
+| phoneNumber | Optional | Any format | (555) 123-4567 or 5551234567 |
+| propertyStreet | Optional | Text | 123 Main St |
+| propertyCity | Optional | Text | Austin |
+| propertyState | Optional | Text/Code | TX or Texas |
+| propertyCountry | Optional | Text/Code | US or United States |
+| propertyZipCode | Optional | Text | 78701 |
+| billingStreet | Optional | Text | PO Box 456 |
+| billingCity | Optional | Text | Austin |
+| billingState | Optional | Text/Code | TX |
+| billingCountry | Optional | Text/Code | US |
+| billingZipCode | Optional | Text | 78702 |
+| companyStreet | Optional | Text | 789 Business Pkwy |
+| companyCity | Optional | Text | Austin |
+| companyState | Optional | Text/Code | TX |
+| companyCountry | Optional | Text/Code | US |
+| companyZipCode | Optional | Text | 78703 |
+| stage | Optional | See below | New Lead |
+| leadSource | Optional | Text | website |
+| notes | Optional | Text | Gate code: 1234 |
+| taxNumber | Optional | Text | 12-3456789 |
+| website | Optional | URL | https://smithplumbing.com |
+| clientType | Optional | individual or company | individual |
+
+**At least ONE of the following is required per row:*
+- firstName OR lastName
+- companyName
+- email
+
+<Tip>
+  **Phone Number Formats:** FieldCamp automatically parses phone numbers in any format:
+  - (555) 123-4567
+  - 555-123-4567
+  - 5551234567
+  - +1 555 123 4567
+  
+  The import will detect your company's country and apply the correct country code.
+</Tip>
+
+### Step 2: Upload Your File
+
+1. Click **Import** on the Clients page
+2. Click **Choose File** or drag-and-drop your CSV/Excel file
+3. Click **Upload**
+
+FieldCamp validates your file and shows:
+- Total rows found
+- Valid rows (have required fields)
+- Invalid rows (missing required data)
+- Warnings (phone/email format issues)
+
+<!-- TODO: Screenshot of upload preview -->
+
+### Step 3: Map Fields (Auto-Detected)
+
+FieldCamp automatically maps columns to client fields if headers match the template.
+
+If your spreadsheet uses different column names:
+1. Review the field mapping table
+2. Click each dropdown to map your columns to FieldCamp fields
+3. Unmapped columns are ignored (safe to leave)
+
+**Example mapping:**
+
+| Your Column | Maps To |
+|-------------|---------|
+| Customer Name | firstName |
+| Business | companyName |
+| Email Address | email |
+| Cell Phone | phoneNumber |
+| Service Location | propertyStreet |
+
+<!-- TODO: Screenshot of field mapping -->
+
+### Step 4: Review & Import
+
+FieldCamp shows a preview of the first 10 rows with:
+- ✅ Valid data (will import)
+- ⚠️ Warnings (imports but may have issues)
+- ❌ Errors (will be skipped)
+
+Common warnings:
+- Phone number format couldn't be parsed (will try default country code)
+- Email format invalid (will import but can't send emails)
+- Address couldn't be geocoded (will import but no GPS coordinates)
+
+Click **Import X Clients** to proceed.
+
+### Step 5: Import Progress
+
+FieldCamp imports clients in batches of 1,000:
+
+<!-- TODO: Screenshot of import progress -->
+
+Progress bar shows:
+- Clients processed
+- Successfully imported
+- Skipped (errors)
+- Estimated time remaining
+
+**You can navigate away during import.** The process continues in the background. Check progress by returning to Clients → Import.
+
+### Step 6: Review Results
+
+When import completes:
+- ✅ **Successful:** Number of clients imported
+- ⚠️ **Warnings:** Rows with issues (imported but check them)
+- ❌ **Errors:** Rows skipped (download error log)
+
+Download the **error log** CSV to see which rows failed and why.
+
+## Import Validation Rules
+
+FieldCamp validates data during import:
+
+### Phone Numbers
+- **Validates** using libphonenumber (international format library)
+- **Auto-detects** country code based on your company's country setting
+- **Formats** to E.164 standard (+1 555-123-4567)
+- **Falls back** to your default country if format is ambiguous
+
+Example:
+- You enter: `(512) 555-1234`
+- FieldCamp imports as:
+  ```json
+  {
+    "dialCode": "+1",
+    "isoCode": "US",
+    "number": "5125551234"
+  }
+  ```
+
+### Email Addresses
+- **Validates** format per RFC 5322
+- **Allows** multi-domain extensions (.co.uk, .com.au)
+- **Rejects** invalid formats (missing @, spaces, etc.)
+
+### Addresses
+- **Geocodes** automatically via Google Maps API
+- **Adds** latitude/longitude for route optimization
+- **Formats** to standardized format
+- **Skips geocoding** if API fails (address still imports)
+
+<Warning>
+  If geocoding fails, the address imports as entered but won't appear on maps or route optimization until manually geocoded later.
+</Warning>
+
+### Stages
+Valid stage values:
+- New Lead
+- Active Client
+- Inactive Client
+- Archived
+
+Unrecognized stages default to "New Lead".
+
+### Client Types
+Valid values:
+- `individual` (default)
+- `company`
+
+## Duplicate Handling
+
+<Info>
+  **Current behavior:** FieldCamp does NOT check for duplicates during import. All rows create new client records.
+  
+  **Coming soon:** Optional duplicate detection based on:
+  - Matching email address
+  - Matching phone number
+  - Similar name + same address
+</Info>
+
+To avoid duplicates:
+- Export existing clients first
+- Cross-reference your import file
+- Remove duplicates before uploading
+
+## Batch Size & Performance
+
+FieldCamp processes imports in batches:
+- **Batch size:** 1,000 clients per batch
+- **Performance:** ~500-1000 clients/minute (depends on geocoding)
+- **Limits:** No hard limit on import file size
+
+For very large imports (10,000+ clients):
+1. Split into multiple files (e.g., 5,000 per file)
+2. Import during off-peak hours
+3. Monitor progress and error logs
+
+## Importing from Integrations
+
+### Xero Contact Sync
+
+Connect Xero in **Settings → Integrations → Xero**:
+
+1. Click **Connect Xero**
+2. Authorize FieldCamp in Xero OAuth flow
+3. Select organization
+4. Click **Sync Contacts**
+
+FieldCamp imports:
+- Contact name (first/last or company)
+- Email addresses (all from Xero contact)
+- Phone numbers (all from Xero contact)
+- Addresses (postal and street)
+- Xero Contact ID (for future sync)
+
+**Sync is bidirectional:**
+- New clients in FieldCamp → export to Xero
+- Updated contacts in Xero → update FieldCamp
+- Deleted contacts in Xero → mark inactive in FieldCamp (not deleted)
+
+### Wave Customer Import
+
+Connect Wave in **Settings → Integrations → Wave**:
+
+1. Click **Connect Wave**
+2. Authorize FieldCamp
+3. Select business
+4. Click **Sync Customers**
+
+FieldCamp imports:
+- Customer name
+- Email
+- Address
+- Wave Customer ID
+
+**Sync is one-way (Wave → FieldCamp):**
+- Updates in Wave sync to FieldCamp
+- Changes in FieldCamp do NOT sync back to Wave
+
+### QuickBooks Online Sync
+
+<Info>
+  **Coming soon.** QuickBooks customer sync is in development.
+</Info>
+
+## Troubleshooting Import Issues
+
+### "No valid rows found"
+**Cause:** File missing required fields (firstName/lastName/companyName/email).
+
+**Fix:**
+- Ensure at least one required field per row
+- Check for empty rows at the end of your spreadsheet
+
+### "Phone number format invalid"
+**Cause:** Phone number doesn't match expected format for your country.
+
+**Fix:**
+- Add country code explicitly (+1 for US)
+- Use digits only (5551234567)
+- Check for special characters (parentheses OK)
+
+### "Address couldn't be geocoded"
+**Cause:** Google Maps API couldn't find the address.
+
+**Fix:**
+- Use full street address (not PO boxes)
+- Include city, state, ZIP
+- Check for typos
+- Manually geocode after import (edit client → re-enter address)
+
+### "Email already exists"
+**Cause:** Another client has the same email (if duplicate detection is enabled).
+
+**Fix:**
+- Update existing client instead of importing
+- Use a different email for the new client
+
+### Import stuck at 0%
+**Cause:** Background job processor offline.
+
+**Fix:**
+- Refresh the page
+- Try a smaller file (&lt;1,000 rows)
+- Contact support if issue persists
+
+## Exporting for Backup
+
+Before major imports, export your existing clients:
+
+1. Go to **Clients**
+2. Click **Export**
+3. Choose **CSV** or **Excel**
+4. Download file (safe backup)
+
+You can re-import this file later if needed.
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Review Imported Clients" icon="list" href="/features/clients/client-list">
+    Check and edit your newly imported clients
+  </Card>
+  <Card title="Add Missing Info" icon="pencil" href="/features/clients/creating-clients">
+    Fill in addresses, preferences, and custom fields
+  </Card>
+  <Card title="Organize by Stage" icon="columns" href="/features/clients/stages-pipeline">
+    Classify leads vs active clients
+  </Card>
+</CardGroup>

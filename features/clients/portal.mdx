@@ -1,0 +1,492 @@
+---
+title: "Client Portal"
+description: "Self-service portal for customers to book jobs, view invoices, and pay online"
+---
+
+# Client Portal
+
+The Client Portal gives your customers 24/7 access to book appointments, view invoices, make payments, and upload files — all without calling your office.
+
+## What is the Client Portal?
+
+A self-service website where your clients can:
+- ✅ View their jobs and service history
+- 📅 Book new appointments (if enabled)
+- 💰 View and pay invoices online
+- 📄 Download estimates and invoices as PDF
+- 📁 Upload photos and documents
+- 💬 Message your team (if enabled)
+- ✏️ Update their contact information
+
+The portal is **white-labeled** with your company branding.
+
+## Benefits
+
+### For Your Clients
+- **Convenience** - access anytime, anywhere
+- **Transparency** - see job status in real-time
+- **Fast payment** - pay invoices instantly
+- **Self-booking** - schedule without waiting for callbacks
+- **History** - view past jobs and invoices
+
+### For Your Business
+- **Reduced calls** - fewer "when are you coming?" calls
+- **Faster payments** - online payment increases collection speed
+- **Professional image** - modern, tech-forward brand
+- **Less admin** - clients update their own info
+- **Better reviews** - happy clients leave reviews
+
+---
+
+## Enabling the Client Portal
+
+### Step 1: Turn On Portal Access
+
+1. Go to **Settings → Client Portal**
+2. Toggle **Enable Client Portal** to ON
+3. Configure portal settings (see below)
+4. Click **Save**
+
+<Frame>
+  <img src="/images/clients/portal-settings-access.png" alt="Client portal settings page showing access controls and configuration options" />
+</Frame>
+
+### Step 2: Configure Portal Settings
+
+Choose what clients can access:
+
+<ParamField path="enableJobViewing" type="boolean" default="true">
+  Allow clients to view their jobs and service history
+</ParamField>
+
+<ParamField path="enableBooking" type="boolean" default="false">
+  Allow clients to book new appointments (creates job in Draft status)
+</ParamField>
+
+<ParamField path="enableInvoiceViewing" type="boolean" default="true">
+  Allow clients to view invoices and estimates
+</ParamField>
+
+<ParamField path="enableOnlinePayment" type="boolean" default="true">
+  Allow clients to pay invoices online (requires Stripe)
+</ParamField>
+
+<ParamField path="enableFileUploads" type="boolean" default="true">
+  Allow clients to upload photos and documents
+</ParamField>
+
+<ParamField path="enableMessaging" type="boolean" default="false">
+  Allow clients to send messages to your team
+</ParamField>
+
+<ParamField path="enableProfileEditing" type="boolean" default="true">
+  Allow clients to update their own contact information
+</ParamField>
+
+### Step 3: Brand the Portal
+
+Customize the portal to match your business:
+
+<CardGroup cols={2}>
+  <Card title="Logo" icon="image">
+    Upload your company logo (appears top-left). Recommended: 200x60px, PNG with transparency.
+  </Card>
+  <Card title="Primary Color" icon="palette">
+    Choose your brand color for buttons and links. Default: FieldCamp blue.
+  </Card>
+  <Card title="Welcome Message" icon="message">
+    Customize the homepage message clients see when they log in.
+  </Card>
+  <Card title="Support Contact" icon="phone">
+    Display your support phone/email for client questions.
+  </Card>
+</CardGroup>
+
+<!-- TODO: Screenshot of branding settings -->
+
+### Step 4: Set Up Online Payments (Optional)
+
+To accept payments through the portal:
+
+1. Connect **Stripe** in **Settings → Integrations → Stripe**
+2. Complete Stripe onboarding (bank account, tax info)
+3. Enable **Online Payments** in portal settings
+4. Choose payment methods:
+   - 💳 Credit/Debit cards
+   - 🏦 ACH bank transfers (US only)
+   - 📱 Apple Pay / Google Pay
+
+When enabled, clients see a **Pay Now** button on unpaid invoices.
+
+---
+
+## Inviting Clients to the Portal
+
+### Sending Portal Invitations
+
+Give clients access by sending an invitation:
+
+1. **Single client:**
+   - Open client detail page
+   - Click **⋮ Menu → Send Portal Invite**
+   - Email sent with login link and temporary password
+
+2. **Bulk invitations:**
+   - Go to Clients list
+   - Select multiple clients (checkboxes)
+   - Click **Actions → Send Portal Invites**
+   - Invitations sent to all selected clients with email addresses
+
+<!-- TODO: Screenshot of send invite option -->
+
+### Invitation Email
+
+The invitation email includes:
+- **Portal URL** (e.g., portal.fieldcamp.ai/yourcompany)
+- **Username** (their email address)
+- **Temporary password** (they'll change on first login)
+- **Welcome message** (customizable)
+
+### Client First Login
+
+When clients click the link:
+1. Enter email and temporary password
+2. Prompted to create new password
+3. (Optional) Set up two-factor authentication
+4. Land on portal dashboard
+
+---
+
+## Portal Dashboard (Client View)
+
+What clients see after logging in:
+
+### Dashboard Widgets
+
+<CardGroup cols={3}>
+  <Card title="Upcoming Jobs" icon="calendar">
+    Next 5 scheduled appointments with dates and times
+  </Card>
+  <Card title="Unpaid Invoices" icon="alert-circle">
+    Outstanding balance with Pay Now buttons
+  </Card>
+  <Card title="Recent Activity" icon="clock">
+    Last 10 jobs, invoices, and messages
+  </Card>
+  <Card title="Quick Actions" icon="zap">
+    - Book New Appointment
+    - View All Jobs
+    - View All Invoices
+    - Upload File
+  </Card>
+</CardGroup>
+
+<!-- TODO: Screenshot of client portal dashboard -->
+
+### Navigation Menu
+
+- **Home** - dashboard
+- **Jobs** - all past and future jobs
+- **Invoices** - all invoices and estimates
+- **Payments** - payment history and saved cards
+- **Files** - uploaded documents and photos
+- **Messages** - conversation with your team (if enabled)
+- **Profile** - update contact info and password
+
+---
+
+## Portal Features (Client Perspective)
+
+### Viewing Jobs
+
+Clients see:
+- Job number and description
+- Scheduled date and time
+- Assigned technician (name and photo)
+- Job status (Scheduled/In Progress/Completed)
+- Service address
+- Notes and instructions
+- Job total (if configured to show pricing)
+
+**Actions:**
+- **View Details** - full job description and line items
+- **Reschedule** (if enabled) - request different date
+- **Cancel** (if enabled) - cancel appointment
+- **Upload Photos** - attach before/after photos
+
+### Viewing & Paying Invoices
+
+Clients see:
+- Invoice number and date
+- Due date
+- Line items (services/products)
+- Subtotal, taxes, and total
+- Amount paid and balance due
+- Payment history
+- PDF download link
+
+**Paying an invoice:**
+1. Click **Pay Now**
+2. Choose payment method:
+   - Saved card (if on file)
+   - New card
+   - Bank account (ACH)
+3. Enter payment details
+4. Click **Pay $X.XX**
+5. Confirmation email sent
+6. Invoice marked Paid in FieldCamp
+
+<!-- TODO: Screenshot of invoice payment -->
+
+### Booking New Appointments
+
+If enabled, clients can request new service:
+
+1. Click **Book Appointment**
+2. Select service type (from your configured options)
+3. Choose preferred date and time
+4. Add description/notes
+5. Upload photos (optional)
+6. Submit request
+
+**Result:** Creates a **Draft job** in FieldCamp that you review and confirm.
+
+<Info>
+  **Auto-confirm bookings:** Enable "Auto-confirm portal bookings" in settings to automatically schedule client requests without manual review.
+</Info>
+
+### Uploading Files
+
+Clients can upload:
+- Photos of problem areas
+- Documents (contracts, HOA approvals)
+- Invoices from other vendors
+
+Files attach to their client profile and are accessible in the Files tab.
+
+### Messaging
+
+If enabled, clients can:
+- Send messages to your office
+- Reply to your messages
+- Attach files to messages
+
+Messages appear in FieldCamp's inbox and can trigger email/SMS notifications to your team.
+
+---
+
+## Managing Portal Access
+
+### Disabling Access for a Client
+
+Revoke portal access:
+
+1. Open client detail page
+2. Click **⋮ Menu → Disable Portal Access**
+3. Client can no longer log in
+4. Can re-enable anytime
+
+### Resetting Client Passwords
+
+If a client forgets their password:
+
+**Option 1: Self-service reset**
+- Client clicks "Forgot Password?" on login page
+- Email sent with reset link
+- Client creates new password
+
+**Option 2: Admin reset**
+- Open client detail page
+- Click **⋮ Menu → Reset Portal Password**
+- Temporary password emailed to client
+
+### Viewing Portal Activity
+
+Track client portal usage:
+
+1. Go to **Settings → Client Portal → Activity Log**
+2. See:
+   - Who logged in and when
+   - Which clients viewed invoices
+   - Payment attempts (successful and failed)
+   - File uploads
+   - Booking requests
+
+<!-- TODO: Screenshot of activity log -->
+
+---
+
+## Portal URL & Custom Domains
+
+### Default Portal URL
+
+Your portal is accessible at:
+```
+https://portal.fieldcamp.ai/yourcompanyname
+```
+
+Share this URL on:
+- Your website
+- Email signatures
+- Invoice footers
+- Business cards
+
+### Custom Domain (Enterprise)
+
+<Info>
+  **Enterprise feature:** Use your own domain (e.g., `portal.yourcompany.com`) instead of the default FieldCamp URL. Contact support to set up.
+</Info>
+
+Setup process:
+1. Add DNS CNAME record pointing to FieldCamp
+2. Upload SSL certificate (or use FieldCamp-managed SSL)
+3. Configure in **Settings → Client Portal → Custom Domain**
+
+---
+
+## Portal Notifications
+
+Clients receive email notifications for:
+- ✉️ Portal invitation (first-time access)
+- 📅 Upcoming appointment reminders (24 hours before)
+- 📄 New invoice available
+- ✅ Payment confirmation
+- 💬 New message from your team (if messaging enabled)
+
+Configure notification settings in **Settings → Notifications**.
+
+---
+
+## Security & Privacy
+
+### Authentication
+- **Email + Password** - required for all clients
+- **Two-Factor Authentication** - optional (recommended for high-value clients)
+- **Password requirements** - minimum 8 characters, letters + numbers
+
+### Data Access
+- Clients see **only their own data** (jobs, invoices, files)
+- No access to other clients' information
+- No access to your internal team data or settings
+
+### Permissions
+- Admins control which portal features are enabled
+- Can disable portal access per client
+- Can hide specific jobs or invoices from portal
+
+### Encryption
+- All portal traffic uses **HTTPS/TLS encryption**
+- Payment data handled by Stripe (PCI-compliant, never stored in FieldCamp)
+- Passwords hashed with bcrypt
+
+---
+
+## Troubleshooting
+
+### Client can't log in
+
+**Check:**
+- Is portal access enabled for this client?
+- Is email address correct?
+- Did they reset their password recently?
+- Is the portal enabled globally (Settings → Client Portal)?
+
+### Payment fails
+
+**Common causes:**
+- Stripe not connected or account suspended
+- Card declined (insufficient funds, expired)
+- Bank account not verified (ACH)
+
+**Fix:**
+- Ask client to try different payment method
+- Check Stripe dashboard for error details
+- Ensure Stripe account is active and verified
+
+### Files won't upload
+
+**Check:**
+- File size under 10 MB
+- Supported file type (no .exe, .dmg, etc.)
+- Browser allows file uploads (not blocked by extensions)
+
+### Portal page shows "Maintenance"
+
+**Cause:** Portal is temporarily disabled.
+
+**Fix:**
+- Re-enable in **Settings → Client Portal**
+- Check for scheduled maintenance announcements
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Promote Portal Adoption">
+    - Add portal link to invoice emails: "View and pay online at [link]"
+    - Train clients during first job: "You can see your schedule online now!"
+    - Offer discount for portal payments (faster collection)
+    - Send reminder emails to clients who haven't registered
+  </Accordion>
+
+  <Accordion title="Keep Branding Consistent">
+    - Use your logo and colors
+    - Match your website's look and feel
+    - Customize welcome message to your voice
+    - Update seasonal messaging (holiday greetings)
+  </Accordion>
+
+  <Accordion title="Encourage Online Payments">
+    - Enable saved payment methods (faster checkout)
+    - Send payment reminders via portal
+    - Offer portal-only payment plans
+    - Highlight "Pay in 3 seconds" convenience
+  </Accordion>
+
+  <Accordion title="Monitor Portal Activity">
+    - Check activity log weekly
+    - Follow up with clients who haven't logged in
+    - Identify and resolve login issues quickly
+    - Track which features clients use most
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Portal Analytics
+
+Track portal performance in **Analytics → Client Portal**:
+
+<CardGroup cols={3}>
+  <Card title="Active Users" icon="users">
+    % of clients with portal access who logged in (last 30 days)
+  </Card>
+  <Card title="Online Payments" icon="dollar-sign">
+    % of invoices paid via portal vs other methods
+  </Card>
+  <Card title="Self-Service Bookings" icon="calendar-check">
+    Number of jobs created via portal (vs phone/email)
+  </Card>
+  <Card title="Portal Engagement" icon="activity">
+    Average logins per client per month
+  </Card>
+</CardGroup>
+
+Use this data to improve adoption and reduce manual work.
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Connect Stripe" icon="credit-card" href="/integrations/stripe">
+    Enable online payments
+  </Card>
+  <Card title="Send First Invitations" icon="mail" href="/features/clients/client-list">
+    Invite your top 10 clients to try the portal
+  </Card>
+  <Card title="Brand Your Portal" icon="palette" href="/features/clients/portal#step-3-brand-the-portal">
+    Upload logo and customize colors
+  </Card>
+</CardGroup>

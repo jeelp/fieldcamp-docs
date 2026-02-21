@@ -1,0 +1,556 @@
+---
+title: "Client Detail Page"
+description: "Complete client profile with jobs, invoices, communication, and activity history"
+---
+
+# Client Detail Page
+
+The client detail page is your complete view of a customer — every job, invoice, payment, email, call, file, and activity in one place.
+
+## Opening Client Details
+
+Access the detail page by:
+- **Clicking a client row** in the table
+- **Clicking a client card** in kanban or mobile view
+- **Searching** for a client and selecting from results
+- **Following a link** from a job, invoice, or notification
+
+<!-- TODO: Screenshot of client detail page -->
+
+## Page Layout
+
+The client detail page has three main sections:
+
+### 1. Summary Card (Top)
+
+Quick overview with:
+- **Client name** and company
+- **Contact buttons** - call, email, SMS (one click)
+- **Stage badge** - current pipeline status
+- **Lifetime value** - total revenue from this client
+- **Outstanding balance** - unpaid invoices
+- **Edit button** - modify client info
+
+### 2. Sidebar (Left)
+
+Key information at a glance:
+- **Contact details** - phone, email, website
+- **Addresses** - property, billing, company
+- **Preferred technicians**
+- **Tags and custom properties**
+- **Quick actions** - create job, send invoice, add note
+
+### 3. Tabbed Content (Main)
+
+Detailed sections for every aspect of the client relationship.
+
+## Tabs Overview
+
+<AccordionGroup>
+  <Accordion title="Jobs & Events" icon="wrench">
+    All jobs and scheduled visits for this client. See job status, technician assigned, and completion dates.
+  </Accordion>
+
+  <Accordion title="Documents" icon="file-text">
+    Invoices, estimates, and credit notes. View status (Draft/Sent/Paid), amounts, and due dates.
+  </Accordion>
+
+  <Accordion title="Payments" icon="credit-card">
+    Complete payment history with dates, amounts, methods, and linked invoices.
+  </Accordion>
+
+  <Accordion title="Emails" icon="mail">
+    All email communication sent to and from this client. View threads, attachments, and send new emails.
+  </Accordion>
+
+  <Accordion title="Messages (SMS)" icon="message-square">
+    SMS conversation history. Send text messages directly from FieldCamp.
+  </Accordion>
+
+  <Accordion title="Calls" icon="phone">
+    Call log with recordings (if Twilio enabled). Listen to past calls and click-to-call.
+  </Accordion>
+
+  <Accordion title="Files & Drive" icon="folder">
+    All uploaded files — photos, PDFs, contracts. Organized by type and date.
+  </Accordion>
+
+  <Accordion title="Tasks" icon="check-square">
+    To-do items related to this client. Assign to team members and track completion.
+  </Accordion>
+
+  <Accordion title="Products" icon="package">
+    Products and services used by this client. See purchase history and preferences.
+  </Accordion>
+
+  <Accordion title="Billing" icon="credit-card">
+    Stripe payment methods on file. Add cards, set default, view transaction history.
+  </Accordion>
+
+  <Accordion title="Job Forms" icon="clipboard">
+    Custom forms/checklists assigned to this client. Used for recurring service workflows.
+  </Accordion>
+
+  <Accordion title="Requests" icon="bell">
+    Service requests submitted by the client (via portal or phone).
+  </Accordion>
+
+  <Accordion title="Events" icon="calendar">
+    Calendar events and appointments. Sync with Google Calendar or Outlook.
+  </Accordion>
+
+  <Accordion title="Custom Objects" icon="database">
+    User-defined data linked to this client (advanced feature).
+  </Accordion>
+
+  <Accordion title="Activity" icon="activity">
+    Complete audit trail of changes. See who edited what and when.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Summary Card Details
+
+### Contact Information
+
+- **Phone number** - click to call (mobile) or copy
+- **Email** - click to compose email
+- **Website** - click to visit
+- **Company name** - for commercial clients
+
+### Quick Stats Widgets
+
+<CardGroup cols={3}>
+  <Card title="Lifetime Value" icon="dollar-sign">
+    Total revenue (all invoices ever sent)
+  </Card>
+  <Card title="Outstanding Balance" icon="alert-circle">
+    Unpaid invoices (red if overdue)
+  </Card>
+  <Card title="Jobs Completed" icon="check">
+    Count of finished jobs
+  </Card>
+  <Card title="Active Jobs" icon="wrench">
+    In-progress or scheduled jobs
+  </Card>
+  <Card title="Last Activity" icon="clock">
+    Most recent job, invoice, or communication
+  </Card>
+  <Card title="Client Since" icon="calendar">
+    Conversion date or first job date
+  </Card>
+</CardGroup>
+
+### Stage Management
+
+Change the client's stage:
+1. Click the stage badge
+2. Select new stage from dropdown:
+   - New Lead
+   - Active Client
+   - Inactive Client
+   - Archived
+3. Stage updates immediately
+4. **Conversion tracking:** Moving to "Active Client" sets the `conversionDate` (first time only)
+
+<!-- TODO: Screenshot of stage selector -->
+
+### Actions Menu
+
+Click the **⋮ menu** for:
+- **Edit Client** - open edit modal
+- **Create Job** - quick job creation
+- **Send Invoice** - new invoice for this client
+- **Send Email** - compose email
+- **Send SMS** - compose text message
+- **Delete Client** - remove (with job dependency check)
+- **Archive Client** - move to Archived stage
+- **View in Map** - show property address on map
+
+---
+
+## Jobs & Events Tab
+
+View all jobs and visits for this client in one timeline.
+
+### Jobs Section
+
+**Table columns:**
+- Job number
+- Description
+- Status (Draft/In Progress/Completed/Invoiced)
+- Assigned technician
+- Scheduled date
+- Total amount
+- Actions (edit, view, create invoice)
+
+**Filters:**
+- All jobs
+- Active only
+- Completed only
+- Pending invoice
+
+**Quick Actions:**
+- **+ Create Job** - add new job for this client
+- **Export Jobs** - download job list to CSV
+
+<!-- TODO: Screenshot of jobs tab -->
+
+### Events Section
+
+**Calendar view** of all visits/appointments:
+- Date and time
+- Technician assigned
+- Visit status (Scheduled/In Transit/Arrived/Completed)
+- Duration
+- Address (if different from main property)
+
+Click an event to view visit details or reschedule.
+
+---
+
+## Documents Tab
+
+All financial documents (invoices, estimates, credit notes) for this client.
+
+### Document List
+
+**Columns:**
+- Document type (invoice/estimate/credit note)
+- Document number
+- Date issued
+- Due date (invoices only)
+- Amount
+- Status (Draft/Sent/Viewed/Partial/Paid)
+- Actions (view, edit, send, record payment, download PDF)
+
+**Status badges:**
+- 🟢 **Paid** - fully paid
+- 🟡 **Partial** - partial payment received
+- 🔴 **Overdue** - past due date
+- ⚪ **Draft** - not sent yet
+- 🔵 **Sent** - delivered to client
+- 👁️ **Viewed** - client opened it
+
+### Quick Actions
+
+- **+ Create Invoice** - new invoice
+- **+ Create Estimate** - new quote
+- **Filter by Status** - show only paid/unpaid/overdue
+- **Export** - download document list
+
+### Document Details
+
+Click a document row to view:
+- Line items
+- Taxes
+- Subtotal and total
+- Payment history
+- Email delivery log
+- PDF preview
+- Client portal view status
+
+<!-- TODO: Screenshot of documents tab -->
+
+---
+
+## Payments Tab
+
+Complete payment history with transaction details.
+
+### Payment Records
+
+**Columns:**
+- Payment date
+- Amount
+- Payment method (Cash/Check/Credit Card/ACH/Stripe)
+- Associated invoice(s)
+- Reference number
+- Recorded by (team member)
+- Notes
+
+**Filters:**
+- Date range
+- Payment method
+- Invoice number
+
+### Recording a Payment
+
+1. Click **+ Record Payment**
+2. Select invoice (or leave unassigned)
+3. Enter amount
+4. Choose payment method
+5. Add reference number (check #, transaction ID)
+6. Add notes (optional)
+7. Click **Save**
+
+Payment auto-applies to oldest unpaid invoice unless specified.
+
+### Stripe Payment Methods
+
+If Stripe is connected, see:
+- Cards on file (last 4 digits)
+- Default payment method
+- Expiration dates
+- **Add Card** button (client can save cards via portal)
+
+<!-- TODO: Screenshot of payments tab -->
+
+---
+
+## Communication Tabs
+
+### Emails Tab
+
+View complete email history with threading.
+
+**Features:**
+- Sent and received emails
+- Email threads (grouped conversations)
+- Attachments (click to download)
+- Sent/Delivered/Opened status tracking
+- Search email content
+
+**Actions:**
+- **+ Compose Email** - send new email from template or blank
+- **Reply** - respond to an email thread
+- **Forward** - forward to another address
+- **View Full Headers** - technical email details
+
+**Email Composer:**
+1. To: (pre-filled with client email)
+2. Subject
+3. Body (rich text editor with templates)
+4. Attachments (drag-and-drop files)
+5. Send or Schedule
+
+<!-- TODO: Screenshot of email tab -->
+
+### Messages (SMS) Tab
+
+Text message conversation view.
+
+**Features:**
+- Chat-style threading
+- Sent and received messages
+- Delivery status
+- Timestamps
+- Phone number used (yours and theirs)
+
+**Sending SMS:**
+1. Type message in text box
+2. Click **Send**
+3. Message delivers via Twilio
+4. Response appears in thread automatically
+
+<Tip>
+  **SMS requires Twilio:** Configure phone numbers in **Settings → Integrations → Twilio**.
+</Tip>
+
+### Calls Tab
+
+Call log with recordings and transcripts (Twilio integration).
+
+**Call Records:**
+- Date and time
+- Direction (inbound/outbound)
+- Duration
+- From/To numbers
+- Status (answered/missed/voicemail)
+- Recording (play inline)
+- AI Summary (if enabled)
+
+**Actions:**
+- **🎧 Play Recording** - listen to call
+- **📄 View Transcript** - AI-generated transcript
+- **📞 Call Back** - click to call this number
+
+<!-- TODO: Screenshot of calls tab -->
+
+---
+
+## Files & Drive Tab
+
+Central file storage for all client-related documents.
+
+### File Organization
+
+Files are organized by:
+- **Type** (photos, PDFs, spreadsheets, documents)
+- **Source** (uploaded, emailed, job-related)
+- **Date uploaded**
+
+### Uploading Files
+
+1. Click **Upload** or drag files into the window
+2. Select multiple files (shift-click or ctrl-click)
+3. Files upload and appear in list
+
+**Supported formats:**
+- Images: JPG, PNG, GIF, WEBP
+- Documents: PDF, DOCX, XLSX, TXT
+- Other: ZIP, CSV
+
+### File Actions
+
+- **Preview** - view inline (images and PDFs)
+- **Download** - save to your device
+- **Share via Portal** - make visible to client
+- **Delete** - remove file (with confirmation)
+- **Add to Job** - attach to specific job
+
+### AI File Chat (Beta)
+
+Ask questions about uploaded documents:
+1. Click **Chat with Files**
+2. Ask questions (e.g., "What's the warranty period in this contract?")
+3. AI searches all PDFs and documents for answers
+4. Get instant summaries
+
+<!-- TODO: Screenshot of file chat -->
+
+---
+
+## Tasks Tab
+
+To-do list specific to this client.
+
+### Task List
+
+**Columns:**
+- Task description
+- Assigned to (team member)
+- Due date
+- Priority (High/Medium/Low)
+- Status (Open/In Progress/Completed)
+- Related job (optional)
+
+### Creating a Task
+
+1. Click **+ Add Task**
+2. Enter description
+3. Assign to team member
+4. Set due date
+5. Choose priority
+6. (Optional) Link to a job
+7. Click **Save**
+
+Tasks appear in the assigned team member's task list and send notifications.
+
+---
+
+## Billing Tab
+
+Manage Stripe payment methods for online payments.
+
+### Payment Methods on File
+
+**Displays:**
+- Card brand (Visa, Mastercard, Amex)
+- Last 4 digits
+- Expiration date
+- Default method (star icon)
+
+### Adding a Payment Method
+
+<Warning>
+  **Client must add cards themselves** via the Client Portal. Admins cannot manually enter card numbers (PCI compliance).
+</Warning>
+
+To enable client card storage:
+1. Enable **Client Portal** in Settings
+2. Send portal invite to client
+3. Client logs in → Payment Methods → Add Card
+4. Card appears here after saved
+
+### Charging a Saved Card
+
+When creating an invoice:
+1. Select client
+2. Choose "Charge saved card" option
+3. Select which card
+4. Invoice auto-charges on save
+
+---
+
+## Activity Tab
+
+Complete audit trail of all changes to this client record.
+
+### Change History
+
+**Tracked fields:**
+- Contact information (name, email, phone)
+- Addresses (property, billing, company)
+- Stage changes
+- Custom properties
+- Notes
+- Tags
+- Preferences
+
+**Log entries show:**
+- Field name
+- Old value → New value
+- Who made the change (team member)
+- Timestamp
+
+<!-- TODO: Screenshot of activity/history tab -->
+
+Example entry:
+```
+Stage changed from "New Lead" to "Active Client"
+by John Doe on Feb 21, 2025 at 2:30 PM
+```
+
+Use this to:
+- Audit changes for compliance
+- Understand who updated what
+- Track stage progression timeline
+- Debug data issues
+
+---
+
+## Keyboard Shortcuts
+
+Speed up navigation with shortcuts:
+
+| Shortcut | Action |
+|----------|--------|
+| `E` | Edit client |
+| `J` | Create new job |
+| `I` | Create invoice |
+| `N` | Add note |
+| `Esc` | Close modal/detail page |
+| `←` / `→` | Navigate to prev/next client |
+
+---
+
+## AI Summary (Beta)
+
+Click **AI Summary** to generate:
+- Client relationship summary
+- Service history highlights
+- Revenue and payment patterns
+- Recommended next actions
+- Red flags (late payments, service gaps)
+
+The AI analyzes all jobs, invoices, emails, and calls to create the summary.
+
+<!-- TODO: Screenshot of AI summary -->
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Create a Job" icon="wrench" href="/features/jobs/creating-jobs">
+    Schedule work for this client
+  </Card>
+  <Card title="Send an Invoice" icon="file-text" href="/features/invoicing/creating-invoices">
+    Bill for completed work
+  </Card>
+  <Card title="Enable Client Portal" icon="globe" href="/features/clients/portal">
+    Let clients view jobs and pay online
+  </Card>
+</CardGroup>

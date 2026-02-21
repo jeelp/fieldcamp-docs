@@ -23,7 +23,19 @@
               "features/jobs",
               "features/scheduling",
               "features/invoicing",
-              "features/clients",
+              {
+                "group": "Client Management",
+                "pages": [
+                  "features/clients",
+                  "features/clients/overview",
+                  "features/clients/creating-clients",
+                  "features/clients/client-list",
+                  "features/clients/importing",
+                  "features/clients/client-detail",
+                  "features/clients/stages-pipeline",
+                  "features/clients/portal"
+                ]
+              },
               "features/team-management"
             ]
           },
