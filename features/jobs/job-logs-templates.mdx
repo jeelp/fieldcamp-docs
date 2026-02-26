@@ -1,0 +1,652 @@
+---
+title: "Job Log Templates"
+description: "Create reusable templates for common job log entries"
+icon: "file-lines"
+---
+
+## Overview
+
+Job log templates are pre-written text snippets that save time when adding manual log entries. Instead of typing the same message every time ("Called customer to confirm appointment"), you can select a template and fill in any dynamic details.
+
+**Benefits:**
+- **Save time** - One click instead of typing
+- **Consistency** - Everyone uses the same language
+- **Completeness** - Templates remind you to include all relevant details
+- **Compliance** - Standardized language for regulatory requirements
+
+<Frame>
+  <img src="/images/jobs/log-template-picker.png" alt="Log template picker showing available templates" />
+</Frame>
+
+---
+
+## Using Templates
+
+### Quick Insert
+
+1. Open any job → **Logs** or **Timeline** tab
+2. Click **+ Add Log Entry**
+3. Click **Templates** button
+4. Select a template from the list
+5. Edit placeholders if needed
+6. Save log entry
+
+<Frame>
+  <img src="/images/jobs/using-log-template.png" alt="Using a log template to create an entry" />
+</Frame>
+
+**Template example:**
+```
+Template: "Called customer to confirm appointment - confirmed for [DATE] at [TIME]"
+
+After filling placeholders:
+"Called customer to confirm appointment - confirmed for 3/1/2026 at 2:00 PM"
+```
+
+### Keyboard Shortcut
+
+Type `/` in the log entry field to trigger template autocomplete:
+
+1. Type `/` (slash)
+2. Start typing template name (e.g., `/customer call`)
+3. Select template from dropdown
+4. Fill placeholders
+5. Save
+
+<Tip>
+**Power user tip:** Memorize your most-used template shortcuts for lightning-fast logging.
+</Tip>
+
+---
+
+## Creating Templates
+
+### From Scratch
+
+1. Go to **Settings → Jobs → Log Templates**
+2. Click **+ New Template**
+3. Fill in template details:
+   - **Name** - Short, descriptive name
+   - **Category** - Communication, Action, Note, etc.
+   - **Template Text** - The log entry text with placeholders
+   - **Placeholders** - Dynamic fields (DATE, TIME, TECH, etc.)
+4. Save template
+
+<Frame>
+  <img src="/images/jobs/create-log-template.png" alt="Create new log template form" />
+</Frame>
+
+**Example:**
+```
+Name: Customer Call - Confirm Appointment
+Category: Communication
+Template Text: Called customer to confirm appointment - confirmed for [DATE] at [TIME]
+Placeholders: DATE, TIME
+```
+
+### From Existing Log
+
+Convert an existing log entry into a template:
+
+1. Find a log entry you want to reuse
+2. Click **...** (more options)
+3. Click **Save as Template**
+4. Edit template name and replace specific details with placeholders
+5. Save
+
+**Example:**
+```
+Original log: "Called customer to confirm appointment - confirmed for 3/1/2026 at 2:00 PM"
+
+Template: "Called customer to confirm appointment - confirmed for [DATE] at [TIME]"
+```
+
+---
+
+## Template Categories
+
+Organize templates by category for easier discovery.
+
+### Communication Templates
+
+For phone calls, emails, and SMS.
+
+**Examples:**
+- "Called customer to confirm appointment - confirmed for [DATE] at [TIME]"
+- "Left voicemail for customer - callback requested"
+- "Email sent to customer: [SUBJECT]"
+- "SMS sent to customer: [MESSAGE]"
+- "Customer called about [ISSUE] - resolved by [RESOLUTION]"
+
+### Action Templates
+
+For work performed or tasks completed.
+
+**Examples:**
+- "Parts ordered - ETA [DATE]"
+- "Permit submitted to city - awaiting approval"
+- "Permit approved - #[PERMIT_NUMBER]"
+- "Inspection scheduled for [DATE] at [TIME]"
+- "Work completed - job ready for invoicing"
+
+### Note Templates
+
+For internal notes and reminders.
+
+**Examples:**
+- "Customer not home - left business card"
+- "Rescheduled to [DATE] at customer request"
+- "Customer requested price match - [APPROVED/DENIED]"
+- "Equipment warranty expires [DATE] - notify customer"
+- "Follow-up call needed - [REASON]"
+
+### Escalation Templates
+
+For manager escalations and issue resolution.
+
+**Examples:**
+- "Escalation to manager - [REASON]"
+- "Customer complaint logged - [DETAILS]"
+- "Manager approved discount: [AMOUNT]"
+- "Customer refused service - [REASON]"
+- "Safety issue reported - [DETAILS]"
+
+### Status Change Templates
+
+For explaining why status changed.
+
+**Examples:**
+- "Status changed to Completed - all work finished, customer signed off"
+- "Status changed to Cancelled - customer no longer needs service"
+- "Status changed to On Hold - waiting for parts to arrive"
+- "Status changed to In Progress - tech on site"
+
+---
+
+## Placeholders
+
+Placeholders are dynamic fields that auto-fill or prompt for input.
+
+### Auto-Fill Placeholders
+
+These placeholders automatically fill with current data:
+
+| Placeholder | Description | Example |
+|-------------|-------------|---------|
+| `[DATE]` | Today's date | 2/26/2026 |
+| `[TIME]` | Current time | 2:30 PM |
+| `[USER]` | Current user's name | John Smith |
+| `[CUSTOMER]` | Job's customer name | ABC Plumbing |
+| `[JOB_NUMBER]` | Job # | #1234 |
+| `[JOB_ADDRESS]` | Job site address | 123 Oak St |
+
+**Example:**
+```
+Template: "Log entry created by [USER] on [DATE] at [TIME]"
+Result: "Log entry created by John Smith on 2/26/2026 at 2:30 PM"
+```
+
+### Prompt Placeholders
+
+These placeholders prompt you to fill in a value:
+
+| Placeholder | Description | Input Type |
+|-------------|-------------|------------|
+| `[DATE]` | Select date | Date picker |
+| `[TIME]` | Select time | Time picker |
+| `[TECH]` | Select tech | Dropdown |
+| `[AMOUNT]` | Enter dollar amount | Number field |
+| `[REASON]` | Enter reason | Text field |
+| `[ISSUE]` | Enter issue description | Text area |
+| `[PERMIT_NUMBER]` | Enter permit # | Text field |
+
+**Example:**
+```
+Template: "Parts ordered - ETA [DATE]"
+When used: Prompts for date → User selects 3/5/2026
+Result: "Parts ordered - ETA 3/5/2026"
+```
+
+<Frame>
+  <img src="/images/jobs/placeholder-prompt.png" alt="Placeholder prompt dialog when using template" />
+</Frame>
+
+### Custom Placeholders
+
+Create your own placeholders for business-specific fields:
+
+1. Edit template
+2. Click **+ Add Placeholder**
+3. Enter placeholder name (e.g., `[INVOICE_NUMBER]`)
+4. Select input type (text, number, date, dropdown)
+5. Save
+
+**Example:**
+```
+Template: "Payment received for invoice [INVOICE_NUMBER] - amount [AMOUNT] via [PAYMENT_METHOD]"
+
+Prompts:
+- INVOICE_NUMBER (text)
+- AMOUNT (number)
+- PAYMENT_METHOD (dropdown: Cash, Check, Credit Card)
+
+Result: "Payment received for invoice #1234 - amount $850.00 via Credit Card"
+```
+
+---
+
+## Pre-Built Template Library
+
+FieldCamp includes 50+ pre-built templates for common scenarios.
+
+### Installation
+
+1. Go to **Settings → Jobs → Log Templates**
+2. Click **Template Library**
+3. Browse templates by category
+4. Click **Install** on templates you want to use
+5. Templates appear in your template list
+
+<Frame>
+  <img src="/images/jobs/template-library.png" alt="Pre-built template library" />
+</Frame>
+
+### Popular Templates
+
+**Communication:**
+- Customer call - confirmed appointment
+- Customer call - rescheduled
+- Left voicemail
+- Email sent - invoice
+- Email sent - estimate
+- SMS sent - tech on the way
+
+**Actions:**
+- Parts ordered
+- Permit submitted
+- Permit approved
+- Inspection passed/failed
+- Work completed
+- Follow-up scheduled
+
+**Escalations:**
+- Manager escalation
+- Customer complaint
+- Pricing approval
+- Refund approved
+
+**Status Changes:**
+- Cancelled by customer
+- On hold - waiting for parts
+- Completed - ready for invoice
+
+<Tip>
+**Customize templates:** After installing from the library, edit templates to match your business language and workflows.
+</Tip>
+
+---
+
+## Template Management
+
+### Editing Templates
+
+1. Go to **Settings → Jobs → Log Templates**
+2. Find the template
+3. Click **Edit**
+4. Update name, text, or placeholders
+5. Save
+
+<Warning>
+**Impact of edits:** Editing a template does NOT change existing log entries created from that template. Only future uses of the template are affected.
+</Warning>
+
+### Duplicating Templates
+
+Create variations of existing templates:
+
+1. Find template → Click **Duplicate**
+2. New template is created with " (Copy)" suffix
+3. Edit the duplicate
+4. Save
+
+**Use case:**
+- Template: "Called customer to confirm appointment - confirmed"
+- Duplicate: "Called customer to confirm appointment - declined"
+
+### Deleting Templates
+
+1. Find template → Click **Delete**
+2. Confirm deletion
+
+**Deletion policy:**
+- Deleted templates are soft-deleted (moved to trash)
+- Restore within 30 days
+- After 30 days, permanently deleted
+
+<Info>
+**Used templates protected:** Templates that have been used in the last 90 days show a warning before deletion: "This template was used 47 times. Are you sure?"
+</Info>
+
+### Reordering Templates
+
+Change the order templates appear in the picker:
+
+1. Go to **Settings → Jobs → Log Templates**
+2. Drag-and-drop templates to reorder
+3. Most-used templates should be at the top
+
+---
+
+## Template Permissions
+
+Control who can create, edit, and use templates.
+
+### Permission Levels
+
+| Role | Use Templates | Create Templates | Edit All Templates | Delete Templates |
+|------|---------------|------------------|--------------------|------------------|
+| **Admin** | ✅ | ✅ | ✅ | ✅ |
+| **Manager** | ✅ | ✅ | ✅ | ✅ |
+| **Technician** | ✅ | ❌ | ❌ | ❌ |
+| **Office Staff** | ✅ | ✅ | ❌ | ❌ |
+
+**Custom permissions:**
+Go to **Settings → Roles → [Role]** to customize template permissions.
+
+### Private vs Shared Templates
+
+**Shared templates (default):**
+- Visible to all users
+- Created by admins/managers
+- Used across the organization
+
+**Private templates:**
+- Visible only to the creator
+- Personal shortcuts for individual users
+- Not visible in template library
+
+**How to create private template:**
+1. Create template normally
+2. Toggle **Private Template** to ON
+3. Save
+
+**Use case:**
+- Tech has personal shorthand templates that wouldn't make sense for others
+
+---
+
+## Template Analytics
+
+Track template usage to identify which templates are most valuable.
+
+### Usage Stats
+
+Go to **Settings → Jobs → Log Templates → Analytics** to view:
+
+| Metric | Description |
+|--------|-------------|
+| **Total Uses** | How many times template has been used |
+| **Last Used** | When template was last used |
+| **Top Users** | Who uses this template most |
+| **Avg. Fill Time** | How long it takes to complete placeholders |
+
+<Frame>
+  <img src="/images/jobs/template-analytics.png" alt="Template usage analytics" />
+</Frame>
+
+**Insights:**
+- **High-use templates** → Keep and promote
+- **Rarely-used templates** → Delete to reduce clutter
+- **Long fill time** → Simplify placeholders
+
+---
+
+## Workflow Integration
+
+Trigger workflows based on template use.
+
+### Workflow Triggers
+
+1. Go to **Settings → Automation → Workflows**
+2. Create workflow with trigger: **Log Template Used**
+3. Select specific template
+4. Define actions
+
+**Example workflows:**
+
+**Escalation workflow:**
+- Trigger: "Manager escalation" template used
+- Action: Send notification to manager + create high-priority task
+
+**Parts workflow:**
+- Trigger: "Parts ordered" template used
+- Action: Create reminder task for ETA date + notify inventory manager
+
+**Follow-up workflow:**
+- Trigger: "Follow-up scheduled" template used
+- Action: Create calendar event + send reminder to assigned tech
+
+<CodeGroup>
+```json Workflow Example
+{
+  "name": "Manager escalation alert",
+  "trigger": "log_template_used",
+  "conditions": [
+    {
+      "field": "template_name",
+      "operator": "equals",
+      "value": "Manager escalation"
+    }
+  ],
+  "actions": [
+    {
+      "type": "send_notification",
+      "to": "role:manager",
+      "message": "Escalation logged on job {job.number} by {user.name}"
+    },
+    {
+      "type": "create_task",
+      "title": "Review escalation - Job {job.number}",
+      "assigned_to": "role:manager",
+      "priority": "high"
+    }
+  ]
+}
+```
+</CodeGroup>
+
+---
+
+## Multi-Language Templates
+
+Support templates in multiple languages for international teams.
+
+### Setting Up Multi-Language
+
+1. Create a template in English (default)
+2. Click **Add Translation**
+3. Select language (Spanish, French, etc.)
+4. Enter translated text (placeholders remain in English)
+5. Save
+
+**Example:**
+```
+English: "Called customer to confirm appointment - confirmed for [DATE] at [TIME]"
+Spanish: "Llamé al cliente para confirmar la cita - confirmado para [DATE] a las [TIME]"
+French: "Appelé le client pour confirmer le rendez-vous - confirmé pour [DATE] à [TIME]"
+```
+
+**Auto-detection:**
+When a user selects a template, FieldCamp shows the version in their preferred language (set in user profile).
+
+<Info>
+**Multi-language support:** Available on Enterprise plan only.
+</Info>
+
+---
+
+## Best Practices
+
+### ✅ Do This
+
+- **Create templates for all common actions** (save time and ensure consistency)
+- **Use clear, descriptive names** ("Customer Call - Confirm" not "Call Template 1")
+- **Keep templates short** (1-2 sentences max)
+- **Use placeholders for variable data** (dates, names, amounts)
+- **Organize by category** (easier to find the right template)
+- **Review templates quarterly** (remove unused, update outdated)
+- **Train team on templates** (ensure everyone knows they exist and how to use them)
+
+### ❌ Avoid This
+
+- **Don't create too many templates** (>50 templates = hard to find the right one)
+- **Don't use vague templates** ("Talked to customer" doesn't provide useful info)
+- **Don't forget placeholders** (hardcoded dates/names make templates less reusable)
+- **Don't create duplicate templates** (consolidate similar templates)
+- **Don't skip category assignment** (uncategorized templates get lost)
+
+---
+
+## Troubleshooting
+
+### Template Not Appearing in Picker
+
+**Possible causes:**
+- Template is private (only visible to creator)
+- Template is archived
+- User doesn't have permission to use templates
+
+**Solution:**
+1. Check if template is marked "Private" (Settings → Log Templates → Edit template)
+2. Unarchive template if needed
+3. Check user role permissions (Settings → Roles)
+
+### Placeholders Not Auto-Filling
+
+**Cause:**
+Placeholder name doesn't match a recognized auto-fill placeholder (e.g., `[DATE]`, `[USER]`).
+
+**Solution:**
+Check placeholder spelling in template settings. Must match exactly: `[DATE]` not `[date]` or `[ DATE ]`.
+
+### Can't Edit Template
+
+**Cause:**
+Only template creator or admins can edit templates.
+
+**Solution:**
+Ask an admin to edit the template, or duplicate it to create your own editable version.
+
+---
+
+## API Integration
+
+Create and retrieve templates programmatically.
+
+### Create Template
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/log-templates \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Parts Ordered",
+    "category": "action",
+    "template_text": "Parts ordered - ETA [DATE]",
+    "placeholders": [
+      {
+        "name": "DATE",
+        "type": "date",
+        "required": true
+      }
+    ]
+  }'
+```
+
+### Use Template in Log Entry
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/jobs/{job_id}/logs \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "template_id": "template_123",
+    "placeholders": {
+      "DATE": "2026-03-05"
+    }
+  }'
+```
+
+**Result:**
+Creates log entry: "Parts ordered - ETA 3/5/2026"
+
+### List Templates
+
+```bash
+curl -X GET https://api.fieldcamp.ai/v1/log-templates \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+<Tip>
+See full API documentation at [Log Templates API Reference](/api-reference/log-templates).
+</Tip>
+
+---
+
+## Related Topics
+
+<CardGroup cols={2}>
+  <Card title="Job Logs" icon="list-timeline" href="/features/jobs/job-logs">
+    Track all job activities and changes
+  </Card>
+  
+  <Card title="Workflow Automation" icon="bolt" href="/features/automation/workflows">
+    Trigger workflows from template usage
+  </Card>
+  
+  <Card title="Job Notes" icon="note-sticky" href="/features/jobs/job-notes">
+    Add freeform notes to jobs
+  </Card>
+  
+  <Card title="Visit Logs" icon="clock" href="/features/jobs/visits/visit-logs">
+    Track time and work during visits
+  </Card>
+</CardGroup>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I share templates between companies?">
+    Yes. Export templates to JSON (Settings → Log Templates → Export), then import into another FieldCamp account. Useful for multi-location businesses.
+  </Accordion>
+
+  <Accordion title="How many templates can I create?">
+    No limit on Pro and Enterprise plans. Starter plan is limited to 10 custom templates.
+  </Accordion>
+
+  <Accordion title="Can I use templates in the mobile app?">
+    Yes. Templates are available in the mobile app when adding log entries. Use the same picker interface.
+  </Accordion>
+
+  <Accordion title="What happens if I edit a template that's been used 1000 times?">
+    Editing a template does NOT change existing log entries. Only new log entries (created after the edit) use the updated template.
+  </Accordion>
+
+  <Accordion title="Can I require certain placeholders to be filled?">
+    Yes. Mark placeholders as "Required" when creating the template. Users cannot save the log entry until required placeholders are filled.
+  </Accordion>
+
+  <Accordion title="Can templates trigger AI actions?">
+    Yes. Use workflow automation to trigger AI actions (e.g., "When 'Customer Complaint' template is used, run sentiment analysis and auto-create task for manager").
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Need Help?
+
+<Card title="Contact Support" icon="headset" href="mailto:support@fieldcamp.ai">
+  Questions about log templates? We can help you design templates for your business workflows.
+</Card>

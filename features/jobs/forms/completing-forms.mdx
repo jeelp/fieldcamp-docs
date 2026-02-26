@@ -1,0 +1,941 @@
+---
+title: "Completing Job Forms"
+description: "Mobile and desktop workflows for completing inspection checklists and service forms"
+---
+
+## Overview
+
+Job forms are completed by field technicians during service visits to document work, inspections, and customer approvals. FieldCamp's mobile app provides the optimal form completion experience with camera integration, offline mode, and digital signatures.
+
+<Info>
+  **Mobile-First Design:** Forms are optimized for mobile devices. Technicians can complete forms entirely from their smartphone or tablet, even without internet connection.
+</Info>
+
+---
+
+## Mobile Workflow (Primary Method)
+
+### Step 1: Start Visit
+
+Forms become available when a technician starts a visit.
+
+1. **Open FieldCamp mobile app**
+2. **Navigate to Today's Schedule** (home screen)
+3. **Tap on scheduled visit** to open job details
+4. **Tap "Start Visit"** button
+
+**What Happens:**
+- Visit status changes to "In Progress"
+- Time tracking starts automatically
+- Assigned forms become visible in Forms tab
+- GPS location captured (if enabled)
+
+---
+
+### Step 2: Access Forms
+
+View all forms assigned to the current visit.
+
+1. **Tap "Forms" tab** (in job detail view)
+2. **See list of assigned forms:**
+   - ✅ Completed forms (green checkmark)
+   - 📋 Incomplete forms (empty checkbox)
+   - ⚠️ Required forms (red asterisk)
+
+3. **Tap form** to begin completion
+
+**Form List Display:**
+
+```
+📋 Forms (2 of 3 complete)
+
+✅ HVAC Pre-Service Safety Checklist
+   Completed by John Smith on Jan 15, 2026 at 9:45 AM
+
+📋 HVAC 20-Point Inspection ⚠️
+   Required • 0% complete
+   Tap to start
+
+✅ Customer Satisfaction Survey
+   Completed by John Smith on Jan 15, 2026 at 11:30 AM
+```
+
+<Tip>
+  **Complete Required Forms First:** Forms marked with ⚠️ (required) must be completed before you can finish the visit. Tackle these first to avoid delays.
+</Tip>
+
+---
+
+### Step 3: Complete Form Fields
+
+Work through the form field-by-field, starting from the top.
+
+#### Text Fields
+
+1. **Tap field** to open keyboard
+2. **Enter text** (equipment serial number, notes, etc.)
+3. **Tap "Next"** to move to next field
+
+**Voice-to-Text:**
+- Tap microphone icon in keyboard
+- Speak your response
+- Tap checkmark when done
+- Useful for long descriptions
+
+---
+
+#### Number Fields
+
+1. **Tap field** to open numeric keypad
+2. **Enter number** (temperature, pressure, measurement)
+3. **Tap "Next"**
+
+**Tip:** If field has units (PSI, °F, gallons), the unit label displays next to the input. You only enter the number.
+
+**Example:**
+```
+Refrigerant Pressure (PSI)
+[  75  ] PSI
+```
+
+---
+
+#### Checkboxes
+
+1. **Tap checkbox** to toggle checked/unchecked
+2. **Check all that apply** (for multi-checkbox fields)
+
+**Example:**
+```
+☑ Air filter replaced
+☑ Drain line flushed
+☐ Capacitor replaced (not needed)
+☑ Electrical connections tightened
+```
+
+---
+
+#### Radio Buttons (Single Choice)
+
+1. **Tap option** to select
+2. **Previously selected option automatically deselects** (only one choice allowed)
+
+**Example:**
+```
+Equipment Condition:
+○ Good
+● Fair  ← Selected
+○ Poor
+```
+
+---
+
+#### Dropdowns
+
+1. **Tap dropdown field** to open picker
+2. **Scroll to find option** or **type to search** (if searchable)
+3. **Tap option** to select
+4. **Tap "Done"** to confirm
+
+**Searchable Dropdowns:**
+- Type "Car" to filter to "Carrier" in equipment make list
+- Saves time on long dropdown lists
+
+---
+
+#### Date Pickers
+
+1. **Tap date field** to open calendar
+2. **Swipe to change month**
+3. **Tap date** to select
+4. **Tap "Done"**
+
+**Quick Actions:**
+- "Today" button (select current date)
+- "Clear" button (remove selection if optional field)
+
+---
+
+#### Time Pickers
+
+1. **Tap time field** to open clock
+2. **Scroll hours and minutes** (or use + / - buttons)
+3. **Toggle AM/PM**
+4. **Tap "Done"**
+
+**Auto-Fill:**
+- Some fields default to current time
+- Useful for "Arrival Time" or "Inspection Timestamp"
+
+---
+
+### Step 4: Capture Photos
+
+Photo fields are critical for documentation and compliance.
+
+#### Taking a Photo
+
+1. **Tap photo field** labeled "Tap to capture photo"
+2. **Camera opens** (uses device camera)
+3. **Frame shot** (point camera at equipment, nameplate, work area)
+4. **Tap capture button** (large circle)
+5. **Review photo:**
+   - ✅ Good? Tap "Use Photo"
+   - ❌ Blurry? Tap "Retake"
+
+**Photo Quality Tips:**
+- **Good lighting** - Avoid dark photos (turn on flashlight if needed)
+- **Steady hands** - Hold device still to avoid blur
+- **Close-up for details** - Get close to equipment tags, serial numbers
+- **Wide shots for context** - Step back for "before" and "after" shots
+
+---
+
+#### Adding Multiple Photos
+
+For fields that allow multiple photos (e.g., "Site Photos - Max 10"):
+
+1. **Tap "Add Photo"** button
+2. **Capture first photo**
+3. **Tap "Add Another Photo"** to capture more
+4. **Continue until you've documented everything**
+5. **Tap "Done"** when finished
+
+**Photo Gallery:**
+- Swipe to review all captured photos
+- Tap "X" to delete a photo
+- Tap "+" to add more
+
+---
+
+#### Photo Annotation
+
+Some forms allow photo annotation (drawing on photos).
+
+1. **Capture photo**
+2. **Tap "Annotate"** button
+3. **Use drawing tools:**
+   - **Arrow** - Point to specific detail
+   - **Circle/Rectangle** - Highlight area
+   - **Text** - Add label or note
+   - **Pen** - Free-hand drawing
+
+4. **Choose color** (red for issues, green for good)
+5. **Tap "Save"** when done
+
+**Use Cases:**
+- Circle damaged area on equipment
+- Arrow pointing to leak source
+- Text label "Replace this part"
+
+<Warning>
+  **Photo Upload on Cellular:** Large photos (5-10MB each) can take 30-60 seconds to upload on slow cellular connections. If you're in a hurry, complete the form and let photos upload in background. The app will sync when you have better signal.
+</Warning>
+
+---
+
+### Step 5: Capture Signatures
+
+Digital signature capture for customer approval and technician acknowledgment.
+
+#### Customer Signature
+
+1. **Scroll to signature field** (usually at end of form)
+2. **Hand device to customer**
+3. **Customer signs with finger** (directly on screen)
+4. **Tap "Clear"** if customer wants to redo signature
+5. **Tap "Save Signature"** when customer is satisfied
+
+**Best Practices:**
+- **Landscape mode** - Rotate device horizontally for larger signature area
+- **Read agreement text** - Explain what customer is signing (e.g., "I confirm work is complete")
+- **Print name** - Some forms require typed name + signature for clarity
+
+---
+
+#### Technician Signature
+
+Similar process, but technician signs:
+
+1. **Scroll to tech signature field**
+2. **Sign with your finger**
+3. **Name auto-fills** from your profile (if enabled)
+4. **Tap "Save Signature"**
+
+**Auto-Signature (Optional Setting):**
+- Enable in Settings → Forms → Auto-Sign Technician Fields
+- Your saved signature is automatically applied to tech signature fields
+- Saves time on forms you complete frequently
+
+---
+
+### Step 6: Verify GPS Location
+
+Forms with GPS fields capture your location automatically.
+
+**Auto-Capture (On Form Open):**
+- GPS location captured when you first open the form
+- No action needed (happens in background)
+- Icon shows: 📍 Location captured (accuracy: ±25 feet)
+
+**Manual Capture (Button Press):**
+1. **Tap "Capture Location"** button
+2. **Wait for GPS lock** (5-15 seconds outdoors)
+3. **Icon changes:** 📍 Location captured
+
+**Troubleshooting GPS:**
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| "GPS not available" | Indoors, poor signal | Step outside or near window |
+| "Location permission denied" | App doesn't have GPS access | Settings → FieldCamp → Location → Allow |
+| "Location accuracy too low" | GPS struggling to get fix | Wait 30 seconds, ensure clear view of sky |
+| "GPS timeout" | Cannot get location within 30 sec | Override (if field is optional) or retry |
+
+<Info>
+  **Indoor GPS:** GPS signals are weak inside buildings, basements, or metal structures. If GPS field is required and you're indoors, step outside briefly to capture location, then return inside to complete the form.
+</Info>
+
+---
+
+### Step 7: Review and Submit
+
+Before submitting, review your form for completeness.
+
+#### Auto-Validation
+
+FieldCamp automatically checks for errors:
+
+**Required Fields:**
+- ❌ "Missing required field: Customer Signature"
+- ❌ "Missing required field: Refrigerant Pressure"
+
+**Invalid Entries:**
+- ❌ "Pressure must be between 0-200 PSI" (you entered 250)
+- ❌ "Serial number must be alphanumeric" (you entered special characters)
+
+**Photo Requirements:**
+- ❌ "Equipment nameplate photo required"
+- ❌ "Minimum 2 photos required for site documentation"
+
+---
+
+#### Manual Review
+
+Scroll through form and verify:
+
+- ✅ All checkboxes checked (for tasks completed)
+- ✅ All measurements entered
+- ✅ Photos clear and well-lit
+- ✅ Customer signature captured
+- ✅ Tech signature captured
+- ✅ No typos in notes
+
+---
+
+#### Submit Form
+
+1. **Scroll to bottom of form**
+2. **Tap "Submit Form"** button
+3. **Confirm submission** (popup: "Are you sure? Form cannot be edited after submission.")
+4. **Tap "Yes, Submit"**
+
+**What Happens on Submission:**
+- ✅ Form marked as complete
+- ✅ Form data saved to server (or queued if offline)
+- ✅ Customer receives email copy (if enabled)
+- ✅ Form locked (cannot edit after 24 hours)
+- ✅ Form appears in job history
+
+---
+
+### Step 8: Offline Sync (If Offline)
+
+If you completed the form without internet, it will sync when you reconnect.
+
+**Offline Indicator:**
+```
+📴 Offline Mode
+Form saved locally. Will sync when online.
+```
+
+**Auto-Sync:**
+- App checks for internet connection every 30 seconds
+- When connection detected, forms auto-upload
+- Notification: ✅ "3 forms synced successfully"
+
+**Manual Sync:**
+1. Navigate to **Settings → Sync**
+2. Tap **"Sync Now"** button
+3. Wait for upload to complete
+
+<Tip>
+  **WiFi for Large Forms:** If your form has 10+ photos, wait until you have WiFi to sync. Uploading 50MB of photos on cellular data is slow and uses your data plan.
+</Tip>
+
+---
+
+## Desktop Workflow (Alternative Method)
+
+Forms can also be completed on desktop computers, though this is less common for field work.
+
+### Step 1: Open Job
+
+1. **Login to FieldCamp** (web app)
+2. **Navigate to Jobs** (sidebar)
+3. **Click on job** to open detail page
+4. **Click "Forms" tab**
+
+---
+
+### Step 2: Complete Form
+
+1. **Click "Start Form"** button
+2. **Fill out fields** (type in text boxes, select dropdowns, check checkboxes)
+3. **Upload photos:**
+   - Click "Upload Photo" button
+   - Select file from computer
+   - Repeat for all photo fields
+
+4. **Signature capture:**
+   - Use mouse to draw signature (less ideal than touchscreen)
+   - Or use signature pad device (if available)
+
+5. **GPS location:**
+   - Not available on desktop (requires mobile device)
+   - Field will show "GPS unavailable - Desktop mode"
+
+---
+
+### Step 3: Submit
+
+1. **Click "Submit Form"** button
+2. **Confirm submission**
+
+**Desktop Limitations:**
+- ❌ No camera access (must upload pre-taken photos)
+- ❌ No GPS capture
+- ❌ Mouse signatures are lower quality than touchscreen
+- ✅ Useful for office staff completing admin forms
+
+<Info>
+  **When to Use Desktop:** Pre-inspection forms, office-based quality checks, or forms that don't require photos/GPS. For field work, mobile is always preferred.
+</Info>
+
+---
+
+## Offline Mode
+
+FieldCamp forms work completely offline, critical for sites with poor cellular coverage.
+
+### How Offline Mode Works
+
+1. **Assigned forms download** when you start a visit (while online)
+2. **Complete form entirely offline** (no internet required)
+3. **Form saved locally** on your device
+4. **Auto-sync when reconnected** (upload to server)
+
+**Offline Capabilities:**
+- ✅ Complete all form fields
+- ✅ Capture photos (saved to device)
+- ✅ Capture signatures
+- ✅ Capture GPS location (if device has GPS chip)
+- ❌ Cannot submit until online (queued for sync)
+
+---
+
+### Offline Indicator
+
+App shows offline status in header:
+
+```
+📴 Offline Mode
+Last sync: 2 hours ago
+3 forms pending upload
+```
+
+**Pending Forms:**
+- Forms completed offline are marked "Pending Sync"
+- Green checkmark appears after successful upload
+- Tap "View Pending" to see upload status
+
+---
+
+### Troubleshooting Offline Sync
+
+**"Form not syncing" after 24 hours:**
+
+**Cause:** Device never reconnected to internet.
+
+**Solution:**
+- Connect to WiFi or enable cellular data
+- Open app (app must be running to sync)
+- Wait 2-3 minutes for upload
+- Check "Pending Forms" list (should be empty)
+
+---
+
+**"Sync failed - Photo upload error":**
+
+**Cause:** Photos too large or connection unstable.
+
+**Solution:**
+- Connect to stable WiFi
+- Retry sync (Settings → Sync Now)
+- If still failing, reduce photo quality (Settings → Camera Quality → Medium)
+
+---
+
+## Form Editing (After Submission)
+
+### Edit Window (24 Hours)
+
+Completed forms can be edited for up to 24 hours after submission.
+
+**How to Edit:**
+
+1. **Open job** (mobile or desktop)
+2. **Navigate to Forms tab**
+3. **Tap completed form** (green checkmark)
+4. **Tap "Edit Form"** button
+5. **Make changes**
+6. **Tap "Save Changes"**
+
+**What Can Be Edited:**
+- ✅ Text fields
+- ✅ Number fields
+- ✅ Checkboxes and radio buttons
+- ✅ Dates and times
+- ⚠️ Photos (can add more, cannot delete)
+- ❌ Signatures (cannot change after submission)
+
+**Edit History:**
+- All edits are logged
+- Audit trail shows who edited what and when
+- View history: Tap "⋮" → "View Edit History"
+
+---
+
+### After 24 Hours (Locked)
+
+Forms are locked 24 hours after submission to maintain audit trail integrity.
+
+**Why Lock Forms?**
+- Compliance requirements (cannot alter historical records)
+- Legal protection (forms are proof of work completed)
+- Customer trust (prevents backdating or altering data)
+
+**If You Need to Update:**
+- Forms cannot be edited after 24 hours
+- Contact your admin to request form unlock (requires supervisor approval)
+- Admin can unlock for 1-hour edit window
+- Re-locked automatically after edit
+
+<Warning>
+  **Compliance Impact:** Editing forms after 24 hours is logged and flagged for review. Only edit if absolutely necessary (e.g., incorrect customer signature, critical measurement error).
+</Warning>
+
+---
+
+## Viewing Completed Forms
+
+### Mobile View
+
+1. **Open job** in mobile app
+2. **Tap "Forms" tab**
+3. **Tap completed form** (green checkmark)
+4. **View form details:**
+   - All field responses
+   - Photos (swipe to view gallery)
+   - Signatures
+   - Completion timestamp
+   - Completed by (tech name)
+
+**Actions:**
+- 📤 Share (email, SMS, or save to Files app)
+- 📄 Export as PDF
+- 🖨️ Print (via AirPrint)
+
+---
+
+### Desktop View
+
+1. **Open job** on desktop
+2. **Click "Forms" tab**
+3. **Click completed form**
+4. **View form in detail panel:**
+   - Formatted display (same as PDF)
+   - Photos inline
+   - Signatures at bottom
+
+**Actions:**
+- **Download PDF** - Save to computer
+- **Email to Customer** - Send copy directly
+- **Print** - Print hard copy
+- **Audit Log** - View edit history
+
+---
+
+### Customer View (Portal)
+
+Customers can view completed forms for their jobs.
+
+1. **Customer logs into client portal**
+2. **Clicks on job**
+3. **Navigates to "Forms" tab**
+4. **Sees list of completed forms**
+5. **Clicks form to view PDF**
+
+**Customer Actions:**
+- 📥 Download PDF
+- 📧 Email to self
+- 🖨️ Print
+
+<Info>
+  **Automatic Email Delivery:** Customers automatically receive a PDF copy via email immediately after form submission (if this setting is enabled in form settings).
+</Info>
+
+---
+
+## Form Analytics
+
+### Completion Rate
+
+Track how often forms are completed on time.
+
+**Where to View:**
+- Navigate to **Reports → Forms**
+- See completion rate per form template
+- Filter by date range, tech, or job type
+
+**Example Report:**
+```
+HVAC 20-Point Inspection Checklist
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Completed: 142 (89%)
+⏳ Pending: 12 (8%)
+❌ Overdue: 5 (3%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Total Assigned: 159
+```
+
+**Low Completion Rates?**
+- Form too long (techs skip it)
+- Form not required (make it required)
+- Tech training needed (some techs don't understand form)
+
+---
+
+### Time to Complete
+
+Measure average time spent completing each form.
+
+**Metrics:**
+- **Average Time:** 12 minutes
+- **Fastest Completion:** 6 minutes (experienced tech)
+- **Slowest Completion:** 25 minutes (new tech, first time)
+
+**Use Cases:**
+- Estimate labor time (add form completion time to job quotes)
+- Identify overly complex forms (20+ minute forms should be simplified)
+- Training opportunities (techs taking 2x average need help)
+
+---
+
+### Photo Quality
+
+Identify techs submitting low-quality photos.
+
+**Quality Metrics:**
+- **Photo Resolution:** 1920x1080 (Good) vs. 640x480 (Poor)
+- **File Size:** 2-5MB (Good) vs. <500KB (Compressed too much)
+- **Lighting:** Auto-detected bright/dark
+
+**Action:**
+- Send photo guidelines to techs with low scores
+- Require re-submission if photos are illegible
+
+---
+
+## Best Practices for Technicians
+
+### Before Starting Form
+
+<AccordionGroup>
+  <Accordion title="Review form requirements before arriving on site">
+    **Why:** Know what you need to document (photos, measurements, signatures) before starting work.
+    
+    **How:** Open job in app during drive (if passenger) or night before. Check Forms tab for assigned forms.
+  </Accordion>
+
+  <Accordion title="Ensure device is charged">
+    **Why:** Completing forms drains battery (camera, GPS, screen on).
+    
+    **Recommendation:** Start day with 100% battery. Bring portable charger or car charger.
+  </Accordion>
+
+  <Accordion title="Connect to WiFi if available at job site">
+    **Why:** Faster photo uploads, real-time sync.
+    
+    **How:** Ask customer for WiFi password (if residential) or connect to known network (commercial sites).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### During Form Completion
+
+<AccordionGroup>
+  <Accordion title="Complete forms as you work, not after">
+    **Why:** Easier to remember details while on-site. Prevents forgetting measurements or skipping photos.
+    
+    **Workflow:**
+    - Check "Air filter replaced" immediately after replacing filter
+    - Take "before" photo before starting work
+    - Record pressure reading immediately after testing
+  </Accordion>
+
+  <Accordion title="Use voice-to-text for long descriptions">
+    **Why:** Faster than typing on mobile keyboard.
+    
+    **How:** Tap microphone icon, speak clearly, review text, edit if needed.
+  </Accordion>
+
+  <Accordion title="Take extra photos">
+    **Why:** Easier to delete unnecessary photos than to return to site for missing documentation.
+    
+    **Recommendation:** Capture 5-10 photos even if form only requires 2. Delete extras later.
+  </Accordion>
+
+  <Accordion title="Get customer signature before leaving site">
+    **Why:** Cannot complete form without signature (if required). Going back is inefficient.
+    
+    **Tip:** Don't pack up truck until customer signs.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### After Form Submission
+
+<AccordionGroup>
+  <Accordion title="Verify form uploaded successfully">
+    **Why:** Ensures customer receives copy and office sees completed work.
+    
+    **How:** Check for green checkmark next to form name. If "Pending Sync," wait for internet connection.
+  </Accordion>
+
+  <Accordion title="Review PDF before sending to customer">
+    **Why:** Catch typos, missing photos, or unclear notes before customer sees it.
+    
+    **How:** Tap form → "View PDF" → Review → Send.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+### "Cannot submit form - missing required field"
+
+**Cause:** Required field (marked with red asterisk *) is blank.
+
+**Solution:**
+1. Scroll through form to find field with red asterisk
+2. Fill in field
+3. Submit again
+
+**Common Culprits:**
+- Signature fields (easy to forget at end of long form)
+- Photo fields (tech thought they took photo but it didn't save)
+- Hidden conditional fields (only visible if certain conditions met)
+
+---
+
+### "Photo capture failed"
+
+**Cause:** Camera permission denied or camera malfunction.
+
+**Solution:**
+1. **Check permissions:**
+   - iOS: Settings → FieldCamp → Camera → Enable
+   - Android: Settings → Apps → FieldCamp → Permissions → Camera → Allow
+
+2. **Close and reopen app** (reset camera)
+
+3. **Restart device** (if camera still not working)
+
+4. **Use photo upload instead:**
+   - Take photo with native camera app
+   - Tap "Upload Photo" in form
+   - Select photo from gallery
+
+---
+
+### "GPS location not capturing"
+
+**Cause:** GPS disabled, indoors, or poor signal.
+
+**Solution:**
+
+| Scenario | Solution |
+|----------|----------|
+| **Indoors** | Step outside briefly, capture location, return inside |
+| **GPS Disabled** | Settings → Location Services → On |
+| **Permission Denied** | Settings → FieldCamp → Location → While Using App |
+| **Timeout** | Wait 60 seconds (sometimes GPS takes time to lock) |
+| **Optional Field** | Skip field if not required |
+
+---
+
+### "Form saved as draft but not showing in list"
+
+**Cause:** Draft saved locally but not synced to server (offline mode).
+
+**Solution:**
+1. Check "Pending Forms" list (not "Completed Forms")
+2. Connect to internet
+3. Wait for auto-sync (or manually sync: Settings → Sync Now)
+4. Draft appears in server after sync
+
+---
+
+### "Signature looks distorted in PDF"
+
+**Cause:** Signature captured in portrait mode, displayed in landscape mode (aspect ratio mismatch).
+
+**Solution:**
+- **Prevention:** Rotate device to landscape before signing (wider signature area, better rendering)
+- **Fix:** Re-submit form with new signature (within 24-hour edit window)
+
+---
+
+### "Customer didn't receive email copy"
+
+**Cause:** Email setting disabled or wrong email address on customer profile.
+
+**Solution:**
+1. **Check customer email:** Jobs → Click Job → Client Info → Email (verify correct)
+2. **Check form settings:** Settings → Forms → Edit Form → Submission Settings → "Email Copy to Customer" = Enabled
+3. **Manually send:** Open completed form → Tap "Share" → Email → Enter customer email
+
+---
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Can I complete a form days after the visit is finished?">
+    **Yes, with limitations.** You can complete forms any time, but:
+    - GPS location may not be accurate (you're no longer on-site)
+    - Photos must be uploaded from gallery (cannot take live photos)
+    - Form is timestamped with completion date, not visit date (audit trail shows backdating)
+    
+    **Best Practice:** Complete forms on-site, during or immediately after the visit.
+  </Accordion>
+
+  <Accordion title="What happens if my phone dies mid-form?">
+    **Draft auto-saved.** FieldCamp auto-saves form progress every 30 seconds. When you reopen the app, the draft will be available. You'll lose any data entered in the last 30 seconds.
+    
+    **Recovery:** Open job → Forms tab → Tap "Continue Draft"
+  </Accordion>
+
+  <Accordion title="Can I complete a form if I don't have the FieldCamp app?">
+    **No.** Forms require the mobile app or desktop web app. They cannot be completed via SMS, email, or third-party apps.
+  </Accordion>
+
+  <Accordion title="Can office staff complete forms on behalf of techs?">
+    **Yes.** Admins and managers can complete forms on desktop by opening the job and filling out the form. However:
+    - No GPS capture (desktop doesn't have GPS)
+    - Photos must be uploaded (cannot take live photos)
+    - Form shows "Completed by [Admin Name]" (not the tech)
+    
+    **Use Case:** Office enters data from paper forms (legacy workflow) or completes admin forms not requiring field photos.
+  </Accordion>
+
+  <Accordion title="Do forms work internationally (outside the US)?">
+    **Yes.** Forms work worldwide (any country with internet access). GPS, photos, and signatures work internationally.
+    
+    **Localization:** Forms can be translated into other languages (Enterprise plan). Date/time formats adjust to device locale.
+  </Accordion>
+
+  <Accordion title="Can I customize the PDF export format?">
+    **Limited customization.** PDF layout is standardized (header, fields, photos, signatures). You can:
+    - ✅ Add company logo (Settings → Forms → Form Logo)
+    - ✅ Change brand colors (Settings → Forms → Color Theme)
+    - ❌ Rearrange PDF sections (fixed layout)
+    - ❌ Remove timestamps or audit trail (compliance requirement)
+    
+    **Enterprise:** Custom PDF templates available on Enterprise plan.
+  </Accordion>
+
+  <Accordion title="How long do completed forms stay in the system?">
+    **Indefinitely.** Completed forms are stored permanently (as long as your FieldCamp account is active). This ensures long-term compliance and record-keeping.
+    
+    **Export:** You can export forms as PDF or CSV at any time for external archiving.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<Steps>
+  <Step title="Review Assigned Forms">
+    Open your next scheduled visit and check the Forms tab. Familiarize yourself with the forms you'll need to complete.
+  </Step>
+  
+  <Step title="Test Offline Mode">
+    Enable Airplane Mode on your device and complete a test form. Verify that it saves locally and syncs when you reconnect.
+  </Step>
+  
+  <Step title="Practice Photo Capture">
+    Take practice photos of equipment, nameplates, and work areas. Review photo quality and lighting. Retake until photos are clear and legible.
+  </Step>
+  
+  <Step title="Get Comfortable with Signatures">
+    Practice signature capture. Experiment with landscape vs. portrait orientation. Find what works best for you and your customers.
+  </Step>
+</Steps>
+
+---
+
+## Related Documentation
+
+<CardGroup cols={2}>
+  <Card title="Forms Overview" icon="clipboard-list" href="/features/jobs/forms/overview">
+    Understand form types, use cases, and permissions
+  </Card>
+  <Card title="Creating Forms" icon="plus" href="/features/jobs/forms/creating-forms">
+    Build custom forms with the form builder
+  </Card>
+  <Card title="Visit Logs" icon="clock" href="/features/jobs/visits/visit-logs">
+    Time tracking, photos, and visit documentation
+  </Card>
+  <Card title="Mobile App Guide" icon="mobile" href="/mobile/overview">
+    Complete guide to the FieldCamp mobile app
+  </Card>
+</CardGroup>
+
+---
+
+## Quick Reference: Mobile Form Completion
+
+**1. Start Visit** → Opens assigned forms
+
+**2. Tap Form** → Begin completion
+
+**3. Fill Fields** → Text, numbers, checkboxes, dropdowns
+
+**4. Capture Photos** → Tap photo field → Camera → Capture → Use Photo
+
+**5. Get Signature** → Hand device to customer → Customer signs → Save
+
+**6. Review** → Scroll through form → Check for errors
+
+**7. Submit** → Tap "Submit Form" → Confirm
+
+**8. Verify Sync** → Green checkmark = Success
+
+**9. Customer Receives Email** → PDF copy sent automatically
+
+✅ **Form Complete!**

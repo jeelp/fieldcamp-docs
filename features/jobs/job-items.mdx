@@ -1,0 +1,977 @@
+---
+title: "Job Items & Pricing"
+description: "Complete guide to adding products, services, pricing, discounts, and taxes to jobs in FieldCamp"
+icon: "dollar-sign"
+---
+
+# Job Items & Pricing
+
+Job items are the billable products and services you provide to clients. Understanding how to add, price, discount, and tax items is essential for accurate invoicing and profitability tracking.
+
+<Info>
+  **New to jobs?** Read [Jobs Overview](/features/jobs/overview) first to understand the basics.
+</Info>
+
+---
+
+## What are Job Items?
+
+**Job items** are the products and services you add to a job. Each item has:
+
+- **Name** (what it is)
+- **Quantity** (how many)
+- **Unit Price** (price per unit)
+- **Tax** (if applicable)
+- **Total** (quantity × price + tax)
+
+**Examples:**
+- **Product:** "Water Heater - 50 Gallon Electric" × 1 @ $800 = $800
+- **Service:** "Labor - Plumbing" × 2 hours @ $120/hour = $240
+- **Material:** "PVC Pipe - 1 inch" × 10 feet @ $3/foot = $30
+
+<!-- Screenshot: job-items-table.png — Table showing multiple items with pricing -->
+
+---
+
+## Adding Items to Jobs
+
+You can add items when creating a job or later from the job detail page.
+
+### Adding Items from Your Catalog
+
+<Steps>
+  <Step title="Click + Add Item">
+    In the job's **Details** tab, click **+ Add Item**.
+  </Step>
+  
+  <Step title="Search Catalog">
+    Start typing the product or service name. FieldCamp searches your catalog.
+  </Step>
+  
+  <Step title="Select Item">
+    Click the item you want. Price, tax rate, and description auto-fill.
+  </Step>
+  
+  <Step title="Set Quantity">
+    Enter how many units (default: 1).
+  </Step>
+  
+  <Step title="Adjust Price (Optional)">
+    Override the default price if needed (custom pricing for this job).
+  </Step>
+  
+  <Step title="Save">
+    Click **Add**. The item appears in the job's item list.
+  </Step>
+</Steps>
+
+<!-- Screenshot: add-item-modal.png — Item picker with search and catalog results -->
+
+<Tip>
+  **Pro tip:** Add items to your catalog first from [Products & Services](/features/product-service/overview). It's faster to select from catalog than to create custom items every time.
+</Tip>
+
+---
+
+### Creating Custom Items (Ad-Hoc)
+
+Don't have the item in your catalog? Create a custom one:
+
+<Steps>
+  <Step title="Click + Custom Item">
+    In the item picker, click **+ Custom Item**.
+  </Step>
+  
+  <Step title="Enter Details">
+    - **Name:** "Emergency weekend service fee"
+    - **Unit Price:** $200
+    - **Quantity:** 1
+    - **Tax:** Choose tax rate or "No tax"
+    - **Description (Optional):** Internal notes or customer-facing description
+  </Step>
+  
+  <Step title="Add">
+    Click **Add**. The item is added to this job only (not saved to catalog).
+  </Step>
+</Steps>
+
+<Info>
+  To add the item to your catalog for future use, go to [Products & Services](/features/product-service/overview) and create it there.
+</Info>
+
+<!-- Screenshot: custom-item-form.png — Custom item creation form with fields -->
+
+---
+
+### Adding Kits / Bundles
+
+Kits are pre-configured bundles of multiple items.
+
+**Example:** "HVAC Tune-Up Kit" includes:
+- Filter replacement
+- Coil cleaning
+- Refrigerant check
+- Thermostat calibration
+- Labor (2 hours)
+
+**How to add a kit:**
+
+<Steps>
+  <Step title="Click + Add Kit">
+    In the item picker, click **+ Add Kit**.
+  </Step>
+  
+  <Step title="Select Kit">
+    Choose from your saved kits.
+  </Step>
+  
+  <Step title="Review Items">
+    All items in the kit are added to the job at once.
+  </Step>
+  
+  <Step title="Adjust Quantities (Optional)">
+    Edit individual items if needed.
+  </Step>
+</Steps>
+
+<Info>
+  Learn how to create kits: [Products & Services - Kits](/features/product-service/kits)
+</Info>
+
+<!-- Screenshot: kit-selector.png — Kit picker showing available bundles -->
+
+---
+
+## Item Types
+
+### Products
+
+Physical items you sell or install.
+
+**Examples:**
+- Water heaters
+- HVAC units
+- Faucets
+- Light fixtures
+- Parts (filters, belts, hoses)
+
+**Characteristics:**
+- Have inventory tracking (optional)
+- Have a cost (what you paid) and price (what you charge)
+- May have SKU, vendor, category
+
+---
+
+### Services
+
+Labor, hourly work, or flat-rate services.
+
+**Examples:**
+- "Labor - Plumbing" (hourly)
+- "AC Tune-Up" (flat-rate service)
+- "Emergency Service Call" (service fee)
+
+**Characteristics:**
+- No inventory tracking
+- May be priced per-hour or flat-rate
+- Often non-taxable (depending on location)
+
+---
+
+### Materials / Consumables
+
+Small items used during work (often not tracked individually).
+
+**Examples:**
+- Screws and fasteners
+- Wire
+- Pipe fittings
+- Sealant / caulk
+
+**Characteristics:**
+- Low cost (often bundled as "materials fee")
+- May be tracked in inventory or added as markup percentage
+
+---
+
+## Item Pricing
+
+### Fixed Price (Per Unit)
+
+Most common pricing model.
+
+**How it works:**
+- Set a **Unit Price** (e.g., $800 for a water heater)
+- Multiply by **Quantity**
+- **Total = Quantity × Unit Price**
+
+**Example:**
+- Item: "Water Heater - 50 Gallon"
+- Unit Price: $800
+- Quantity: 1
+- **Total: $800**
+
+<!-- Screenshot: fixed-price-item.png — Item row showing unit price and quantity -->
+
+---
+
+### Hourly Pricing (Per Hour)
+
+For labor or time-based services.
+
+**How it works:**
+- Set a **Unit Price** (e.g., $120/hour)
+- Set **Quantity** to hours worked
+- **Total = Hours × Hourly Rate**
+
+**Example:**
+- Item: "Labor - Plumbing"
+- Unit Price: $120/hour
+- Quantity: 2.5 hours
+- **Total: $300**
+
+<Tip>
+  **Pro tip:** For hourly items, enter fractional quantities (e.g., 2.5 for 2 hours 30 minutes).
+</Tip>
+
+---
+
+### Flat-Rate Services
+
+Single fixed price regardless of time or materials.
+
+**How it works:**
+- Set a **Unit Price** (e.g., $250 for AC tune-up)
+- **Quantity: 1**
+- **Total = Unit Price**
+
+**Example:**
+- Item: "AC Tune-Up (Flat Rate)"
+- Unit Price: $250
+- Quantity: 1
+- **Total: $250**
+
+<Info>
+  Flat-rate pricing is great for predictable services. Clients love knowing the price upfront.
+</Info>
+
+---
+
+### Cost vs Price (Margin Calculation)
+
+FieldCamp tracks both **cost** (what you paid) and **price** (what you charge).
+
+**Example:**
+- Item: "Water Heater - 50 Gallon"
+- **Cost:** $600 (what you paid the vendor)
+- **Price:** $800 (what you charge the client)
+- **Margin:** $200 (price - cost)
+- **Markup:** 33% ((price - cost) / cost)
+
+<!-- Screenshot: item-cost-price-margin.png — Item detail showing cost, price, and margin -->
+
+<Tip>
+  **Pro tip:** Use cost tracking to ensure you're profitable. If your margin is too low, adjust your pricing.
+</Tip>
+
+---
+
+## Discounts
+
+FieldCamp supports two types of discounts:
+
+<CardGroup cols={2}>
+  <Card title="Job-Level Discount" icon="percent">
+    Applied to the entire job (affects all items)
+    
+    **Example:** 10% off entire job
+  </Card>
+  
+  <Card title="Item-Level Discount" icon="tag">
+    Applied to a single item
+    
+    **Example:** $50 off this specific item
+  </Card>
+</CardGroup>
+
+---
+
+### Job-Level Discount
+
+**When to use:**
+- Discount for loyal clients
+- Seasonal promotions
+- Bundled service discounts
+
+**How to apply:**
+
+<Steps>
+  <Step title="Go to Job Detail">
+    Open the job and go to the **Details** tab.
+  </Step>
+  
+  <Step title="Click Apply Discount">
+    Below the items table, click **Apply Discount**.
+  </Step>
+  
+  <Step title="Choose Type">
+    <Tabs>
+      <Tab title="Percentage">
+        Enter a percentage (e.g., 10%)
+        
+        **Calculation:** Subtotal × 10% = Discount amount
+      </Tab>
+      
+      <Tab title="Fixed Amount">
+        Enter a dollar amount (e.g., $100)
+        
+        **Calculation:** Flat $100 off
+      </Tab>
+    </Tabs>
+  </Step>
+  
+  <Step title="Save">
+    Click **Apply**. Discount appears in pricing summary.
+  </Step>
+</Steps>
+
+<!-- Screenshot: apply-job-discount-modal.png — Discount modal with percentage and fixed options -->
+
+**Pricing with job-level discount:**
+
+| Field | Amount |
+|-------|--------|
+| **Subtotal** | $1,200.00 |
+| **Discount (10%)** | -$120.00 |
+| **Subtotal After Discount** | $1,080.00 |
+| **Tax (10%)** | $108.00 |
+| **Total** | $1,188.00 |
+
+<Warning>
+  **Note:** Job-level discounts apply to the subtotal **before** tax. Tax is calculated on the discounted amount.
+</Warning>
+
+---
+
+### Item-Level Discount
+
+**When to use:**
+- Discount on a specific product (clearance item, damaged box)
+- Special pricing for one service
+
+**How to apply:**
+
+<Steps>
+  <Step title="Click Edit Item">
+    In the items table, click **Edit** on the item row.
+  </Step>
+  
+  <Step title="Scroll to Discount">
+    In the edit modal, find the **Discount** field.
+  </Step>
+  
+  <Step title="Enter Discount">
+    Choose percentage or fixed amount.
+  </Step>
+  
+  <Step title="Save">
+    Click **Save**. Item price updates.
+  </Step>
+</Steps>
+
+<!-- Screenshot: item-discount-field.png — Edit item modal showing discount field -->
+
+**Pricing with item-level discount:**
+
+| Item | Unit Price | Discount | Subtotal | Tax | Total |
+|------|-----------|----------|----------|-----|-------|
+| Water Heater | $800.00 | -$100 (damaged box) | $700.00 | $70.00 | $770.00 |
+
+---
+
+### Discount Restrictions
+
+<AccordionGroup>
+  <Accordion title="Job-level vs item-level discounts">
+    **They don't stack.** If you apply a job-level discount, item-level discounts are ignored.
+    
+    **Why?** To prevent double-discounting.
+  </Accordion>
+  
+  <Accordion title="Negative discounts not allowed">
+    You can't enter a negative discount (to mark up an item). Use price adjustment instead.
+  </Accordion>
+  
+  <Accordion title="Discount cannot exceed subtotal">
+    You can't discount more than 100%. FieldCamp will warn you if you try.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Taxes
+
+FieldCamp supports flexible tax management.
+
+### Tax Rates
+
+**Tax rates** are defined in [Settings → Tax Rates](/settings/tax-rates).
+
+**Common examples:**
+- Sales Tax (8.5%)
+- GST (5%)
+- VAT (20%)
+- No Tax (0%)
+
+---
+
+### Taxing Items
+
+You can set tax per-item or per-job.
+
+#### Per-Item Tax
+
+Each item can have a different tax rate.
+
+**Example:**
+- **Product:** Water heater (taxable at 8.5%)
+- **Service:** Labor (non-taxable at 0%)
+
+**How to set:**
+1. Edit the item
+2. Select **Tax Rate** from dropdown
+3. Save
+
+<!-- Screenshot: item-tax-dropdown.png — Tax rate selector for item -->
+
+---
+
+#### Job-Level Tax
+
+Apply the same tax rate to all items.
+
+**How to set:**
+1. In job detail, click **Tax Settings**
+2. Choose **Apply to all items**
+3. Select tax rate
+4. Save
+
+<Warning>
+  **Note:** If you change the job-level tax, it overrides per-item tax rates.
+</Warning>
+
+---
+
+### Tax-Inclusive vs Tax-Exclusive
+
+<Tabs>
+  <Tab title="Tax-Exclusive (Default)">
+    Tax is added to the price.
+    
+    **Example:**
+    - Item price: $100
+    - Tax (10%): $10
+    - **Client pays: $110**
+    
+    **Most common in the U.S.**
+  </Tab>
+  
+  <Tab title="Tax-Inclusive">
+    Tax is included in the price.
+    
+    **Example:**
+    - Item price: $110 (includes $10 tax)
+    - Tax (10%): $10
+    - **Client pays: $110**
+    
+    **Common in Europe (VAT), Australia (GST).**
+  </Tab>
+</Tabs>
+
+**How to set:**
+1. Go to [Settings → Tax Settings](/settings/tax-settings)
+2. Choose **Tax-Inclusive** or **Tax-Exclusive**
+3. Save
+
+---
+
+### Multiple Taxes (Compound Tax)
+
+Some regions have multiple tax rates.
+
+**Example (Canada):**
+- **GST:** 5%
+- **PST:** 7%
+- **Total tax:** 12%
+
+**How to set:**
+1. Go to [Settings → Tax Rates](/settings/tax-rates)
+2. Click **+ Add Tax Rate**
+3. Create "GST" (5%)
+4. Create "PST" (7%)
+5. When adding items, select both tax rates
+
+<!-- Screenshot: multiple-tax-rates.png — Item with two tax rates applied -->
+
+---
+
+### Tax Exemptions
+
+Some clients are tax-exempt (nonprofits, government agencies, resale).
+
+**How to set:**
+1. Open the **Client** profile
+2. Check **Tax Exempt**
+3. Upload tax exemption certificate (optional)
+4. Save
+
+**Result:** All jobs for this client are automatically non-taxable.
+
+<Info>
+  Learn more: [Client Management - Tax Exemptions](/features/clients/overview#tax-exemptions)
+</Info>
+
+---
+
+## Item Descriptions
+
+Each item can have two descriptions:
+
+<CardGroup cols={2}>
+  <Card title="Internal Description" icon="lock">
+    **Team-only** notes (not visible to client)
+    
+    **Use for:**
+    - Part numbers
+    - Vendor info
+    - Installation notes
+    
+    **Example:** "Order from Acme Supply - Part #12345"
+  </Card>
+  
+  <Card title="Customer-Facing Description" icon="eye">
+    **Visible to client** (on invoices, estimates, portal)
+    
+    **Use for:**
+    - Clear, friendly description
+    - What the client is getting
+    
+    **Example:** "Premium 50-gallon electric water heater with 10-year warranty"
+  </Card>
+</CardGroup>
+
+<!-- Screenshot: item-descriptions.png — Edit modal showing internal and customer descriptions -->
+
+<Tip>
+  **Pro tip:** Always fill in customer-facing descriptions. They make invoices look professional.
+</Tip>
+
+---
+
+## Item Photos
+
+Attach photos to items (especially useful for custom or high-value items).
+
+**How to add:**
+1. Edit the item
+2. Click **Upload Photo**
+3. Select image
+4. Save
+
+**Photos appear:**
+- In job detail (hover over item name)
+- On invoices/estimates (if enabled)
+- In the client portal
+
+<!-- Screenshot: item-with-photo.png — Item row with thumbnail photo -->
+
+<Tip>
+  **Pro tip:** Use item photos for before/after comparisons (especially useful for inspection reports).
+</Tip>
+
+---
+
+## Item Categories
+
+Organize items by category:
+
+**Examples:**
+- HVAC Parts
+- Plumbing Parts
+- Electrical Parts
+- Labor
+- Services
+- Fees
+
+**How to use:**
+1. Create categories in [Products & Services](/features/product-service/overview)
+2. Assign items to categories
+3. Filter items by category when adding to jobs
+
+<Info>
+  Learn more: [Product Categories](/features/product-service/categories)
+</Info>
+
+---
+
+## Reordering Items
+
+Change the order items appear in the job (and on invoices).
+
+**How to reorder:**
+1. Go to job **Details** tab
+2. Hover over an item row
+3. Drag the **⋮⋮** handle up or down
+4. Release to drop in new position
+
+<!-- Screenshot: item-reorder-drag.png — Item being dragged to new position -->
+
+<Tip>
+  **Pro tip:** Put high-value items or primary services first. They appear first on invoices.
+</Tip>
+
+---
+
+## Removing Items
+
+Delete an item from a job.
+
+**How to remove:**
+1. Click **⋮** on the item row
+2. Click **Remove**
+3. Confirm
+
+<Warning>
+  **Note:** If the job is already invoiced, removing items doesn't update the invoice. Edit the invoice directly instead.
+</Warning>
+
+---
+
+## Item Subtotals & Totals
+
+At the bottom of the items section, you'll see a **pricing breakdown**:
+
+| Field | Amount | Description |
+|-------|--------|-------------|
+| **Subtotal** | $1,200.00 | Sum of all item subtotals (quantity × price) |
+| **Discount** | -$120.00 | Job-level discount (if applied) |
+| **Subtotal After Discount** | $1,080.00 | Subtotal - Discount |
+| **Tax** | $108.00 | Total tax across all items |
+| **Total** | $1,188.00 | Final amount client owes |
+
+<!-- Screenshot: pricing-breakdown-table.png — Pricing summary table -->
+
+<Tip>
+  **Pro tip:** Click any amount to see the detailed calculation.
+</Tip>
+
+---
+
+## Converting Items to Invoice
+
+When you're ready to invoice, FieldCamp converts job items to invoice line items.
+
+**How it works:**
+
+<Steps>
+  <Step title="Click Convert to Invoice">
+    In the job detail, click **Convert to Invoice**.
+  </Step>
+  
+  <Step title="Review Items">
+    All job items are pre-filled in the invoice.
+  </Step>
+  
+  <Step title="Edit (Optional)">
+    Adjust quantities, prices, or descriptions if needed.
+  </Step>
+  
+  <Step title="Save & Send">
+    Create the invoice and send to client.
+  </Step>
+</Steps>
+
+<Info>
+  Learn more: [Invoicing Integration](/features/jobs/invoicing-integration)
+</Info>
+
+---
+
+## Item-Level Permissions
+
+Control who can edit pricing and items:
+
+| Role | Can Add Items? | Can Change Price? | Can Remove Items? |
+|------|---------------|------------------|------------------|
+| **Owner** | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Admin** | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Manager** | ✅ Yes | ✅ Yes | ⚠️ Draft jobs only |
+| **Technician** | ⚠️ Assigned jobs only | ❌ No | ❌ No |
+
+<Warning>
+  **Note:** Once a job is invoiced, only Owners and Admins can change items.
+</Warning>
+
+---
+
+## Inventory Integration
+
+If you track inventory, FieldCamp can:
+
+<AccordionGroup>
+  <Accordion title="Check Stock Levels">
+    When adding an item, FieldCamp shows available stock.
+    
+    **Example:** "Water Heater - 50 Gallon: **3 in stock**"
+  </Accordion>
+  
+  <Accordion title="Reserve Inventory">
+    When you add an item to a job, you can **reserve** it (allocate stock to this job).
+    
+    **How:**
+    1. Edit the item
+    2. Check **Reserve Inventory**
+    3. Select warehouse
+    4. Save
+    
+    **Result:** Stock is allocated. Other jobs see reduced available stock.
+  </Accordion>
+  
+  <Accordion title="Deduct Inventory on Completion">
+    When the job is completed, stock is automatically deducted.
+    
+    **How:**
+    1. Enable in [Settings → Inventory → Auto-Deduct](/settings/inventory)
+    2. When job status = Completed, inventory is reduced
+  </Accordion>
+  
+  <Accordion title="Track Usage per Tech">
+    See which techs used which items (via visit logs).
+    
+    <Info>Learn more: [Visit Logs](/features/jobs/visits/visit-logs)</Info>
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Learn more: [Inventory Management](/features/inventory/overview)
+</Info>
+
+---
+
+## Custom Item Fields
+
+Add custom fields to items (e.g., serial numbers, warranty info).
+
+**How to create:**
+1. Go to [Settings → Products & Services → Custom Fields](/settings/product-service/custom-fields)
+2. Add field (text, date, dropdown, etc.)
+3. Field appears when editing items
+
+**Example custom fields:**
+- **Serial Number** (text)
+- **Warranty Expiration** (date)
+- **Vendor** (dropdown)
+- **Installation Date** (date)
+
+<Info>
+  Learn more: [Product Custom Fields](/features/product-service/custom-fields)
+</Info>
+
+---
+
+## Bulk Adding Items
+
+Add multiple items at once.
+
+**How:**
+
+<Steps>
+  <Step title="Click + Bulk Add Items">
+    In the job detail, click **+ Bulk Add Items**.
+  </Step>
+  
+  <Step title="Select Multiple Items">
+    Check boxes next to items you want to add.
+  </Step>
+  
+  <Step title="Set Quantities">
+    Enter quantity for each item (default: 1).
+  </Step>
+  
+  <Step title="Add All">
+    Click **Add Items**. All selected items are added at once.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Use bulk add for jobs that need many items (e.g., renovation projects).
+</Tip>
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Add items from your catalog">
+    It's faster and keeps pricing consistent. Build your catalog first, then use it for every job.
+  </Accordion>
+  
+  <Accordion title="Use clear, customer-friendly descriptions">
+    ✅ "Premium 50-gallon electric water heater with 10-year warranty"
+    
+    ❌ "WH-50E-PREM"
+  </Accordion>
+  
+  <Accordion title="Track cost vs price">
+    Always know your cost. If you're not profitable, adjust your pricing.
+  </Accordion>
+  
+  <Accordion title="Use kits for common bundles">
+    If you always bundle certain items together (AC tune-up kit, inspection kit), create a kit.
+  </Accordion>
+  
+  <Accordion title="Reorder items logically">
+    Put primary services first, then products, then small materials.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't use vague item names">
+    ❌ "Part"
+    ❌ "Labor"
+    
+    ✅ "Kitchen Faucet - Chrome"
+    ✅ "Labor - Plumbing (2 hours)"
+  </Accordion>
+  
+  <Accordion title="Don't forget to add tax">
+    If items are taxable in your jurisdiction, set the tax rate. Forgetting tax = you pay it out of pocket.
+  </Accordion>
+  
+  <Accordion title="Don't change items after invoicing">
+    It creates invoice/job mismatch. Edit the invoice instead.
+  </Accordion>
+  
+  <Accordion title="Don't price too low">
+    Track your cost. If you're losing money, increase your prices.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+### I can't find an item in the catalog
+
+**Solution:**
+1. Check spelling
+2. Try searching by category or SKU
+3. If it doesn't exist, add it to your catalog first from [Products & Services](/features/product-service/overview)
+
+---
+
+### Tax isn't calculating correctly
+
+**Possible causes:**
+1. **Item not marked taxable** — Edit the item and select a tax rate
+2. **Client is tax-exempt** — Check the client's profile for tax exemption
+3. **Wrong tax rate selected** — Edit the item and choose correct rate
+
+---
+
+### Discount isn't applying
+
+**Possible causes:**
+1. **Job-level discount conflicts with item-level discount** — Only one type can apply at a time
+2. **Discount exceeds 100%** — FieldCamp blocks discounts over 100%
+
+---
+
+### Inventory isn't deducting
+
+**Possible causes:**
+1. **Auto-deduct disabled** — Enable in [Settings → Inventory](/settings/inventory)
+2. **Job not marked complete** — Inventory only deducts when job status = Completed
+3. **Item not linked to inventory** — Check that the item has inventory tracking enabled
+
+---
+
+## API: Manage Job Items
+
+Add items to a job via the API:
+
+```bash
+curl -X POST "https://app.fieldcamp.ai/api/v1/jobs/507f1f77bcf86cd799439012/items" \
+  -H "X-Api-Key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "itemId": "507f1f77bcf86cd799439020",
+    "quantity": 1,
+    "unitPrice": 800.00,
+    "taxRate": 0.10
+  }'
+```
+
+```json
+// Response
+{
+  "success": true,
+  "data": {
+    "jobId": "507f1f77bcf86cd799439012",
+    "itemId": "507f1f77bcf86cd799439020",
+    "name": "Water Heater - 50 Gallon Electric",
+    "quantity": 1,
+    "unitPrice": 800.00,
+    "subtotal": 800.00,
+    "tax": 80.00,
+    "total": 880.00
+  }
+}
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Products & Services" icon="box" href="/features/product-service/overview">
+    Build your product catalog
+  </Card>
+  
+  <Card title="Pricing & Discounts" icon="percent" href="/features/pricing/overview">
+    Advanced pricing strategies
+  </Card>
+  
+  <Card title="Tax Management" icon="file-invoice-dollar" href="/features/tax-management">
+    Configure tax rates and rules
+  </Card>
+  
+  <Card title="Invoicing Integration" icon="file-invoice" href="/features/jobs/invoicing-integration">
+    Convert jobs to invoices
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Jobs Overview](/features/jobs/overview) — Understand the basics
+- [Job Detail Page](/features/jobs/job-detail) — Explore every tab
+- [Creating Jobs](/features/jobs/creating-jobs) — How to create jobs
+- [Inventory Management](/features/inventory/overview) — Track stock
+
+---
+
+<Check>
+  **You now know:** How to add products and services to jobs, set pricing and quantities, apply discounts (job-level and item-level), configure taxes, manage descriptions and photos, reorder items, integrate with inventory, and troubleshoot common issues.
+</Check>

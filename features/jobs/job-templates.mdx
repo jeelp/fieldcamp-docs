@@ -1,0 +1,920 @@
+---
+title: "Job Templates"
+description: "Speed up job creation with reusable templates — pre-configured jobs with items, forms, and settings"
+icon: "file-lines"
+---
+
+# Job Templates
+
+Job templates let you create jobs faster by starting from pre-configured blueprints. Instead of filling in every field from scratch, templates pre-populate description, items, forms, skills, equipment, and more.
+
+<Info>
+  **New to jobs?** Read [Jobs Overview](/features/jobs/overview) first to understand the basics.
+</Info>
+
+---
+
+## What are Job Templates?
+
+A **job template** is a reusable blueprint for creating jobs. It contains:
+
+- Default description
+- Pre-selected items (products/services with quantities and prices)
+- Pre-attached forms
+- Required skills and equipment
+- Estimated duration
+- Default tags
+
+**Think of it as:** A recipe for a job. You start with the template, customize if needed, and create.
+
+<!-- Screenshot: template-picker.png — Template library showing multiple templates -->
+
+---
+
+## Why Use Templates?
+
+<CardGroup cols={2}>
+  <Card title="Speed" icon="bolt">
+    Create common jobs in seconds instead of minutes
+    
+    **Example:** AC tune-up template vs manual entry = 30 seconds vs 5 minutes
+  </Card>
+  
+  <Card title="Consistency" icon="check">
+    Every "AC Tune-Up" job has the same items, pricing, and checklist
+    
+    No more forgetting to add labor or forms
+  </Card>
+  
+  <Card title="Accuracy" icon="bullseye">
+    Pre-set pricing ensures you don't undercharge
+    
+    Templates include all necessary items (no missing parts)
+  </Card>
+  
+  <Card title="Training" icon="graduation-cap">
+    New team members can create accurate jobs without memorizing pricing
+    
+    Templates guide them through standard services
+  </Card>
+</CardGroup>
+
+---
+
+## Common Template Use Cases
+
+<AccordionGroup>
+  <Accordion title="Service Packages">
+    Standard services you offer frequently.
+    
+    **Examples:**
+    - AC Tune-Up
+    - Drain Cleaning
+    - Water Heater Installation
+    - Pool Opening/Closing
+    - Gutter Cleaning
+  </Accordion>
+  
+  <Accordion title="Inspection Templates">
+    Inspections with specific checklists.
+    
+    **Examples:**
+    - Annual Fire Safety Inspection
+    - HVAC System Inspection
+    - Electrical Safety Audit
+  </Accordion>
+  
+  <Accordion title="Maintenance Contracts">
+    Recurring maintenance with standard scope.
+    
+    **Examples:**
+    - Quarterly HVAC Maintenance
+    - Monthly Pool Service
+    - Bi-Weekly Lawn Care
+  </Accordion>
+  
+  <Accordion title="Emergency Services">
+    Common emergency calls with standard fees.
+    
+    **Examples:**
+    - Emergency Plumbing Call
+    - Emergency Electrical Call
+    - After-Hours HVAC Service
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Creating a Template
+
+You can create templates in two ways:
+
+<Tabs>
+  <Tab title="From Scratch">
+    Build a template from the ground up.
+    
+    <Steps>
+      <Step title="Go to Templates">
+        Navigate to **Settings → Jobs → Templates** (or **Jobs → ⋮ More → Templates**).
+      </Step>
+      
+      <Step title="Click + New Template">
+        Click **+ New Template**.
+      </Step>
+      
+      <Step title="Fill in Template Details">
+        See [Template Fields](#template-fields) below.
+      </Step>
+      
+      <Step title="Save">
+        Click **Save Template**.
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="From Existing Job">
+    Turn a completed job into a template.
+    
+    <Steps>
+      <Step title="Open the Job">
+        Go to the job detail page.
+      </Step>
+      
+      <Step title="Click Save as Template">
+        Click **⋮ More** → **Save as Template**.
+      </Step>
+      
+      <Step title="Review Pre-Filled Data">
+        All job details (items, forms, etc.) are pre-filled.
+        
+        Edit if needed.
+      </Step>
+      
+      <Step title="Name the Template">
+        Give it a clear name (e.g., "AC Tune-Up - Residential").
+      </Step>
+      
+      <Step title="Save">
+        Click **Save Template**.
+      </Step>
+    </Steps>
+    
+    <Tip>
+      **Pro tip:** This is the fastest way to create templates. Use a real job you've completed as the starting point.
+    </Tip>
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: save-as-template-button.png — Button in job detail page -->
+
+---
+
+## Template Fields
+
+### Basic Information
+
+<AccordionGroup>
+  <Accordion title="Template Name (Required)">
+    A clear, descriptive name.
+    
+    **Good examples:**
+    - ✅ "AC Tune-Up - Residential"
+    - ✅ "Water Heater Installation - 50 Gallon"
+    - ✅ "Emergency Plumbing Call"
+    
+    **Bad examples:**
+    - ❌ "Template 1"
+    - ❌ "HVAC"
+    - ❌ "Job Template"
+  </Accordion>
+  
+  <Accordion title="Template Description (Optional)">
+    Internal notes about when to use this template.
+    
+    **Example:** "Use for standard residential AC tune-up. Includes filter replacement, coil cleaning, and refrigerant check."
+  </Accordion>
+  
+  <Accordion title="Category (Optional)">
+    Organize templates by category:
+    - HVAC
+    - Plumbing
+    - Electrical
+    - Landscaping
+    - etc.
+    
+    **Use case:** Filter templates by category when creating a job.
+  </Accordion>
+  
+  <Accordion title="Job Type">
+    **One-Time** or **Recurring**
+    
+    If recurring, set default recurrence pattern.
+    
+    **Example:** "Monthly Pool Service" template defaults to monthly recurrence.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: template-basic-info.png — Template creation form showing name, description, category -->
+
+---
+
+### Default Job Fields
+
+These fields pre-populate when you create a job from the template:
+
+<AccordionGroup>
+  <Accordion title="Job Description">
+    Default description for jobs created from this template.
+    
+    **Example (AC Tune-Up):**
+    ```
+    Annual AC tune-up including:
+    - Filter replacement
+    - Coil cleaning
+    - Refrigerant level check
+    - Thermostat calibration
+    - System performance test
+    ```
+    
+    **Note:** Users can edit this when creating the job.
+  </Accordion>
+  
+  <Accordion title="Default Priority">
+    **Low**, **Medium**, **High**, or **Urgent**
+    
+    **Example:** "Emergency Plumbing Call" template defaults to **Urgent**.
+  </Accordion>
+  
+  <Accordion title="Default Tags">
+    Tags that are automatically added to jobs created from this template.
+    
+    **Example:** "AC Tune-Up" template adds tags: "HVAC", "Maintenance"
+  </Accordion>
+  
+  <Accordion title="Estimated Duration">
+    How long this job typically takes (in hours).
+    
+    **Example:** "AC Tune-Up" = 2 hours
+    
+    **Use case:** When scheduling a visit, FieldCamp pre-fills duration.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Template Items
+
+Pre-configured products and services that are added to jobs.
+
+**How to add items:**
+
+<Steps>
+  <Step title="Click + Add Item">
+    In the template editor, click **+ Add Item**.
+  </Step>
+  
+  <Step title="Select from Catalog">
+    Choose products/services from your catalog.
+  </Step>
+  
+  <Step title="Set Quantity & Price">
+    Set default quantity and price.
+    
+    **Note:** Users can adjust when creating the job.
+  </Step>
+  
+  <Step title="Add More Items">
+    Repeat for all items in the service.
+  </Step>
+</Steps>
+
+**Example (AC Tune-Up Template):**
+
+| Item | Quantity | Unit Price | Total |
+|------|----------|------------|-------|
+| AC Filter - Standard | 1 | $25.00 | $25.00 |
+| Coil Cleaning Solution | 1 | $15.00 | $15.00 |
+| Labor - HVAC Tech | 2 hours | $120.00 | $240.00 |
+| **Total** | | | **$280.00** |
+
+<!-- Screenshot: template-items-section.png — Template items table -->
+
+<Tip>
+  **Pro tip:** Include all items you typically need, even small ones. It's easier to remove an item than to remember to add it every time.
+</Tip>
+
+---
+
+### Forms & Checklists
+
+Attach forms that techs should complete when working on jobs from this template.
+
+**How to attach forms:**
+
+<Steps>
+  <Step title="Click + Attach Form">
+    In the template editor, click **+ Attach Form**.
+  </Step>
+  
+  <Step title="Select Form Template">
+    Choose from your form library.
+    
+    **Example:** "HVAC Inspection Checklist"
+  </Step>
+  
+  <Step title="Set as Required (Optional)">
+    If checked, techs must complete the form before marking job complete.
+  </Step>
+</Steps>
+
+**Example (AC Tune-Up Template):**
+- **Form:** "AC Tune-Up Checklist" (required)
+  - Filter condition
+  - Coil cleanliness
+  - Refrigerant level
+  - Thermostat reading
+  - System noise level
+  - Customer signature
+
+<Info>
+  Learn more: [Job Forms & Checklists](/features/jobs/forms/overview)
+</Info>
+
+<!-- Screenshot: template-forms-section.png — Attached forms with checkboxes -->
+
+---
+
+### Skills & Equipment
+
+Specify what skills and equipment are needed for jobs created from this template.
+
+<AccordionGroup>
+  <Accordion title="Required Skills">
+    **Example (AC Tune-Up):**
+    - HVAC Certification (required)
+    - EPA 608 Certification (required)
+    
+    **Use case:** FieldCamp filters techs by skills when assigning or dispatching.
+  </Accordion>
+  
+  <Accordion title="Required Equipment">
+    **Example (AC Tune-Up):**
+    - Refrigerant Gauge Set
+    - Coil Cleaning Kit
+    - Ladder (15-foot)
+    
+    **Use case:** Techs see this in mobile app and know what to bring.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: template-skills-equipment.png — Skills and equipment selectors -->
+
+---
+
+### Template Settings
+
+<AccordionGroup>
+  <Accordion title="Active / Inactive">
+    **Active:** Template appears in template picker
+    
+    **Inactive:** Template is hidden (useful for seasonal templates or deprecated services)
+    
+    **Use case:** Deactivate "Pool Opening" template in winter.
+  </Accordion>
+  
+  <Accordion title="Visibility">
+    **All users:** Everyone can use this template
+    
+    **Specific roles:** Only certain roles can use (e.g., Manager+ only)
+    
+    **Use case:** Restrict high-value templates to managers.
+  </Accordion>
+  
+  <Accordion title="Default Client (Optional)">
+    Some templates are for internal work only (e.g., "Office Maintenance").
+    
+    Set a default client (e.g., "House Account").
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Using a Template
+
+**How to create a job from a template:**
+
+<Steps>
+  <Step title="Click + New Job">
+    From the Jobs page or dashboard.
+  </Step>
+  
+  <Step title="Click Use Template">
+    At the top of the create job modal, click **Use Template**.
+  </Step>
+  
+  <Step title="Select Template">
+    Browse templates by category or search by name.
+    
+    Click the template you want.
+  </Step>
+  
+  <Step title="Review Pre-Filled Data">
+    All fields are pre-filled from the template:
+    - Description
+    - Items
+    - Forms
+    - Skills & equipment
+    - Tags
+  </Step>
+  
+  <Step title="Customize (Optional)">
+    Edit any field as needed:
+    - Change quantities
+    - Adjust prices
+    - Add/remove items
+    - Change description
+  </Step>
+  
+  <Step title="Select Client">
+    Choose the client (this is the only required field not pre-filled).
+  </Step>
+  
+  <Step title="Create Job">
+    Click **Create Job**.
+  </Step>
+</Steps>
+
+<!-- Screenshot: template-picker-modal.png — Template selection modal with categories -->
+
+<Tip>
+  **Pro tip:** Templates save you 30–90 seconds per job. If you create 50 jobs per week, that's 25–75 minutes saved every week.
+</Tip>
+
+---
+
+## Template Library
+
+FieldCamp provides a **built-in template library** with pre-made templates for common services.
+
+**Categories:**
+- HVAC (AC tune-up, furnace inspection, duct cleaning)
+- Plumbing (drain cleaning, water heater install, leak repair)
+- Electrical (outlet repair, panel upgrade, lighting install)
+- Landscaping (lawn mowing, tree trimming, spring cleanup)
+- Cleaning (office cleaning, deep clean, move-out clean)
+- General Contractor (bathroom remodel, deck build, painting)
+
+**How to access:**
+
+<Steps>
+  <Step title="Go to Templates">
+    Navigate to **Settings → Jobs → Templates**.
+  </Step>
+  
+  <Step title="Click Browse Library">
+    Click **Browse Template Library**.
+  </Step>
+  
+  <Step title="Filter by Industry">
+    Select your industry (HVAC, Plumbing, etc.).
+  </Step>
+  
+  <Step title="Preview Templates">
+    Click any template to see what's included.
+  </Step>
+  
+  <Step title="Add to Your Account">
+    Click **Add to My Templates**. The template is now yours to use and customize.
+  </Step>
+</Steps>
+
+<!-- Screenshot: template-library.png — Library browser with industry filters -->
+
+<Tip>
+  **Pro tip:** Start with library templates and customize them for your business. It's faster than building from scratch.
+</Tip>
+
+---
+
+## Organizing Templates
+
+### Template Categories
+
+Create categories to organize your templates:
+
+**Examples:**
+- HVAC
+- Plumbing
+- Electrical
+- Landscaping
+- Maintenance Contracts
+- Emergency Services
+
+**How to create categories:**
+1. Go to **Settings → Jobs → Template Categories**
+2. Click **+ New Category**
+3. Name it
+4. Save
+
+**Result:** Templates can be filtered by category in the picker.
+
+<!-- Screenshot: template-categories.png — Category selector with multiple options -->
+
+---
+
+### Favoriting Templates
+
+Mark frequently-used templates as **favorites** for quick access.
+
+**How to favorite:**
+1. Open template
+2. Click **⭐ Favorite** (or star icon)
+3. Save
+
+**Result:** Favorited templates appear at the top of the template picker.
+
+---
+
+### Searching Templates
+
+**Search by:**
+- Template name
+- Description
+- Items (e.g., search "water heater" to find all templates with water heaters)
+- Tags
+
+<!-- Screenshot: template-search.png — Search bar with autocomplete -->
+
+---
+
+## Editing Templates
+
+**How to edit:**
+
+<Steps>
+  <Step title="Go to Templates">
+    Navigate to **Settings → Jobs → Templates**.
+  </Step>
+  
+  <Step title="Find Template">
+    Search or filter to find the template you want to edit.
+  </Step>
+  
+  <Step title="Click Edit">
+    Click **⋮** → **Edit**.
+  </Step>
+  
+  <Step title="Make Changes">
+    Update any field (name, description, items, forms, etc.).
+  </Step>
+  
+  <Step title="Save">
+    Click **Save Template**.
+  </Step>
+</Steps>
+
+<Warning>
+  **Note:** Editing a template does **not** update existing jobs created from that template. It only affects future jobs.
+</Warning>
+
+---
+
+## Duplicating Templates
+
+Copy a template to create a variation.
+
+**Example:**
+- Original: "AC Tune-Up - Residential"
+- Duplicate: "AC Tune-Up - Commercial" (higher pricing, more labor)
+
+**How to duplicate:**
+
+<Steps>
+  <Step title="Open Template">
+    Find the template you want to duplicate.
+  </Step>
+  
+  <Step title="Click Duplicate">
+    Click **⋮** → **Duplicate**.
+  </Step>
+  
+  <Step title="Rename">
+    Give the duplicate a new name.
+  </Step>
+  
+  <Step title="Edit">
+    Make changes to the duplicated template.
+  </Step>
+  
+  <Step title="Save">
+    Click **Save Template**.
+  </Step>
+</Steps>
+
+---
+
+## Sharing Templates
+
+Share templates across your organization:
+
+<Tabs>
+  <Tab title="Public (All Users)">
+    All team members can see and use the template.
+    
+    **Default setting.**
+  </Tab>
+  
+  <Tab title="Private (Creator Only)">
+    Only you can see and use the template.
+    
+    **Use case:** Personal templates for your specific workflow.
+  </Tab>
+  
+  <Tab title="Role-Based">
+    Only specific roles can see/use the template.
+    
+    **Example:** "High-Value Project Template" (Manager+ only)
+    
+    **How to set:**
+    1. Edit template
+    2. Go to **Visibility** settings
+    3. Select roles
+    4. Save
+  </Tab>
+</Tabs>
+
+---
+
+## Deactivating Templates
+
+Hide templates without deleting them.
+
+**When to deactivate:**
+- Seasonal services (pool templates in winter)
+- Deprecated services (old pricing, discontinued products)
+- Test templates
+
+**How to deactivate:**
+
+<Steps>
+  <Step title="Open Template">
+    Find the template.
+  </Step>
+  
+  <Step title="Click Deactivate">
+    Click **⋮** → **Deactivate**.
+  </Step>
+  
+  <Step title="Confirm">
+    Confirm deactivation.
+  </Step>
+</Steps>
+
+**Result:** Template is hidden from template picker but remains in your account.
+
+**How to reactivate:**
+1. Go to **Settings → Jobs → Templates**
+2. Filter by **Inactive**
+3. Click **⋮** → **Activate**
+
+---
+
+## Deleting Templates
+
+Permanently remove a template.
+
+<Warning>
+  **Deleting is permanent.** Deleted templates cannot be restored (contact support within 30 days if needed).
+</Warning>
+
+**How to delete:**
+
+<Steps>
+  <Step title="Open Template">
+    Find the template you want to delete.
+  </Step>
+  
+  <Step title="Click Delete">
+    Click **⋮** → **Delete**.
+  </Step>
+  
+  <Step title="Confirm">
+    Type "DELETE" to confirm.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Instead of deleting, consider deactivating. You can always reactivate later.
+</Tip>
+
+---
+
+## Template Analytics
+
+Track template usage:
+
+<CardGroup cols={3}>
+  <Card title="Usage Count" icon="chart-line">
+    How many jobs created from each template
+  </Card>
+  
+  <Card title="Average Value" icon="dollar-sign">
+    Average job value for jobs from this template
+  </Card>
+  
+  <Card title="Total Revenue" icon="chart-bar">
+    Total revenue from jobs created with this template
+  </Card>
+  
+  <Card title="Completion Rate" icon="check">
+    Percentage of jobs from this template that are completed
+  </Card>
+  
+  <Card title="Most Popular" icon="star">
+    Which templates are used most often
+  </Card>
+  
+  <Card title="Least Popular" icon="ban">
+    Which templates are rarely used (candidates for deletion)
+  </Card>
+</CardGroup>
+
+**How to view:**
+1. Go to **Settings → Jobs → Templates**
+2. Click **Analytics** tab
+3. View report
+
+<!-- Screenshot: template-analytics.png — Analytics dashboard showing usage stats -->
+
+<Info>
+  Build custom reports in [Analytics](/features/analytics/overview).
+</Info>
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Create templates for your top 10 services">
+    Start with your most common jobs. If you do 20 AC tune-ups per month, that template saves you hours.
+  </Accordion>
+  
+  <Accordion title="Include ALL items in templates">
+    Don't forget labor, small parts, or fees. Templates should be complete.
+  </Accordion>
+  
+  <Accordion title="Use clear, specific names">
+    ✅ "AC Tune-Up - Residential"
+    
+    ❌ "HVAC Template 1"
+  </Accordion>
+  
+  <Accordion title="Attach forms to templates">
+    If you always use a checklist for a service, attach it to the template so you never forget.
+  </Accordion>
+  
+  <Accordion title="Review and update templates quarterly">
+    Prices change, services evolve. Keep templates current.
+  </Accordion>
+  
+  <Accordion title="Train new team members on templates">
+    Show them how to use templates. It ensures consistency.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't create too many templates">
+    If you have 100 templates, no one will use them. Focus on the most common 10–20 services.
+  </Accordion>
+  
+  <Accordion title="Don't forget to update prices">
+    If you raise your labor rate, update all templates that include labor.
+  </Accordion>
+  
+  <Accordion title="Don't delete templates impulsively">
+    Deactivate instead. You might need them later.
+  </Accordion>
+  
+  <Accordion title="Don't make templates too rigid">
+    Templates are starting points, not laws. Users should be able to customize.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+### Template isn't showing in picker
+
+**Possible causes:**
+1. **Template is inactive** — Activate it from Settings → Templates
+2. **Role restriction** — You may not have permission to use this template
+3. **Category mismatch** — Check that you're viewing the correct category
+
+---
+
+### Items in template have wrong prices
+
+**Solution:** Edit the template and update item prices. Future jobs will use new prices. Existing jobs are unaffected.
+
+---
+
+### I accidentally deleted a template
+
+**Solution:** Contact support within 30 days. Deleted templates can be restored.
+
+---
+
+### Template items aren't in my catalog anymore
+
+**Solution:** If you delete an item from your catalog, it remains in templates (as a "ghost" item). Edit the template and remove or replace the item.
+
+---
+
+## API: Use Templates
+
+Create a job from a template via the API:
+
+```bash
+curl -X POST "https://app.fieldcamp.ai/api/v1/jobs/from-template" \
+  -H "X-Api-Key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "templateId": "507f1f77bcf86cd799439050",
+    "clientId": "507f1f77bcf86cd799439011"
+  }'
+```
+
+```json
+// Response
+{
+  "success": true,
+  "data": {
+    "id": "507f1f77bcf86cd799439012",
+    "jobNumber": "JOB-1234",
+    "clientId": "507f1f77bcf86cd799439011",
+    "description": "Annual AC tune-up including filter replacement, coil cleaning, refrigerant check, thermostat calibration, and system performance test.",
+    "items": [
+      {
+        "name": "AC Filter - Standard",
+        "quantity": 1,
+        "unitPrice": 25.00
+      },
+      {
+        "name": "Labor - HVAC Tech",
+        "quantity": 2,
+        "unitPrice": 120.00
+      }
+    ],
+    "total": 290.00,
+    "createdAt": "2026-02-26T19:00:00Z"
+  }
+}
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Creating Jobs" icon="plus" href="/features/jobs/creating-jobs">
+    Learn how to create jobs (with and without templates)
+  </Card>
+  
+  <Card title="Job Items & Pricing" icon="dollar-sign" href="/features/jobs/job-items">
+    Master items, pricing, and discounts
+  </Card>
+  
+  <Card title="Job Forms" icon="clipboard-list" href="/features/jobs/forms/overview">
+    Create checklists and forms for templates
+  </Card>
+  
+  <Card title="Products & Services" icon="box" href="/features/product-service/overview">
+    Build your product catalog (needed for templates)
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Jobs Overview](/features/jobs/overview) — Understand the basics
+- [Creating Jobs](/features/jobs/creating-jobs) — How to create jobs
+- [Job Types](/features/jobs/job-types) — One-time vs recurring jobs
+- [Job Items & Pricing](/features/jobs/job-items) — Add products and services
+
+---
+
+<Check>
+  **You now know:** What job templates are, how to create them (from scratch and from existing jobs), template fields, using templates to create jobs, organizing and managing templates, sharing, analytics, and best practices.
+</Check>

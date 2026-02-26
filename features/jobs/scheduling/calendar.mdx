@@ -1,0 +1,809 @@
+---
+title: 'Calendar & Scheduling'
+description: 'Manage team schedules, drag-and-drop visit scheduling, and calendar integrations'
+icon: 'calendar-days'
+---
+
+## Overview
+
+The FieldCamp calendar is your command center for scheduling and managing visits across your entire team. With multiple views, drag-and-drop rescheduling, real-time conflict detection, and bidirectional sync with Google Calendar and Outlook, you can efficiently schedule jobs, balance workloads, and keep everyone on the same page.
+
+<Info>
+**Calendar vs Jobs vs Visits:** The calendar displays **visits** (scheduled appointments), not jobs. A single job can have multiple visits. See [Visit Overview](/features/jobs/visits/overview) for the distinction.
+</Info>
+
+---
+
+## Calendar Views
+
+FieldCamp offers four calendar views to match different workflows:
+
+### Day View
+
+The day view shows hour-by-hour schedules for your team with a vertical timeline.
+
+**Best for:**
+- Dispatcher managing same-day schedules
+- Viewing detailed time slots and conflicts
+- Drag-and-drop rescheduling within a single day
+
+**Features:**
+- 15-minute time slot resolution
+- Multiple tech columns side-by-side
+- Color-coded visits by tech or job type
+- Overlapping visit detection (visual warning)
+- Current time indicator (red line)
+
+<Frame>
+  <img src="/images/screenshots/calendar-day-view.png" alt="Calendar day view with multiple techs" />
+</Frame>
+
+**Keyboard shortcuts:**
+- `←` / `→` - Previous/Next day
+- `T` - Jump to Today
+- Click time slot → Create visit
+- Click visit block → View details
+
+---
+
+### Week View
+
+The week view displays Monday–Sunday schedules with each tech in a separate column.
+
+**Best for:**
+- Weekly planning and workload balancing
+- Identifying open slots for new visits
+- Comparing tech schedules at a glance
+
+**Features:**
+- 7-day grid (Mon–Sun)
+- Condensed time slots (30-minute resolution)
+- Visit duration indicated by block height
+- Drag visits between techs or days
+- Collapse/expand individual tech columns
+
+<Frame>
+  <img src="/images/screenshots/calendar-week-view.png" alt="Calendar week view with team schedules" />
+</Frame>
+
+<Tip>
+**Pro tip:** Hold `Shift` while dragging a visit to copy it instead of moving it—useful for recurring visits.
+</Tip>
+
+---
+
+### Month View
+
+The month view provides a high-level overview of scheduled visits across the entire month.
+
+**Best for:**
+- Long-term planning (maintenance contracts, recurring visits)
+- Identifying busy weeks and scheduling gaps
+- Seasonal workload visualization
+
+**Features:**
+- Full month grid (Sun–Sat or Mon–Sun)
+- Visit count per day (condensed view)
+- Color-coded dots by tech or job type
+- Click day → Expand to day view
+- Multi-select days for bulk scheduling
+
+<Frame>
+  <img src="/images/screenshots/calendar-month-view.png" alt="Calendar month view" />
+</Frame>
+
+<Warning>
+Month view does not show individual visit details. Click a day to drill down into day or week view.
+</Warning>
+
+---
+
+### Agenda View (List)
+
+The agenda view displays visits as a scrollable list, sorted chronologically.
+
+**Best for:**
+- Mobile users (responsive, touch-friendly)
+- Printing schedules (printer-optimized layout)
+- Searching and filtering by multiple criteria
+
+**Features:**
+- List of visits with date, time, client, address, tech
+- Expandable rows for visit details
+- Infinite scroll (load older/newer visits)
+- Bulk selection (checkboxes)
+- Export to CSV or PDF
+
+<Frame>
+  <img src="/images/screenshots/calendar-agenda-view.png" alt="Calendar agenda list view" />
+</Frame>
+
+---
+
+## Calendar Display Options
+
+### Color Coding
+
+Choose how visits are color-coded for visual clarity:
+
+| Color Scheme | Best For |
+|--------------|----------|
+| **By Tech** (default) | Quickly identify each tech's visits |
+| **By Job Type** | Distinguish service calls, inspections, installations |
+| **By Status** | Track visit progress (Scheduled, In Progress, Completed) |
+| **By Priority** | Highlight urgent jobs |
+| **By Client** | Useful for large commercial accounts |
+
+**To change color scheme:**
+1. Click **View Settings** (gear icon) in calendar toolbar
+2. Select **Color by:** dropdown
+3. Choose color scheme
+4. Click **Save**
+
+<Frame>
+  <img src="/images/screenshots/calendar-color-options.png" alt="Calendar color coding options" />
+</Frame>
+
+---
+
+### Visit Time Blocks
+
+Each visit appears as a time block in the calendar grid. The block displays:
+
+- **Client name** (or job description if no client)
+- **Start time** and duration (e.g., "10:00 AM • 2h")
+- **Address** (truncated)
+- **Visit status icon** (Scheduled 📅, In Transit 🚗, In Progress 🔧, Completed ✅)
+- **Priority badge** (if urgent)
+- **Color bar** (left edge, tech/status/type)
+
+**Block sizing:**
+- Height = Visit duration (taller blocks = longer visits)
+- Width = Full column width (desktop) or stacked (mobile)
+
+<Tip>
+Hover over a visit block to see a tooltip with full details (client phone, job #, assigned tech, notes).
+</Tip>
+
+---
+
+### Drag-and-Drop Rescheduling
+
+Reschedule visits instantly by dragging them to a new time or assigning them to a different tech.
+
+**How to reschedule:**
+1. Click and hold a visit block
+2. Drag to new time slot or tech column
+3. Release to update
+
+**What updates automatically:**
+- Visit start time
+- Visit assigned tech (if dragged to different column)
+- Customer notification (optional, confirm in modal)
+- Tech notification (via mobile app)
+
+**Drag constraints:**
+- ✅ Can drag to any available time slot
+- ⚠️ Warning if overlapping with another visit (conflict)
+- ❌ Blocked if tech is unavailable (time off, out of hours)
+
+<Frame>
+  <img src="/images/screenshots/calendar-drag-drop.png" alt="Drag-and-drop rescheduling" />
+</Frame>
+
+<Warning>
+Dragging a visit does **not** update the job status. If the job is "Draft," it remains "Draft" even after scheduling a visit.
+</Warning>
+
+---
+
+### Overlapping Visits (Conflict Detection)
+
+FieldCamp automatically detects scheduling conflicts and displays visual warnings.
+
+**Conflict types:**
+- **Double-booking:** Tech has two visits at the same time
+- **Insufficient travel time:** Visit scheduled before tech can realistically arrive
+- **Overtime:** Visit extends beyond tech's working hours
+- **Skill mismatch:** Tech assigned to visit lacks required skills
+
+**Conflict indicators:**
+- 🔴 Red border around overlapping visits
+- ⚠️ Warning icon on visit block
+- Tooltip: "Conflict: Tech has another visit at this time"
+
+**Resolving conflicts:**
+1. Click conflicting visit → View conflict details
+2. Options:
+   - Reassign to different tech (AI Dispatcher recommends alternatives)
+   - Reschedule to different time
+   - Override conflict (if intentional, e.g., team visit)
+
+<Info>
+Conflicts are warnings, not blockers. You can still save overlapping visits if needed (e.g., emergency jobs).
+</Info>
+
+---
+
+## Creating Visits from Calendar
+
+The fastest way to schedule a visit is directly from the calendar.
+
+### Quick Create (Click Time Slot)
+
+1. Click any empty time slot in the calendar
+2. **Quick Create modal** appears:
+   - Pre-filled: Date, Time, Tech (from column)
+   - Select: Job (search by client or job #)
+   - Set: Duration (default 1 hour)
+   - Optional: Visit notes
+3. Click **Schedule Visit**
+
+<Frame>
+  <img src="/images/screenshots/calendar-quick-create.png" alt="Quick create visit from calendar" />
+</Frame>
+
+<Tip>
+**Keyboard shortcut:** Press `N` to open quick create modal on the currently selected date/time.
+</Tip>
+
+---
+
+### Full Visit Creation
+
+For more detailed visit setup (forms, equipment, recurring), use the full visit creation form:
+
+1. Click **+ New Visit** button (top-right)
+2. Fill in all visit fields:
+   - Job selection (required)
+   - Date, Start time, Duration
+   - Assigned tech(s) (single or team visit)
+   - Visit type (Service, Inspection, Installation, etc.)
+   - Visit notes (internal and customer-facing)
+   - Forms/checklists to complete
+   - Equipment required
+   - Arrival window (e.g., "10 AM – 12 PM")
+3. Optional: Send customer confirmation (email/SMS)
+4. Click **Create Visit**
+
+See [Creating Visits](/features/jobs/visits/creating-visits) for full details.
+
+---
+
+### Drag Job to Calendar
+
+If you have a list of unscheduled jobs, drag them directly onto the calendar to schedule a visit.
+
+**Steps:**
+1. Open **Unscheduled Jobs** panel (right sidebar)
+2. Drag a job onto a time slot in the calendar
+3. Visit is created with job's default duration and assigned tech
+
+<Frame>
+  <img src="/images/screenshots/calendar-drag-job.png" alt="Drag job onto calendar to schedule" />
+</Frame>
+
+<Info>
+This feature is available in the **Dispatch View** (Calendar + Unscheduled Jobs sidebar).
+</Info>
+
+---
+
+## Viewing Visit Details
+
+Click any visit block to open the **Visit Detail Popup** without leaving the calendar view.
+
+**Popup sections:**
+- **Client Info:** Name, phone, address (with directions link)
+- **Job Info:** Job #, description, status, priority
+- **Visit Info:** Date, time, duration, status, assigned tech
+- **Visit Notes:** Internal and customer-facing notes
+- **Quick Actions:**
+  - Start Visit (mobile GPS tracking)
+  - Complete Visit
+  - Reschedule
+  - Cancel Visit
+  - View Full Job Details
+
+<Frame>
+  <img src="/images/screenshots/calendar-visit-popup.png" alt="Visit detail popup in calendar" />
+</Frame>
+
+**Editing visits:**
+- Click **Edit Visit** (pencil icon) → Opens full edit modal
+- Or drag visit to reschedule
+- Or click **Cancel Visit** → Mark as cancelled with reason
+
+<Warning>
+Completing a visit from the calendar does **not** log time or add photos. Use the [Mobile App](/features/mobile) for full visit logging.
+</Warning>
+
+---
+
+## Filtering the Calendar
+
+Filter the calendar to focus on specific techs, job types, clients, or statuses.
+
+### Filter Panel
+
+Open the filter panel (click **Filters** button) to configure:
+
+| Filter | Options |
+|--------|---------|
+| **Techs** | Select one or more techs (or "All Techs") |
+| **Job Type** | Service, Installation, Inspection, Maintenance, etc. |
+| **Status** | Scheduled, In Transit, In Progress, Completed |
+| **Priority** | Low, Medium, High, Urgent |
+| **Client** | Search for specific client |
+| **Date Range** | Today, This Week, This Month, Custom Range |
+| **Tags** | Filter by job tags (e.g., "Warranty," "Emergency") |
+
+<Frame>
+  <img src="/images/screenshots/calendar-filter-panel.png" alt="Calendar filter panel" />
+</Frame>
+
+---
+
+### Quick Filters
+
+Quickly filter by clicking badges in the toolbar:
+
+- **My Visits Only** - Show only visits assigned to you
+- **Unassigned** - Show visits without a tech
+- **Urgent** - Show only high-priority visits
+- **Today** - Reset calendar to today's date
+
+---
+
+### Saved Views
+
+Save custom filter combinations for quick access.
+
+**To create a saved view:**
+1. Configure filters (techs, date range, status, etc.)
+2. Click **Save View** button
+3. Name your view (e.g., "Week Ahead - All Techs")
+4. Click **Save**
+
+**Saved views appear in dropdown:**
+- "Week Ahead - All Techs"
+- "Today - My Visits Only"
+- "Urgent Jobs - Unassigned"
+
+<Tip>
+Saved views sync across devices. Create views on desktop, access them on mobile.
+</Tip>
+
+---
+
+## Calendar Integrations
+
+Sync FieldCamp visits with external calendars for seamless scheduling.
+
+### Google Calendar Integration
+
+Bidirectional sync between FieldCamp and Google Calendar.
+
+**Setup:**
+1. Go to **Settings → Integrations → Calendar**
+2. Click **Connect Google Calendar**
+3. Authorize FieldCamp to access your calendar
+4. Select which Google Calendar to sync to (default: "FieldCamp Visits")
+5. Choose sync direction:
+   - **FieldCamp → Google** (one-way: FieldCamp visits appear in Google Calendar)
+   - **Bidirectional** (recommended: changes in either calendar update the other)
+6. Click **Save**
+
+**What syncs:**
+- ✅ Visit date, time, duration
+- ✅ Client name, address
+- ✅ Job description
+- ✅ Assigned tech
+- ✅ Visit status (Scheduled, In Progress, Completed)
+- ❌ Visit forms, photos, logs (FieldCamp-only data)
+
+<Frame>
+  <img src="/images/screenshots/calendar-google-sync.png" alt="Google Calendar integration settings" />
+</Frame>
+
+**Conflict resolution:**
+- If visit edited in FieldCamp → Google Calendar updated
+- If visit edited in Google Calendar → FieldCamp updated (with 5-minute delay)
+- If both changed simultaneously → FieldCamp change takes precedence
+
+<Warning>
+Deleting a visit in Google Calendar does **not** delete it in FieldCamp. It only removes the sync link. To delete a visit, do so in FieldCamp.
+</Warning>
+
+---
+
+### Outlook / Microsoft 365 Integration
+
+Similar setup to Google Calendar:
+
+1. **Settings → Integrations → Calendar**
+2. Click **Connect Outlook**
+3. Sign in with Microsoft 365 account
+4. Select calendar (default: "FieldCamp")
+5. Choose sync direction (one-way or bidirectional)
+6. Click **Save**
+
+**Sync behavior identical to Google Calendar.**
+
+---
+
+### iCal Export
+
+Export your FieldCamp schedule as an iCal (.ics) file for import into other calendar apps.
+
+**To export:**
+1. Open calendar view
+2. Click **Export** (download icon)
+3. Select date range (This Week, This Month, Custom)
+4. Select techs to include (or "All Techs")
+5. Click **Download iCal**
+6. Import `.ics` file into Apple Calendar, Outlook, Thunderbird, etc.
+
+<Info>
+iCal export is one-way and static (no live sync). Changes in FieldCamp do not update the exported file.
+</Info>
+
+---
+
+### Webcal Subscription
+
+Subscribe to a live calendar feed (webcal:// URL) that updates automatically.
+
+**To generate webcal URL:**
+1. **Settings → Integrations → Calendar → Webcal Subscription**
+2. Select techs to include (or "All Techs")
+3. Copy **Webcal URL** (e.g., `webcal://fieldcamp.ai/calendar/feed?key=abc123`)
+4. Paste into calendar app:
+   - **Apple Calendar:** File → New Calendar Subscription
+   - **Google Calendar:** Add calendar → From URL
+   - **Outlook:** Add calendar → Subscribe from web
+
+**Webcal behavior:**
+- Calendar app checks for updates every 1–24 hours (app-dependent)
+- New visits appear automatically
+- Cancelled visits disappear
+- Read-only (cannot edit in external calendar)
+
+<Tip>
+Use Webcal if you want a live feed but don't need bidirectional sync.
+</Tip>
+
+---
+
+## Team Calendar vs Individual Calendar
+
+FieldCamp offers two calendar modes:
+
+### Team Calendar (Dispatch View)
+
+Shows all techs side-by-side for centralized scheduling.
+
+**Best for:**
+- Dispatchers managing multiple techs
+- Office staff scheduling visits
+- Balancing workload across team
+
+**Features:**
+- All techs visible in columns
+- Drag visits between techs
+- Unscheduled jobs sidebar
+- AI Dispatcher recommendations
+
+**To open Team Calendar:**
+- Click **Calendar** in main navigation
+- Default view for Admin and Dispatcher roles
+
+---
+
+### Individual Tech Calendar (My Schedule)
+
+Shows only visits assigned to the logged-in tech.
+
+**Best for:**
+- Field techs viewing their own schedule
+- Mobile app (primary view)
+- Focused, distraction-free schedule
+
+**Features:**
+- Single-column calendar (your visits only)
+- GPS-based "Start Visit" button
+- Time tracking integration
+- Visit completion checklist
+
+**To open My Schedule:**
+- Click **My Schedule** in main navigation
+- Or click your profile icon → **My Calendar**
+
+<Info>
+Mobile app always shows **My Schedule** (individual tech view). Desktop allows switching between Team and Individual views.
+</Info>
+
+---
+
+## Calendar Permissions
+
+Control who can view and edit the calendar.
+
+| Role | Permissions |
+|------|-------------|
+| **Admin** | Full access: view all visits, edit, delete, assign |
+| **Dispatcher** | View all visits, edit, assign, reschedule |
+| **Tech** | View own visits, mark as started/completed |
+| **Sales Rep** | View visits for assigned clients only |
+| **Read-Only User** | View visits, cannot edit |
+
+**Custom permissions:**
+- **Settings → Roles & Permissions → Calendar**
+- Toggle: "Can view all visits" (default: techs see only their own)
+- Toggle: "Can edit visits" (default: admins, dispatchers)
+- Toggle: "Can delete visits" (default: admins only)
+
+---
+
+## Calendar Printing
+
+Print schedules for techs without mobile devices or for office reference.
+
+**To print:**
+1. Set calendar view (day, week, month, agenda)
+2. Apply filters (tech, date range, status)
+3. Click **Print** icon (printer symbol)
+4. **Print Preview** opens:
+   - Adjust: Page orientation (portrait/landscape)
+   - Adjust: Font size (small, medium, large)
+   - Toggle: Show client phone numbers
+   - Toggle: Show visit notes
+5. Click **Print**
+
+**Print layouts:**
+- **Day view:** Hour-by-hour grid (landscape recommended)
+- **Week view:** 7-day grid (landscape, fits letter/A4)
+- **Agenda view:** List format (portrait)
+
+<Tip>
+For best results, print **Week View** in landscape mode. Agenda view works better for mobile-responsive printing.
+</Tip>
+
+---
+
+## Calendar Keyboard Shortcuts
+
+Speed up scheduling with these shortcuts:
+
+| Shortcut | Action |
+|----------|--------|
+| `N` | Create new visit |
+| `T` | Jump to Today |
+| `→` / `←` | Next/Previous day (day view) |
+| `]` / `[` | Next/Previous week (week view) |
+| `F` | Open filters panel |
+| `S` | Search visits |
+| `/` | Focus search bar |
+| `Esc` | Close open modal/popup |
+
+---
+
+## Calendar Settings
+
+Customize calendar behavior and display:
+
+**Settings → Calendar Preferences:**
+
+| Setting | Options |
+|---------|---------|
+| **Default view** | Day, Week, Month, Agenda |
+| **Week starts on** | Sunday, Monday |
+| **Working hours** | 6 AM – 6 PM (adjust range) |
+| **Time slot resolution** | 15 min, 30 min, 1 hour |
+| **Color scheme** | By Tech, By Job Type, By Status |
+| **Show weekends** | Yes, No |
+| **Timezone** | Auto-detect, Manual (UTC offset) |
+| **First day of week** | Sunday, Monday |
+
+---
+
+## Calendar API
+
+Integrate the calendar into custom apps or dashboards.
+
+**Endpoints:**
+
+```bash
+# Get visits for a date range
+GET /v1/calendar/visits?start_date=2026-02-01&end_date=2026-02-28&tech_id=123
+
+# Create visit
+POST /v1/calendar/visits
+{
+  "job_id": 456,
+  "scheduled_date": "2026-02-26",
+  "start_time": "10:00",
+  "duration_minutes": 120,
+  "assigned_tech_id": 123
+}
+
+# Update visit (reschedule)
+PUT /v1/calendar/visits/789
+{
+  "scheduled_date": "2026-02-27",
+  "start_time": "14:00"
+}
+
+# Delete visit
+DELETE /v1/calendar/visits/789
+```
+
+See [Calendar API Reference](/api-reference/calendar) for full documentation.
+
+---
+
+## Best Practices
+
+### 1. Use Week View for Daily Planning
+
+**Why:** Week view balances detail and overview, making it easy to spot gaps and reschedule.
+
+**Workflow:**
+- Start each morning in Week View
+- Review today + next 3 days
+- Identify unassigned visits (red border)
+- Drag to assign or use AI Dispatcher
+
+---
+
+### 2. Enable Google Calendar Sync for Field Techs
+
+**Why:** Techs can see their schedule in their phone's native calendar app without opening FieldCamp.
+
+**Setup:**
+- Each tech connects their personal Google Calendar
+- Visits sync automatically
+- Techs receive calendar notifications on their phone
+
+---
+
+### 3. Color-Code by Tech for Dispatch, by Status for Operations
+
+**Why:** Different views serve different purposes.
+
+- **Dispatch:** Color by tech → quickly see who is scheduled
+- **Operations:** Color by status → track visit progress (In Progress, Completed)
+
+**Switch colors:** View Settings → Color by → Select scheme
+
+---
+
+### 4. Use Saved Views for Common Workflows
+
+**Examples:**
+- "Today - All Techs" (default dispatch view)
+- "This Week - Urgent Only" (prioritize emergencies)
+- "My Schedule - Next 7 Days" (tech personal view)
+
+**Save once, access everywhere** (desktop, mobile, API).
+
+---
+
+### 5. Resolve Conflicts Immediately
+
+**Why:** Double-bookings and travel time conflicts cause delays and customer complaints.
+
+**Workflow:**
+- Check for red borders (conflict indicators) after each schedule change
+- Click conflicting visit → View AI Dispatcher recommendations
+- Reassign or reschedule immediately
+
+---
+
+### 6. Schedule Visits with Arrival Windows for Customer Flexibility
+
+**Why:** Customers prefer "10 AM – 12 PM" over exact times (reduces no-shows).
+
+**Setup:**
+- In visit creation modal, toggle **Arrival Window**
+- Set range (e.g., 2-hour window)
+- Customer receives: "Tech will arrive between 10 AM and 12 PM"
+
+---
+
+## Troubleshooting
+
+### Calendar Not Loading
+
+**Symptoms:** Blank calendar, spinner icon, "Loading..." message indefinitely.
+
+**Fixes:**
+1. Refresh page (Ctrl+R or Cmd+R)
+2. Clear browser cache: Settings → Privacy → Clear cache
+3. Check internet connection
+4. Check FieldCamp status: [status.fieldcamp.ai](https://status.fieldcamp.ai)
+5. Try different browser (Chrome, Firefox, Safari)
+
+---
+
+### Visits Not Appearing in Calendar
+
+**Possible causes:**
+- **Filters too restrictive:** Clear all filters (click **Reset Filters**)
+- **Wrong date range:** Jump to Today (press `T`)
+- **Tech filter active:** Expand to "All Techs"
+- **Visit not scheduled:** Visit exists but has no scheduled date (check Unscheduled Visits panel)
+
+---
+
+### Drag-and-Drop Not Working
+
+**Possible causes:**
+- **Permissions:** Tech role cannot drag visits (only Admins/Dispatchers)
+- **Browser compatibility:** Use Chrome, Firefox, Safari, or Edge (latest version)
+- **Visit locked:** Visit marked as "In Progress" or "Completed" (cannot reschedule)
+
+**Fix:**
+- Check role permissions: Settings → Roles → Calendar
+- Update browser to latest version
+- Unlock visit: Change status to "Scheduled" first
+
+---
+
+### Google Calendar Sync Not Working
+
+**Symptoms:** Visits not appearing in Google Calendar, or changes not syncing.
+
+**Fixes:**
+1. Check sync status: Settings → Integrations → Calendar → Google Calendar → **Sync Status**
+2. If "Disconnected," reconnect: Click **Reconnect Google Calendar**
+3. If "Sync Failed," click **Retry Sync**
+4. If still failing:
+   - Disconnect Google Calendar
+   - Revoke FieldCamp access in Google Account: [myaccount.google.com/permissions](https://myaccount.google.com/permissions)
+   - Reconnect Google Calendar in FieldCamp
+
+**Sync delay:**
+- FieldCamp → Google: Immediate (< 1 minute)
+- Google → FieldCamp: Up to 5 minutes
+
+---
+
+## Related Documentation
+
+<CardGroup cols={2}>
+  <Card title="Visit Overview" icon="calendar-check" href="/features/jobs/visits/overview">
+    Understand the difference between jobs and visits
+  </Card>
+  
+  <Card title="Creating Visits" icon="calendar-plus" href="/features/jobs/visits/creating-visits">
+    Detailed guide to scheduling visits
+  </Card>
+  
+  <Card title="Team Availability" icon="user-clock" href="/features/jobs/scheduling/team-availability">
+    Set working hours, time off, and availability
+  </Card>
+  
+  <Card title="Route Optimization" icon="route" href="/features/jobs/scheduling/route-optimization">
+    Optimize daily routes to minimize drive time
+  </Card>
+  
+  <Card title="AI Dispatcher" icon="robot" href="/features/jobs/ai-dispatcher">
+    Let AI recommend the best tech for each visit
+  </Card>
+  
+  <Card title="Mobile App Workflows" icon="mobile" href="/features/mobile">
+    Complete visits on the go with the mobile app
+  </Card>
+</CardGroup>
+
+---
+
+## Support
+
+Need help with calendar scheduling?
+
+- **Live Chat:** Click the chat icon (bottom-right)
+- **Email:** support@fieldcamp.ai
+- **Help Center:** [help.fieldcamp.ai](https://help.fieldcamp.ai)
+- **Video Tutorials:** [youtube.com/fieldcamp](https://youtube.com/fieldcamp)

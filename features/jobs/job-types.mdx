@@ -1,0 +1,1056 @@
+---
+title: "Job Types"
+description: "Understanding one-time, recurring, and maintenance contract jobs in FieldCamp"
+icon: "tags"
+---
+
+# Job Types
+
+FieldCamp supports different job types for different business models. Whether you're doing one-off repairs, recurring maintenance, or long-term service contracts, FieldCamp has you covered.
+
+<Info>
+  **New to jobs?** Read [Jobs Overview](/features/jobs/overview) first to understand the basics.
+</Info>
+
+---
+
+## Job Type Overview
+
+There are **two primary job types** in FieldCamp:
+
+<CardGroup cols={2}>
+  <Card title="One-Time Jobs" icon="circle-1">
+    Single projects with a clear start and end
+    
+    **Examples:**
+    - Fix a leaky faucet
+    - Install an AC unit
+    - Repair a broken outlet
+    
+    **Default type** for most jobs
+  </Card>
+  
+  <Card title="Recurring Jobs" icon="repeat">
+    Ongoing work that repeats on a schedule
+    
+    **Examples:**
+    - Monthly pool service
+    - Quarterly HVAC maintenance
+    - Weekly lawn care
+    
+    Automatically creates visits based on recurrence pattern
+  </Card>
+</CardGroup>
+
+<!-- Screenshot: job-type-selector.png — Radio buttons for one-time vs recurring -->
+
+---
+
+## One-Time Jobs
+
+### What are One-Time Jobs?
+
+One-time jobs are single projects — work that happens once and then the job is closed.
+
+**Characteristics:**
+- Single service call or project
+- Has a defined end (work is completed, invoice is paid)
+- Does not repeat automatically
+
+**Examples:**
+- Emergency repair (burst pipe)
+- Installation (new water heater)
+- Inspection (home buyer inspection)
+- Renovation project (bathroom remodel)
+
+---
+
+### When to Use One-Time Jobs
+
+Use one-time jobs for:
+
+<AccordionGroup>
+  <Accordion title="Emergency / Reactive Work">
+    Client calls with a problem, you fix it, job is done.
+    
+    **Examples:**
+    - AC breakdown
+    - Plumbing leak
+    - Electrical outlet not working
+  </Accordion>
+  
+  <Accordion title="Project-Based Work">
+    Work with a defined scope and end date.
+    
+    **Examples:**
+    - Kitchen renovation
+    - New HVAC system installation
+    - Deck construction
+  </Accordion>
+  
+  <Accordion title="Inspections">
+    One-time assessments or audits.
+    
+    **Examples:**
+    - Home inspection
+    - Equipment inspection
+    - Safety audit
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Creating One-Time Jobs
+
+**How to create:**
+
+<Steps>
+  <Step title="Click + New Job">
+    From the Jobs page or dashboard.
+  </Step>
+  
+  <Step title="Select Job Type: One-Time">
+    This is the default — no need to change anything.
+  </Step>
+  
+  <Step title="Fill in Details">
+    - Client
+    - Description
+    - Items (optional)
+    - Schedule visit (optional)
+  </Step>
+  
+  <Step title="Create Job">
+    Click **Create Job**.
+  </Step>
+</Steps>
+
+<Info>
+  Detailed walkthrough: [Creating Jobs](/features/jobs/creating-jobs)
+</Info>
+
+<!-- Screenshot: create-one-time-job.png — Create job modal with one-time selected -->
+
+---
+
+### One-Time Jobs with Multiple Visits
+
+**Important:** One-time jobs can have **multiple visits**.
+
+**Example:**
+- **Job:** "Bathroom Renovation"
+- **Visit 1:** Demolition and framing
+- **Visit 2:** Plumbing and electrical
+- **Visit 3:** Drywall and tile
+- **Visit 4:** Final inspection and walkthrough
+
+**Why not create 4 separate jobs?**
+- Keeps all work for one project together
+- Single invoice at the end
+- Easier client communication
+- Better project tracking
+
+<Tip>
+  **Pro tip:** Use a single job for a project. Add multiple visits for different phases or days of work.
+</Tip>
+
+---
+
+## Recurring Jobs
+
+### What are Recurring Jobs?
+
+Recurring jobs are ongoing work that repeats on a schedule — daily, weekly, monthly, quarterly, or yearly.
+
+**Characteristics:**
+- Repeat automatically based on a pattern
+- Auto-create visits (optional)
+- Have a start date and optional end date
+- Common for maintenance contracts
+
+**Examples:**
+- Monthly pool service
+- Quarterly HVAC maintenance
+- Weekly lawn mowing
+- Bi-weekly office cleaning
+- Annual fire extinguisher inspection
+
+<!-- Screenshot: recurring-job-example.png — Job detail showing recurring pattern -->
+
+---
+
+### When to Use Recurring Jobs
+
+Use recurring jobs for:
+
+<AccordionGroup>
+  <Accordion title="Maintenance Contracts">
+    Ongoing service agreements with clients.
+    
+    **Examples:**
+    - Monthly HVAC filter changes
+    - Quarterly pest control
+    - Annual equipment inspections
+  </Accordion>
+  
+  <Accordion title="Subscription Services">
+    Services billed on a recurring basis.
+    
+    **Examples:**
+    - Weekly lawn care
+    - Bi-weekly pool service
+    - Monthly facility maintenance
+  </Accordion>
+  
+  <Accordion title="Preventive Maintenance">
+    Scheduled maintenance to prevent breakdowns.
+    
+    **Examples:**
+    - Quarterly HVAC tune-ups
+    - Annual backflow testing
+    - Semi-annual gutter cleaning
+  </Accordion>
+  
+  <Accordion title="Regular Inspections">
+    Required or recommended periodic inspections.
+    
+    **Examples:**
+    - Annual fire safety inspections
+    - Monthly elevator inspections
+    - Quarterly electrical system checks
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Creating Recurring Jobs
+
+**How to create:**
+
+<Steps>
+  <Step title="Click + New Job">
+    From the Jobs page.
+  </Step>
+  
+  <Step title="Select Job Type: Recurring">
+    Click the **Recurring** radio button.
+  </Step>
+  
+  <Step title="Configure Recurrence Pattern">
+    Choose frequency: Daily, Weekly, Monthly, Quarterly, Yearly, Custom.
+    
+    See [Recurrence Patterns](#recurrence-patterns) below.
+  </Step>
+  
+  <Step title="Set End Condition">
+    Choose when recurring stops:
+    - Never (ongoing)
+    - After X occurrences
+    - Until a specific date
+  </Step>
+  
+  <Step title="Enable Auto-Create Visits (Optional)">
+    Check this box to automatically schedule visits based on the pattern.
+  </Step>
+  
+  <Step title="Fill in Other Details">
+    Client, description, items, etc.
+  </Step>
+  
+  <Step title="Create Job">
+    Click **Create Job**.
+  </Step>
+</Steps>
+
+<Info>
+  Detailed walkthrough: [Creating Jobs](/features/jobs/creating-jobs#creating-recurring-jobs)
+</Info>
+
+<!-- Screenshot: create-recurring-job-modal.png — Create job modal with recurring settings -->
+
+---
+
+## Recurrence Patterns
+
+### Daily Recurrence
+
+**Use for:** Work that happens every day or every X days.
+
+**Options:**
+- **Every 1 day** (daily)
+- **Every 2 days** (every other day)
+- **Every X days** (custom interval)
+
+**Example:**
+- Daily pool service for a hotel
+- Every 3 days: equipment monitoring
+
+<!-- Screenshot: daily-recurrence-selector.png — Daily recurrence options -->
+
+---
+
+### Weekly Recurrence
+
+**Use for:** Work that happens on specific days of the week.
+
+**Options:**
+- **Every X weeks**
+  - 1 week (weekly)
+  - 2 weeks (bi-weekly)
+  - 3 weeks
+  - etc.
+- **On specific days**
+  - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+  - Select multiple days
+
+**Examples:**
+- **Weekly lawn care every Friday**
+  - Frequency: Every 1 week
+  - On: Friday
+- **Bi-weekly pool service on Mondays and Thursdays**
+  - Frequency: Every 2 weeks
+  - On: Monday, Thursday
+
+<!-- Screenshot: weekly-recurrence-selector.png — Weekly recurrence with day-of-week picker -->
+
+---
+
+### Monthly Recurrence
+
+**Use for:** Work that happens monthly.
+
+**Options:**
+
+<Tabs>
+  <Tab title="Day of Month">
+    **Example:** "15th of every month"
+    
+    - **Day:** 1–31
+    - **Every X months:** 1 (monthly), 2 (bi-monthly), 3 (quarterly), etc.
+    
+    **Use case:** Monthly maintenance on the 1st of every month
+  </Tab>
+  
+  <Tab title="Day of Week">
+    **Example:** "First Monday of every month" or "Last Friday of every month"
+    
+    - **Week:** First, Second, Third, Fourth, Last
+    - **Day:** Monday, Tuesday, etc.
+    - **Every X months:** 1, 2, 3, etc.
+    
+    **Use case:** First Monday of every month for inspections
+  </Tab>
+</Tabs>
+
+**Examples:**
+- **Monthly HVAC filter change on the 1st**
+  - Day of month: 1
+  - Every 1 month
+- **Quarterly board meeting on the first Tuesday**
+  - Day of week: First Tuesday
+  - Every 3 months
+
+<!-- Screenshot: monthly-recurrence-selector.png — Monthly options with day-of-month and day-of-week -->
+
+---
+
+### Quarterly Recurrence
+
+**Use for:** Work that happens every 3 months.
+
+**Options:**
+- **Starting month:** January, February, March, etc.
+- **Day of month:** 1–31
+- **OR Day of week:** First/Last Monday, etc.
+
+**Examples:**
+- **Quarterly HVAC tune-up on the 15th**
+  - Starting: January
+  - Day: 15
+  - Result: Jan 15, Apr 15, Jul 15, Oct 15
+- **Quarterly inspection on the first Monday**
+  - Starting: January
+  - Day of week: First Monday
+  - Result: First Monday of Jan, Apr, Jul, Oct
+
+<!-- Screenshot: quarterly-recurrence-selector.png — Quarterly options -->
+
+---
+
+### Yearly Recurrence
+
+**Use for:** Work that happens once a year.
+
+**Options:**
+- **Month:** January–December
+- **Day:** 1–31
+- **OR Day of week:** First/Last Monday of the month
+
+**Examples:**
+- **Annual fire inspection on March 1**
+  - Month: March
+  - Day: 1
+- **Annual HVAC tune-up on the first Monday of May**
+  - Month: May
+  - Day of week: First Monday
+
+<!-- Screenshot: yearly-recurrence-selector.png — Yearly options -->
+
+---
+
+### Custom Recurrence
+
+**Use for:** Unusual patterns that don't fit the above.
+
+**Options:**
+- **Every X days**
+- **Every X weeks** (with custom day selection)
+- **Every X months**
+
+**Examples:**
+- **Every 45 days**
+  - Frequency: Days
+  - Interval: 45
+- **Every 6 weeks on Wednesdays**
+  - Frequency: Weeks
+  - Interval: 6
+  - On: Wednesday
+
+<!-- Screenshot: custom-recurrence-selector.png — Custom interval picker -->
+
+---
+
+## End Conditions
+
+Every recurring job needs an end condition:
+
+<Tabs>
+  <Tab title="Never">
+    **Job repeats indefinitely** until manually stopped.
+    
+    **Use for:**
+    - Ongoing maintenance contracts with no end date
+    - Subscription services
+    
+    **Example:** Monthly pool service for a resort (ongoing)
+  </Tab>
+  
+  <Tab title="After X Occurrences">
+    **Job stops after a specific number of visits.**
+    
+    **Use for:**
+    - Contracts with a set number of visits
+    - Limited-time services
+    
+    **Example:** "12 monthly visits" for a 1-year maintenance contract
+    
+    **Calculation:**
+    - Monthly job with 12 occurrences = 12 months = 1 year
+  </Tab>
+  
+  <Tab title="Until a Specific Date">
+    **Job stops after a certain date.**
+    
+    **Use for:**
+    - Contracts with a fixed end date
+    - Seasonal services
+    
+    **Example:** "Until December 31, 2026" for a calendar-year contract
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: end-condition-selector.png — End condition options with date picker -->
+
+<Warning>
+  **Note:** If you choose "Never", you'll need to manually cancel or pause the recurring job when it's no longer needed.
+</Warning>
+
+---
+
+## Auto-Creating Visits
+
+When you create a recurring job, you can choose to **auto-create visits**.
+
+### How It Works
+
+<Steps>
+  <Step title="Enable Auto-Create">
+    Check **Auto-create visits** when creating the recurring job.
+  </Step>
+  
+  <Step title="FieldCamp Schedules Visits in Advance">
+    Visits are created automatically based on your recurrence pattern.
+    
+    **Default:** Visits are created 30 days in advance (configurable in settings).
+  </Step>
+  
+  <Step title="Visits Appear on Calendar">
+    Auto-created visits show up on the calendar, in the mobile app, and in the job's Visits tab.
+  </Step>
+  
+  <Step title="Assign Techs">
+    You can assign techs manually or let the AI Dispatcher recommend techs for each visit.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Auto-create visits saves you from manually scheduling every occurrence. It's a huge time-saver for recurring work.
+</Tip>
+
+---
+
+### Manual Scheduling (Without Auto-Create)
+
+If you **don't** enable auto-create visits:
+
+- The job is marked as recurring
+- You manually schedule each visit as needed
+- Useful if scheduling depends on client availability or other factors
+
+<Info>
+  Learn more: [Recurring Visits](/features/jobs/visits/recurring-visits)
+</Info>
+
+---
+
+## Managing Recurring Jobs
+
+### Viewing Recurring Jobs
+
+Filter jobs by type to see only recurring jobs:
+
+1. Go to **Jobs** page
+2. Click **Advanced Filters**
+3. Filter by **Job Type: Recurring**
+
+<!-- Screenshot: recurring-jobs-filter.png — Filter panel with recurring job type selected -->
+
+---
+
+### Editing a Recurring Job
+
+<Tabs>
+  <Tab title="Edit Single Occurrence">
+    Change one visit without affecting the rest.
+    
+    **How:**
+    1. Open the job
+    2. Go to **Visits** tab
+    3. Click the visit you want to edit
+    4. Click **Edit This Visit Only**
+    5. Make changes (date, time, assigned tech, etc.)
+    6. Save
+    
+    **Result:** Only this visit is changed. Future visits remain on the original schedule.
+  </Tab>
+  
+  <Tab title="Edit All Future Occurrences">
+    Change all upcoming visits from a certain date forward.
+    
+    **How:**
+    1. Open the job
+    2. Go to **Visits** tab
+    3. Click any visit
+    4. Click **Edit This and Future Visits**
+    5. Make changes (time, assigned tech, recurrence pattern, etc.)
+    6. Save
+    
+    **Result:** This visit and all future visits are updated. Past visits remain unchanged.
+  </Tab>
+  
+  <Tab title="Edit the Recurring Pattern">
+    Change the recurrence settings (frequency, end date, etc.).
+    
+    **How:**
+    1. Open the job
+    2. Click **Edit Job** (sidebar or top-right)
+    3. Update recurrence settings
+    4. Save
+    
+    **Result:** Future visits are regenerated based on the new pattern.
+    
+    <Warning>
+      **Note:** Changing the pattern may cancel existing scheduled visits and create new ones.
+    </Warning>
+  </Tab>
+</Tabs>
+
+---
+
+### Pausing a Recurring Job
+
+**Temporarily stop** creating new visits without deleting the job.
+
+**How to pause:**
+
+<Steps>
+  <Step title="Open the Job">
+    Go to the job detail page.
+  </Step>
+  
+  <Step title="Click Pause Recurring">
+    In the sidebar or under **⋮ More**, click **Pause Recurring**.
+  </Step>
+  
+  <Step title="Confirm">
+    Confirm the pause.
+  </Step>
+</Steps>
+
+**What happens:**
+- No new visits are auto-created
+- Existing scheduled visits remain (you can cancel them manually if needed)
+- Job status remains active
+
+**How to resume:**
+1. Click **Resume Recurring**
+2. Confirm
+3. New visits start getting created again based on the pattern
+
+<Tip>
+  **Pro tip:** Use pause for seasonal services (e.g., lawn care pauses in winter) or when a client temporarily suspends service.
+</Tip>
+
+---
+
+### Cancelling a Recurring Job
+
+**Permanently stop** the recurring job and mark it as cancelled.
+
+**How to cancel:**
+
+<Steps>
+  <Step title="Open the Job">
+    Go to the job detail page.
+  </Step>
+  
+  <Step title="Click Cancel Recurring">
+    Under **⋮ More**, click **Cancel Recurring Job**.
+  </Step>
+  
+  <Step title="Select Reason">
+    Choose a cancellation reason:
+    - Client cancelled contract
+    - Service no longer needed
+    - Moved to one-time jobs
+    - Other (enter reason)
+  </Step>
+  
+  <Step title="Confirm">
+    Click **Cancel Job**.
+  </Step>
+</Steps>
+
+**What happens:**
+- Job status changes to **Cancelled**
+- All future visits are cancelled
+- Past completed visits remain in history
+- No new visits are created
+
+<Warning>
+  **Cancelled recurring jobs cannot be resumed.** If you need to restart, create a new recurring job.
+</Warning>
+
+---
+
+## Maintenance Contracts
+
+Maintenance contracts are a special use case for recurring jobs.
+
+### What are Maintenance Contracts?
+
+Long-term service agreements where you provide regular maintenance for a fixed price.
+
+**Characteristics:**
+- Recurring visits (monthly, quarterly, etc.)
+- Fixed pricing (same price every period)
+- Set duration (usually 1–3 years)
+- Auto-invoicing (invoice after each visit or monthly)
+
+**Examples:**
+- **Annual HVAC contract:** 4 quarterly tune-ups for $800/year
+- **Monthly pool service:** Weekly visits for $150/month
+- **Quarterly fire inspection:** 4 visits/year for $600/year
+
+---
+
+### Creating a Maintenance Contract
+
+<Steps>
+  <Step title="Create Recurring Job">
+    - Job Type: Recurring
+    - Frequency: Quarterly (or monthly, etc.)
+    - End condition: After 4 occurrences (for 1 year)
+  </Step>
+  
+  <Step title="Add Contract Items">
+    Add the services included in the contract.
+    
+    **Example:**
+    - "HVAC Tune-Up (Quarterly)" — $200 × 4 = $800/year
+  </Step>
+  
+  <Step title="Set Auto-Create Visits">
+    Enable auto-create so visits are scheduled automatically.
+  </Step>
+  
+  <Step title="Tag as Maintenance Contract">
+    Add a tag like "Maintenance Contract" for easy filtering.
+  </Step>
+  
+  <Step title="Set Up Auto-Invoicing (Optional)">
+    Use workflow automation to create an invoice after each visit.
+    
+    <Info>Learn more: [Workflow Automation](/features/workflow-automation/overview)</Info>
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Create a **Job Template** for your maintenance contract so you can quickly create new contracts for clients.
+</Tip>
+
+<Info>
+  Learn more: [Job Templates](/features/jobs/job-templates)
+</Info>
+
+---
+
+### Tracking Contract Performance
+
+Use FieldCamp's analytics to track:
+
+- **Revenue per contract** (total value of contract)
+- **Visits completed vs scheduled** (completion rate)
+- **Average time per visit** (efficiency)
+- **Client retention** (how many contracts renew)
+
+<Info>
+  Learn more: [Analytics](/features/analytics/overview)
+</Info>
+
+---
+
+## Emergency / On-Demand Jobs
+
+Emergency jobs are one-time jobs with **high priority** and immediate dispatch.
+
+### When to Use Emergency Jobs
+
+Use for:
+- Urgent client calls (burst pipe, AC breakdown, power outage)
+- Same-day service
+- After-hours emergencies
+
+---
+
+### Creating an Emergency Job
+
+<Steps>
+  <Step title="Create One-Time Job">
+    Standard one-time job.
+  </Step>
+  
+  <Step title="Set Priority: Urgent">
+    This makes the job stand out in lists and mobile app.
+  </Step>
+  
+  <Step title="Add "Emergency" Tag">
+    For easy filtering.
+  </Step>
+  
+  <Step title="Assign Tech Immediately">
+    Use AI Dispatcher to find the closest available tech.
+  </Step>
+  
+  <Step title="Schedule ASAP">
+    Schedule the visit for today (or within hours).
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Set up a workflow automation: "When job tagged 'Emergency' → send push notification to all available techs."
+</Tip>
+
+<!-- Screenshot: emergency-job-badge.png — Job with Urgent priority and Emergency tag -->
+
+---
+
+## Installation Jobs
+
+Installation jobs are one-time jobs for installing equipment or systems.
+
+**Characteristics:**
+- One-time (usually)
+- May require multiple visits (site survey, install, final inspection)
+- Often high-value
+- Require specific skills and equipment
+
+**Examples:**
+- HVAC system installation
+- Solar panel installation
+- Pool installation
+
+---
+
+### Creating an Installation Job
+
+<Steps>
+  <Step title="Create One-Time Job">
+    Standard one-time job.
+  </Step>
+  
+  <Step title="Add Multiple Visits">
+    - Visit 1: Site survey and measurements
+    - Visit 2: Installation day 1
+    - Visit 3: Installation day 2
+    - Visit 4: Final inspection
+  </Step>
+  
+  <Step title="Add Items">
+    Add all products and labor.
+  </Step>
+  
+  <Step title="Add Skills & Equipment">
+    Specify required certifications and tools.
+  </Step>
+  
+  <Step title="Attach Forms">
+    Attach inspection checklists or warranty forms.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Create a **Job Template** for common installations (HVAC install, water heater install, etc.).
+</Tip>
+
+---
+
+## Inspection Jobs
+
+Inspection jobs are one-time (or recurring) jobs for assessments and audits.
+
+**Characteristics:**
+- Short duration (1–2 hours)
+- Forms/checklists required
+- Often required by regulation or insurance
+- May lead to additional work (if issues found)
+
+**Examples:**
+- Home buyer inspection
+- Fire safety inspection
+- Equipment inspection
+
+---
+
+### Creating an Inspection Job
+
+<Steps>
+  <Step title="Create Job">
+    One-time or recurring (depending on inspection type).
+  </Step>
+  
+  <Step title="Attach Inspection Form">
+    Attach a checklist form for techs to complete on-site.
+    
+    <Info>Learn more: [Job Forms & Checklists](/features/jobs/forms/overview)</Info>
+  </Step>
+  
+  <Step title="Add Inspection Items">
+    - "Annual Fire Safety Inspection" — $150
+    - "Inspection Report" — $0 (included)
+  </Step>
+  
+  <Step title="Schedule">
+    Schedule the visit.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Use forms to capture photos, measurements, and pass/fail status. This creates a digital inspection report.
+</Tip>
+
+---
+
+## Custom Job Types
+
+FieldCamp allows you to define **custom job types** using tags and custom fields.
+
+### Creating Custom Job Types
+
+**How it works:**
+
+<Steps>
+  <Step title="Create Custom Field">
+    Go to [Settings → Jobs → Custom Fields](/settings/jobs/custom-fields).
+    
+    Create a field called "Job Type" (dropdown).
+    
+    **Options:**
+    - HVAC
+    - Plumbing
+    - Electrical
+    - Landscaping
+    - Cleaning
+    - etc.
+  </Step>
+  
+  <Step title="Use Tags for Job Types">
+    Alternatively, create tags for each job type:
+    - "HVAC"
+    - "Plumbing"
+    - "Electrical"
+  </Step>
+  
+  <Step title="Filter by Custom Type">
+    In the job list, filter by custom field or tag to see jobs of a specific type.
+  </Step>
+</Steps>
+
+<Info>
+  Learn more: [Job Custom Fields](/features/jobs/job-custom-fields)
+</Info>
+
+---
+
+## Job Type Analytics
+
+Track performance by job type:
+
+<CardGroup cols={3}>
+  <Card title="Revenue by Type" icon="dollar-sign">
+    Total revenue from HVAC vs Plumbing vs Electrical jobs
+  </Card>
+  
+  <Card title="Jobs by Type" icon="list">
+    Count of jobs per type
+  </Card>
+  
+  <Card title="Completion Rate by Type" icon="check">
+    Percentage of jobs completed on time per type
+  </Card>
+  
+  <Card title="Average Value by Type" icon="calculator">
+    Average job value per type
+  </Card>
+  
+  <Card title="Average Duration by Type" icon="clock">
+    Average time to complete per type
+  </Card>
+  
+  <Card title="Tech Specialization" icon="user">
+    Which techs handle which types
+  </Card>
+</CardGroup>
+
+<Info>
+  Build custom reports in [Analytics](/features/analytics/overview).
+</Info>
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Use recurring jobs for maintenance contracts">
+    Don't create a new job every month manually. Set it up once as recurring and let FieldCamp handle the rest.
+  </Accordion>
+  
+  <Accordion title="Use tags to categorize job types">
+    Tag jobs by service type (HVAC, Plumbing, etc.) for easy filtering and reporting.
+  </Accordion>
+  
+  <Accordion title="Create job templates for common types">
+    If you do the same type of job often (AC tune-up, drain cleaning), create a template.
+    
+    <Info>Learn more: [Job Templates](/features/jobs/job-templates)</Info>
+  </Accordion>
+  
+  <Accordion title="Use one-time jobs with multiple visits for projects">
+    Don't create separate jobs for each phase of a project. Keep it as one job with multiple visits.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't create a new recurring job every month">
+    Use the recurring feature — it's what it's for!
+  </Accordion>
+  
+  <Accordion title="Don't mix job types in one job">
+    If you're doing plumbing AND electrical work, consider whether they should be separate jobs (for tracking and invoicing).
+  </Accordion>
+  
+  <Accordion title="Don't forget to set an end condition for recurring jobs">
+    If you choose "Never", remember to manually cancel when the contract ends.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## API: Create Recurring Job
+
+Create a recurring job via the API:
+
+```bash
+curl -X POST "https://app.fieldcamp.ai/api/v1/jobs" \
+  -H "X-Api-Key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "clientId": "507f1f77bcf86cd799439011",
+    "description": "Monthly pool service",
+    "jobType": "recurring",
+    "recurrence": {
+      "frequency": "monthly",
+      "dayOfMonth": 1,
+      "endCondition": "after",
+      "occurrences": 12
+    },
+    "autoCreateVisits": true
+  }'
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Job Templates" icon="file-lines" href="/features/jobs/job-templates">
+    Speed up job creation with templates
+  </Card>
+  
+  <Card title="Recurring Visits" icon="calendar-repeat" href="/features/jobs/visits/recurring-visits">
+    Deep dive into recurring visit management
+  </Card>
+  
+  <Card title="Job Status" icon="traffic-light" href="/features/jobs/job-status">
+    Understand the job lifecycle
+  </Card>
+  
+  <Card title="Creating Jobs" icon="plus" href="/features/jobs/creating-jobs">
+    Full guide to creating jobs
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Jobs Overview](/features/jobs/overview) — Understand the basics
+- [Creating Jobs](/features/jobs/creating-jobs) — How to create jobs
+- [Job Status](/features/jobs/job-status) — Status lifecycle
+- [Visits Overview](/features/jobs/visits/overview) — Understanding visits
+
+---
+
+<Check>
+  **You now know:** One-time vs recurring jobs, recurrence patterns, end conditions, auto-creating visits, managing recurring jobs, maintenance contracts, and job type analytics.
+</Check>

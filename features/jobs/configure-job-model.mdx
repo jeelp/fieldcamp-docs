@@ -1,0 +1,752 @@
+---
+title: "Configure Job Model"
+description: "Customize job data model, status transitions, validation rules, and automation"
+icon: "diagram-project"
+---
+
+## Overview
+
+The job model is the core data structure for all jobs in FieldCamp. Configuring the job model allows you to:
+
+- Define custom job statuses and transitions
+- Set validation rules (required fields, field dependencies)
+- Configure automatic status changes
+- Set up field-level permissions
+- Customize job lifecycle behavior
+- Define business rules and constraints
+
+<Info>
+**Advanced feature:** Job model configuration is available on Pro and Enterprise plans. It requires admin access and should be configured carefully to avoid disrupting workflows.
+</Info>
+
+<Frame>
+  <img src="/images/jobs/job-model-configuration.png" alt="Job model configuration interface" />
+</Frame>
+
+---
+
+## Job Data Model
+
+### Core Fields
+
+Default fields included in every job:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| **job_number** | Auto-increment | ✅ | Unique job identifier |
+| **title** | Text | ✅ | Job title/description |
+| **client** | Relation | ✅ | Customer for this job |
+| **status** | Select | ✅ | Current job status |
+| **type** | Select | ❌ | Job type (service, install, etc.) |
+| **priority** | Select | ❌ | Low, Medium, High, Urgent |
+| **assigned_to** | Multi-relation | ❌ | Team members assigned |
+| **address** | Address | ❌ | Job site address |
+| **scheduled_date** | Date | ❌ | When job is scheduled |
+| **due_date** | Date | ❌ | When job must be completed |
+| **estimated_duration** | Number | ❌ | Hours (decimal) |
+| **created_at** | DateTime | Auto | Job creation timestamp |
+| **created_by** | Relation | Auto | User who created job |
+| **updated_at** | DateTime | Auto | Last modification timestamp |
+| **updated_by** | Relation | Auto | User who last modified job |
+
+### Related Entities
+
+Jobs have relationships to other data models:
+
+| Entity | Relationship | Description |
+|--------|--------------|-------------|
+| **Client** | Many-to-One | Every job belongs to one client |
+| **Visits** | One-to-Many | Job can have multiple visits |
+| **Job Items** | One-to-Many | Products/services in job |
+| **Job Forms** | Many-to-Many | Forms assigned to job |
+| **Files** | One-to-Many | Photos, PDFs attached to job |
+| **Notes** | One-to-Many | Job notes and comments |
+| **Logs** | One-to-Many | Activity log entries |
+| **Invoices** | One-to-Many | Invoices created from job |
+| **Tags** | Many-to-Many | Labels/categories |
+
+<Frame>
+  <img src="/images/jobs/job-data-model-diagram.png" alt="Job data model entity relationship diagram" />
+</Frame>
+
+---
+
+## Job Status Configuration
+
+### Default Statuses
+
+FieldCamp includes 8 default job statuses:
+
+1. **Draft** - Job created but not ready to schedule
+2. **Unscheduled** - Approved but no visit scheduled
+3. **Scheduled** - Visit scheduled, tech assigned
+4. **In Progress** - Tech working on job
+5. **Paused** - Work temporarily stopped
+6. **Completed** - Work finished
+7. **Invoiced** - Invoice created and sent
+8. **Cancelled** - Job cancelled
+
+### Creating Custom Statuses
+
+Add business-specific statuses:
+
+1. Go to **Settings → Jobs → Statuses**
+2. Click **+ Add Status**
+3. Configure:
+   - **Name** - Status label (e.g., "Awaiting Permit")
+   - **Color** - Badge color (for visual distinction)
+   - **Icon** - Status icon
+   - **Category** - Open, In Progress, Closed
+   - **Final Status** - Is this an end state? (Yes/No)
+4. Save
+
+<Frame>
+  <img src="/images/jobs/create-custom-status.png" alt="Create custom job status" />
+</Frame>
+
+**Example custom statuses:**
+- **Awaiting Permit** (Open) - Waiting for city permit approval
+- **Parts Ordered** (In Progress) - Waiting for parts to arrive
+- **Awaiting Payment** (Closed) - Work done, waiting for customer payment
+- **On Hold** (In Progress) - Customer requested delay
+- **QA Review** (In Progress) - Manager reviewing work quality
+
+### Status Categories
+
+Categorize statuses to control behavior:
+
+| Category | Description | Examples |
+|----------|-------------|----------|
+| **Open** | Job not started | Draft, Unscheduled, Awaiting Permit |
+| **In Progress** | Work underway | Scheduled, In Progress, Parts Ordered |
+| **Closed** | Job finished | Completed, Invoiced, Cancelled |
+
+**Category impact:**
+- Reports group jobs by category (e.g., "12 jobs in progress")
+- Filters default to "Open + In Progress" (exclude closed jobs)
+- Closed jobs are excluded from dispatcher queue
+
+---
+
+## Status Transitions
+
+Define which status changes are allowed.
+
+### Transition Rules
+
+Control how jobs move between statuses:
+
+1. Go to **Settings → Jobs → Statuses → Transitions**
+2. Click **+ Add Transition**
+3. Configure:
+   - **From Status** - Starting status
+   - **To Status** - Ending status
+   - **Allowed Roles** - Who can make this transition
+   - **Conditions** - When transition is allowed
+   - **Actions** - What happens automatically
+4. Save
+
+<Frame>
+  <img src="/images/jobs/status-transition-config.png" alt="Status transition configuration" />
+</Frame>
+
+### Example Transitions
+
+**Draft → Scheduled:**
+- **Allowed roles:** Manager, Admin
+- **Conditions:** Must have at least 1 visit scheduled
+- **Actions:** Send notification to assigned tech
+
+**In Progress → Completed:**
+- **Allowed roles:** Assigned tech, Manager, Admin
+- **Conditions:** All required forms must be completed
+- **Actions:** Prompt for completion notes, create invoice (if auto-invoicing enabled)
+
+**Completed → Invoiced:**
+- **Allowed roles:** Office Staff, Manager, Admin
+- **Conditions:** Invoice must be created
+- **Actions:** Send invoice to customer, mark job as "ready for payment"
+
+### Blocking Transitions
+
+Prevent certain status changes:
+
+**Example blocked transitions:**
+- Completed → Draft (can't un-complete a job)
+- Invoiced → Cancelled (can't cancel after invoicing, must issue credit)
+- Cancelled → In Progress (can't resume cancelled job, must create new job)
+
+<Warning>
+**Use with caution:** Blocking transitions can prevent legitimate use cases. Always provide an override path for admins.
+</Warning>
+
+### Transition Prompts
+
+Require user input when transitioning:
+
+**Example: Cancelled status**
+```
+When changing status to Cancelled:
+  → Prompt: "Why is this job being cancelled?"
+  → Required field: Cancellation reason (dropdown)
+    - Customer declined service
+    - Customer no longer needs service
+    - Unable to reach customer
+    - Duplicate job
+    - Other
+  → Optional field: Additional notes (text)
+```
+
+<Frame>
+  <img src="/images/jobs/transition-prompt-modal.png" alt="Status transition prompt requiring cancellation reason" />
+</Frame>
+
+---
+
+## Validation Rules
+
+Enforce data quality with validation rules.
+
+### Field-Level Validation
+
+**Required fields:**
+Set which fields must be filled before saving:
+
+1. Go to **Settings → Jobs → Fields**
+2. Select a field
+3. Toggle **Required** to ON
+4. Save
+
+**Conditional requirements:**
+Make fields required only in certain conditions:
+
+**Example:**
+- "Permit Number" is required IF "Permit Required" = Yes
+- "Assigned Tech" is required IF status = "Scheduled"
+- "Completion Notes" required IF status = "Completed"
+
+**Configuration:**
+```json
+{
+  "field": "permit_number",
+  "required_if": {
+    "field": "permit_required",
+    "operator": "equals",
+    "value": true
+  }
+}
+```
+
+### Field Dependencies
+
+Show/hide fields based on other field values:
+
+**Example:**
+- IF job type = "Emergency" → Show "Emergency Contact Phone" field
+- IF priority = "Urgent" → Show "Urgency Reason" field
+- IF status = "On Hold" → Show "Resume Date" field
+
+**Configuration:**
+1. Go to **Settings → Jobs → Fields → [Field Name]**
+2. Click **Conditional Visibility**
+3. Add rule: Show IF [Field] [Operator] [Value]
+4. Save
+
+<Frame>
+  <img src="/images/jobs/field-dependency-config.png" alt="Field dependency configuration" />
+</Frame>
+
+### Cross-Field Validation
+
+Validate relationships between multiple fields:
+
+**Examples:**
+- Due date must be AFTER scheduled date
+- Estimated value must be >= total of all job items
+- Assigned tech must have required skills for job type
+- Job address must be within service area
+
+**Configuration:**
+```json
+{
+  "rule": "due_date_after_scheduled_date",
+  "fields": ["scheduled_date", "due_date"],
+  "condition": "due_date >= scheduled_date",
+  "error_message": "Due date cannot be before scheduled date"
+}
+```
+
+---
+
+## Automatic Status Changes
+
+Configure jobs to auto-transition between statuses.
+
+### Time-Based Transitions
+
+Change status automatically based on time:
+
+**Examples:**
+- Draft → Unscheduled after 24 hours (if no visit scheduled)
+- Scheduled → In Progress when visit start time arrives
+- In Progress → Completed 2 hours after visit end time (if tech forgot to mark complete)
+- Completed → Invoiced after 48 hours (auto-invoicing)
+
+**Configuration:**
+1. Go to **Settings → Jobs → Automation → Auto-Status**
+2. Click **+ Add Rule**
+3. Configure:
+   - **Current Status** - Draft
+   - **Trigger** - After 24 hours
+   - **New Status** - Unscheduled
+   - **Notification** - Notify manager
+4. Save
+
+<Frame>
+  <img src="/images/jobs/auto-status-config.png" alt="Automatic status change configuration" />
+</Frame>
+
+### Event-Based Transitions
+
+Change status automatically when events occur:
+
+**Examples:**
+- When visit scheduled → Draft to Scheduled
+- When all visits completed → In Progress to Completed
+- When invoice created → Completed to Invoiced
+- When payment received → Invoiced to Paid
+
+**Configuration:**
+```json
+{
+  "trigger": "visit.completed",
+  "conditions": [
+    {
+      "field": "job.visits.all_completed",
+      "operator": "equals",
+      "value": true
+    }
+  ],
+  "action": "change_status",
+  "new_status": "completed"
+}
+```
+
+### GPS-Based Transitions
+
+Change status based on tech location (mobile app):
+
+**Examples:**
+- When tech enters job site geofence → Scheduled to In Progress
+- When tech leaves job site geofence → In Progress to Completed (with confirmation)
+
+**Configuration:**
+1. Enable GPS tracking (Settings → Mobile App → GPS Tracking)
+2. Set geofence radius (e.g., 100 meters)
+3. Configure auto-status rules
+
+<Info>
+**Privacy:** Techs must grant location permissions in the mobile app. GPS tracking only works when app is open.
+</Info>
+
+---
+
+## Field Permissions
+
+Control who can view and edit specific fields.
+
+### Role-Based Permissions
+
+Set field permissions by role:
+
+**Example: Price fields**
+- **Admins** - View & Edit
+- **Managers** - View & Edit
+- **Techs** - View only (cannot edit pricing)
+- **Office Staff** - View & Edit
+
+**Configuration:**
+1. Go to **Settings → Jobs → Fields → [Field Name]**
+2. Click **Permissions**
+3. Set permissions per role:
+   - **Hidden** - Cannot see field
+   - **View** - Can see but not edit
+   - **Edit** - Can see and edit
+4. Save
+
+<Frame>
+  <img src="/images/jobs/field-permissions-config.png" alt="Field permissions by role" />
+</Frame>
+
+### Conditional Permissions
+
+Change permissions based on job state:
+
+**Example: Completion notes**
+- IF status = "In Progress" → Techs can edit
+- IF status = "Completed" → Techs cannot edit (locked)
+- Admins can always edit
+
+**Example: Pricing**
+- IF job value < $500 → Techs can edit pricing
+- IF job value >= $500 → Only managers can edit pricing
+
+---
+
+## Job Lifecycle Hooks
+
+Run custom logic at key points in the job lifecycle.
+
+### Available Hooks
+
+| Hook | When It Runs | Use Cases |
+|------|--------------|-----------|
+| **before_create** | Before job is created | Validate data, set defaults |
+| **after_create** | After job is created | Send notifications, create tasks |
+| **before_update** | Before job is updated | Validate changes, check permissions |
+| **after_update** | After job is updated | Log changes, trigger workflows |
+| **before_status_change** | Before status changes | Validate transition, check conditions |
+| **after_status_change** | After status changes | Send notifications, update related records |
+| **before_delete** | Before job is deleted | Check dependencies, prevent deletion |
+| **after_delete** | After job is deleted | Clean up related records, log deletion |
+
+### Hook Examples
+
+**Set job number prefix based on job type:**
+```javascript
+before_create: (job) => {
+  if (job.type === 'Commercial') {
+    job.job_number = 'COM-' + job.job_number;
+  } else if (job.type === 'Residential') {
+    job.job_number = 'RES-' + job.job_number;
+  }
+}
+```
+
+**Auto-assign tech based on service area:**
+```javascript
+after_create: (job) => {
+  const serviceArea = getServiceAreaForAddress(job.address);
+  const availableTech = findAvailableTechForArea(serviceArea);
+  if (availableTech) {
+    job.assigned_to = [availableTech.id];
+    job.save();
+  }
+}
+```
+
+**Prevent deletion if invoice exists:**
+```javascript
+before_delete: (job) => {
+  if (job.invoices.length > 0) {
+    throw new Error('Cannot delete job with invoices. Archive instead.');
+  }
+}
+```
+
+<Info>
+**Custom hooks:** Available on Enterprise plan only. Requires JavaScript knowledge and admin access.
+</Info>
+
+---
+
+## Job Rules & Constraints
+
+Define business rules that apply to all jobs.
+
+### Global Rules
+
+**Examples:**
+- Jobs cannot be scheduled more than 90 days in advance
+- Urgent jobs must have a visit scheduled within 24 hours
+- Commercial jobs must have 2+ techs assigned
+- Jobs over $5,000 require manager approval before starting work
+- Jobs cannot be marked complete if any visits are still "In Progress"
+
+**Configuration:**
+1. Go to **Settings → Jobs → Rules**
+2. Click **+ Add Rule**
+3. Configure:
+   - **Rule Name** - Descriptive name
+   - **Condition** - When rule applies
+   - **Enforcement** - Block or Warn
+   - **Error Message** - User-facing message
+4. Save
+
+<Frame>
+  <img src="/images/jobs/job-rule-config.png" alt="Job rule configuration" />
+</Frame>
+
+**Example rule:**
+```json
+{
+  "name": "Urgent jobs must be scheduled within 24 hours",
+  "condition": "priority == 'Urgent' AND status != 'Draft' AND scheduled_date == null",
+  "enforcement": "block",
+  "error_message": "Urgent jobs must have a visit scheduled within 24 hours"
+}
+```
+
+### Enforcement Modes
+
+| Mode | Behavior |
+|------|----------|
+| **Block** | Prevent action, show error |
+| **Warn** | Allow action, show warning |
+| **Log** | Allow action, log to audit trail |
+
+---
+
+## Job Templates
+
+Configure reusable job templates with predefined values.
+
+### Template Configuration
+
+**What templates can include:**
+- Default job type
+- Default priority
+- Pre-filled title/description
+- Default assigned techs
+- Pre-added job items (products/services)
+- Pre-assigned forms
+- Default equipment/skills required
+- Default duration estimate
+
+**How to create:**
+1. Go to **Settings → Jobs → Templates**
+2. Click **+ New Template**
+3. Fill in default values
+4. Save template
+
+**Example template: "HVAC Tune-Up"**
+```json
+{
+  "name": "HVAC Tune-Up",
+  "type": "Maintenance",
+  "priority": "Medium",
+  "duration_hours": 2,
+  "items": [
+    {"name": "HVAC Filter", "quantity": 1, "price": 25},
+    {"name": "Tune-Up Labor", "quantity": 2, "price": 120}
+  ],
+  "forms": ["HVAC Maintenance Checklist"],
+  "skills_required": ["HVAC Certification"]
+}
+```
+
+See [Job Templates](/features/jobs/job-templates) for full documentation.
+
+---
+
+## Data Migration & Import
+
+### Importing Jobs
+
+Bulk-import jobs from CSV:
+
+1. Go to **Jobs → Import**
+2. Download CSV template
+3. Fill in job data (one row per job)
+4. Upload CSV
+5. Map columns to job fields
+6. Validate and import
+
+**CSV format:**
+```csv
+Title,Client Name,Status,Type,Priority,Scheduled Date,Assigned Tech
+AC Repair,ABC Plumbing,Scheduled,Service,High,2026-03-01,John Smith
+Water Heater Install,XYZ Electric,Draft,Installation,Medium,,
+```
+
+### Exporting Job Model
+
+Export job model configuration (for backup or migration):
+
+1. Go to **Settings → Jobs → Export Model**
+2. Select what to export:
+   - Statuses and transitions
+   - Custom fields
+   - Validation rules
+   - Templates
+   - Workflows
+3. Download JSON file
+4. Import into another FieldCamp account if needed
+
+---
+
+## Best Practices
+
+### ✅ Do This
+
+- **Start simple** - Use default statuses before creating custom ones
+- **Document rules** - Explain why each rule exists (for future reference)
+- **Test in staging** - Test configuration changes before applying to production
+- **Use status categories** - Group statuses into Open, In Progress, Closed
+- **Limit custom statuses** - 10-12 statuses max (too many = confusing)
+- **Set up notifications** - Alert users when status changes or rules are violated
+- **Review quarterly** - Audit rules and statuses to ensure they still make sense
+
+### ❌ Avoid This
+
+- **Don't create too many statuses** - Overwhelms users
+- **Don't block critical transitions** - Always provide override path for admins
+- **Don't make everything required** - Too many required fields slow down job creation
+- **Don't forget to communicate** - Train team when you change the job model
+- **Don't delete statuses with active jobs** - Archive instead
+
+---
+
+## Troubleshooting
+
+### Rule Not Triggering
+
+**Possible causes:**
+- Rule condition doesn't match current job state
+- Rule is disabled
+- User role has override permission
+
+**Solution:**
+1. Check rule condition (Settings → Jobs → Rules → Edit rule)
+2. Ensure rule is enabled
+3. Review role permissions
+
+### Can't Change Status
+
+**Cause:**
+Status transition is blocked by rule or permissions.
+
+**Solution:**
+- Check transition rules (Settings → Jobs → Statuses → Transitions)
+- Verify user has permission for this transition
+- Ask admin to override if needed
+
+### Field Not Showing
+
+**Cause:**
+Field has conditional visibility rule that's not met.
+
+**Solution:**
+Check field visibility rules (Settings → Jobs → Fields → [Field] → Conditional Visibility).
+
+---
+
+## API Access
+
+Configure and query job model via API.
+
+### Get Job Model Configuration
+
+```bash
+curl -X GET https://api.fieldcamp.ai/v1/jobs/model \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+```json
+{
+  "statuses": [
+    {"id": "draft", "name": "Draft", "category": "open", "color": "#gray"},
+    {"id": "scheduled", "name": "Scheduled", "category": "in_progress", "color": "#blue"}
+  ],
+  "transitions": [
+    {"from": "draft", "to": "scheduled", "allowed_roles": ["manager", "admin"]}
+  ],
+  "fields": [
+    {"name": "title", "type": "text", "required": true},
+    {"name": "priority", "type": "select", "options": ["Low", "Medium", "High", "Urgent"]}
+  ]
+}
+```
+
+### Validate Job Against Rules
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/jobs/validate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "AC Repair",
+    "status": "scheduled",
+    "priority": "Urgent",
+    "scheduled_date": null
+  }'
+```
+
+**Response (if validation fails):**
+```json
+{
+  "valid": false,
+  "errors": [
+    {
+      "rule": "Urgent jobs must be scheduled within 24 hours",
+      "field": "scheduled_date",
+      "message": "Urgent jobs must have a visit scheduled within 24 hours"
+    }
+  ]
+}
+```
+
+<Tip>
+See full API documentation at [Job Model API Reference](/api-reference/job-model).
+</Tip>
+
+---
+
+## Related Topics
+
+<CardGroup cols={2}>
+  <Card title="Job Overview" icon="briefcase" href="/features/jobs/overview">
+    Core job concepts and workflows
+  </Card>
+  
+  <Card title="Job Status" icon="check-circle" href="/features/jobs/job-status">
+    Job status lifecycle and transitions
+  </Card>
+  
+  <Card title="Job Custom Fields" icon="input-text" href="/features/jobs/job-custom-fields">
+    Add custom fields to jobs
+  </Card>
+  
+  <Card title="Workflow Automation" icon="bolt" href="/features/automation/workflows">
+    Automate job workflows
+  </Card>
+</CardGroup>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I restore default job model configuration?">
+    Yes. Go to Settings → Jobs → Model → Reset to Defaults. This will restore all default statuses, transitions, and rules (but preserve custom fields).
+  </Accordion>
+
+  <Accordion title="Will changing status rules affect existing jobs?">
+    No. Existing jobs maintain their current status. Rule changes only affect future status transitions.
+  </Accordion>
+
+  <Accordion title="Can I have different job models for different job types?">
+    Not currently. All jobs share the same model configuration. This is on the roadmap for Enterprise plan (2026).
+  </Accordion>
+
+  <Accordion title="How many validation rules can I create?">
+    No limit on Enterprise plan. Pro plan supports up to 50 rules.
+  </Accordion>
+
+  <Accordion title="Can I export/import job model configuration?">
+    Yes. Export model as JSON (Settings → Jobs → Export Model), then import into another FieldCamp account.
+  </Accordion>
+
+  <Accordion title="Can I use JavaScript for custom validation logic?">
+    Yes, on Enterprise plan. Use lifecycle hooks to run custom JavaScript validation.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Need Help?
+
+<Card title="Contact Support" icon="headset" href="mailto:support@fieldcamp.ai">
+  Questions about configuring the job model? Our team can help you design workflows and rules for your business.
+</Card>

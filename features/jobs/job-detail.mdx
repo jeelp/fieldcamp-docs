@@ -1,0 +1,1301 @@
+---
+title: "Job Detail Page"
+description: "Complete guide to the job detail view — every tab, field, and action explained"
+icon: "file-lines"
+---
+
+# Job Detail Page
+
+The job detail page is command central for a single job. Everything you need to manage, track, and complete a job lives here.
+
+<Info>
+  **New to jobs?** Read [Jobs Overview](/features/jobs/overview) first to understand the basics.
+</Info>
+
+---
+
+## Opening Job Detail
+
+Access the job detail page by:
+
+<CardGroup cols={3}>
+  <Card title="From Job List" icon="list">
+    Click any job row in the table or Kanban card
+  </Card>
+  
+  <Card title="From Dashboard" icon="home">
+    Click a job in the "Recent Jobs" widget
+  </Card>
+  
+  <Card title="From Client Profile" icon="user">
+    Click a job in the client's "Jobs" tab
+  </Card>
+  
+  <Card title="From Calendar" icon="calendar">
+    Click a visit event, then click "View Job"
+  </Card>
+  
+  <Card title="From Search" icon="search">
+    Search for a job (Cmd/Ctrl + K), then click the result
+  </Card>
+  
+  <Card title="From Mobile App" icon="mobile">
+    Tap a job card in the mobile app (opens mobile detail view)
+  </Card>
+</CardGroup>
+
+---
+
+## Page Layout
+
+The job detail page has two main sections:
+
+<Tabs>
+  <Tab title="Left Sidebar">
+    **Quick-access information and actions:**
+    - Client info
+    - Financial summary
+    - Job metadata
+    - Team assignment
+    - Skills & equipment
+    - Tags
+    - Quick actions
+  </Tab>
+  
+  <Tab title="Main Content Area">
+    **Detailed information organized in tabs:**
+    - Details
+    - Visits
+    - Forms
+    - Files
+    - Activity
+    - Timeline
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: job-detail-full-page.png — Full job detail page showing sidebar + main tabs -->
+
+---
+
+## Left Sidebar
+
+### Client Information
+
+<!-- Screenshot: sidebar-client-section.png — Client info card in sidebar -->
+
+<AccordionGroup>
+  <Accordion title="Client Name & Company">
+    **Client name** (clickable — opens client profile in new tab)
+    
+    **Company name** (if set)
+    
+    **Example:**
+    ```
+    John Smith
+    ABC Plumbing Services
+    ```
+  </Accordion>
+  
+  <Accordion title="Contact Info">
+    **Phone number** (clickable — opens phone dialer or call interface)
+    
+    **Email** (clickable — opens email composer)
+    
+    **Quick actions:**
+    - 📞 Call
+    - 📧 Email
+    - 💬 SMS
+  </Accordion>
+  
+  <Accordion title="Address">
+    **Job site address** (usually same as client's property address)
+    
+    **Actions:**
+    - 🗺️ View on map (opens Google Maps)
+    - 🧭 Get directions (opens navigation app)
+    
+    <!-- Screenshot: address-with-directions.png — Address section with map and directions buttons -->
+  </Accordion>
+  
+  <Accordion title="Client History">
+    **Quick stats:**
+    - Total jobs: 12
+    - Total revenue: $18,450
+    - Last job date: Feb 20, 2026
+    
+    Click **View Full History** to open client profile.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Financial Summary
+
+<!-- Screenshot: sidebar-financial-summary.png — Financial summary card -->
+
+<AccordionGroup>
+  <Accordion title="Subtotal">
+    Sum of all job items (before tax and discounts)
+    
+    **Calculation:** Σ (item quantity × item unit price)
+  </Accordion>
+  
+  <Accordion title="Discount">
+    Job-level discount (if applied)
+    
+    **Types:**
+    - Percentage (e.g., 10% off)
+    - Fixed amount (e.g., $50 off)
+  </Accordion>
+  
+  <Accordion title="Tax">
+    Total tax across all taxable items
+    
+    **Calculation:** Σ (item subtotal × tax rate) for all taxable items
+  </Accordion>
+  
+  <Accordion title="Total">
+    **Final job value**
+    
+    **Formula:** Subtotal - Discount + Tax
+    
+    This is the amount the client owes (or has paid).
+  </Accordion>
+  
+  <Accordion title="Paid">
+    Amount the client has paid so far (from linked invoices).
+    
+    Shows **$0.00** if job hasn't been invoiced yet.
+  </Accordion>
+  
+  <Accordion title="Outstanding Balance">
+    **Amount still owed**
+    
+    **Formula:** Total - Paid
+    
+    **Color coding:**
+    - 🟢 Green: Fully paid ($0.00)
+    - 🟡 Yellow: Partially paid
+    - 🔴 Red: Overdue (invoice past due date)
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Pro tip:** The financial summary updates in real-time as you add/remove items or apply discounts.
+</Tip>
+
+---
+
+### Job Metadata
+
+<!-- Screenshot: sidebar-metadata.png — Metadata section showing dates and creator -->
+
+| Field | Description |
+|-------|-------------|
+| **Job Number** | Unique identifier (e.g., JOB-1234) |
+| **Status** | Current lifecycle stage (clickable — change status) |
+| **Priority** | Low / Medium / High / Urgent (clickable — change priority) |
+| **Job Type** | One-Time or Recurring |
+| **Created** | Date and time job was created |
+| **Created By** | User who created the job |
+| **Last Modified** | Date and time of last edit |
+| **Modified By** | User who last edited the job |
+
+---
+
+### Assigned Team Members
+
+<!-- Screenshot: sidebar-team-assignment.png — Team member section with avatars -->
+
+**Shows:**
+- Team member name(s)
+- Avatar photo
+- Role (Technician, Manager, etc.)
+
+**Actions:**
+- **+ Add Team Member** (assign more techs)
+- **Remove** (unassign tech)
+- **AI Dispatcher** (get recommendation)
+
+<Info>
+  Learn more: [AI Dispatcher](/features/jobs/ai-dispatcher)
+</Info>
+
+---
+
+### Skills & Equipment Required
+
+<AccordionGroup>
+  <Accordion title="Skills Required">
+    List of skills/certifications needed:
+    - HVAC Certification
+    - Electrical License
+    - etc.
+    
+    **Action:** Click **+ Add Skill**
+    
+    <!-- Screenshot: skills-list.png — Skills section with badges -->
+  </Accordion>
+  
+  <Accordion title="Equipment Required">
+    List of tools/equipment needed:
+    - Ladder (40-foot)
+    - Drain Snake
+    - etc.
+    
+    **Action:** Click **+ Add Equipment**
+    
+    <!-- Screenshot: equipment-list.png — Equipment section with icons -->
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Pro tip:** Skills and equipment show in the mobile app so techs know what to bring before leaving.
+</Tip>
+
+---
+
+### Tags
+
+<!-- Screenshot: sidebar-tags.png — Tags section with color-coded tags -->
+
+**Shows:** All tags applied to this job (e.g., "Plumbing", "Emergency", "Referral")
+
+**Actions:**
+- Click a tag to view all jobs with that tag
+- **+ Add Tag**
+- Click **×** on a tag to remove it
+
+---
+
+### Quick Actions
+
+<!-- Screenshot: sidebar-quick-actions.png — Action buttons -->
+
+<CardGroup cols={2}>
+  <Card title="Edit Job" icon="pen">
+    Opens edit modal with all fields pre-filled
+    
+    **Shortcut:** `Cmd/Ctrl + E`
+  </Card>
+  
+  <Card title="Duplicate Job" icon="copy">
+    Creates a copy of this job for the same or different client
+  </Card>
+  
+  <Card title="Convert to Invoice" icon="file-invoice">
+    Creates an invoice from job items
+    
+    <Info>Learn more: [Invoicing Integration](/features/jobs/invoicing-integration)</Info>
+  </Card>
+  
+  <Card title="Convert to Estimate" icon="file-lines">
+    Creates an estimate from job items
+  </Card>
+  
+  <Card title="Schedule Visit" icon="calendar-plus">
+    Opens visit scheduling modal
+    
+    <Info>Learn more: [Creating Visits](/features/jobs/visits/creating-visits)</Info>
+  </Card>
+  
+  <Card title="Print Job" icon="print">
+    Prints job detail page or exports to PDF
+  </Card>
+  
+  <Card title="Share Job" icon="share">
+    Generates a shareable link (client-facing view)
+  </Card>
+  
+  <Card title="Delete Job" icon="trash">
+    Soft-deletes the job (can be restored by support)
+    
+    <Warning>Requires confirmation. All visits and logs are also deleted.</Warning>
+  </Card>
+</CardGroup>
+
+---
+
+## Main Content Tabs
+
+The main area has **six tabs** with detailed information:
+
+<Tabs>
+  <Tab title="Details">
+    Core job information: description, items, pricing, photos, notes
+  </Tab>
+  
+  <Tab title="Visits">
+    All scheduled/completed visits for this job
+  </Tab>
+  
+  <Tab title="Forms">
+    Job forms and checklists (assigned and completed)
+  </Tab>
+  
+  <Tab title="Files">
+    Photos, documents, contracts, and attachments
+  </Tab>
+  
+  <Tab title="Activity">
+    Audit trail — who changed what and when
+  </Tab>
+  
+  <Tab title="Timeline">
+    Chronological view of all job events
+  </Tab>
+</Tabs>
+
+---
+
+## Details Tab
+
+The **Details** tab is the default view when you open a job.
+
+<!-- Screenshot: details-tab-full.png — Full Details tab view -->
+
+### Job Description
+
+**What's shown:**
+- Full job description (editable inline)
+- Internal notes (team-only)
+- Customer-facing notes (visible in client portal)
+
+**Actions:**
+- Click **Edit** to update description
+- **@ Mention** team members in notes (they get notified)
+
+<!-- Screenshot: description-section.png — Description with rich text editor -->
+
+---
+
+### Job Items (Products & Services)
+
+<!-- Screenshot: job-items-section.png — Items table with pricing -->
+
+**Table columns:**
+
+| Column | Description |
+|--------|-------------|
+| **Item** | Product or service name |
+| **Description** | Item details (internal and customer-facing) |
+| **Quantity** | How many units |
+| **Unit Price** | Price per unit |
+| **Subtotal** | Quantity × Unit Price |
+| **Tax** | Tax amount (if taxable) |
+| **Total** | Subtotal + Tax |
+| **Actions** | Edit, Remove |
+
+**Actions:**
+- **+ Add Item** (from catalog or custom)
+- **+ Add Kit** (add multiple items as a bundle)
+- **Reorder** (drag rows to change order)
+- **Edit** (change quantity, price, tax)
+- **Remove** (delete item from job)
+
+<Info>
+  Learn more: [Job Items & Pricing](/features/jobs/job-items)
+</Info>
+
+---
+
+### Item Details (Expanded)
+
+Click any item row to expand and see:
+
+<AccordionGroup>
+  <Accordion title="Item Properties">
+    - **SKU** (if product has SKU)
+    - **Category** (item category)
+    - **Vendor** (if product has default vendor)
+    - **Cost** (internal cost — not shown to client)
+    - **Margin** (Price - Cost = Profit)
+  </Accordion>
+  
+  <Accordion title="Pricing Details">
+    - **Unit Price** (editable)
+    - **Discount** (per-item discount, optional)
+    - **Tax Rate** (percentage or fixed amount)
+    - **Tax Inclusive/Exclusive** (is tax included in price?)
+  </Accordion>
+  
+  <Accordion title="Notes">
+    - **Internal notes** (team-only)
+    - **Customer notes** (shows on invoice/estimate)
+  </Accordion>
+  
+  <Accordion title="Inventory">
+    - **Stock level** (if inventory tracking enabled)
+    - **Warehouse** (which location has stock)
+    - **Reserve inventory** (allocate stock to this job)
+    
+    <Info>Learn more: [Inventory Management](/features/inventory/overview)</Info>
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: item-expanded-view.png — Expanded item row showing all details -->
+
+---
+
+### Pricing Breakdown
+
+At the bottom of the items section:
+
+**Summary table:**
+
+| Field | Amount | Description |
+|-------|--------|-------------|
+| **Subtotal** | $1,200.00 | Sum of all item subtotals |
+| **Discount** | -$100.00 | Job-level discount (10% off) |
+| **Subtotal After Discount** | $1,100.00 | Subtotal - Discount |
+| **Tax** | $110.00 | Total tax (10% of taxable items) |
+| **Total** | $1,210.00 | Final amount |
+
+<!-- Screenshot: pricing-breakdown-table.png — Pricing summary at bottom of items -->
+
+<Tip>
+  **Pro tip:** Click any amount to see the calculation breakdown.
+</Tip>
+
+---
+
+### Applying Discounts
+
+<Tabs>
+  <Tab title="Job-Level Discount">
+    Applied to the entire job (affects all items).
+    
+    **How to apply:**
+    1. Click **Apply Discount** (below items table)
+    2. Choose type:
+       - **Percentage** (e.g., 10% off entire job)
+       - **Fixed amount** (e.g., $100 off)
+    3. Enter amount
+    4. Save
+    
+    **Calculation:** Discount applies to subtotal, then tax is calculated on discounted amount.
+    
+    <!-- Screenshot: apply-discount-modal.png — Discount modal with percentage and fixed options -->
+  </Tab>
+  
+  <Tab title="Item-Level Discount">
+    Applied to a single item.
+    
+    **How to apply:**
+    1. Click **Edit** on an item row
+    2. Scroll to **Discount** field
+    3. Enter percentage or fixed amount
+    4. Save
+    
+    **Calculation:** Discount applies to that item only.
+  </Tab>
+</Tabs>
+
+<Warning>
+  **Job-level and item-level discounts don't stack.** If you apply both, only the job-level discount is applied.
+</Warning>
+
+<Info>
+  Learn more: [Pricing & Discounts](/features/pricing/overview)
+</Info>
+
+---
+
+### Photos
+
+<!-- Screenshot: photos-section.png — Photo grid in Details tab -->
+
+**Shows:** All photos attached to the job (before/during/after work)
+
+**Actions:**
+- **+ Upload Photos** (from desktop)
+- **View** (click photo to open lightbox)
+- **Download** (download original)
+- **Delete** (remove from job)
+
+**Photos are organized by:**
+- **Before Work**
+- **During Work**
+- **After Work**
+- **Equipment/Tags**
+
+<Tip>
+  **Pro tip:** Photos taken in the mobile app are automatically categorized and uploaded.
+</Tip>
+
+---
+
+### Internal Notes
+
+**Team-only notes** (not visible to client).
+
+**Use for:**
+- Access codes (gate code, lockbox combo)
+- Special instructions for techs
+- Historical context ("third callback for this issue")
+- Client preferences ("prefers morning appointments")
+
+**Features:**
+- Rich text editing (bold, italic, lists, links)
+- **@ Mentions** (notify specific team members)
+- Edit history (see who changed what)
+
+<!-- Screenshot: internal-notes-section.png — Notes editor with mentions -->
+
+---
+
+### Customer-Facing Notes
+
+**Notes visible to the client** (shows in client portal, on invoices, and in email notifications).
+
+**Use for:**
+- Work summary ("We replaced the water heater and inspected the expansion tank")
+- Next steps ("Annual maintenance recommended in 12 months")
+- Thank you messages
+
+<Warning>
+  Be careful with customer-facing notes. They're public to the client.
+</Warning>
+
+---
+
+### Custom Fields
+
+If your organization has configured custom fields for jobs, they appear here.
+
+**Example custom fields:**
+- Permit Number (text)
+- Inspection Date (date)
+- Job Source (dropdown: Referral, Website, Google Ad)
+- Warranty Expiration (date)
+
+<Info>
+  Learn more: [Job Custom Fields](/features/jobs/job-custom-fields)
+</Info>
+
+<!-- Screenshot: custom-fields-section.png — Custom fields with various input types -->
+
+---
+
+## Visits Tab
+
+The **Visits** tab shows all scheduled and completed visits for this job.
+
+<!-- Screenshot: visits-tab-full.png — Full Visits tab with multiple visits -->
+
+### Visit List
+
+Each visit card shows:
+
+| Field | Description |
+|-------|-------------|
+| **Visit #** | Unique visit number (e.g., VISIT-5678) |
+| **Date & Time** | Scheduled start time (e.g., "Feb 26, 2026 at 10:00 AM") |
+| **Status** | Scheduled, In Transit, In Progress, Completed, etc. |
+| **Assigned Techs** | Who's going (avatar + name) |
+| **Duration** | Estimated time (e.g., "2 hours") |
+| **Actual Time** | Actual time logged (shows after completion) |
+| **Mileage** | Miles driven (shows after completion) |
+
+<!-- Screenshot: visit-card.png — Single visit card showing all fields -->
+
+---
+
+### Visit Status Badges
+
+Each visit has a color-coded status:
+
+<CardGroup cols={4}>
+  <Card title="Scheduled" icon="calendar">
+    🟦 **Blue** — Visit is scheduled, tech assigned
+  </Card>
+  
+  <Card title="In Transit" icon="truck">
+    🟧 **Orange** — Tech is traveling to job site
+  </Card>
+  
+  <Card title="In Progress" icon="play">
+    🟩 **Green** — Tech is on-site working
+  </Card>
+  
+  <Card title="Completed" icon="check">
+    🟩 **Green** — Work is done
+  </Card>
+  
+  <Card title="Cancelled" icon="ban">
+    🟥 **Red** — Visit was cancelled
+  </Card>
+</CardGroup>
+
+<Info>
+  Learn more: [Visit Status](/features/jobs/visits/visit-status)
+</Info>
+
+---
+
+### Creating a New Visit
+
+Click **+ Schedule Visit** to add a visit to this job.
+
+<!-- Screenshot: schedule-visit-modal.png — Visit scheduling modal -->
+
+**Fields:**
+
+<AccordionGroup>
+  <Accordion title="Date & Time">
+    - **Start date** (calendar picker)
+    - **Start time** (time picker)
+    - **Duration** (hours and minutes)
+    
+    **Calculated end time** shown automatically.
+  </Accordion>
+  
+  <Accordion title="Assigned Techs">
+    - Select one or more techs
+    - **Check availability** (shows if tech is free during this time)
+    - **AI Dispatcher** button (get best tech recommendation)
+  </Accordion>
+  
+  <Accordion title="Visit Type">
+    - Service visit (default)
+    - Inspection
+    - Follow-up
+    - Emergency
+  </Accordion>
+  
+  <Accordion title="Arrival Window">
+    Optional time range for customer communication.
+    
+    **Example:** "Technician will arrive between 10:00 AM and 12:00 PM"
+  </Accordion>
+  
+  <Accordion title="Customer Notification">
+    **Send confirmation:**
+    - Email
+    - SMS
+    - Both
+    - None
+    
+    Customer gets notification immediately and reminder 24 hours before.
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Learn more: [Creating Visits](/features/jobs/visits/creating-visits)
+</Info>
+
+---
+
+### Viewing Visit Detail
+
+Click any visit card to expand and see:
+
+**Visit logs:**
+- ⏱️ **Time tracking** (start, end, breaks)
+- 🚗 **Mileage** (start location, job location, total miles)
+- 💼 **Labor hours** (billable vs non-billable)
+- 🧰 **Materials used** (items from truck inventory)
+- 📸 **Photos** (before/after/during work)
+- 📝 **Notes** (tech notes, customer comments)
+- ✍️ **Signatures** (customer signature, tech signature)
+
+<Info>
+  Learn more: [Visit Logs & Time Tracking](/features/jobs/visits/visit-logs)
+</Info>
+
+<!-- Screenshot: visit-detail-expanded.png — Expanded visit card showing logs -->
+
+---
+
+### Rescheduling a Visit
+
+**How to reschedule:**
+
+<Steps>
+  <Step title="Click Reschedule">
+    In the visit card, click **⋮ More** → **Reschedule**.
+  </Step>
+  
+  <Step title="Pick New Date/Time">
+    Calendar opens. Select new date and time.
+  </Step>
+  
+  <Step title="Notify Customer">
+    Check **Send notification** to alert customer of change.
+  </Step>
+  
+  <Step title="Save">
+    Click **Reschedule Visit**.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** You can also reschedule by dragging the visit on the calendar.
+</Tip>
+
+---
+
+### Cancelling a Visit
+
+**How to cancel:**
+
+<Steps>
+  <Step title="Click Cancel Visit">
+    In the visit card, click **⋮ More** → **Cancel Visit**.
+  </Step>
+  
+  <Step title="Enter Reason">
+    Select cancellation reason:
+    - Customer cancelled
+    - Weather delay
+    - Tech unavailable
+    - Parts not available
+    - Other (enter reason)
+  </Step>
+  
+  <Step title="Notify Customer">
+    Check **Send notification** to alert customer.
+  </Step>
+  
+  <Step title="Confirm">
+    Click **Cancel Visit**.
+  </Step>
+</Steps>
+
+<Warning>
+  Cancelling a visit **does not delete it**. It marks it as cancelled. You can view cancelled visits by enabling "Show Cancelled" filter.
+</Warning>
+
+---
+
+## Forms Tab
+
+The **Forms** tab shows all forms and checklists attached to this job.
+
+<!-- Screenshot: forms-tab-full.png — Forms tab with multiple form templates -->
+
+### Form Status
+
+Each form has a status:
+
+<CardGroup cols={3}>
+  <Card title="Not Started" icon="circle">
+    🔵 Form is assigned but tech hasn't opened it yet
+  </Card>
+  
+  <Card title="In Progress" icon="play">
+    🟡 Tech has started filling it out but not submitted
+  </Card>
+  
+  <Card title="Completed" icon="check">
+    🟢 Form is completed and submitted
+  </Card>
+</CardGroup>
+
+---
+
+### Assigning Forms
+
+Click **+ Attach Form** to assign a form template to this job.
+
+**How it works:**
+
+<Steps>
+  <Step title="Select Form Template">
+    Choose from your saved templates:
+    - HVAC Inspection Checklist
+    - Safety Checklist
+    - Customer Survey
+    - etc.
+  </Step>
+  
+  <Step title="Set as Required (Optional)">
+    If checked, job cannot be marked complete until form is submitted.
+  </Step>
+  
+  <Step title="Attach">
+    Click **Attach**. Form appears in mobile app for techs to complete.
+  </Step>
+</Steps>
+
+<Info>
+  Learn more: [Job Forms & Checklists](/features/jobs/forms/overview)
+</Info>
+
+<!-- Screenshot: attach-form-modal.png — Form template picker -->
+
+---
+
+### Viewing Completed Forms
+
+Click any completed form to view:
+
+- **All field responses**
+- **Photos captured**
+- **GPS location** (if form captured location)
+- **Signatures** (customer + tech)
+- **Completion date/time**
+- **Who completed it**
+
+**Actions:**
+- **Download PDF** (exports form as PDF with photos)
+- **Email to Customer** (sends PDF via email)
+- **Print** (print form)
+
+<!-- Screenshot: completed-form-view.png — Completed form with all responses and photos -->
+
+---
+
+### Form Analytics
+
+At the top of the Forms tab:
+
+**Stats:**
+- **Total forms assigned:** 3
+- **Completed:** 2
+- **In progress:** 1
+- **Completion rate:** 67%
+
+---
+
+## Files Tab
+
+The **Files** tab organizes all photos, documents, and attachments.
+
+<!-- Screenshot: files-tab-full.png — Files tab with grid layout -->
+
+### File Categories
+
+Files are organized into folders:
+
+<AccordionGroup>
+  <Accordion title="Photos">
+    - Before work
+    - During work
+    - After work
+    - Equipment tags/serial numbers
+    
+    **Grid view** with thumbnail previews.
+  </Accordion>
+  
+  <Accordion title="Documents">
+    - Contracts
+    - Permits
+    - Manuals
+    - Warranties
+    
+    **List view** with file name, type, size, upload date.
+  </Accordion>
+  
+  <Accordion title="Invoices & Estimates">
+    - PDFs of invoices created from this job
+    - PDFs of estimates sent to client
+    
+    **Link to original invoice/estimate detail page.**
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: files-organized-folders.png — Folder structure in Files tab -->
+
+---
+
+### Uploading Files
+
+Click **+ Upload** to add files:
+
+**Options:**
+- **From computer** (drag & drop or browse)
+- **From mobile camera** (take photo via webcam)
+- **From Google Drive** (link to cloud file)
+
+**Supported formats:**
+- **Images:** JPG, PNG, GIF, HEIC
+- **Documents:** PDF, DOCX, XLSX, TXT
+- **Videos:** MP4, MOV (up to 100MB)
+
+<!-- Screenshot: upload-file-modal.png — File upload interface with drag-and-drop -->
+
+---
+
+### File Actions
+
+<Tabs>
+  <Tab title="View">
+    Click a file to open in lightbox (images) or preview pane (documents).
+    
+    **For images:**
+    - Zoom in/out
+    - Rotate
+    - Next/previous
+    
+    **For PDFs:**
+    - Page navigation
+    - Zoom
+    - Search text
+  </Tab>
+  
+  <Tab title="Download">
+    Click **⋮ More** → **Download** to save to your device.
+  </Tab>
+  
+  <Tab title="Share">
+    Generate a public link to share the file:
+    - Link expires in 7 days (default)
+    - Password-protected (optional)
+    - View-only (no download)
+  </Tab>
+  
+  <Tab title="Move">
+    Move file to a different folder (e.g., move from "During Work" to "After Work").
+  </Tab>
+  
+  <Tab title="Rename">
+    Change the file name.
+  </Tab>
+  
+  <Tab title="Delete">
+    Remove file from job (soft delete — can be restored by support).
+  </Tab>
+</Tabs>
+
+---
+
+### Before/After Photo Comparison
+
+For jobs with before and after photos, click **Compare** to see side-by-side view.
+
+<!-- Screenshot: before-after-comparison.png — Split-screen before/after photo view -->
+
+<Tip>
+  **Pro tip:** Use before/after comparisons in customer emails to show the quality of your work.
+</Tip>
+
+---
+
+## Activity Tab
+
+The **Activity** tab is an audit trail of all changes to the job.
+
+<!-- Screenshot: activity-tab-full.png — Activity feed showing multiple events -->
+
+### Activity Feed
+
+Every change is logged with:
+- **Who** made the change (user name + avatar)
+- **What** changed (field name and before/after values)
+- **When** (date and time)
+
+**Example events:**
+- ✏️ **Job created** by John Smith on Feb 20, 2026 at 9:00 AM
+- 🏷️ **Status changed** from Draft → Scheduled by Jane Doe on Feb 21, 2026 at 2:00 PM
+- 👤 **Assigned** to Mike Johnson by Jane Doe on Feb 21, 2026 at 2:01 PM
+- 💰 **Item added:** "Water Heater - 50 Gallon Electric" by John Smith on Feb 22, 2026
+- 📅 **Visit scheduled** for Feb 26, 2026 at 10:00 AM by Jane Doe on Feb 23, 2026
+- ✅ **Visit completed** by Mike Johnson on Feb 26, 2026 at 12:30 PM
+- 📄 **Invoice created** (INV-5678) by Jane Doe on Feb 26, 2026 at 3:00 PM
+
+<!-- Screenshot: activity-event-detail.png — Single activity event with before/after values -->
+
+---
+
+### Filtering Activity
+
+Filter the activity feed by:
+
+<Tabs>
+  <Tab title="Event Type">
+    - All events
+    - Status changes
+    - Assignments
+    - Item changes
+    - Visit events
+    - Invoice/payment events
+  </Tab>
+  
+  <Tab title="User">
+    - All users
+    - Specific user (e.g., only changes by Jane Doe)
+  </Tab>
+  
+  <Tab title="Date Range">
+    - All time
+    - Today
+    - This week
+    - This month
+    - Custom range
+  </Tab>
+</Tabs>
+
+---
+
+### Exporting Activity
+
+Click **⋮ More** → **Export Activity** to download as CSV.
+
+**Use cases:**
+- Compliance audits
+- Billing disputes (proof of work done)
+- Internal investigations
+
+---
+
+## Timeline Tab
+
+The **Timeline** tab shows a chronological view of all job events.
+
+<!-- Screenshot: timeline-tab-full.png — Visual timeline with events on a date axis -->
+
+### Timeline View
+
+Events are plotted on a horizontal timeline with date markers.
+
+**Event types:**
+- 📅 **Visit scheduled**
+- 🚗 **Tech in transit**
+- ✅ **Visit completed**
+- 💰 **Payment received**
+- 📄 **Invoice sent**
+- ✏️ **Job updated**
+- 📝 **Note added**
+- 📸 **Photos uploaded**
+
+Each event is clickable to see details.
+
+<!-- Screenshot: timeline-event-card.png — Event card on timeline -->
+
+---
+
+### Timeline Filters
+
+Filter timeline events by:
+- **Event type** (visits only, payments only, etc.)
+- **Date range**
+
+---
+
+### Timeline Export
+
+Export timeline as:
+- **PDF** (visual timeline with event cards)
+- **CSV** (event data in spreadsheet)
+
+**Use cases:**
+- Client reports (show project progress)
+- Project post-mortems (review what happened when)
+
+---
+
+## Page Actions (Top-Right)
+
+At the top-right of the page, quick action buttons:
+
+<CardGroup cols={3}>
+  <Card title="Edit" icon="pen">
+    Opens edit modal
+    
+    **Shortcut:** `Cmd/Ctrl + E`
+  </Card>
+  
+  <Card title="Duplicate" icon="copy">
+    Creates a copy of this job
+  </Card>
+  
+  <Card title="Print" icon="print">
+    Prints job detail or exports to PDF
+  </Card>
+  
+  <Card title="Share" icon="share">
+    Generates shareable link (client-facing)
+  </Card>
+  
+  <Card title="More" icon="ellipsis">
+    Opens menu with additional actions:
+    - Convert to Invoice
+    - Convert to Estimate
+    - Archive Job
+    - Delete Job
+  </Card>
+</CardGroup>
+
+---
+
+## Keyboard Shortcuts
+
+| Action | Shortcut |
+|--------|----------|
+| Edit job | `Cmd/Ctrl + E` |
+| Next/previous job | `←` / `→` |
+| Close detail (back to list) | `Esc` |
+| Switch tabs | `1`–`6` (Details = 1, Visits = 2, etc.) |
+| Open search | `Cmd/Ctrl + K` |
+| Print job | `Cmd/Ctrl + P` |
+
+---
+
+## Troubleshooting
+
+### I can't edit certain fields
+
+**Solution:** Check your role permissions. Technicians can edit their assigned jobs but may not be able to change pricing or delete jobs.
+
+---
+
+### Photos aren't showing
+
+**Solution:** Photos may still be uploading. Refresh the page. If photos still don't appear, they may have failed to upload from the mobile app — check the mobile app's sync status.
+
+---
+
+### Visit status isn't updating
+
+**Solution:** Status updates happen when techs use the mobile app. If a tech manually marks a visit complete, the status updates. If they don't use the app, you'll need to manually update the status from the desktop.
+
+<Info>
+  Learn more: [Visit Status & Tracking](/features/jobs/visits/visit-status)
+</Info>
+
+---
+
+### Financial summary doesn't match invoice
+
+**Solution:** If you edited the invoice after creating it, the job and invoice are now out of sync. Changes to job items don't retroactively update invoices (and vice versa).
+
+**Fix:** Edit the invoice directly, or re-generate it from the job.
+
+---
+
+### I can't delete the job
+
+**Solution:** Jobs with linked invoices, payments, or completed visits cannot be deleted. You can **archive** them instead (hides from lists but keeps data).
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Review the Activity tab for disputes">
+    If a client disputes a charge or claims work wasn't done, the Activity tab is proof — it logs every change with timestamps.
+  </Accordion>
+  
+  <Accordion title="Use before/after photos">
+    Photos are powerful for customer satisfaction and future troubleshooting. Encourage techs to take them on every visit.
+  </Accordion>
+  
+  <Accordion title="Add internal notes for historical context">
+    If a client calls back with the same issue, internal notes help you understand what happened last time.
+  </Accordion>
+  
+  <Accordion title="Use custom fields for tracking unique data">
+    If you track permit numbers, warranty expirations, or job sources, use custom fields instead of cramming it into the description.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't put sensitive info in customer-facing notes">
+    Customer-facing notes are visible in the client portal and on invoices. Keep access codes and internal details in internal notes.
+  </Accordion>
+  
+  <Accordion title="Don't manually duplicate data across tabs">
+    If you add a note in the Details tab, don't also add it as a file or in activity — it's already logged automatically.
+  </Accordion>
+  
+  <Accordion title="Don't change job items after invoicing">
+    If the invoice is already sent, changes to job items won't update the invoice. Edit the invoice directly instead.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## API: Get Job Detail
+
+Fetch full job detail via the FieldCamp API:
+
+```bash
+curl -X GET "https://app.fieldcamp.ai/api/v1/jobs/507f1f77bcf86cd799439012" \
+  -H "X-Api-Key: your_api_key"
+```
+
+```json
+// Response
+{
+  "success": true,
+  "data": {
+    "id": "507f1f77bcf86cd799439012",
+    "jobNumber": "JOB-1234",
+    "clientId": "507f1f77bcf86cd799439011",
+    "clientName": "ABC Plumbing",
+    "description": "Fix leaky faucet in kitchen",
+    "status": "In Progress",
+    "priority": "Medium",
+    "items": [
+      {
+        "name": "Kitchen Faucet - Chrome",
+        "quantity": 1,
+        "unitPrice": 150.00,
+        "tax": 15.00,
+        "total": 165.00
+      }
+    ],
+    "subtotal": 150.00,
+    "tax": 15.00,
+    "total": 165.00,
+    "createdAt": "2026-02-20T10:00:00Z",
+    "visits": [
+      {
+        "id": "507f1f77bcf86cd799439013",
+        "date": "2026-02-26T10:00:00Z",
+        "status": "Scheduled",
+        "assignedTo": ["507f1f77bcf86cd799439014"]
+      }
+    ]
+  }
+}
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Job Items & Pricing" icon="dollar-sign" href="/features/jobs/job-items">
+    Master job items, discounts, and taxes
+  </Card>
+  
+  <Card title="Visit Logs & Time Tracking" icon="clock" href="/features/jobs/visits/visit-logs">
+    Learn how to track time, mileage, and labor
+  </Card>
+  
+  <Card title="Job Forms" icon="clipboard-list" href="/features/jobs/forms/overview">
+    Create and complete checklists on-site
+  </Card>
+  
+  <Card title="Invoicing Integration" icon="file-invoice" href="/features/jobs/invoicing-integration">
+    Convert jobs to invoices
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Jobs Overview](/features/jobs/overview) — Understand the basics
+- [Creating Jobs](/features/jobs/creating-jobs) — How to create jobs
+- [Job List & Views](/features/jobs/job-list) — Filter and organize jobs
+- [Job Status](/features/jobs/job-status) — Understand the lifecycle
+- [Mobile App](/mobile/overview) — Complete jobs from your phone
+
+---
+
+<Check>
+  **You now know:** Every section, tab, and action on the job detail page — from viewing client info and financial summaries to managing visits, forms, files, and activity logs.
+</Check>

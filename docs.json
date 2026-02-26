@@ -20,9 +20,63 @@
           {
             "group": "Features",
             "pages": [
-              "features/jobs",
-              "features/scheduling",
-              "features/invoicing",
+              {
+                "group": "Jobs & Work Orders",
+                "pages": [
+                  "features/jobs/overview",
+                  "features/jobs/creating-jobs",
+                  "features/jobs/job-list",
+                  "features/jobs/job-detail",
+                  "features/jobs/job-status",
+                  "features/jobs/job-types",
+                  "features/jobs/job-items",
+                  "features/jobs/job-templates",
+                  {
+                    "group": "Visits & Scheduling",
+                    "pages": [
+                      "features/jobs/visits/overview",
+                      "features/jobs/visits/creating-visits",
+                      "features/jobs/visits/visit-status",
+                      "features/jobs/visits/visit-logs",
+                      "features/jobs/visits/recurring-visits"
+                    ]
+                  },
+                  {
+                    "group": "Calendar & Scheduling",
+                    "pages": [
+                      "features/jobs/scheduling/calendar",
+                      "features/jobs/scheduling/team-availability",
+                      "features/jobs/scheduling/route-optimization"
+                    ]
+                  },
+                  {
+                    "group": "Job Forms & Checklists",
+                    "pages": [
+                      "features/jobs/forms/overview",
+                      "features/jobs/forms/creating-forms",
+                      "features/jobs/forms/completing-forms"
+                    ]
+                  },
+                  {
+                    "group": "Advanced Features",
+                    "pages": [
+                      "features/jobs/ai-dispatcher",
+                      "features/jobs/job-photos",
+                      "features/jobs/job-notes",
+                      "features/jobs/job-custom-fields",
+                      "features/jobs/job-logs",
+                      "features/jobs/job-logs-templates",
+                      "features/jobs/configure-job-model"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Service Requests",
+                "pages": [
+                  "features/requests/overview"
+                ]
+              },
               {
                 "group": "Client Management",
                 "pages": [
@@ -39,6 +93,8 @@
                   "features/clients/portal"
                 ]
               },
+              "features/scheduling",
+              "features/invoicing",
               "features/team-management"
             ]
           },

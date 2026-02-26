@@ -1,0 +1,732 @@
+---
+title: "Job Custom Fields"
+description: "Add custom fields to jobs to track industry-specific data"
+icon: "input-text"
+---
+
+## Overview
+
+Custom fields let you add business-specific data to jobs beyond the default fields. Track permit numbers, equipment serial numbers, warranty expirations, job sources, or any other data unique to your business.
+
+**Use cases:**
+- **Permit tracking:** Permit number, issue date, expiration date
+- **Equipment data:** Serial numbers, model numbers, warranty info
+- **Job sourcing:** How did the customer find you? (Google, referral, ad)
+- **Compliance:** Inspection dates, certifications, safety checks
+- **Billing:** PO numbers, account codes, billing contacts
+
+<Frame>
+  <img src="/images/jobs/custom-fields-job-detail.png" alt="Custom fields displayed in job detail page" />
+</Frame>
+
+<Info>
+**Available on:** Pro and Enterprise plans. Starter plan supports up to 3 custom fields.
+</Info>
+
+---
+
+## Supported Field Types
+
+FieldCamp supports 9 custom field types:
+
+### Text
+
+Single-line text input.
+
+**Use cases:**
+- Permit number
+- PO number
+- Equipment serial number
+- Reference number
+
+**Example:**
+```
+Permit Number: BLD-2026-0423
+```
+
+### Text Area (Long Text)
+
+Multi-line text input for longer content.
+
+**Use cases:**
+- Special instructions
+- Site notes
+- Work scope details
+
+**Example:**
+```
+Special Instructions:
+Park in rear lot. Ring doorbell twice (front doorbell is broken).
+Customer's dog is friendly but keep garage door closed.
+```
+
+### Number
+
+Numeric value (integer or decimal).
+
+**Use cases:**
+- Square footage
+- Room count
+- Equipment age (years)
+- Warranty duration (months)
+
+**Example:**
+```
+Square Footage: 2400
+Equipment Age: 7 years
+```
+
+**Validation:**
+- Min value (optional)
+- Max value (optional)
+- Decimal places (0-4)
+
+### Checkbox (Yes/No)
+
+Boolean value (checked or unchecked).
+
+**Use cases:**
+- Permit required? (Yes/No)
+- Emergency job? (Yes/No)
+- Warranty work? (Yes/No)
+- Customer approved estimate? (Yes/No)
+
+**Example:**
+```
+☑ Permit Required
+☐ Emergency Job
+```
+
+### Date
+
+Single date picker.
+
+**Use cases:**
+- Permit issue date
+- Equipment install date
+- Warranty start date
+- Inspection due date
+
+**Example:**
+```
+Permit Issue Date: 2026-02-15
+```
+
+**Display format:**
+- MM/DD/YYYY (US)
+- DD/MM/YYYY (International)
+- YYYY-MM-DD (ISO)
+
+### Date Time
+
+Date + time picker.
+
+**Use cases:**
+- Inspection scheduled time
+- Equipment activation timestamp
+- Callback scheduled time
+
+**Example:**
+```
+Inspection Scheduled: 2026-03-01 10:00 AM
+```
+
+### Select (Dropdown)
+
+Single-choice dropdown.
+
+**Use cases:**
+- Job source (Google, Referral, Yelp, Facebook Ad)
+- Job priority (Low, Medium, High, Urgent)
+- Equipment type (AC, Furnace, Boiler, Heat Pump)
+- Payment method (Cash, Check, Credit Card, Invoice)
+
+**Example:**
+```
+Job Source: [Dropdown]
+  - Google
+  - Referral
+  - Yelp
+  - Facebook Ad
+  - Other
+```
+
+**Configuration:**
+- Add/remove/reorder options
+- Set default option
+- Allow "Other" with text input
+
+### Multi-Select
+
+Multiple-choice dropdown (select multiple options).
+
+**Use cases:**
+- Services performed (Repair, Replacement, Maintenance, Inspection)
+- Equipment affected (AC, Furnace, Thermostat, Ductwork)
+- Certifications required (EPA 608, NATE, Electrical License)
+
+**Example:**
+```
+Services Performed: [Multi-Select]
+  ☑ Repair
+  ☑ Maintenance
+  ☐ Replacement
+  ☐ Inspection
+```
+
+### Phone
+
+Phone number input with auto-formatting.
+
+**Use cases:**
+- Site contact phone (different from customer phone)
+- Property manager phone
+- Landlord phone
+- Emergency contact
+
+**Example:**
+```
+Site Contact Phone: (555) 123-4567
+```
+
+**Auto-formatting:**
+- (555) 123-4567 (US)
+- +44 20 1234 5678 (International)
+
+---
+
+## Creating Custom Fields
+
+### Step 1: Access Custom Fields Settings
+
+1. Go to **Settings → Jobs → Custom Fields**
+2. Click **+ Add Custom Field**
+
+<Frame>
+  <img src="/images/jobs/custom-fields-settings.png" alt="Custom fields settings page" />
+</Frame>
+
+### Step 2: Configure Field
+
+**Field Name:**
+- Label shown in the UI (e.g., "Permit Number")
+- Keep it short and descriptive
+- Avoid technical jargon
+
+**Field Type:**
+- Select from 9 supported types (Text, Number, Date, etc.)
+
+**Required:**
+- Toggle ON if this field must be filled out before job can be saved
+- Use sparingly (too many required fields slow down job creation)
+
+**Default Value:**
+- Pre-fill field with a default value
+- Example: Set "Job Source" default to "Website"
+
+**Help Text:**
+- Short description shown below field
+- Example: "Enter the city-issued permit number"
+
+**Validation Rules:**
+- For Number fields: Min/max values
+- For Text fields: Min/max length, regex pattern
+- For Date fields: Min/max date, must be future date
+
+<Frame>
+  <img src="/images/jobs/create-custom-field-modal.png" alt="Create custom field modal" />
+</Frame>
+
+### Step 3: Save & Reorder
+
+After saving, drag-and-drop custom fields to reorder them in the UI.
+
+<Tip>
+**Field order matters:** Place the most important custom fields at the top so techs see them first.
+</Tip>
+
+---
+
+## Using Custom Fields
+
+### In Job Creation
+
+Custom fields appear in the **Create Job** modal:
+
+1. Click **+ Create Job**
+2. Fill out standard fields (Client, Description, etc.)
+3. Scroll to **Custom Fields** section
+4. Fill in custom field values
+5. Save job
+
+<Frame>
+  <img src="/images/jobs/custom-fields-create-job.png" alt="Custom fields in create job modal" />
+</Frame>
+
+**Required field validation:**
+- If custom field is required and empty → Cannot save job
+- Error message: "Permit Number is required"
+
+### In Job Detail Page
+
+View and edit custom fields in the job detail page:
+
+1. Open any job
+2. Scroll to **Custom Fields** section (sidebar or Details tab)
+3. Click **Edit** to change values
+4. Save
+
+<Frame>
+  <img src="/images/jobs/custom-fields-job-detail-edit.png" alt="Editing custom fields in job detail" />
+</Frame>
+
+### On Mobile App
+
+Custom fields are accessible in the mobile app:
+
+1. Open job in mobile app
+2. Tap **Details** tab
+3. Scroll to **Custom Fields**
+4. Tap a field to edit
+5. Save
+
+<Info>
+**Offline editing:** Custom field edits made offline sync when internet connection is restored.
+</Info>
+
+---
+
+## Filtering & Searching by Custom Fields
+
+### Filter Jobs by Custom Field
+
+Use custom fields to filter the job list:
+
+1. Go to **Jobs → List View**
+2. Click **Filters**
+3. Scroll to **Custom Fields** section
+4. Select values to filter by
+
+**Example filters:**
+- Show only jobs with "Permit Required" = Yes
+- Show only jobs where "Job Source" = Referral
+- Show jobs with "Warranty Expiration" in the next 30 days
+
+<Frame>
+  <img src="/images/jobs/filter-by-custom-field.png" alt="Filter jobs by custom field" />
+</Frame>
+
+### Search Jobs by Custom Field
+
+Search for jobs by custom field values:
+
+1. Use the global search bar
+2. Type: `custom:permit_number BLD-2026-0423`
+3. Jobs with that permit number appear
+
+**Search syntax:**
+```
+custom:field_name value
+```
+
+**Examples:**
+- `custom:permit_number BLD-123` - Find jobs with permit number BLD-123
+- `custom:job_source Referral` - Find jobs from referrals
+- `custom:warranty_expiration >2026-06-01` - Find jobs with warranty expiring after June 1st
+
+---
+
+## Reporting with Custom Fields
+
+### Group Jobs by Custom Field
+
+Group the job list by custom field values:
+
+1. Go to **Jobs → List View**
+2. Click **Group By**
+3. Select a custom field (e.g., "Job Source")
+4. Jobs are grouped by field value
+
+**Example grouping:**
+```
+Google (12 jobs)
+├─ Job #1234
+├─ Job #1235
+└─ Job #1236
+
+Referral (8 jobs)
+├─ Job #1237
+├─ Job #1238
+└─ Job #1239
+
+Yelp (5 jobs)
+└─ ...
+```
+
+<Frame>
+  <img src="/images/jobs/group-by-custom-field.png" alt="Jobs grouped by custom field" />
+</Frame>
+
+### Custom Field Reports
+
+Generate reports using custom field data:
+
+1. Go to **Reports → Custom**
+2. Select **Jobs** data source
+3. Add custom field as a dimension or metric
+4. Run report
+
+**Example reports:**
+- **Jobs by Source:** Count of jobs per "Job Source" (Google, Referral, etc.)
+- **Revenue by Source:** Total revenue per "Job Source"
+- **Permit Compliance:** % of jobs with "Permit Required" = Yes that have a permit number
+- **Warranty Expiring Soon:** Jobs with "Warranty Expiration" in next 90 days
+
+<Frame>
+  <img src="/images/jobs/custom-field-report.png" alt="Report showing jobs by custom field" />
+</Frame>
+
+---
+
+## Custom Fields in Exports
+
+### CSV Export
+
+Include custom fields when exporting jobs to CSV:
+
+1. Go to **Jobs → List View**
+2. Click **Export → CSV**
+3. Check **Include Custom Fields**
+4. Download CSV
+
+**CSV format:**
+```csv
+Job #,Client,Status,Permit Number,Job Source,Warranty Expiration
+1234,ABC Plumbing,Completed,BLD-2026-0423,Google,2027-02-26
+1235,XYZ Electric,In Progress,,Referral,
+```
+
+### Excel Export
+
+Same as CSV, but with Excel formatting (date fields formatted as dates, etc.).
+
+---
+
+## Custom Fields in Client Portal
+
+### Customer-Visible Fields
+
+Make custom fields visible to customers in the Client Portal:
+
+1. Edit custom field in Settings
+2. Toggle **Visible to Customer** to ON
+3. Save
+
+**What customers see:**
+- Field name and value in job detail page (portal)
+- Field value on invoices (if enabled)
+
+**What customers DON'T see:**
+- Internal-only custom fields
+- Field edit history
+
+<Warning>
+**Privacy:** Never make sensitive custom fields (like internal notes, cost data, or employee info) customer-visible.
+</Warning>
+
+### Custom Fields on Invoices
+
+Include custom field values on invoices:
+
+1. Go to **Settings → Invoicing → Invoice Template**
+2. Drag **Custom Fields** block into template
+3. Select which custom fields to include
+4. Save template
+
+**Example invoice:**
+```
+Invoice #1234
+
+Job Details:
+- Permit Number: BLD-2026-0423
+- Equipment Serial: WH-78945612
+- Warranty Expiration: 2027-02-26
+
+Line Items:
+...
+```
+
+---
+
+## Custom Field Permissions
+
+Control who can view and edit custom fields.
+
+### Permission Levels
+
+| Role | View All | Edit All | View Customer-Visible | Edit Customer-Visible |
+|------|----------|----------|----------------------|----------------------|
+| **Admin** | ✅ | ✅ | ✅ | ✅ |
+| **Manager** | ✅ | ✅ | ✅ | ✅ |
+| **Technician** | ✅ | ✅ | ✅ | ❌ |
+| **Office Staff** | ✅ | ✅ | ✅ | ✅ |
+| **Viewer** | ✅ | ❌ | ✅ | ❌ |
+| **Customer** | ❌ | ❌ | ✅ | ❌ |
+
+**Field-level permissions:**
+Lock specific custom fields so only admins can edit them:
+
+1. Edit custom field in Settings
+2. Toggle **Admin-Only Edit** to ON
+3. Save
+
+**Use case:**
+- Lock "Cost Center" field so techs can't change it
+- Lock "PO Number" so only office staff can edit it
+
+---
+
+## Conditional Custom Fields
+
+Show/hide custom fields based on other field values.
+
+**Example:**
+- If "Permit Required" = Yes → Show "Permit Number" field
+- If "Permit Required" = No → Hide "Permit Number" field
+
+**How to set up:**
+1. Edit custom field (e.g., "Permit Number")
+2. Click **Conditional Visibility**
+3. Add rule: "Show if Permit Required = Yes"
+4. Save
+
+<Frame>
+  <img src="/images/jobs/conditional-custom-field.png" alt="Conditional custom field configuration" />
+</Frame>
+
+**Advanced conditions:**
+- Multiple conditions (AND/OR logic)
+- Based on job type (show field only for "Commercial" jobs)
+- Based on job status (show field only for "Completed" jobs)
+
+<Info>
+**Conditional fields:** Available on Enterprise plan only.
+</Info>
+
+---
+
+## Custom Field Limits
+
+| Plan | Max Custom Fields | Conditional Fields | Field-Level Permissions |
+|------|-------------------|--------------------|-----------------------|
+| **Starter** | 3 | ❌ | ❌ |
+| **Pro** | 20 | ❌ | ✅ |
+| **Enterprise** | Unlimited | ✅ | ✅ |
+
+**What happens at limit:**
+- Can't create more custom fields
+- Upgrade plan to add more
+
+---
+
+## Best Practices
+
+### ✅ Do This
+
+- **Use descriptive names:** "Permit Number" is better than "Permit"
+- **Add help text:** Explain what the field is for (especially for dropdowns)
+- **Limit required fields:** Only make fields required if absolutely necessary
+- **Group related fields:** Place related fields next to each other (e.g., all permit fields together)
+- **Use dropdowns for standardized data:** Prevents typos and inconsistent values
+- **Review unused fields annually:** Delete custom fields that are no longer needed
+
+### ❌ Avoid This
+
+- **Don't create too many custom fields:** More than 10 fields overwhelms users
+- **Don't use custom fields for data that should be in a separate module** (e.g., use the Equipment module for equipment tracking, not custom fields)
+- **Don't duplicate existing fields:** Use the built-in "Tags" field instead of creating a custom "Tags" field
+- **Don't use generic names:** "Field 1" or "Misc" are not helpful
+- **Don't make everything customer-visible:** Keep internal data internal
+
+---
+
+## Troubleshooting
+
+### Custom Field Not Showing in Job Creation
+
+**Cause:**
+Field may be hidden due to conditional visibility rules.
+
+**Solution:**
+1. Check conditional visibility settings for the field
+2. Ensure the condition is met (e.g., if field shows only for "Commercial" jobs, make sure you selected "Commercial" job type)
+
+### Can't Edit Custom Field in Job
+
+**Cause:**
+Field is locked to admin-only editing.
+
+**Solution:**
+1. Ask an admin to edit the field
+2. Or: Admin goes to Settings → Jobs → Custom Fields → Edit field → Toggle "Admin-Only Edit" to OFF
+
+### Custom Field Values Not Exporting
+
+**Cause:**
+"Include Custom Fields" checkbox was unchecked during export.
+
+**Solution:**
+1. Re-export jobs
+2. Check **Include Custom Fields** before downloading CSV/Excel
+
+---
+
+## API Integration
+
+Create, update, and retrieve custom fields via API.
+
+### Create Custom Field
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/jobs/custom-fields \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Permit Number",
+    "field_type": "text",
+    "required": true,
+    "help_text": "Enter city-issued permit number",
+    "visible_to_customer": false
+  }'
+```
+
+### Set Custom Field Value on Job
+
+```bash
+curl -X PATCH https://api.fieldcamp.ai/v1/jobs/{job_id} \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "custom_fields": {
+      "permit_number": "BLD-2026-0423",
+      "job_source": "Google",
+      "warranty_expiration": "2027-02-26"
+    }
+  }'
+```
+
+### Get Job with Custom Fields
+
+```bash
+curl -X GET https://api.fieldcamp.ai/v1/jobs/{job_id}?include=custom_fields \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+**Response:**
+```json
+{
+  "job_id": "job_123",
+  "title": "AC repair",
+  "status": "completed",
+  "custom_fields": {
+    "permit_number": "BLD-2026-0423",
+    "job_source": "Google",
+    "warranty_expiration": "2027-02-26",
+    "permit_required": true
+  }
+}
+```
+
+<Tip>
+See full API documentation at [Custom Fields API Reference](/api-reference/custom-fields).
+</Tip>
+
+---
+
+## Migrating Custom Fields
+
+### Import Custom Field Data
+
+Bulk-import custom field values from CSV:
+
+1. Go to **Settings → Jobs → Custom Fields → Import**
+2. Download CSV template
+3. Fill in values (one row per job)
+4. Upload CSV
+5. Map columns to custom fields
+6. Import
+
+**CSV format:**
+```csv
+Job #,Permit Number,Job Source,Warranty Expiration
+1234,BLD-2026-0423,Google,2027-02-26
+1235,,Referral,
+```
+
+### Export & Re-Import
+
+Migrate custom fields between FieldCamp accounts:
+
+1. Export custom field definitions (Settings → Jobs → Custom Fields → Export)
+2. Import into new account (Settings → Jobs → Custom Fields → Import)
+3. Map field IDs if needed
+
+---
+
+## Related Topics
+
+<CardGroup cols={2}>
+  <Card title="Job Detail Page" icon="file-invoice" href="/features/jobs/job-detail">
+    View all job details including custom fields
+  </Card>
+  
+  <Card title="Advanced Filtering" icon="filter" href="/features/jobs/advanced-filtering">
+    Filter jobs by custom field values
+  </Card>
+  
+  <Card title="Reporting" icon="chart-bar" href="/features/reports/overview">
+    Create reports using custom field data
+  </Card>
+  
+  <Card title="Client Custom Fields" icon="user-tag" href="/features/clients/custom-fields">
+    Similar pattern for client custom fields
+  </Card>
+</CardGroup>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I rename a custom field?">
+    Yes. Edit the field in Settings and change the name. Existing data is preserved.
+  </Accordion>
+
+  <Accordion title="What happens if I delete a custom field?">
+    The field and all its data are soft-deleted (moved to trash). You can restore within 30 days. After 30 days, data is permanently deleted.
+  </Accordion>
+
+  <Accordion title="Can I convert a field type (e.g., Text to Number)?">
+    No. Field types cannot be changed after creation. You must create a new field and migrate data manually.
+  </Accordion>
+
+  <Accordion title="Are custom field values searchable?">
+    Yes. Use the search syntax `custom:field_name value` to search jobs by custom field values.
+  </Accordion>
+
+  <Accordion title="Can I have custom fields on Visits instead of Jobs?">
+    Not currently. Custom fields are only supported on Jobs, Clients, and Equipment. Visit-level custom fields are on the roadmap for 2026.
+  </Accordion>
+
+  <Accordion title="Can I use custom fields in workflow automation?">
+    Yes. Use custom field values as conditions or triggers in workflows. Example: "When Job Source = Google, send notification to sales team."
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Need Help?
+
+<Card title="Contact Support" icon="headset" href="mailto:support@fieldcamp.ai">
+  Questions about job custom fields? We can help you design custom fields for your business.
+</Card>

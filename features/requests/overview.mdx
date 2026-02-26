@@ -1,0 +1,556 @@
+---
+title: "Requests Overview"
+description: "Capture and manage incoming service requests before converting them to jobs"
+---
+
+# Requests Overview
+
+Requests (also called Work Requests or Service Requests) are incoming inquiries from customers asking for service. They're the first step in your workflow—before work is scoped, priced, and scheduled as a Job.
+
+## What is a Request?
+
+A request represents a customer's need for service, captured before it becomes a confirmed job. Think of it as a lead or inquiry that needs review, approval, and conversion.
+
+**Key distinction:**
+- **Request** = "I need help with my AC" (unconfirmed, unpriced)
+- **Job** = "AC repair scheduled for Tuesday, $350" (confirmed, priced, scheduled)
+
+<Frame>
+  <!-- Screenshot: request-list-view.png — Request list showing pending requests -->
+</Frame>
+
+---
+
+## Request Lifecycle
+
+```
+📝 Submitted → 👀 Pending → ✅ Approved → 🔨 Converted to Job
+                     ↓
+                  ❌ Rejected
+```
+
+### Status Definitions
+
+<CardGroup cols={2}>
+  <Card title="Submitted" icon="paper-plane">
+    Request just received from customer (portal, phone, email, website)
+  </Card>
+  <Card title="Pending" icon="clock">
+    Awaiting review by your team (default status for new requests)
+  </Card>
+  <Card title="Approved" icon="check-circle">
+    Reviewed and approved, ready to convert to job
+  </Card>
+  <Card title="Converted" icon="tools">
+    Successfully converted to a job (request archived)
+  </Card>
+  <Card title="Rejected" icon="times-circle">
+    Not accepted (spam, out of service area, etc.)
+  </Card>
+  <Card title="On Hold" icon="pause-circle">
+    Customer asked to wait, follow up later
+  </Card>
+</CardGroup>
+
+---
+
+## How Requests Enter FieldCamp
+
+Requests can be submitted through multiple channels:
+
+### 1. Client Portal (Self-Service) ⭐
+
+Customers submit requests directly via your client portal.
+
+**Perfect for:**
+- After-hours requests (customers can submit anytime)
+- Recurring customers (they already have portal access)
+- Mobile customers (portal is mobile-optimized)
+
+<Tip>
+  **Best practice:** Enable client portal requests to capture leads 24/7 without phone calls.
+</Tip>
+
+[→ See Client Portal Requests](/features/requests/client-portal-requests)
+
+---
+
+### 2. Phone Call (Manual Entry)
+
+Team member takes a phone call and creates a request manually.
+
+**Workflow:**
+1. Customer calls
+2. Team member opens FieldCamp
+3. Clicks **+ New Request**
+4. Enters customer details and description
+5. Assigns to tech or sales rep for follow-up
+
+---
+
+### 3. Email Forwarding
+
+Forward customer emails to FieldCamp to auto-create requests.
+
+**Setup:**
+- Forward emails to: `requests@yourcompany.fieldcamp.ai`
+- FieldCamp parses email and creates request
+- Customer email becomes request description
+
+<Note>
+  **Email parsing:** FieldCamp extracts customer name, email, phone, and description from email content.
+</Note>
+
+---
+
+### 4. Website Contact Form
+
+Embed a FieldCamp request widget on your website.
+
+**Benefits:**
+- Captures leads directly from your website
+- No third-party forms (data goes straight to FieldCamp)
+- Mobile-responsive
+- Customizable fields
+
+---
+
+### 5. Online Booking (NEW) 🌟
+
+Customers can book specific services and time slots directly.
+
+**Difference from regular requests:**
+- Customer chooses service type (from your catalog)
+- Customer picks preferred date/time
+- Can include instant pricing (if configured)
+- Auto-converts to job (if enabled)
+
+[→ See Online Booking Requests](/features/requests/online-booking)
+
+---
+
+## Request Components
+
+Every request contains:
+
+### Basic Information
+
+- **Customer details** (name, email, phone, address)
+- **Description of work needed** (free text)
+- **Priority level** (Low, Medium, High, Urgent)
+- **Source** (portal, phone, email, website, online booking)
+
+### Additional Fields
+
+- **Preferred date/time** (customer's availability)
+- **Photos** (optional - customer can upload photos)
+- **Location/address** (service location)
+- **Service type** (HVAC, plumbing, electrical, etc.)
+- **Custom fields** (configurable per your business)
+
+### Internal Fields
+
+- **Assigned to** (sales rep or tech for follow-up)
+- **Internal notes** (team comments, not visible to customer)
+- **Tags** (categorize requests)
+- **Created date** (auto-stamped)
+- **Source** (where it came from)
+
+---
+
+## Request vs Job: Key Differences
+
+| Aspect | Request | Job |
+|--------|---------|-----|
+| **Status** | Inquiry, not confirmed | Confirmed work |
+| **Pricing** | Not priced yet | Has price/estimate |
+| **Scheduling** | No scheduled visit | Visit(s) scheduled |
+| **Items** | No items added | Products/services added |
+| **Invoicing** | Cannot invoice | Can invoice when done |
+| **Customer facing** | Yes (via portal) | Yes (via portal + more) |
+| **Typical lifespan** | Hours to days | Days to months |
+
+**Workflow:**
+```
+Request (inquiry) → Review/Approve → Convert to Job → Schedule Visit → Complete → Invoice
+```
+
+---
+
+## Who Can View Requests?
+
+Permissions are role-based:
+
+| Role | View Requests | Create Requests | Approve/Reject | Convert to Job | Delete |
+|------|--------------|----------------|---------------|----------------|--------|
+| **Owner** | All | ✅ | ✅ | ✅ | ✅ |
+| **Admin** | All | ✅ | ✅ | ✅ | ✅ |
+| **Manager** | All or assigned | ✅ | ✅ | ✅ | ❌ |
+| **Technician** | Assigned only | ✅ | ❌ | ❌ | ❌ |
+| **Sales Rep** | Assigned only | ✅ | ✅ | ✅ | ❌ |
+| **View-only** | Assigned only | ❌ | ❌ | ❌ | ❌ |
+
+<Tip>
+  **Pro tip:** Assign requests to specific techs or sales reps based on location, skills, or availability using [Workflow Automation](/features/workflow-automation).
+</Tip>
+
+---
+
+## Common Request Workflows
+
+### Workflow 1: Phone Request → Same-Day Job
+
+**Customer calls with urgent issue:**
+1. Team member creates request (status: Pending)
+2. Assigns to available tech
+3. Tech reviews, approves (status: Approved)
+4. Clicks "Convert to Job"
+5. Schedules visit for today
+6. Heads to customer site
+
+**Time:** 5 minutes from call to dispatched tech
+
+---
+
+### Workflow 2: Portal Request → Next-Day Job
+
+**Customer submits request via portal at 8pm:**
+1. Request created (status: Pending)
+2. Manager reviews next morning (9am)
+3. Approves request, assigns to tech
+4. Tech converts to job, schedules for tomorrow
+5. Customer receives confirmation SMS
+
+**Time:** 13 hours (submitted 8pm → confirmed 9am next day)
+
+---
+
+### Workflow 3: Online Booking → Auto-Converted Job
+
+**Customer books AC tune-up via online booking:**
+1. Customer picks "AC Tune-Up" service
+2. Selects available time slot (Tuesday 10am)
+3. Submits booking
+4. **Auto-converts to job** (if enabled)
+5. Tech receives notification
+6. Customer receives confirmation
+
+**Time:** Instant (no manual review needed)
+
+---
+
+## Request Stages (Custom Workflow)
+
+Customize request stages to match your sales process.
+
+**Default stages:**
+```
+Pending → Approved → Converted
+```
+
+**Custom example (roofing company):**
+```
+New Lead → Site Inspection Scheduled → Quote Sent → Negotiation → Won/Lost
+```
+
+[→ See Configuring Request Stages](/features/requests/configuring-stages)
+
+---
+
+## Request Auto-Assignment Rules
+
+Automatically assign requests based on criteria:
+
+### Rule 1: Geographic Assignment
+```
+If customer ZIP code = 78701-78705 → Assign to Tech A
+If customer ZIP code = 78751-78758 → Assign to Tech B
+```
+
+### Rule 2: Service Type Assignment
+```
+If service type = "HVAC" → Assign to HVAC specialist
+If service type = "Plumbing" → Assign to plumber
+```
+
+### Rule 3: Time-Based Assignment
+```
+If request submitted after 5pm → Assign to on-call tech
+If request submitted during business hours → Round-robin assignment
+```
+
+[→ See Workflow Automation](/features/workflow-automation)
+
+---
+
+## Request Metrics & Analytics
+
+Track request performance:
+
+### Key Metrics
+
+<CardGroup cols={3}>
+  <Card title="Conversion Rate" icon="chart-line">
+    % of requests converted to jobs
+  </Card>
+  <Card title="Response Time" icon="clock">
+    Avg time from request to first response
+  </Card>
+  <Card title="Request Volume" icon="chart-bar">
+    Requests per day/week/month
+  </Card>
+  <Card title="Source Breakdown" icon="pie-chart">
+    Which channels bring most requests
+  </Card>
+  <Card title="Approval Rate" icon="percent">
+    % of requests approved vs rejected
+  </Card>
+  <Card title="Time to Conversion" icon="hourglass">
+    Avg time from request to job conversion
+  </Card>
+</CardGroup>
+
+**Example dashboard:**
+```
+This month:
+- 142 requests received
+- 89% conversion rate (126 converted to jobs)
+- 2.3 hour avg response time
+- Top source: Client portal (58%)
+```
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Respond Quickly">
+    **Goal:** Respond to all requests within 1 hour during business hours.
+
+**Why:** Fast response = higher conversion rate. Customers who wait too long often hire someone else.
+
+**How:**
+    - Enable mobile notifications for new requests
+    - Set up auto-reply SMS: "Thanks! We'll respond within 1 hour."
+    - Assign requests automatically to available techs
+  </Accordion>
+
+  <Accordion title="Use Request Templates">
+    Create templates for common responses:
+
+**Template 1: Approval**
+    > "Thanks for your request! We can help with [service]. Our tech will call you within 24 hours to schedule."
+
+**Template 2: Need More Info**
+    > "Thanks for reaching out. Can you send a photo of [issue] so we can provide an accurate quote?"
+
+**Template 3: Out of Area**
+    > "Thanks for your request. Unfortunately, we don't currently service your area. We recommend [competitor name]."
+  </Accordion>
+
+  <Accordion title="Track Request Sources">
+    Tag requests by source to measure ROI:
+
+- Portal requests (free)
+    - Google Ads (paid)
+    - Referral (free)
+    - Facebook (paid)
+
+**Report:** Cost per request by source → Which channels are most profitable?
+  </Accordion>
+
+  <Accordion title="Convert Quickly">
+    **Goal:** Convert approved requests to jobs within 24 hours.
+
+**Why:** The longer a request sits, the higher the chance customer finds someone else.
+
+**Workflow:**
+    1. Approve request
+    2. Immediately convert to job
+    3. Schedule visit (even if date is TBD)
+    4. Send confirmation to customer
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Mobile Access
+
+Manage requests from the FieldCamp mobile app (iOS/Android):
+
+**Mobile features:**
+- View all assigned requests
+- Create new requests (voice-to-text description)
+- Approve/reject requests
+- Convert to jobs
+- Add photos
+- Call/text customer directly
+- View request details
+
+**Perfect for:**
+- Techs in the field who receive requests
+- Sales reps on the go
+- Managers reviewing requests remotely
+
+---
+
+## Notifications
+
+Stay informed about request activity:
+
+### Email Notifications
+
+- **New request received** (admins, assigned tech)
+- **Request approved** (customer + assigned tech)
+- **Request rejected** (customer)
+- **Request converted to job** (customer + assigned tech)
+
+### SMS Notifications
+
+- **New urgent request** (on-call tech)
+- **Customer replied to request** (assigned tech)
+
+### Mobile Push Notifications
+
+- **New request assigned to you**
+- **Request status changed**
+
+**Configure:** Settings → Notifications → Requests
+
+---
+
+## Common Use Cases
+
+### Use Case 1: Emergency Requests
+
+**Scenario:** Customer's water heater is leaking at 10pm.
+
+**Workflow:**
+1. Customer submits urgent request via portal
+2. On-call tech receives SMS notification
+3. Tech approves and converts to emergency job
+4. Tech calls customer immediately
+5. Schedules visit for same night
+
+---
+
+### Use Case 2: Quote Requests
+
+**Scenario:** Customer wants estimate for new HVAC system.
+
+**Workflow:**
+1. Customer submits request via website
+2. Sales rep receives notification next morning
+3. Sales rep calls customer to schedule site visit
+4. After site visit, sales rep converts request to job (estimate type)
+5. Sends estimate to customer via email
+
+---
+
+### Use Case 3: Maintenance Contract Renewals
+
+**Scenario:** Annual maintenance contract is expiring.
+
+**Workflow:**
+1. FieldCamp auto-creates request 30 days before expiration
+2. Sales rep reviews request
+3. Calls customer to discuss renewal
+4. If customer agrees, converts to job (recurring maintenance)
+5. Schedules first visit
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Request not showing in list">
+    **Possible causes:**
+
+1. **Filter active** - Clear filters to see all requests
+    2. **Permission issue** - You can only see assigned requests (if you're a tech/sales rep)
+    3. **Wrong status** - Check if request was rejected or converted
+
+**Fix:** Click "All Requests" view and clear all filters.
+  </Accordion>
+
+  <Accordion title="Can't convert request to job">
+    **Possible causes:**
+
+1. **Insufficient permissions** - Only admins, managers, and sales reps can convert
+    2. **Request already converted** - Check if job already exists
+    3. **Missing required fields** - Customer email or phone may be required
+
+**Fix:** Check permissions in Settings → Team → Roles. Or ask admin to convert for you.
+  </Accordion>
+
+  <Accordion title="Customer didn't receive confirmation">
+    **Possible causes:**
+
+1. **Wrong email/phone** - Check customer contact info
+    2. **Email in spam** - Ask customer to check spam folder
+    3. **SMS disabled** - Check Settings → Integrations → Twilio
+
+**Fix:** Resend confirmation manually from request detail page.
+  </Accordion>
+
+  <Accordion title="Portal requests not creating">
+    **Possible causes:**
+
+1. **Portal disabled** - Check Settings → Client Portal → Requests
+    2. **Form misconfigured** - Check required fields
+    3. **Browser cache** - Customer needs to clear browser cache
+
+**Fix:** Test request submission yourself to verify portal is working.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Create Requests" icon="plus" href="/features/requests/creating-requests">
+    Learn how to create requests manually or via portal
+  </Card>
+  <Card title="Request List" icon="list" href="/features/requests/request-list">
+    Filter, search, and manage requests
+  </Card>
+  <Card title="Convert to Jobs" icon="tools" href="/features/requests/converting-to-jobs">
+    Turn approved requests into jobs
+  </Card>
+  <Card title="Online Booking" icon="calendar-check" href="/features/requests/online-booking">
+    Set up online booking for customers
+  </Card>
+  <Card title="Configure Stages" icon="cog" href="/features/requests/configuring-stages">
+    Customize request workflow stages
+  </Card>
+  <Card title="Client Portal" icon="globe" href="/features/clients/portal">
+    Set up client portal for self-service
+  </Card>
+</CardGroup>
+
+---
+
+## API Access
+
+Manage requests programmatically via REST API.
+
+**Endpoints:**
+```bash
+GET  /v1/requests          # List requests
+POST /v1/requests          # Create request
+GET  /v1/requests/:id      # Get request detail
+PUT  /v1/requests/:id      # Update request
+POST /v1/requests/:id/convert  # Convert to job
+```
+
+[→ See Requests API Documentation](/api-reference/requests)
+
+---
+
+## Need Help?
+
+- **Documentation:** Browse related request pages (links above)
+- **Support:** support@fieldcamp.ai
+- **Community:** [FieldCamp Community Forum](https://community.fieldcamp.ai)
+- **Training:** [Request Management Video Tutorial](https://help.fieldcamp.ai/videos/requests)

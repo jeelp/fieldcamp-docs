@@ -1,0 +1,1010 @@
+---
+title: "Visit Logs & Time Tracking"
+description: "Track time, mileage, materials, photos, and customer signatures for accurate billing and job documentation"
+icon: "clipboard-list"
+---
+
+## What Are Visit Logs?
+
+Visit logs are detailed records of everything that happened during a visit - time spent, distance traveled, materials used, photos taken, and customer sign-off. They serve as:
+
+- **Billing documentation** (how many hours to invoice)
+- **Audit trail** (what work was performed and when)
+- **Legal protection** (proof of completion, before/after photos)
+- **Performance tracking** (tech efficiency, job profitability)
+
+<CardGroup cols={3}>
+  <Card title="Time Tracking" icon="stopwatch">
+    Travel time, work time, breaks, total billable hours
+  </Card>
+  <Card title="Mileage Tracking" icon="route">
+    GPS-based odometer from start location → job site → end location
+  </Card>
+  <Card title="Materials Used" icon="box">
+    Products/parts used from truck inventory or ordered on-site
+  </Card>
+  <Card title="Photos" icon="camera">
+    Before, during, and after photos with timestamps and GPS
+  </Card>
+  <Card title="Forms & Checklists" icon="list-check">
+    Service checklists, safety forms, inspection reports
+  </Card>
+  <Card title="Signatures" icon="signature">
+    Digital customer signature confirming work completion
+  </Card>
+</CardGroup>
+
+---
+
+## Time Tracking
+
+FieldCamp automatically tracks time at multiple stages of a visit:
+
+### Time Categories
+
+<AccordionGroup>
+  <Accordion title="Travel Time" icon="car" defaultOpen>
+    **Definition:** Time from when tech leaves previous location until arriving at job site.
+    
+    **Tracking method:**
+    - **Automatic (recommended):** Starts when status changes to "In Transit", stops when "Arrived"
+    - **Manual:** Tech taps "Start Travel" and "End Travel"
+    - **GPS-based:** Uses geofencing to auto-detect departure and arrival
+    
+    **Billable?** Depends on your pricing model:
+    - **Flat-rate pricing:** Travel usually not billed separately
+    - **Hourly pricing:** Travel may be billable (at same rate or reduced rate)
+    - **Service call fee:** Travel included in fixed service call charge
+    
+    **Example:**
+    ```
+    Travel started: 9:47 AM (left previous job)
+    Travel ended: 10:12 AM (arrived at job site)
+    Total travel time: 25 minutes
+    ```
+    
+    <Tip>
+    **Pro tip:** Configure travel billing per job type:
+    - **Emergency calls:** Travel time billable at 1.5x rate
+    - **Maintenance contracts:** Travel time not billable (included in contract)
+    - **Standard service:** Travel time billable at regular rate
+    
+    Settings → Job Types → [Select Type] → Travel Time Billing
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Work Time" icon="wrench">
+    **Definition:** Time spent actively working on the job (excluding breaks).
+    
+    **Tracking method:**
+    - **Automatic (recommended):** Starts when status changes to "In Progress", pauses during breaks, stops when "Completed"
+    - **Manual:** Tech taps "Start Work" and "End Work"
+    - **Multiple sessions:** If work is paused multiple times, all work sessions are summed
+    
+    **Billable?** Yes, always (this is primary billable time)
+    
+    **Example:**
+    ```
+    Session 1: 10:15 AM - 12:30 PM (2h 15m)
+    Session 2: 1:00 PM - 2:45 PM (1h 45m)
+    Total work time: 4 hours
+    ```
+    
+    **Rounding rules:**
+    - Default: Round to nearest 15 minutes (4h 7m → 4h 15m)
+    - Optional: Round up to next 15 min (4h 1m → 4h 15m)
+    - Optional: No rounding (exact time)
+    
+    Configure: **Settings → Time Tracking → Work Time Rounding**
+  </Accordion>
+
+  <Accordion title="Break/Pause Time" icon="pause">
+    **Definition:** Time when work is paused (lunch, waiting for parts, waiting for approval).
+    
+    **Tracking method:**
+    - **Automatic:** Starts when status changes to "Paused", stops when "In Progress" resumed
+    - **Categorized:** Tech selects pause reason from dropdown
+    
+    **Pause reasons:**
+    - **Lunch break** (non-billable)
+    - **Waiting for parts** (billable or non-billable, configurable)
+    - **Waiting for customer approval** (usually billable)
+    - **Weather delay** (non-billable)
+    - **Equipment issue** (non-billable)
+    - **Other** (custom)
+    
+    **Billable?** Depends on reason (configurable per reason)
+    
+    **Example:**
+    ```
+    Pause 1: Lunch break (12:30 PM - 1:00 PM) - 30 min - Non-billable
+    Pause 2: Waiting for parts (1:45 PM - 2:15 PM) - 30 min - Billable
+    Total pause time: 1 hour (30 min billable, 30 min non-billable)
+    ```
+    
+    <Note>
+    **Best practice:** Mark "Waiting for customer approval" as billable - the tech is on-site and ready to work, but waiting on the customer to make a decision.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Total Time" icon="clock">
+    **Definition:** Total time from travel start to work completion.
+    
+    **Calculation:**
+    ```
+    Total time = Travel time + Work time + Break time
+    ```
+    
+    **Example:**
+    ```
+    Travel: 25 minutes
+    Work: 4 hours
+    Breaks: 1 hour (30 min billable, 30 min non-billable)
+    Total time: 5 hours 25 minutes
+    ```
+    
+    **Used for:**
+    - Scheduling (did job take longer than estimated?)
+    - Efficiency tracking (tech productivity)
+    - Reporting (total time per job type, per tech, per day)
+  </Accordion>
+
+  <Accordion title="Billable Time" icon="dollar-sign">
+    **Definition:** Time that will be invoiced to the customer.
+    
+    **Calculation:**
+    ```
+    Billable time = Work time + Billable pause time + Billable travel time (if configured)
+    ```
+    
+    **Example (travel not billable):**
+    ```
+    Travel: 25 minutes (non-billable)
+    Work: 4 hours (billable)
+    Lunch break: 30 min (non-billable)
+    Waiting for approval: 30 min (billable)
+    Total billable time: 4.5 hours
+    ```
+    
+    **Example (travel billable):**
+    ```
+    Travel: 25 minutes (billable)
+    Work: 4 hours (billable)
+    Lunch break: 30 min (non-billable)
+    Waiting for approval: 30 min (billable)
+    Total billable time: 4.92 hours (4h 55m)
+    ```
+    
+    **Invoice line item:**
+    ```
+    Labor (4.5 hours @ $95/hour) = $427.50
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Auto-Start/Stop Timers (Mobile App)
+
+FieldCamp mobile app automatically starts and stops timers based on visit status:
+
+| Status Change | Timer Action |
+|---------------|--------------|
+| **Scheduled → In Transit** | Travel timer starts |
+| **In Transit → Arrived** | Travel timer stops |
+| **Arrived → In Progress** | Work timer starts |
+| **In Progress → Paused** | Work timer pauses (pause timer starts) |
+| **Paused → In Progress** | Pause timer stops, work timer resumes |
+| **In Progress → Completed** | Work timer stops, all times finalized |
+
+<Tip>
+**Pro tip:** Techs don't need to manually track time! Just update status as they progress through the visit, and timers run automatically.
+
+**Exception:** If a tech forgets to update status, they can manually edit time logs afterward (within 24-hour edit window).
+</Tip>
+
+### Manual Time Adjustments
+
+Techs can manually adjust time if the auto-timer was incorrect:
+
+**From mobile app:**
+1. Tap on completed visit
+2. Tap "Edit Time Log"
+3. Adjust start/end times or add/remove pause periods
+4. Add note explaining adjustment (e.g., "Forgot to mark as arrived, actually arrived at 10:05 AM")
+5. Save changes
+
+**Permissions:**
+- **Tech:** Can edit own time logs within 24 hours of completion
+- **Manager/Admin:** Can edit any time log at any time
+
+**Audit trail:** All manual adjustments are logged with timestamp and user who made the change.
+
+---
+
+## Mileage Tracking
+
+FieldCamp automatically tracks mileage using GPS:
+
+### How GPS Mileage Tracking Works
+
+<Steps>
+  <Step title="Tech Starts Travel">
+    When tech changes status to "In Transit", GPS starts recording:
+    - **Start location:** Current GPS coordinates (lat/lon)
+    - **Start time:** Timestamp
+    - **Start address:** Reverse-geocoded address (e.g., "123 Oak St")
+  </Step>
+
+  <Step title="GPS Tracks Route">
+    As tech drives to job site:
+    - GPS logs position every 30 seconds (configurable)
+    - Route is recorded (breadcrumb trail)
+    - Distance calculated using Haversine formula (accurate for curved Earth)
+    
+    **Accuracy:** ±0.1 miles (typical), ±0.3 miles (rural/poor GPS signal)
+  </Step>
+
+  <Step title="Tech Arrives at Job Site">
+    When tech changes status to "Arrived":
+    - **End location:** GPS coordinates at job site
+    - **End time:** Timestamp
+    - **End address:** Job site address
+    - **Total mileage:** Calculated distance from start to end
+  </Step>
+
+  <Step title="Return Trip (Optional)">
+    Some companies track return mileage (job site → next job or home):
+    - **Method 1:** Tech manually logs return mileage
+    - **Method 2:** GPS auto-tracks when tech marks visit complete and starts traveling
+    
+    Configure: **Settings → Mileage Tracking → Track Return Mileage**
+  </Step>
+</Steps>
+
+### Mileage Log Example
+
+```
+Visit: HVAC Repair - 456 Maple Ave
+
+Outbound Trip:
+Start: 9:47 AM - 123 Oak St (previous job)
+End: 10:12 AM - 456 Maple Ave (job site)
+Distance: 8.3 miles
+Route: [GPS breadcrumb trail shown on map]
+
+Return Trip: (not tracked - using default setting)
+
+Total mileage: 8.3 miles
+Reimbursement (@ $0.67/mile): $5.56
+```
+
+### Mileage Billing vs Reimbursement
+
+**Reimbursement (most common):**
+- Company reimburses tech for vehicle wear/tear and fuel
+- Rate: $0.65-$0.70/mile (IRS standard mileage rate)
+- Customer is NOT billed for mileage
+- Used by: Most service companies
+
+**Billable Mileage:**
+- Company charges customer for travel distance
+- Rate: $1.00-$3.00/mile (varies by industry)
+- Separate invoice line item
+- Used by: Some plumbing/HVAC companies, especially for rural areas
+
+Configure: **Settings → Mileage Tracking → Billing Method**
+
+### Manual Mileage Entry
+
+If GPS is unavailable or inaccurate, techs can manually enter mileage:
+
+**From mobile app:**
+1. Complete visit
+2. Tap "Edit Mileage"
+3. Enter:
+   - Start odometer reading (e.g., 45,320)
+   - End odometer reading (e.g., 45,328)
+   - Total: 8 miles (auto-calculated)
+4. Add note: "GPS unavailable due to poor signal"
+5. Save
+
+**Permissions:** Techs can manually enter mileage, but all manual entries are flagged for manager review (to prevent fraud).
+
+---
+
+## Materials Used
+
+Track products and parts used during a visit:
+
+### Adding Materials from Mobile App
+
+<Steps>
+  <Step title="Open Visit in Mobile App">
+    While visit status is "In Progress", tap **"Materials"** tab
+  </Step>
+
+  <Step title="Scan or Search for Product">
+    **Option 1: Scan barcode** (if product has barcode in inventory)
+    - Tap camera icon
+    - Scan product barcode
+    - Product auto-added
+    
+    **Option 2: Search by name**
+    - Tap search bar
+    - Type product name (e.g., "air filter")
+    - Select from results
+    
+    **Option 3: Browse truck inventory**
+    - View list of products on tech's truck
+    - Tap product to add
+  </Step>
+
+  <Step title="Enter Quantity">
+    - Default: 1 unit
+    - Increase/decrease quantity
+    - Unit type auto-fills (each, box, gallon, etc.)
+  </Step>
+
+  <Step title="Price Auto-Fills from Catalog">
+    - Cost price (what company paid)
+    - Sell price (what customer pays)
+    - Margin automatically calculated
+    
+    **Editable?** Yes, if tech has permission to adjust pricing on-site
+  </Step>
+
+  <Step title="Add to Visit Log">
+    Tap **"Add"** → Material is logged with:
+    - Product name and SKU
+    - Quantity used
+    - Price (cost and sell)
+    - Timestamp (when added)
+    - Tech who added it
+  </Step>
+</Steps>
+
+### Materials Not in Catalog (Custom Items)
+
+If tech uses a product not in your inventory:
+
+1. Tap **"+ Add Custom Item"**
+2. Enter:
+   - Description (e.g., "3/4 inch copper elbow")
+   - Quantity
+   - Unit (each, box, linear foot, etc.)
+   - Cost (optional)
+   - Sell price
+3. Save → Custom item added to visit log
+
+<Note>
+**Inventory sync:** When a product is added to a visit log, FieldCamp automatically:
+- Deducts quantity from tech's truck inventory
+- Adds quantity to job (for invoicing)
+- Flags low-stock items (if tech only has 1 left)
+</Note>
+
+### Ordering Parts On-Site
+
+If tech doesn't have a part on truck:
+
+1. Tap **"Order Part"** in Materials tab
+2. Search for part in catalog
+3. Select quantity
+4. Choose vendor (default vendor auto-selected)
+5. Tap **"Order"** → Purchase order created
+6. Office receives notification to order part
+7. Visit status can be set to "Paused" (waiting for parts)
+
+---
+
+## Photos
+
+Photos are critical for documentation, billing disputes, and quality control:
+
+### Photo Types
+
+<CardGroup cols={3}>
+  <Card title="Before Photos" icon="camera">
+    Condition of site/equipment before work begins
+  </Card>
+  <Card title="During Work Photos" icon="camera">
+    Work in progress (e.g., inside equipment, wiring, damage found)
+  </Card>
+  <Card title="After Photos" icon="camera">
+    Completed work, clean job site, customer satisfaction
+  </Card>
+</CardGroup>
+
+### Taking Photos from Mobile App
+
+<Steps>
+  <Step title="Open Visit in Mobile App">
+    Tap **"Photos"** tab (available at any visit status)
+  </Step>
+
+  <Step title="Tap Camera Icon">
+    Opens device camera (iOS/Android native camera)
+  </Step>
+
+  <Step title="Take Photo">
+    Snap photo of:
+    - Equipment (before/after)
+    - Model/serial numbers (for warranty tracking)
+    - Damage (before repair)
+    - Completed work
+    - Messy/clean site (before/after cleanup)
+  </Step>
+
+  <Step title="Add Caption (Optional)">
+    - **Auto-caption (AI):** "HVAC unit before cleaning" (detected by image recognition)
+    - **Manual caption:** "Thermostat wiring - customer installed wrong"
+    - **No caption:** Just timestamp and GPS location
+  </Step>
+
+  <Step title="Categorize Photo">
+    Select category:
+    - **Before** (default if taken when status is "Arrived")
+    - **During** (default if taken when status is "In Progress")
+    - **After** (default if taken when status is "Completed")
+    - **Equipment tag** (model/serial number photo)
+    - **Damage**
+    - **Other**
+  </Step>
+
+  <Step title="Photo Auto-Uploads">
+    - **Online:** Uploads immediately (WiFi/cellular)
+    - **Offline:** Queued for upload when connectivity restored
+    
+    Photo metadata automatically captured:
+    - Timestamp (when photo was taken)
+    - GPS coordinates (job site location)
+    - Tech who took photo
+    - Device used (iPhone 12, Samsung Galaxy, etc.)
+  </Step>
+</Steps>
+
+### Required Photos (Enforced)
+
+You can require techs to take photos before completing a visit:
+
+Navigate to **Settings → Job Types → [Select Type] → Required Photos**
+
+**Example: HVAC Maintenance**
+- **Required before photos:** 2 (equipment exterior, thermostat)
+- **Required after photos:** 1 (cleaned unit)
+- **Required equipment tag photos:** 1 (model/serial number)
+
+**What happens:** If tech tries to mark visit complete without required photos, app shows error: "⚠️ 2 before photos required. You have taken 0."
+
+<Tip>
+**Best practice:** Require photos for:
+- High-value jobs (>$500)
+- Jobs with customer complaints history
+- Warranty work (proof of completion)
+- New tech training (manager can review)
+</Tip>
+
+### Photo Organization
+
+Photos are automatically organized by:
+- **Visit** (all photos from this visit)
+- **Job** (all photos from all visits for this job)
+- **Date** (all photos taken on this date)
+- **Tech** (all photos taken by this tech)
+- **Category** (all "before" photos, all "damage" photos, etc.)
+
+**Viewing options:**
+- **Gallery view:** Thumbnails (tap to enlarge)
+- **Slideshow:** Swipe through photos
+- **Before/After comparison:** Side-by-side view
+- **Download all:** Zip file of all photos for this visit
+
+### Photo Sharing
+
+**With customer:**
+- Include in invoice/receipt (before/after photos)
+- Share via client portal (customer can download)
+- Email directly to customer
+
+**With team:**
+- Share with manager for review
+- Attach to internal note
+- Use in training materials
+
+**Privacy:** Customer-facing photos can be filtered (hide "equipment tag" or "during" photos that are for internal use only).
+
+---
+
+## Forms & Checklists
+
+Techs complete forms/checklists during visits to document work performed:
+
+### Types of Forms
+
+<AccordionGroup>
+  <Accordion title="Service Checklists" icon="list-check">
+    **Purpose:** Step-by-step checklist for standard services
+    
+    **Example: HVAC Maintenance Checklist**
+    - ✅ Inspect air filter (clean or replace)
+    - ✅ Check refrigerant levels
+    - ✅ Lubricate moving parts
+    - ✅ Test thermostat calibration
+    - ✅ Inspect electrical connections
+    - ✅ Measure airflow (CFM)
+    - ✅ Customer walkthrough (explain findings)
+    
+    **Completion:** Tech checks off each item as they go
+    
+    **Result:** Form shows what was done (proof of service for customer)
+  </Accordion>
+
+  <Accordion title="Safety Checklists" icon="triangle-exclamation">
+    **Purpose:** Ensure tech and customer safety
+    
+    **Example: Electrical Safety Checklist**
+    - ✅ Power shut off before work
+    - ✅ Circuit breaker tested
+    - ✅ Grounding verified
+    - ✅ Wiring inspected for damage
+    - ✅ Voltage tested (multimeter)
+    - ✅ GFI/AFCI working
+    - ✅ Customer warned of hazards
+    
+    **Required:** Often required by insurance or regulatory compliance
+  </Accordion>
+
+  <Accordion title="Inspection Forms" icon="clipboard-check">
+    **Purpose:** Document condition of equipment/property
+    
+    **Example: Pool Inspection Form**
+    - Water chemistry (pH, chlorine, alkalinity)
+    - Equipment condition (pump, filter, heater)
+    - Pool surface (cracks, stains, damage)
+    - Deck/coping (safety hazards)
+    - Recommendations (repairs needed)
+    
+    **Photos:** Often paired with photos for each inspection point
+  </Accordion>
+
+  <Accordion title="Customer Surveys" icon="star">
+    **Purpose:** Collect customer feedback
+    
+    **Example: Post-Service Survey**
+    - How satisfied are you with the service? (1-5 stars)
+    - Was the tech professional and courteous? (Yes/No)
+    - Was the work area left clean? (Yes/No)
+    - Would you recommend us? (Yes/No)
+    - Comments (text field)
+    
+    **Collected by:** Tech asks customer to fill out on mobile device (or tech fills out based on customer responses)
+  </Accordion>
+</AccordionGroup>
+
+### Completing Forms on Mobile App
+
+<Steps>
+  <Step title="Open Visit in Mobile App">
+    Tap **"Forms"** tab → See list of assigned forms
+  </Step>
+
+  <Step title="Select Form">
+    Tap form name (e.g., "HVAC Maintenance Checklist")
+    
+    Status indicator:
+    - 🔴 **Not started** (0% complete)
+    - 🟡 **In progress** (partial completion)
+    - 🟢 **Completed** (100%)
+  </Step>
+
+  <Step title="Fill Out Fields">
+    Form field types:
+    - **Checkbox:** Check if task done (✅ or ⬜)
+    - **Text input:** Enter notes (e.g., "Filter was very dirty, replaced")
+    - **Number input:** Enter measurements (e.g., "240V")
+    - **Dropdown:** Select from options (e.g., "Pass", "Fail", "N/A")
+    - **Photo:** Attach photo to specific field (e.g., photo of air filter)
+    - **Signature:** Customer or tech signature
+    - **Date/time:** Auto-fills current date/time (editable)
+    - **GPS location:** Auto-captures job site coordinates
+  </Step>
+
+  <Step title="Required Fields">
+    Fields marked with ***** are required (can't complete form without them)
+    
+    **Example:**
+    - "Air filter condition" (required - must select: Clean, Dirty, Replaced)
+    - "Refrigerant level" (optional)
+  </Step>
+
+  <Step title="Save Progress">
+    - **Save draft:** Tap "Save" → form is partially complete (can finish later)
+    - **Submit form:** Tap "Submit" → form is finalized (can't edit unless manager allows)
+  </Step>
+
+  <Step title="Review & Export">
+    Once submitted, form can be:
+    - Viewed as PDF
+    - Emailed to customer
+    - Attached to invoice
+    - Exported to CSV (for analytics)
+  </Step>
+</Steps>
+
+<Note>
+**Offline mode:** Forms can be filled out offline (no internet connection). Data is saved locally and auto-syncs when connectivity is restored.
+</Note>
+
+---
+
+## Customer Signatures
+
+Digital signatures confirm customer approval and job completion:
+
+### When to Collect Signatures
+
+<CardGroup cols={2}>
+  <Card title="Required Signatures" icon="file-signature">
+    **Work completion approval:**
+    - Customer confirms work is done satisfactorily
+    - Required before tech can mark visit complete
+    
+    **Additional work authorization:**
+    - Customer approves extra charges beyond original quote
+    - Required before tech can add unplanned items
+    
+    **Delivery/installation:**
+    - Customer confirms equipment was delivered/installed
+    - Required for warranty activation
+  </Card>
+
+  <Card title="Optional Signatures" icon="signature">
+    **Customer satisfaction:**
+    - Customer signs to indicate satisfaction (not legally required)
+    
+    **Safety acknowledgment:**
+    - Customer acknowledges safety warnings
+    
+    **Payment receipt:**
+    - Customer signs after payment (credit card, check)
+  </Card>
+</CardGroup>
+
+### Capturing Signatures on Mobile App
+
+<Steps>
+  <Step title="Open Signature Capture">
+    **Method 1:** From visit detail → Tap "Get Signature"
+    
+    **Method 2:** From form → Signature field → Tap "Capture Signature"
+  </Step>
+
+  <Step title="Tech Hands Device to Customer">
+    Tech explains what customer is signing:
+    
+    **Example:**
+    "Please sign here to confirm that we replaced your HVAC filter and the unit is working properly."
+  </Step>
+
+  <Step title="Customer Signs">
+    - Customer uses finger (touchscreen) or stylus to sign
+    - Signature appears on screen in real-time
+    - Customer can tap "Clear" to re-sign if needed
+  </Step>
+
+  <Step title="Customer Confirms">
+    After signing, customer taps **"Confirm"**
+    
+    **Captured data:**
+    - Signature image (PNG format)
+    - Timestamp (when signed)
+    - GPS location (job site)
+    - IP address (for legal proof)
+    - Device ID (phone/tablet used)
+    - Signee name (typed or auto-filled from customer record)
+  </Step>
+
+  <Step title="Tech Adds Context (Optional)">
+    Tech can add note explaining what was signed:
+    
+    **Example:**
+    "Customer approved additional $125 for duct repair"
+  </Step>
+
+  <Step title="Signature Saved">
+    Signature is:
+    - Attached to visit log
+    - Included in invoice/receipt
+    - Stored for legal/audit purposes
+    - Emailed to customer (optional)
+  </Step>
+</Steps>
+
+### Signature Types
+
+<AccordionGroup>
+  <Accordion title="Work Completion Signature">
+    **What it means:** Customer confirms work is complete and satisfactory
+    
+    **Legal value:** Proof that customer accepted the work (protects against later disputes)
+    
+    **Text above signature:**
+    ```
+    I confirm that [Tech Name] from [Company Name] has completed the following work:
+    [Job description]
+    
+    I am satisfied with the quality of work.
+    
+    Signature: _______________  Date: __________
+    Name (print): _____________
+    ```
+  </Accordion>
+
+  <Accordion title="Additional Work Authorization Signature">
+    **What it means:** Customer approves additional charges beyond original quote
+    
+    **Legal value:** Proof that customer authorized extra work (prevents billing disputes)
+    
+    **Text above signature:**
+    ```
+    I authorize [Company Name] to perform the following additional work:
+    - [Description of additional work]
+    - Additional cost: $XXX
+    
+    I understand this will be added to my invoice.
+    
+    Signature: _______________  Date: __________
+    Name (print): _____________
+    ```
+  </Accordion>
+
+  <Accordion title="Technician Signature">
+    **What it means:** Tech confirms they performed the work
+    
+    **Legal value:** Accountability (tech can't deny they were on-site)
+    
+    **Use case:** Some forms require both customer AND tech signature
+    
+    **Example:** Warranty work (both parties confirm work was done according to warranty terms)
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+**Legal disclaimer:** Digital signatures are legally binding in most jurisdictions (U.S. ESIGN Act, EU eIDAS). However, for high-value contracts (>$10,000), consult your lawyer about using additional verification (e.g., email confirmation, DocuSign).
+</Warning>
+
+---
+
+## Editing Visit Logs
+
+Visit logs can be edited after completion (with restrictions):
+
+### Who Can Edit?
+
+| Role | Edit Window | What Can Be Edited |
+|------|-------------|-------------------|
+| **Technician** | 24 hours after completion | Time, mileage, materials, photos, notes |
+| **Manager** | Anytime | Everything (time, mileage, materials, photos, forms, signatures) |
+| **Admin** | Anytime | Everything + can delete visit logs |
+| **Office Staff** | Read-only | Can view but not edit |
+
+### Edit Audit Trail
+
+All edits are logged:
+
+```
+Visit Log Edit History:
+
+2025-02-26 3:45 PM - Sarah (Tech)
+  Changed: Work time from 3h 45m to 4h 0m
+  Reason: "Forgot to stop timer, actually finished at 2:30 PM"
+
+2025-02-27 9:15 AM - Mike (Manager)
+  Changed: Added material "Air Filter - 20x25" (qty 1)
+  Reason: "Tech forgot to log filter replacement"
+```
+
+**Why audit trail matters:**
+- **Prevent fraud:** Manager can see if tech is inflating hours
+- **Compliance:** Required for government contracts or audits
+- **Dispute resolution:** Proof of what was originally logged vs edited
+
+### Locking Visit Logs
+
+To prevent further edits (e.g., after invoice is sent):
+
+Navigate to visit detail page → Click **"⋯"** → **"Lock Visit Log"**
+
+**What happens:**
+- Visit log becomes read-only (even for managers)
+- Only admins can unlock (with reason)
+- Locked status shown on visit card
+
+**Use case:** Lock visit logs after:
+- Invoice is sent to customer
+- Customer pays invoice
+- 30 days have passed (to close out old logs)
+
+---
+
+## Exporting Visit Logs
+
+Export visit logs for reporting, invoicing, or auditing:
+
+### Export Formats
+
+<CardGroup cols={3}>
+  <Card title="PDF Report" icon="file-pdf">
+    Professional-looking report with:
+    - Visit summary (date, time, tech)
+    - Time breakdown (travel, work, breaks)
+    - Materials used (itemized list)
+    - Photos (before/after)
+    - Forms/checklists
+    - Signatures
+    
+    **Use case:** Attach to invoice, email to customer, print for records
+  </Card>
+
+  <Card title="CSV/Excel" icon="file-excel">
+    Spreadsheet with:
+    - One row per visit
+    - Columns: Date, tech, job, time, mileage, materials, cost
+    
+    **Use case:** Import into accounting software, analyze trends, create reports
+  </Card>
+
+  <Card title="JSON (API)" icon="code">
+    Raw data in JSON format
+    
+    **Use case:** Integrate with other software, build custom reports, webhook data
+  </Card>
+</CardGroup>
+
+### How to Export
+
+**Single visit:**
+1. Open visit detail page
+2. Click **"⋯"** → **"Export"**
+3. Choose format (PDF, CSV, JSON)
+4. Download or email
+
+**Multiple visits:**
+1. Navigate to **Visits** list
+2. Filter by date range, tech, or job
+3. Select visits (check boxes)
+4. Click **"Bulk Actions"** → **"Export"**
+5. Choose format and download
+
+---
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Require Photos for High-Value Jobs" icon="camera">
+    **Why:** Protect against disputes, document condition
+    
+    **How:** Settings → Job Types → [Select Type] → Require 2 before + 2 after photos
+  </Card>
+
+  <Card title="Review Time Logs Daily" icon="clock">
+    **Why:** Catch errors early (forgot to stop timer, inflated hours)
+    
+    **How:** Manager reviews all completed visits each morning
+  </Card>
+
+  <Card title="Lock Logs After Invoicing" icon="lock">
+    **Why:** Prevent changes after customer is billed
+    
+    **How:** Workflow automation: "When invoice sent → lock all associated visit logs"
+  </Card>
+
+  <Card title="Use GPS Mileage (Not Manual)" icon="route">
+    **Why:** More accurate, prevents fraud, easier for techs
+    
+    **How:** Require techs to enable GPS on mobile app
+  </Card>
+
+  <Card title="Capture Signatures On-Site" icon="signature">
+    **Why:** Higher completion rate, immediate proof
+    
+    **How:** Require signature before tech can mark visit complete
+  </Card>
+
+  <Card title="Export Logs for Accounting" icon="file-export">
+    **Why:** Sync billable hours to QuickBooks, Xero
+    
+    **How:** Weekly export of all completed visits → import to accounting software
+  </Card>
+</CardGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Tech forgot to stop timer - hours are inflated">
+    **Solution:**
+    
+    1. Tech (or manager) opens visit detail
+    2. Tap "Edit Time Log"
+    3. Adjust end time to actual completion time
+    4. Add note: "Forgot to stop timer, actually finished at 2:30 PM"
+    5. Save → Billable hours recalculated
+    
+    **Prevention:** Enable auto-stop timer when visit marked complete (Settings → Time Tracking → Auto-Stop Timer)
+  </Accordion>
+
+  <Accordion title="GPS mileage is way off (showing 50 miles for a 10-mile trip)">
+    **Possible causes:**
+    
+    ✅ **Poor GPS signal:** Phone lost GPS lock and triangulated off cell towers (less accurate)
+    
+    ✅ **GPS drift:** Phone was stationary but GPS coordinates "drifted" (creates false movement)
+    
+    ✅ **Multiple trips:** Tech stopped at parts store mid-trip (added extra mileage)
+    
+    **Solution:**
+    - Tech manually edits mileage to correct value
+    - Manager reviews GPS route map to verify
+    - If GPS is consistently inaccurate, switch to manual mileage entry for that tech
+  </Accordion>
+
+  <Accordion title="Customer refuses to sign - what should tech do?">
+    **Best practices:**
+    
+    ✅ **Explain what they're signing:** "This just confirms we finished the work today, not that you're paying right now"
+    
+    ✅ **Offer alternative:** "Can I have you initial here instead of a full signature?"
+    
+    ✅ **Document refusal:** If customer refuses, tech adds note: "Customer refused to sign, stated work is complete but does not want to sign"
+    
+    ✅ **Photo evidence:** Take photo of completed work as proof (customer can't dispute later)
+    
+    **When to escalate:** If customer refuses to sign AND disputes that work was done, manager should call customer immediately.
+  </Accordion>
+
+  <Accordion title="Photos aren't uploading from mobile app">
+    **Troubleshooting:**
+    
+    ✅ **Check connectivity:** Photos only upload when online (WiFi or cellular)
+    - Solution: Photos are queued locally and will auto-upload when connectivity restored
+    
+    ✅ **Check storage space:** Phone may be out of storage
+    - Solution: Free up space or reduce photo quality (Settings → Mobile App → Photo Quality → Medium)
+    
+    ✅ **Check app permissions:** App may not have camera/storage permission
+    - Solution: iOS Settings → FieldCamp → Enable Camera + Photos
+    
+    ✅ **Force sync:** Tap "Sync Now" in mobile app settings to retry upload
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Visit Status Tracking" icon="location-crosshairs" href="/features/jobs/visits/visit-status">
+    Learn how visits progress from Scheduled → In Progress → Completed
+  </Card>
+
+  <Card title="Creating Visits" icon="calendar-plus" href="/features/jobs/visits/creating-visits">
+    Schedule new visits from the calendar or job page
+  </Card>
+
+  <Card title="Mobile App Guide" icon="mobile-screen" href="/mobile/visits">
+    Complete guide for technicians using the mobile app on-site
+  </Card>
+
+  <Card title="Job Forms & Checklists" icon="list-check" href="/features/jobs/forms/overview">
+    Create custom forms and checklists for visits
+  </Card>
+
+  <Card title="Invoicing from Visit Logs" icon="file-invoice-dollar" href="/features/jobs/invoicing-integration">
+    Convert visit logs (time + materials) into invoices
+  </Card>
+
+  <Card title="Visit Reports" icon="chart-line" href="/reports/visits">
+    Analyze tech efficiency, job profitability, and time tracking
+  </Card>
+</CardGroup>

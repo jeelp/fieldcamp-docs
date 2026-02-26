@@ -1,0 +1,671 @@
+---
+title: "AI Dispatcher"
+description: "Intelligent technician assignment and job routing powered by AI"
+icon: "brain-circuit"
+---
+
+## Overview
+
+The AI Dispatcher is FieldCamp's intelligent technician assignment system that analyzes job requirements, technician skills, locations, and availability to recommend the best tech for each job. It eliminates manual scheduling guesswork and optimizes your team's efficiency.
+
+<Info>
+**Smart Assignment:** AI Dispatcher considers 7+ factors including skills, location, drive time, workload balance, and historical performance to find the perfect tech match for every job.
+</Info>
+
+### How It Works
+
+When you have an unscheduled job, AI Dispatcher:
+
+1. **Analyzes the job** - Reads job description, items, required skills, and location
+2. **Evaluates all techs** - Checks who has the required skills and availability
+3. **Calculates scores** - Weighs distance, drive time, workload, and past performance
+4. **Recommends top 3** - Shows the best matches with confidence scores and reasoning
+
+<Frame>
+  <img src="/images/jobs/ai-dispatcher-panel.png" alt="AI Dispatcher recommendation panel showing top 3 techs with confidence scores" />
+</Frame>
+
+---
+
+## Key Benefits
+
+### 🎯 Faster Assignments
+No more manually checking who's available and where they are. Get recommendations in seconds.
+
+### 📍 Reduced Drive Time
+AI optimizes for proximity, reducing fuel costs and maximizing billable hours.
+
+### ⚖️ Balanced Workload
+Prevents overloading one tech while others sit idle. Distributes work fairly across your team.
+
+### 🏆 Better Outcomes
+Historical performance data ensures jobs go to techs who excel at similar work.
+
+### 🧠 Continuous Learning
+The more you use it, the smarter it gets. AI learns from your feedback and assignment patterns.
+
+---
+
+## Enabling AI Dispatcher
+
+AI Dispatcher is available on **Pro** and **Enterprise** plans.
+
+### Setup Steps
+
+1. Go to **Settings → Jobs → AI Dispatcher**
+2. Toggle **Enable AI Dispatcher** to ON
+3. Configure weighting preferences (optional)
+4. Set blacklist/whitelist rules (optional)
+5. Save settings
+
+<Frame>
+  <img src="/images/jobs/ai-dispatcher-settings.png" alt="AI Dispatcher settings panel" />
+</Frame>
+
+<Note>
+**First-time setup:** AI Dispatcher needs at least 2 weeks of historical data (completed jobs, tech assignments) to generate accurate recommendations. New accounts may see lower confidence scores initially.
+</Note>
+
+---
+
+## Using AI Dispatcher
+
+### From Job Detail Page
+
+1. Open any unscheduled job
+2. Click **Schedule Visit** or **Assign Tech**
+3. AI Dispatcher panel appears on the right
+4. Review the top 3 recommended techs
+5. Click **Assign** next to your preferred tech, or override with manual selection
+
+<Frame>
+  <img src="/images/jobs/ai-dispatcher-workflow.png" alt="AI Dispatcher workflow in job detail page" />
+</Frame>
+
+### From Calendar
+
+1. Open the **Calendar** view
+2. Drag an unscheduled job onto a date/time slot
+3. AI Dispatcher auto-suggests the best tech for that time
+4. Accept or override the recommendation
+
+### Bulk Assignment
+
+Assign multiple jobs at once using AI:
+
+1. Go to **Jobs → List View**
+2. Select multiple unscheduled jobs (checkbox)
+3. Click **Bulk Actions → AI Auto-Assign**
+4. Review recommendations for all jobs
+5. Click **Assign All** or edit individual assignments
+
+<Frame>
+  <img src="/images/jobs/ai-bulk-assign.png" alt="Bulk AI assignment interface" />
+</Frame>
+
+---
+
+## Understanding AI Recommendations
+
+### Confidence Score
+
+Each recommendation includes a **confidence score** (0-100%) indicating how well the tech matches the job.
+
+| Score | Meaning | Action |
+|-------|---------|--------|
+| **90-100%** | Excellent match | Safe to auto-assign |
+| **70-89%** | Good match | Review reasoning, likely accept |
+| **50-69%** | Fair match | Check details, may need override |
+| **Below 50%** | Poor match | Manual assignment recommended |
+
+<Tip>
+**High confidence = high trust.** Jobs with 90%+ scores are safe to auto-assign without review. Set up [workflow automation](/features/automation/workflows) to auto-assign these jobs.
+</Tip>
+
+### AI Reasoning
+
+Click **Why this tech?** to see the AI's reasoning for each recommendation.
+
+Example reasoning:
+```
+✅ John has HVAC Level 2 certification (required for this job)
+✅ John is 3.2 miles from job site (closest available tech)
+✅ John has 2 open slots on Tuesday (low workload)
+✅ John completed 12 similar HVAC jobs this month (92% avg. rating)
+⚠️ 18 min estimated drive time (traffic on Route 50)
+```
+
+<Frame>
+  <img src="/images/jobs/ai-reasoning-panel.png" alt="AI reasoning explanation panel" />
+</Frame>
+
+---
+
+## Factors Considered
+
+AI Dispatcher weighs multiple factors to find the best tech:
+
+### 1. **Required Skills Match** (35% weight)
+
+Does the tech have the certifications, licenses, or skills needed for this job?
+
+- HVAC certifications (Level 1, Level 2, etc.)
+- Electrical licenses
+- Plumbing licenses
+- Equipment specializations (tankless water heaters, mini-splits, etc.)
+
+<Warning>
+**Hard requirement:** If a job requires a specific skill (e.g., EPA 608 certification), only techs with that skill will be recommended—regardless of other factors.
+</Warning>
+
+### 2. **Proximity & Drive Time** (25% weight)
+
+How far is the tech from the job site?
+
+- Current location (GPS from mobile app)
+- Home base location (if tech hasn't started their day)
+- Traffic conditions (Google Maps real-time data)
+- Total drive time (in minutes)
+
+**Example:**
+- Tech A: 15 miles away, 40 min drive (heavy traffic)
+- Tech B: 10 miles away, 15 min drive (back roads)
+- **Tech B scores higher** despite similar distance
+
+### 3. **Availability & Workload** (20% weight)
+
+Does the tech have time? Are they already overloaded?
+
+- Open calendar slots
+- Number of jobs already assigned today
+- Total hours scheduled vs. working hours
+- Overtime hours this week
+
+**Workload balancing:**
+- If Tech A has 5 jobs today and Tech B has 2 jobs, Tech B scores higher (even if slightly farther away)
+
+### 4. **Historical Performance** (10% weight)
+
+How does this tech perform on similar jobs?
+
+- Average customer rating for this job type
+- Completion rate (finished jobs vs. rescheduled)
+- Average job duration (are they efficient?)
+- Repeat customer requests ("Ask for John next time")
+
+**Example:**
+- Tech A: 4.2★ avg. rating on plumbing jobs
+- Tech B: 4.8★ avg. rating on plumbing jobs
+- **Tech B scores higher**
+
+### 5. **Customer Preferences** (5% weight)
+
+Has the customer requested a specific tech?
+
+- Previous tech who serviced this client
+- Customer notes: "Always send Sarah"
+- Client portal tech selection
+
+<Info>
+**Customer-requested techs** get a +15% confidence boost, but won't override skill requirements.
+</Info>
+
+### 6. **Tech Preferences** (3% weight)
+
+Does the tech have job type preferences?
+
+- Tech profile settings: "Prefers commercial jobs"
+- "Avoid emergency calls" flag
+- "Only weekday assignments" setting
+
+### 7. **Scheduling Constraints** (2% weight)
+
+Time-based factors:
+
+- Job urgency (emergency jobs prioritize closest tech)
+- Customer time windows ("Must be between 9am-12pm")
+- Tech shift end time (won't assign if job can't finish before shift end)
+
+---
+
+## Adjusting AI Weighting
+
+Customize how AI Dispatcher prioritizes factors:
+
+1. Go to **Settings → Jobs → AI Dispatcher**
+2. Scroll to **Factor Weighting**
+3. Adjust sliders for each factor (must total 100%)
+4. Save changes
+
+<Frame>
+  <img src="/images/jobs/ai-weighting-sliders.png" alt="AI weighting adjustment sliders" />
+</Frame>
+
+### Common Weighting Scenarios
+
+**Maximize efficiency (reduce drive time):**
+- Proximity: 40%
+- Skills: 30%
+- Availability: 20%
+- Performance: 10%
+
+**Prioritize quality (best tech for the job):**
+- Skills: 45%
+- Performance: 25%
+- Proximity: 20%
+- Availability: 10%
+
+**Balance workload evenly:**
+- Availability: 40%
+- Skills: 30%
+- Proximity: 20%
+- Performance: 10%
+
+<Tip>
+**Default weighting** (shown above in "Factors Considered") works well for most service businesses. Only adjust if you have specific operational priorities.
+</Tip>
+
+---
+
+## Blacklist & Whitelist Rules
+
+Control which techs AI Dispatcher can assign to specific jobs or clients.
+
+### Blacklist (Exclude Techs)
+
+Prevent certain techs from being assigned to specific clients or job types.
+
+**Use cases:**
+- Customer complained about a tech → Blacklist that tech for that client
+- Tech lacks soft skills for high-value clients → Blacklist from premium clients
+- Tech is in training → Blacklist from complex jobs
+
+**How to set:**
+1. Go to **Team → Technicians → [Tech Name]**
+2. Click **AI Dispatcher Rules**
+3. Add blacklist rules:
+   - "Do not assign to Client XYZ"
+   - "Do not assign to Commercial jobs"
+   - "Do not assign to Emergency jobs"
+
+### Whitelist (Prefer Techs)
+
+Always prefer certain techs for specific clients or job types.
+
+**Use cases:**
+- VIP client always gets your best tech
+- Client requested "only female techs"
+- Warranty work requires certified techs only
+
+**How to set:**
+1. Go to **Clients → [Client Name]**
+2. Click **Preferences → Preferred Techs**
+3. Select techs to whitelist
+4. AI Dispatcher will only recommend whitelisted techs for this client
+
+<Warning>
+**Whitelists override proximity.** If a whitelisted tech is 50 miles away and a non-whitelisted tech is 5 miles away, the whitelisted tech still gets recommended (with a lower confidence score).
+</Warning>
+
+---
+
+## Accepting AI Recommendations
+
+You have three options when reviewing AI recommendations:
+
+### 1. Accept Top Recommendation (One Click)
+
+Click **Assign** next to the top-ranked tech. Job is immediately assigned and visit scheduled.
+
+<Frame>
+  <img src="/images/jobs/ai-accept-recommendation.png" alt="Accept AI recommendation with one click" />
+</Frame>
+
+### 2. Choose Alternative Recommendation
+
+Click **Assign** next to the 2nd or 3rd ranked tech if you prefer them.
+
+### 3. Override with Manual Selection
+
+Click **Choose Different Tech** to see the full tech list and manually select someone not in the top 3.
+
+<Info>
+**Overrides train the AI.** When you override, AI Dispatcher asks for a reason (optional). This feedback helps improve future recommendations.
+</Info>
+
+---
+
+## Training the AI
+
+AI Dispatcher learns from your behavior and feedback.
+
+### Feedback on Assignments
+
+When you override an AI recommendation, provide feedback:
+
+1. AI asks: "Why did you choose a different tech?"
+2. Select a reason:
+   - Customer requested this tech
+   - Original recommendation not available
+   - Workload balancing
+   - Better skill match
+   - Other (write note)
+3. Click **Submit Feedback**
+
+<Frame>
+  <img src="/images/jobs/ai-feedback-form.png" alt="AI feedback form after override" />
+</Frame>
+
+### Implicit Learning
+
+AI also learns from actions without explicit feedback:
+
+- **Job duration accuracy:** If jobs consistently take longer/shorter than estimated, AI adjusts future recommendations
+- **Customer ratings:** Low ratings for specific tech-job-type combos reduce future recommendations
+- **Cancellations:** If customers frequently reschedule jobs with a certain tech, that tech's score decreases
+
+### Manual Training (Advanced)
+
+Fine-tune AI preferences manually:
+
+1. Go to **Settings → Jobs → AI Dispatcher → Training**
+2. Review past assignments (last 90 days)
+3. Mark assignments as "Good" or "Bad"
+4. AI re-trains overnight using your feedback
+
+<Tip>
+**Monthly review:** Spend 15 minutes/month reviewing past assignments and providing feedback. This keeps AI performance high as your business evolves.
+</Tip>
+
+---
+
+## AI Dispatcher Analytics
+
+Track AI performance and acceptance rates.
+
+### Dashboard Metrics
+
+Go to **Reports → AI Dispatcher** to view:
+
+| Metric | Description | Goal |
+|--------|-------------|------|
+| **Acceptance Rate** | % of AI recommendations accepted | 70%+ |
+| **Avg. Confidence Score** | Average confidence of accepted assignments | 80%+ |
+| **Override Rate** | % of assignments manually overridden | <30% |
+| **Drive Time Reduction** | Time saved vs. manual assignments | 15%+ |
+| **Workload Balance Score** | Std. deviation of jobs per tech | Low variance |
+
+<Frame>
+  <img src="/images/jobs/ai-dispatcher-analytics.png" alt="AI Dispatcher analytics dashboard" />
+</Frame>
+
+### Performance Over Time
+
+Track how AI improves week-over-week:
+
+- **Confidence scores trending up** = AI is learning your preferences
+- **Acceptance rate increasing** = You trust the AI more
+- **Drive time decreasing** = Better route optimization
+
+<Success>
+**Target goal:** 80%+ acceptance rate after 60 days of use. If you're below 70%, review your weighting settings and provide more feedback.
+</Success>
+
+---
+
+## Workflow Automation
+
+Auto-assign jobs without manual review when confidence is high.
+
+### Auto-Assign Workflow
+
+1. Go to **Settings → Automation → Workflows**
+2. Create new workflow:
+   - **Trigger:** Job created or approved
+   - **Condition:** AI confidence score ≥ 90%
+   - **Action:** Assign to AI-recommended tech
+3. Save workflow
+
+<CodeGroup>
+```json Workflow JSON
+{
+  "name": "Auto-assign high-confidence jobs",
+  "trigger": "job.approved",
+  "conditions": [
+    {
+      "field": "ai_dispatcher.confidence",
+      "operator": ">=",
+      "value": 90
+    }
+  ],
+  "actions": [
+    {
+      "type": "assign_tech",
+      "tech": "ai_dispatcher.top_recommendation"
+    },
+    {
+      "type": "send_notification",
+      "to": "assigned_tech",
+      "message": "New job assigned: {job.title}"
+    }
+  ]
+}
+```
+</CodeGroup>
+
+<Warning>
+**Start with 95% threshold.** Lower the threshold to 90% only after you've validated AI performance for 30+ days.
+</Warning>
+
+---
+
+## API Integration
+
+Use AI Dispatcher programmatically via API.
+
+### Get Recommendations
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/jobs/{job_id}/ai-dispatch \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"
+```
+
+**Response:**
+```json
+{
+  "recommendations": [
+    {
+      "tech_id": "tech_123",
+      "tech_name": "John Smith",
+      "confidence_score": 92,
+      "reasoning": [
+        "Has HVAC Level 2 certification (required)",
+        "3.2 miles from job site (closest)",
+        "2 open slots on Tuesday",
+        "12 similar jobs completed (92% avg rating)"
+      ],
+      "estimated_drive_time_minutes": 18,
+      "current_workload": "low"
+    },
+    {
+      "tech_id": "tech_456",
+      "tech_name": "Sarah Johnson",
+      "confidence_score": 85,
+      "reasoning": [
+        "Has HVAC Level 2 certification (required)",
+        "8.1 miles from job site",
+        "1 open slot on Tuesday",
+        "8 similar jobs completed (95% avg rating)"
+      ],
+      "estimated_drive_time_minutes": 22,
+      "current_workload": "medium"
+    }
+  ],
+  "job_id": "job_789",
+  "job_title": "AC repair - no cooling",
+  "required_skills": ["hvac_level_2"],
+  "requested_at": "2026-02-26T14:30:00Z"
+}
+```
+
+### Accept Recommendation
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/jobs/{job_id}/assign \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "tech_id": "tech_123",
+    "source": "ai_dispatcher",
+    "confidence_score": 92
+  }'
+```
+
+### Submit Feedback
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/ai-dispatcher/feedback \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "job_id": "job_789",
+    "recommended_tech": "tech_123",
+    "assigned_tech": "tech_456",
+    "override_reason": "customer_requested",
+    "notes": "Customer specifically asked for Sarah"
+  }'
+```
+
+<Tip>
+See full API documentation at [AI Dispatcher API Reference](/api-reference/ai-dispatcher).
+</Tip>
+
+---
+
+## Troubleshooting
+
+### Low Confidence Scores (<70%)
+
+**Possible causes:**
+- Not enough historical data (new account or new techs)
+- No techs have required skills
+- All techs are fully booked
+- Job location is far from all techs
+
+**Solutions:**
+- Wait 2+ weeks for AI to gather data
+- Add more techs with required skills
+- Adjust weighting to prioritize availability over proximity
+- Consider hiring in new service areas
+
+### AI Recommends Wrong Tech
+
+**Possible causes:**
+- Weighting doesn't match your priorities
+- Tech skills/certifications not updated in profile
+- Blacklist/whitelist rules outdated
+
+**Solutions:**
+- Adjust factor weighting in settings
+- Update tech profiles with current skills/certifications
+- Review and remove outdated blacklist rules
+- Provide feedback when overriding (trains the AI)
+
+### "No Recommendations Available"
+
+**Possible causes:**
+- No techs have required skills
+- All techs are blacklisted for this client
+- All techs are at max capacity
+
+**Solutions:**
+- Remove or relax skill requirements
+- Check blacklist rules for this client
+- Hire additional techs or subcontractors
+- Reschedule job to a different day
+
+---
+
+## Best Practices
+
+### ✅ Do This
+
+- **Provide feedback** when overriding recommendations (helps AI learn)
+- **Update tech profiles** regularly (skills, certifications, preferences)
+- **Review analytics monthly** to track AI performance
+- **Start conservative** (95% confidence threshold for auto-assign, then lower)
+- **Balance weighting** to match your business priorities
+- **Train new techs** separately before adding them to AI rotation
+
+### ❌ Avoid This
+
+- **Don't auto-assign** jobs below 90% confidence (too risky)
+- **Don't ignore low acceptance rates** (<70% means something's wrong)
+- **Don't set conflicting rules** (e.g., whitelist AND blacklist same tech)
+- **Don't forget to update** tech availability/time off
+- **Don't use AI** for emergency jobs requiring immediate assignment (just pick closest tech manually)
+
+---
+
+## Related Topics
+
+<CardGroup cols={2}>
+  <Card title="Creating Visits" icon="calendar-plus" href="/features/jobs/visits/creating-visits">
+    Schedule visits and assign technicians
+  </Card>
+  
+  <Card title="Route Optimization" icon="route" href="/features/jobs/scheduling/route-optimization">
+    Optimize multi-job routes for techs
+  </Card>
+  
+  <Card title="Team Management" icon="users" href="/features/team/overview">
+    Manage tech skills and availability
+  </Card>
+  
+  <Card title="Workflow Automation" icon="bolt" href="/features/automation/workflows">
+    Auto-assign jobs with workflows
+  </Card>
+</CardGroup>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Does AI Dispatcher work offline?">
+    No. AI Dispatcher requires an internet connection to calculate recommendations (uses real-time data like traffic, GPS locations, and calendar availability).
+  </Accordion>
+
+  <Accordion title="Can I disable AI Dispatcher for specific job types?">
+    Yes. Go to Settings → Jobs → AI Dispatcher → Rules and create a rule: "Do not use AI for [Job Type]". Those jobs will skip AI recommendations.
+  </Accordion>
+
+  <Accordion title="How much historical data does AI need?">
+    Minimum 2 weeks of job assignments (20+ completed jobs). Optimal performance after 60+ days and 100+ jobs.
+  </Accordion>
+
+  <Accordion title="Does AI Dispatcher consider tech hourly rates?">
+    No, not by default. AI optimizes for efficiency and quality, not cost. However, you can add a custom rule to prefer lower-cost techs for low-value jobs.
+  </Accordion>
+
+  <Accordion title="Can customers see AI confidence scores?">
+    No. Confidence scores and AI reasoning are internal-only. Customers only see "Assigned to John Smith" with no AI details.
+  </Accordion>
+
+  <Accordion title="What happens if I reject all 3 recommendations?">
+    You can manually select any tech from the full list. AI will ask for feedback to improve future recommendations.
+  </Accordion>
+
+  <Accordion title="Does AI Dispatcher work with subcontractors?">
+    Yes, if subcontractors are added as team members in FieldCamp. Mark them as "Subcontractor" in their profile so AI knows they're not full-time employees.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Need Help?
+
+<Card title="Contact Support" icon="headset" href="mailto:support@fieldcamp.ai">
+  Questions about AI Dispatcher? Our team can help you optimize settings for your business.
+</Card>

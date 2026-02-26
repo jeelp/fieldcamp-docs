@@ -1,0 +1,1007 @@
+---
+title: "Job List & Views"
+description: "Master the job list — filtering, sorting, grouping, and bulk operations to manage hundreds of jobs efficiently"
+icon: "list"
+---
+
+# Job List & Views
+
+The Job List is your command center for managing all work. Whether you're tracking 10 jobs or 1,000, FieldCamp gives you powerful tools to find, organize, and act on jobs quickly.
+
+<Info>
+  **New to jobs?** Read [Jobs Overview](/features/jobs/overview) first to understand the basics.
+</Info>
+
+---
+
+## Viewing Your Jobs
+
+Access the job list from:
+
+<CardGroup cols={3}>
+  <Card title="Jobs Page" icon="briefcase" href="/jobs">
+    Main job list with all viewing options
+  </Card>
+  
+  <Card title="Dashboard" icon="home" href="/dashboard">
+    Quick stats and recent jobs widget
+  </Card>
+  
+  <Card title="Client Profile" icon="user">
+    See all jobs for a specific client
+  </Card>
+</CardGroup>
+
+---
+
+## View Modes
+
+Choose how you want to see your jobs:
+
+<Tabs>
+  <Tab title="Table View (Default)">
+    Classic spreadsheet-style list with rows and columns.
+    
+    **Best for:**
+    - Scanning many jobs quickly
+    - Sorting by multiple columns
+    - Exporting to CSV/Excel
+    - Bulk operations
+    
+    <!-- Screenshot: job-table-view.png — Full-width table with multiple columns -->
+  </Tab>
+  
+  <Tab title="Kanban View">
+    Visual board with cards grouped by status.
+    
+    **Best for:**
+    - Visual workflow management
+    - Drag-and-drop status changes
+    - Quick status overview (how many jobs in each stage)
+    
+    Drag a job card from "Scheduled" to "In Progress" to update its status instantly.
+    
+    <!-- Screenshot: job-kanban-view.png — Kanban board with status columns -->
+  </Tab>
+  
+  <Tab title="Calendar View">
+    Jobs displayed on a calendar based on visit dates.
+    
+    **Best for:**
+    - Scheduling overview (what's happening when)
+    - Spotting scheduling gaps
+    - Drag-and-drop rescheduling
+    
+    <Info>Learn more: [Calendar & Scheduling](/features/jobs/scheduling/calendar)</Info>
+    
+    <!-- Screenshot: job-calendar-view.png — Calendar with job events -->
+  </Tab>
+  
+  <Tab title="Map View">
+    Jobs plotted on a map by address.
+    
+    **Best for:**
+    - Route planning (which jobs are near each other)
+    - Territory management
+    - Visualizing tech locations vs job locations
+    
+    <!-- Screenshot: job-map-view.png — Google Map with job pins and tech locations -->
+  </Tab>
+</Tabs>
+
+<Tip>
+  **Pro tip:** Switch views using the toolbar at the top of the page. Your preference is saved per browser.
+</Tip>
+
+---
+
+## Table View Deep Dive
+
+The table view is the most powerful for managing large job lists.
+
+### Default Columns
+
+Every job list shows these columns by default:
+
+| Column | Description | Sortable? |
+|--------|-------------|-----------|
+| **Job #** | Unique job number (e.g., JOB-1234) | ✅ Yes |
+| **Client** | Client name (click to open profile) | ✅ Yes |
+| **Description** | What needs to be done | ❌ No |
+| **Status** | Current lifecycle stage | ✅ Yes |
+| **Assigned** | Tech(s) assigned to the job | ✅ Yes |
+| **Date** | Next visit date (or created date if unscheduled) | ✅ Yes |
+| **Value** | Total job value (sum of items) | ✅ Yes |
+| **Actions** | Quick action buttons (Edit, View, Delete) | ❌ No |
+
+<!-- Screenshot: job-table-default-columns.png — Table showing default column layout -->
+
+---
+
+### Customizing Columns
+
+Add, remove, or reorder columns to match your workflow.
+
+**How to customize:**
+
+<Steps>
+  <Step title="Click Columns Button">
+    At the top-right of the table, click the **Columns** button (looks like a column icon).
+  </Step>
+  
+  <Step title="Show/Hide Columns">
+    Check or uncheck columns to show or hide them:
+    
+    **Available columns:**
+    - Job Number
+    - Client
+    - Description
+    - Status
+    - Priority
+    - Assigned To
+    - Created Date
+    - Next Visit Date
+    - Last Visit Date
+    - Job Type (One-Time / Recurring)
+    - Tags
+    - Subtotal
+    - Tax
+    - Total Value
+    - Outstanding Balance
+    - Custom Fields (if configured)
+  </Step>
+  
+  <Step title="Reorder Columns">
+    Drag column names up or down to reorder them.
+  </Step>
+  
+  <Step title="Save">
+    Click **Apply**. Your column layout is saved per user.
+  </Step>
+</Steps>
+
+<!-- Screenshot: column-selector.png — Column customization modal with drag handles -->
+
+<Tip>
+  **Pro tip:** Create different saved views (below) with different column layouts for different workflows.
+</Tip>
+
+---
+
+### Resizing Columns
+
+Make columns wider or narrower:
+
+1. **Hover over column border** until you see a resize cursor
+2. **Drag left or right** to resize
+3. **Double-click** the border to auto-fit content
+
+<!-- Screenshot: column-resize.png — Cursor hovering over column border -->
+
+---
+
+## Filtering Jobs
+
+Find exactly the jobs you need with powerful filters.
+
+### Quick Filters (Top Bar)
+
+<Tabs>
+  <Tab title="By Status">
+    Click a status chip to filter:
+    
+    - **All** (default)
+    - **Draft**
+    - **Scheduled**
+    - **Unscheduled**
+    - **In Progress**
+    - **Completed**
+    - **Invoiced**
+    - **Paid**
+    - **Cancelled**
+    
+    The number next to each status shows how many jobs match.
+    
+    <!-- Screenshot: status-filter-chips.png — Status filter chips with counts -->
+  </Tab>
+  
+  <Tab title="By Assigned Tech">
+    Click **Assigned To** dropdown to filter by tech:
+    
+    - All team members
+    - Unassigned
+    - Specific tech (shows their jobs only)
+    
+    Admins and Managers see all jobs. Techs see only their assigned jobs.
+    
+    <!-- Screenshot: assigned-filter-dropdown.png — Tech filter dropdown -->
+  </Tab>
+  
+  <Tab title="By Date Range">
+    Click **Date Range** to filter by visit date:
+    
+    **Presets:**
+    - Today
+    - This Week
+    - This Month
+    - Next 7 Days
+    - Next 30 Days
+    - Custom Range (pick start and end dates)
+    
+    **Note:** Jobs without scheduled visits use creation date instead.
+    
+    <!-- Screenshot: date-range-picker.png — Date filter with presets and calendar -->
+  </Tab>
+  
+  <Tab title="By Priority">
+    Filter by urgency level:
+    
+    - All Priorities
+    - Low
+    - Medium
+    - High
+    - Urgent
+    
+    <!-- Screenshot: priority-filter.png — Priority dropdown with color-coded options -->
+  </Tab>
+</Tabs>
+
+---
+
+### Advanced Filters
+
+For more complex filtering, click **Advanced Filters** (or press `Cmd/Ctrl + F`).
+
+<AccordionGroup>
+  <Accordion title="Filter by Client">
+    **Use cases:**
+    - View all jobs for a specific client
+    - Filter by multiple clients (bulk operations)
+    
+    **How:**
+    1. Click **Client** filter
+    2. Start typing client name
+    3. Select one or more clients
+  </Accordion>
+  
+  <Accordion title="Filter by Job Type">
+    **Options:**
+    - One-Time
+    - Recurring
+    
+    **Use cases:**
+    - View all maintenance contracts (recurring)
+    - View one-off projects only
+  </Accordion>
+  
+  <Accordion title="Filter by Tags">
+    **Use cases:**
+    - View all "Plumbing" jobs
+    - View all "Emergency" jobs
+    - View jobs from a specific source ("Google Ad")
+    
+    **How:**
+    1. Click **Tags** filter
+    2. Select one or more tags
+    3. Choose match type:
+       - **Any** (job has at least one selected tag)
+       - **All** (job has all selected tags)
+  </Accordion>
+  
+  <Accordion title="Filter by Value">
+    **Use cases:**
+    - Find high-value jobs (over $5,000)
+    - Find small jobs (under $500)
+    
+    **How:**
+    1. Click **Value** filter
+    2. Enter min and/or max value
+    3. Jobs outside the range are hidden
+  </Accordion>
+  
+  <Accordion title="Filter by Custom Fields">
+    If you've added custom fields to jobs (e.g., "Job Source", "Permit Number"), you can filter by them.
+    
+    <Info>Learn more: [Job Custom Fields](/features/jobs/job-custom-fields)</Info>
+  </Accordion>
+  
+  <Accordion title="Combine Multiple Filters">
+    All filters work together (AND logic).
+    
+    **Example:**
+    - Status: In Progress
+    - Assigned: John
+    - Priority: Urgent
+    
+    **Result:** Only urgent jobs assigned to John that are currently in progress.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: advanced-filter-panel.png — Side panel showing all advanced filter options -->
+
+<Tip>
+  **Pro tip:** Once you've configured filters, save them as a **Saved View** (below) for quick access later.
+</Tip>
+
+---
+
+### Search
+
+Use the search bar to find jobs by keywords:
+
+**Searchable fields:**
+- Job number (e.g., "JOB-1234")
+- Client name (e.g., "ABC Plumbing")
+- Client company (e.g., "Smith & Sons")
+- Description (e.g., "water heater")
+- Address (e.g., "123 Main St")
+- Tags (e.g., "Emergency")
+
+**How to search:**
+1. Click the search bar (or press `Cmd/Ctrl + K`)
+2. Type your query
+3. Results filter instantly as you type
+
+<!-- Screenshot: search-bar.png — Search bar with autocomplete results -->
+
+<Tip>
+  **Pro tip:** Combine search with filters. Example: Search "water heater" + Status filter "In Progress" = all in-progress water heater jobs.
+</Tip>
+
+---
+
+## Sorting Jobs
+
+Click any column header to sort by that column.
+
+**Click once:** Sort ascending (A→Z, 1→9, oldest→newest)
+**Click twice:** Sort descending (Z→A, 9→1, newest→oldest)
+**Click three times:** Clear sort (back to default)
+
+**Default sort:** Most recent first (by created date)
+
+### Common Sorts
+
+<CardGroup cols={2}>
+  <Card title="By Date (Oldest First)" icon="calendar">
+    Find jobs that have been waiting the longest.
+    
+    **Use case:** Prioritize overdue work.
+  </Card>
+  
+  <Card title="By Value (Highest First)" icon="dollar-sign">
+    See your highest-value jobs first.
+    
+    **Use case:** Focus on revenue-generating work.
+  </Card>
+  
+  <Card title="By Status" icon="traffic-light">
+    Group jobs by lifecycle stage.
+    
+    **Use case:** Review all jobs in a specific status.
+  </Card>
+  
+  <Card title="By Client (A→Z)" icon="user">
+    Alphabetical by client name.
+    
+    **Use case:** Find a specific client's jobs quickly.
+  </Card>
+</CardGroup>
+
+<!-- Screenshot: sorted-table.png — Table with sort indicator on column header -->
+
+---
+
+## Grouping Jobs
+
+Group jobs by a field to see them organized into collapsible sections.
+
+### How to Group
+
+<Steps>
+  <Step title="Click Group By Button">
+    At the top of the table, click **Group By**.
+  </Step>
+  
+  <Step title="Select a Field">
+    **Available grouping options:**
+    - Status
+    - Assigned To
+    - Priority
+    - Job Type
+    - Tags
+    - Client
+    - Custom Fields
+  </Step>
+  
+  <Step title="View Grouped Results">
+    Jobs are now organized into collapsible sections.
+    
+    Each section shows:
+    - **Group name** (e.g., "Scheduled", "In Progress")
+    - **Count** (how many jobs in this group)
+    - **Total value** (sum of all jobs in group)
+  </Step>
+</Steps>
+
+<!-- Screenshot: grouped-by-status.png — Job list grouped by status with collapsible sections -->
+
+### Example: Group by Assigned Tech
+
+When grouped by assigned tech, you see:
+
+```
+John Smith (12 jobs, $15,400 total)
+├── JOB-1234 | ABC Plumbing | $1,200
+├── JOB-1235 | XYZ Electric | $900
+└── ...
+
+Jane Doe (8 jobs, $9,800 total)
+├── JOB-1240 | Smith HVAC | $2,500
+├── JOB-1241 | Jones Plumbing | $1,100
+└── ...
+
+Unassigned (5 jobs, $4,200 total)
+└── ...
+```
+
+<Tip>
+  **Pro tip:** Grouping is great for workload balancing. Quickly see who has the most jobs or highest total value.
+</Tip>
+
+---
+
+### Multi-Level Grouping
+
+Group by two fields at once for deeper organization.
+
+**Example:** Group by Status → then by Assigned Tech
+
+```
+In Progress (25 jobs)
+├── John Smith (10 jobs)
+├── Jane Doe (8 jobs)
+└── Mike Johnson (7 jobs)
+
+Scheduled (18 jobs)
+├── John Smith (6 jobs)
+├── Jane Doe (5 jobs)
+└── Unassigned (7 jobs)
+```
+
+<!-- Screenshot: multi-level-grouping.png — Nested grouping with expand/collapse -->
+
+---
+
+## Saved Views
+
+Save your filter + sort + group + column configurations as reusable views.
+
+### Creating a Saved View
+
+<Steps>
+  <Step title="Configure Your Ideal View">
+    Set up filters, sorting, grouping, and columns exactly how you want them.
+    
+    **Example:**
+    - Filter: Status = In Progress
+    - Assigned: John
+    - Sort: By date (oldest first)
+    - Columns: Job #, Client, Description, Date, Value
+  </Step>
+  
+  <Step title="Click Save View">
+    At the top-right, click **Save View** (or **⋮ More** → **Save Current View**).
+  </Step>
+  
+  <Step title="Name Your View">
+    Give it a descriptive name (e.g., "John's In-Progress Jobs").
+    
+    **Optional:** Set visibility:
+    - **Private** (only you can see it)
+    - **Shared** (everyone on your team can use it)
+  </Step>
+  
+  <Step title="Save">
+    Click **Save**. Your view is now available in the view selector.
+  </Step>
+</Steps>
+
+<!-- Screenshot: save-view-modal.png — Save view dialog with name and visibility options -->
+
+---
+
+### Using Saved Views
+
+Access saved views from the **View** dropdown at the top of the page.
+
+**Default views:**
+- **All Jobs** (no filters)
+- **My Jobs** (assigned to me)
+- **Scheduled** (has visit scheduled)
+- **In Progress** (currently being worked on)
+- **Completed** (finished but not invoiced)
+- **Overdue** (past scheduled date but not completed)
+
+**Your custom views** appear below the defaults.
+
+<!-- Screenshot: view-dropdown.png — View selector with default and custom views -->
+
+<Tip>
+  **Pro tip:** Create views for common workflows:
+  - "Emergency Jobs" (Priority: Urgent, Status: Unscheduled)
+  - "Ready to Invoice" (Status: Completed, no invoice)
+  - "High-Value Jobs" (Value > $5,000)
+</Tip>
+
+---
+
+### Editing and Deleting Views
+
+<AccordionGroup>
+  <Accordion title="Edit a Saved View">
+    1. Select the view from the dropdown
+    2. Make changes (filters, columns, etc.)
+    3. Click **Update View** (or **⋮ More** → **Update Current View**)
+  </Accordion>
+  
+  <Accordion title="Rename a View">
+    1. Select the view
+    2. Click **⋮ More** → **Rename View**
+    3. Enter new name and save
+  </Accordion>
+  
+  <Accordion title="Delete a View">
+    1. Select the view
+    2. Click **⋮ More** → **Delete View**
+    3. Confirm deletion
+    
+    <Warning>Deleting a shared view removes it for all users.</Warning>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Bulk Operations
+
+Perform actions on multiple jobs at once.
+
+### Selecting Jobs
+
+<Tabs>
+  <Tab title="Select Individual Jobs">
+    Check the box next to each job you want to select.
+    
+    <!-- Screenshot: selected-jobs-checkboxes.png — Table with some rows checked -->
+  </Tab>
+  
+  <Tab title="Select All on Page">
+    Check the box in the table header to select all jobs on the current page.
+    
+    <!-- Screenshot: select-all-header.png — Header checkbox checked, all rows selected -->
+  </Tab>
+  
+  <Tab title="Select All Matching Filter">
+    After selecting all on the page, you'll see a prompt:
+    
+    **"All 20 jobs on this page are selected. Select all 150 jobs matching your filters?"**
+    
+    Click the link to select across all pages.
+    
+    <Warning>Be careful with bulk operations on large selections. Actions cannot be undone.</Warning>
+  </Tab>
+</Tabs>
+
+---
+
+### Bulk Actions
+
+Once you've selected jobs, a toolbar appears at the top:
+
+<AccordionGroup>
+  <Accordion title="Assign to Tech">
+    Assign multiple jobs to one tech at once.
+    
+    **Use case:** You just hired a new tech and want to assign them a batch of jobs.
+    
+    **How:**
+    1. Select jobs
+    2. Click **Assign**
+    3. Choose tech
+    4. Confirm
+  </Accordion>
+  
+  <Accordion title="Change Status">
+    Update status for multiple jobs.
+    
+    **Use case:** Mark a batch of jobs as "Completed" after a busy day.
+    
+    **How:**
+    1. Select jobs
+    2. Click **Change Status**
+    3. Choose new status
+    4. Confirm
+  </Accordion>
+  
+  <Accordion title="Add Tags">
+    Tag multiple jobs at once.
+    
+    **Use case:** Tag all jobs from a specific marketing campaign.
+    
+    **How:**
+    1. Select jobs
+    2. Click **Add Tags**
+    3. Select tags
+    4. Confirm
+  </Accordion>
+  
+  <Accordion title="Export to CSV">
+    Download selected jobs as a spreadsheet.
+    
+    **Use case:** Share job list with external vendor or accountant.
+    
+    **How:**
+    1. Select jobs
+    2. Click **Export**
+    3. Choose CSV or Excel format
+    4. Download
+    
+    **Exported fields:** All visible columns + job items + visit info.
+  </Accordion>
+  
+  <Accordion title="Convert to Invoices">
+    Create invoices for multiple completed jobs at once.
+    
+    **Use case:** Batch invoicing at end of week.
+    
+    **How:**
+    1. Select completed jobs
+    2. Click **Create Invoices**
+    3. Review invoice previews
+    4. Confirm
+    
+    <Info>Learn more: [Invoicing Integration](/features/jobs/invoicing-integration)</Info>
+  </Accordion>
+  
+  <Accordion title="Delete Jobs">
+    Delete multiple jobs at once.
+    
+    <Warning>
+      **Use with caution.** Deleted jobs are soft-deleted (can be restored by support), but all associated visits and logs are also marked deleted.
+    </Warning>
+    
+    **How:**
+    1. Select jobs
+    2. Click **Delete**
+    3. Type "DELETE" to confirm
+    4. Confirm
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: bulk-actions-toolbar.png — Toolbar showing bulk action buttons when jobs are selected -->
+
+---
+
+## Exporting Jobs
+
+Export jobs to CSV or Excel for reporting, sharing, or backup.
+
+### Export Options
+
+<Tabs>
+  <Tab title="Export All Jobs">
+    Download all jobs (respects current filters).
+    
+    **How:**
+    1. Click **⋮ More** → **Export**
+    2. Choose format (CSV or Excel)
+    3. Wait for download
+    
+    **What's included:**
+    - All visible columns
+    - Job items (in separate sheet for Excel)
+    - Visit info (in separate sheet for Excel)
+  </Tab>
+  
+  <Tab title="Export Selected Jobs">
+    Download only the jobs you've selected.
+    
+    **How:**
+    1. Select jobs (checkboxes)
+    2. Click **Export** in bulk toolbar
+    3. Choose format
+    4. Download
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: export-dialog.png — Export format selector (CSV vs Excel) -->
+
+<Info>
+  **Large exports:** If you're exporting 500+ jobs, it may take a minute. You'll get an email when it's ready.
+</Info>
+
+---
+
+## Job List Settings
+
+Customize how the job list behaves.
+
+**How to access:** Click **⋮ More** → **List Settings**
+
+<AccordionGroup>
+  <Accordion title="Items Per Page">
+    Choose how many jobs to show per page:
+    - 20 (default)
+    - 50
+    - 100
+    - 200
+    
+    **Trade-off:** More items = less scrolling, but slower page load.
+  </Accordion>
+  
+  <Accordion title="Default View">
+    Set which view loads when you open the Jobs page:
+    - All Jobs (default)
+    - My Jobs
+    - Any saved view
+  </Accordion>
+  
+  <Accordion title="Default Sort">
+    Set the default sort order:
+    - Newest first (default)
+    - Oldest first
+    - By value (high to low)
+    - Alphabetical by client
+  </Accordion>
+  
+  <Accordion title="Compact Mode">
+    Enable compact mode to fit more jobs on screen (smaller row height, tighter spacing).
+    
+    **Best for:** Users managing 100+ jobs daily.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: list-settings-panel.png — Settings panel with options above -->
+
+---
+
+## Kanban Board Deep Dive
+
+The Kanban view shows jobs as cards organized by status.
+
+<!-- Screenshot: kanban-full-view.png — Full Kanban board with multiple columns -->
+
+### Kanban Columns
+
+By default, columns match job status:
+- Draft
+- Scheduled
+- In Progress
+- Completed
+- Invoiced
+- Paid
+
+**Card count** appears at the top of each column.
+
+---
+
+### Kanban Cards
+
+Each card shows:
+- **Job number**
+- **Client name**
+- **Description** (first 50 characters)
+- **Assigned tech** (avatar + name)
+- **Next visit date** (if scheduled)
+- **Total value**
+- **Priority indicator** (color-coded border)
+
+<!-- Screenshot: kanban-card-detail.png — Single Kanban card with labeled parts -->
+
+---
+
+### Drag and Drop
+
+**Change status** by dragging a card to a different column.
+
+**Example:**
+1. Drag "JOB-1234" from "Scheduled" to "In Progress"
+2. Card moves to new column
+3. Job status updates automatically
+
+<!-- Screenshot: kanban-drag-action.png — Card being dragged between columns -->
+
+<Warning>
+  **Status transition rules apply.** You can't drag a job from "Draft" directly to "Invoiced" — it must go through intermediate stages.
+</Warning>
+
+---
+
+### Kanban Filters
+
+Filters work in Kanban view too. Use filters to:
+- Show only one tech's jobs (easy workload view)
+- Show only high-priority jobs
+- Show jobs for a specific client
+
+<!-- Screenshot: kanban-with-filter.png — Kanban board with active filter applied -->
+
+---
+
+## Keyboard Shortcuts
+
+Speed up your workflow with these shortcuts:
+
+| Action | Shortcut |
+|--------|----------|
+| Create new job | `Cmd/Ctrl + N` |
+| Open search | `Cmd/Ctrl + K` |
+| Open filters | `Cmd/Ctrl + F` |
+| Refresh list | `Cmd/Ctrl + R` |
+| Select all on page | `Cmd/Ctrl + A` |
+| Open selected job | `Enter` |
+| Open job in new tab | `Cmd/Ctrl + Enter` |
+| Next page | `→` |
+| Previous page | `←` |
+
+---
+
+## Troubleshooting
+
+### I can't see all jobs — only my assigned ones
+
+**Solution:** This is correct behavior for **Technician** role. If you need to see all jobs, ask an Admin to change your role to **Manager** or **Admin**.
+
+---
+
+### Jobs aren't showing even though I know they exist
+
+**Possible causes:**
+1. **Active filter:** Check if you have filters applied (status, assigned, date, etc.). Click **Clear Filters**.
+2. **Wrong saved view:** Check the view dropdown — you might be in "My Jobs" instead of "All Jobs".
+3. **Search active:** Clear the search bar.
+4. **Date range filter:** Make sure your date range includes the jobs you're looking for.
+
+---
+
+### Export is taking forever
+
+**Solution:** Exports with 500+ jobs can take 1–2 minutes. If it's been more than 5 minutes, refresh the page and try again. You'll get an email with a download link.
+
+---
+
+### Kanban columns are empty
+
+**Solution:** Kanban view requires jobs to have statuses. If you have only Draft jobs, they'll all be in the first column. Change job statuses or switch to Table view.
+
+---
+
+### I deleted a saved view by accident
+
+**Solution:** Contact support. Admins can restore deleted views within 30 days.
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Create saved views for common workflows">
+    Don't re-filter every time. Save views like:
+    - "Ready to Invoice"
+    - "Emergency Jobs"
+    - "High-Value Jobs"
+    - "Overdue Work"
+  </Accordion>
+  
+  <Accordion title="Use grouping for workload balancing">
+    Group by Assigned Tech to see who has the most jobs or highest revenue.
+  </Accordion>
+  
+  <Accordion title="Export regularly for backup">
+    Export jobs monthly for your records. Keep a backup of your data.
+  </Accordion>
+  
+  <Accordion title="Use Kanban for visual workflows">
+    If you manage jobs through stages, Kanban is faster than Table view.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't use bulk delete carelessly">
+    Always double-check your selection before deleting. Restoring requires support intervention.
+  </Accordion>
+  
+  <Accordion title="Don't export sensitive data to unsecured locations">
+    Exports contain client names, addresses, and pricing. Store securely.
+  </Accordion>
+  
+  <Accordion title="Don't create duplicate saved views">
+    Keep your view list clean. Delete or rename old views instead of creating new ones with similar filters.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## API: List Jobs Programmatically
+
+Fetch jobs via the FieldCamp API:
+
+```bash
+curl -X GET "https://app.fieldcamp.ai/api/v1/jobs?status=In Progress&limit=50&page=1" \
+  -H "X-Api-Key: your_api_key"
+```
+
+```json
+// Response
+{
+  "success": true,
+  "data": [
+    {
+      "id": "507f1f77bcf86cd799439012",
+      "jobNumber": "JOB-1234",
+      "clientId": "507f1f77bcf86cd799439011",
+      "clientName": "ABC Plumbing",
+      "description": "Fix leaky faucet in kitchen",
+      "status": "In Progress",
+      "priority": "Medium",
+      "total": 297.00,
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    // ... more jobs
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 50,
+    "total": 150,
+    "pages": 3
+  }
+}
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Job Detail Page" icon="file-lines" href="/features/jobs/job-detail">
+    Explore every tab and section of the job detail view
+  </Card>
+  
+  <Card title="Advanced Filtering" icon="filter" href="/features/advanced-filtering">
+    Master complex filters and rules
+  </Card>
+  
+  <Card title="Bulk Operations" icon="list-check" href="/features/bulk-operations">
+    Learn all bulk action options
+  </Card>
+  
+  <Card title="Analytics" icon="chart-line" href="/features/analytics/overview">
+    Build reports from your job data
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Jobs Overview](/features/jobs/overview) — Understand the basics
+- [Creating Jobs](/features/jobs/creating-jobs) — How to create jobs
+- [Job Detail Page](/features/jobs/job-detail) — Explore every tab
+- [Job Status](/features/jobs/job-status) — Understand the lifecycle
+- [Saved Views](/features/saved-views) — Deep dive into views
+
+---
+
+<Check>
+  **You now know:** How to view jobs in table/kanban/calendar/map modes, filter and sort, group by fields, create saved views, perform bulk operations, and export data.
+</Check>

@@ -1,0 +1,726 @@
+---
+title: "Jobs Overview"
+description: "Complete guide to jobs in FieldCamp — the core workflow for all field service work"
+icon: "briefcase"
+---
+
+# Jobs in FieldCamp
+
+Jobs are the heart of FieldCamp. Every piece of work you do — from a simple repair to a complex installation — is tracked as a job. Understanding how jobs work is essential to getting the most out of FieldCamp.
+
+<Note>
+  **New to FieldCamp?** Think of a job as a complete work order. It contains everything related to a specific project: who the client is, what work needs to be done, what products or services you're providing, when you're visiting the site, and how much the client will pay.
+</Note>
+
+---
+
+## What is a Job?
+
+A **job** represents a unit of work for a client. It could be:
+
+- A one-time repair (fix a leaky faucet)
+- An installation (install new HVAC system)
+- A recurring service (monthly pool maintenance)
+- An inspection (annual fire extinguisher check)
+- A complex project with multiple visits (bathroom renovation)
+
+### Jobs vs Visits
+
+One of the most important concepts in FieldCamp is understanding the difference between **jobs** and **visits**:
+
+<CardGroup cols={2}>
+  <Card title="Job" icon="briefcase">
+    The **what** — the work that needs to be done for a client
+    
+    - Contains job items (products/services)
+    - Has pricing and invoice information
+    - Lives across multiple visits if needed
+  </Card>
+  
+  <Card title="Visit" icon="calendar">
+    The **when** — a specific appointment to work on a job
+    
+    - Scheduled on a specific date/time
+    - Assigned to specific team members
+    - Tracks time, mileage, and progress
+  </Card>
+</CardGroup>
+
+**Example:** You're installing a water heater for a client. That's **one job**. But you might need:
+- **Visit 1:** Site inspection and measurements
+- **Visit 2:** Installation day
+- **Visit 3:** Follow-up inspection
+
+One job, three visits.
+
+<!-- Screenshot: job-vs-visit-diagram.png — Diagram showing one job with multiple visits -->
+
+---
+
+## Job Lifecycle
+
+Every job moves through a series of statuses from creation to completion:
+
+<Steps>
+  <Step title="Draft">
+    Job created but not ready to schedule. You're still gathering information, pricing items, or waiting for client approval.
+  </Step>
+  
+  <Step title="Scheduled">
+    Job has at least one visit scheduled and a tech assigned. Work is planned and ready to go.
+  </Step>
+  
+  <Step title="Unscheduled">
+    Job is approved and ready to work on, but no visit has been scheduled yet. This happens when a client says "yes" but you haven't picked a date yet.
+  </Step>
+  
+  <Step title="In Progress">
+    A tech is actively working on the job. They've started a visit or marked themselves as on-site.
+  </Step>
+  
+  <Step title="Paused">
+    Work has temporarily stopped (waiting for parts, client availability, weather, etc.).
+  </Step>
+  
+  <Step title="Completed">
+    All work is finished. The job is ready to be invoiced.
+  </Step>
+  
+  <Step title="Invoiced">
+    An invoice has been created and sent to the client.
+  </Step>
+  
+  <Step title="Paid">
+    The client has fully paid the invoice. The job is closed.
+  </Step>
+  
+  <Step title="Cancelled">
+    The job was cancelled by the client or your team before completion.
+  </Step>
+</Steps>
+
+<!-- Screenshot: job-lifecycle-diagram.png — Flowchart showing status transitions -->
+
+<Tip>
+  Most status changes happen automatically. For example, when you schedule a visit, the job status changes from Draft to Scheduled. When a tech starts the visit on their mobile app, it changes to In Progress.
+</Tip>
+
+---
+
+## Job Components
+
+A job is made up of several key pieces. Here's what goes into every job:
+
+### Basic Information
+
+<AccordionGroup>
+  <Accordion title="Client Assignment">
+    Every job must be linked to a client. If the client doesn't exist yet, you can create them while creating the job.
+    
+    The client's address, phone number, and email are automatically pulled into the job so your techs have everything they need.
+  </Accordion>
+  
+  <Accordion title="Job Description">
+    A clear description of what needs to be done. This appears on work orders, invoices, and in the mobile app.
+    
+    **Example:** "Replace water heater with 50-gallon electric model. Inspect and replace expansion tank if needed."
+  </Accordion>
+  
+  <Accordion title="Job Number">
+    Every job gets a unique number (e.g., JOB-1234) for easy reference. Job numbers auto-increment and can be customized in settings.
+  </Accordion>
+  
+  <Accordion title="Job Type">
+    Choose between **One-Time** (single project) or **Recurring** (ongoing maintenance).
+    
+    Recurring jobs automatically create visits on a schedule (weekly, monthly, etc.).
+  </Accordion>
+  
+  <Accordion title="Priority">
+    Set the urgency: **Low**, **Medium**, **High**, or **Urgent**. Priority affects how jobs appear in lists and can be used by the AI Dispatcher for auto-assignment.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: job-basic-info.png — Job detail showing basic fields filled in -->
+
+---
+
+### Job Items (Products & Services)
+
+Job items are the billable products and services you're providing. Each item has:
+
+- **Name** (e.g., "Water Heater - 50 Gallon Electric")
+- **Quantity** (how many units)
+- **Unit Price** (price per unit)
+- **Tax Rate** (if applicable)
+- **Description** (internal notes or customer-facing details)
+
+You can add items from your product catalog or create custom items on the fly.
+
+<Info>
+  Learn more about pricing, discounts, and taxes in [Job Items & Pricing](/features/jobs/job-items).
+</Info>
+
+<!-- Screenshot: job-items-section.png — Job detail page showing list of items with prices -->
+
+---
+
+### Team Assignment
+
+Assign one or more team members to the job. You can:
+
+- Assign a specific tech
+- Let the **AI Dispatcher** recommend the best tech based on skills, location, and availability
+- Leave unassigned and schedule later
+
+Assigned techs see the job in their mobile app and receive notifications when things change.
+
+<!-- Screenshot: team-assignment-dropdown.png — Tech assignment selector with AI Dispatcher button -->
+
+---
+
+### Skills & Equipment Required
+
+Specify what skills and equipment are needed for the job:
+
+<CardGroup cols={2}>
+  <Card title="Skills" icon="certificate">
+    Does this job require HVAC certification? Electrical license? Plumbing experience?
+    
+    FieldCamp can filter techs by skills when assigning or dispatching.
+  </Card>
+  
+  <Card title="Equipment" icon="wrench">
+    Does the tech need a ladder? Drain snake? Compressor?
+    
+    Track what tools are needed so techs come prepared.
+  </Card>
+</CardGroup>
+
+<!-- Screenshot: skills-equipment-selector.png — Multi-select for skills and equipment -->
+
+---
+
+### Visits & Scheduling
+
+A job can have one or many visits. Each visit is a scheduled appointment with:
+
+- **Date and time** (when the tech will arrive)
+- **Duration** (estimated time on-site)
+- **Assigned techs** (who's going)
+- **Status tracking** (Scheduled → In Transit → Arrived → In Progress → Completed)
+
+<Info>
+  Learn more about scheduling and visit management in [Visits Overview](/features/jobs/visits/overview).
+</Info>
+
+<!-- Screenshot: visits-tab.png — Visits tab in job detail showing multiple scheduled visits -->
+
+---
+
+### Forms & Checklists
+
+Attach custom forms to jobs for techs to complete on-site:
+
+- Service checklists (HVAC inspection form)
+- Safety checklists
+- Customer surveys
+- Digital signatures
+
+Forms can be required or optional, and support photos, GPS locations, and customer signatures.
+
+<Info>
+  Learn more about forms in [Job Forms & Checklists](/features/jobs/forms/overview).
+</Info>
+
+<!-- Screenshot: forms-tab.png — Forms tab showing assigned form templates -->
+
+---
+
+### Photos & Files
+
+Attach photos and documents to jobs:
+
+- **Before/after photos** (show the work you did)
+- **Equipment photos** (model numbers, serial tags)
+- **Contracts and permits**
+- **Manuals and warranties**
+
+Photos taken in the mobile app are automatically uploaded and organized by visit.
+
+<!-- Screenshot: files-tab.png — Files tab showing before/after photo grid -->
+
+---
+
+### Notes & Communication
+
+Add internal notes (team-only) or customer-facing notes (visible in the client portal).
+
+Notes support:
+- Rich text formatting
+- @mentions (notify specific team members)
+- File attachments
+- Edit history
+
+<!-- Screenshot: notes-section.png — Notes section in job detail with mentions -->
+
+---
+
+### Tags
+
+Tag jobs for easy filtering and organization:
+
+- By service type ("Plumbing", "HVAC", "Electrical")
+- By source ("Referral", "Google Ad", "Website")
+- By anything you want ("VIP Client", "Emergency", "Follow-up Needed")
+
+Tags are fully customizable and work across filtering, reporting, and automation.
+
+<!-- Screenshot: tags-selector.png — Tag dropdown with colorful tags -->
+
+---
+
+## Job Permissions
+
+Control what team members can do with jobs based on their role:
+
+| Action | Owner | Admin | Manager | Technician |
+|--------|-------|-------|---------|------------|
+| **View all jobs** | ✅ | ✅ | ✅ | ❌ (assigned only) |
+| **View assigned jobs** | ✅ | ✅ | ✅ | ✅ |
+| **Create jobs** | ✅ | ✅ | ✅ | ❌ |
+| **Edit jobs** | ✅ | ✅ | ✅ | ❌ (assigned only) |
+| **Delete jobs** | ✅ | ✅ | ❌ | ❌ |
+| **Change pricing** | ✅ | ✅ | ✅ | ❌ |
+| **Assign techs** | ✅ | ✅ | ✅ | ❌ |
+
+<Tip>
+  Permissions are fully customizable in [Settings → Team & Permissions](/settings/team).
+</Tip>
+
+---
+
+## Mobile vs Desktop Workflows
+
+Jobs work differently depending on whether you're in the office or in the field:
+
+### Desktop Workflows (Office)
+
+- **Create jobs** with full details (items, pricing, scheduling)
+- **Manage job lists** with advanced filtering, grouping, and bulk actions
+- **Review completed jobs** and convert to invoices
+- **Run reports** on job revenue, completion rates, and team performance
+
+<!-- Screenshot: job-list-desktop.png — Desktop job list with filters and columns -->
+
+---
+
+### Mobile Workflows (Field)
+
+- **View assigned jobs** for the day
+- **Navigate to job sites** with integrated maps
+- **Start/pause/complete visits** with one tap
+- **Log time and mileage** automatically via GPS
+- **Take photos** and upload instantly
+- **Complete forms/checklists** on-site with customer signatures
+- **Add notes and materials used**
+
+<!-- Screenshot: mobile-job-card.png — Mobile app job card showing Start Job button -->
+
+<Info>
+  Learn more about mobile app workflows in [Mobile App Guide](/mobile/overview).
+</Info>
+
+---
+
+## Job Types Explained
+
+FieldCamp supports different types of jobs for different business needs:
+
+<CardGroup cols={2}>
+  <Card title="One-Time Jobs" icon="circle-1">
+    Single projects with a clear start and end. Most jobs fall into this category.
+    
+    **Examples:** Fix a leak, install an AC unit, paint a room
+  </Card>
+  
+  <Card title="Recurring Jobs" icon="repeat">
+    Ongoing work that happens on a regular schedule.
+    
+    **Examples:** Monthly pool service, quarterly HVAC maintenance, weekly lawn care
+    
+    Recurring jobs auto-create visits based on your schedule.
+  </Card>
+  
+  <Card title="Maintenance Contracts" icon="file-contract">
+    Long-term service agreements with recurring visits and fixed pricing.
+    
+    **Examples:** Annual HVAC contract with 4 seasonal visits
+  </Card>
+  
+  <Card title="Emergency Jobs" icon="siren">
+    Urgent, unscheduled work that needs immediate dispatch.
+    
+    **Examples:** Burst pipe, AC breakdown in summer, electrical outage
+    
+    Tag with "Urgent" priority for fast routing.
+  </Card>
+</CardGroup>
+
+<Info>
+  Learn more about job types and recurring patterns in [Job Types](/features/jobs/job-types).
+</Info>
+
+---
+
+## Creating Your First Job
+
+Ready to create a job? Here's the quick version:
+
+<Steps>
+  <Step title="Open the Create Job Modal">
+    Click **+ New Job** from the Jobs page or dashboard.
+  </Step>
+  
+  <Step title="Select a Client">
+    Choose an existing client or create a new one. The client's address and contact info will auto-populate.
+  </Step>
+  
+  <Step title="Describe the Work">
+    Add a clear description of what needs to be done. This helps techs know what to expect.
+  </Step>
+  
+  <Step title="Add Items (Optional)">
+    Add products and services from your catalog, or create custom items.
+  </Step>
+  
+  <Step title="Assign a Tech (Optional)">
+    Assign a team member, use AI Dispatcher to get a recommendation, or leave unassigned for now.
+  </Step>
+  
+  <Step title="Schedule a Visit (Optional)">
+    Pick a date and time for the first visit, or schedule later.
+  </Step>
+  
+  <Step title="Save">
+    Click **Create Job**. Your job is now live!
+  </Step>
+</Steps>
+
+<Info>
+  For a detailed walkthrough with screenshots and examples, see [Creating Jobs](/features/jobs/creating-jobs).
+</Info>
+
+---
+
+## Common Job Workflows
+
+Here are the most common things you'll do with jobs:
+
+### 1. Create Job → Schedule Visit → Complete Work → Invoice
+
+The standard workflow for one-time projects:
+
+```
+1. Client calls requesting service
+2. Create job with description and items
+3. Schedule visit with available tech
+4. Tech completes work and logs time/materials
+5. Convert job to invoice
+6. Client pays
+```
+
+---
+
+### 2. Create Estimate → Approval → Convert to Job → Schedule
+
+For work that needs client approval first:
+
+```
+1. Create estimate with pricing options
+2. Send to client for approval
+3. Client approves
+4. Convert estimate to job
+5. Schedule visit
+6. Complete work
+```
+
+---
+
+### 3. Recurring Service Jobs
+
+For ongoing maintenance contracts:
+
+```
+1. Create recurring job (monthly, quarterly, etc.)
+2. Set recurrence pattern and end date
+3. FieldCamp auto-creates visits on schedule
+4. Techs complete visits each period
+5. Auto-generate invoices after each visit
+```
+
+<Info>
+  Learn more about recurring patterns in [Job Types](/features/jobs/job-types) and [Recurring Visits](/features/jobs/visits/recurring-visits).
+</Info>
+
+---
+
+## Job Analytics & Reporting
+
+Track key metrics about your jobs:
+
+<CardGroup cols={3}>
+  <Card title="Revenue by Job" icon="dollar-sign">
+    Total revenue, average job value, and revenue trends over time
+  </Card>
+  
+  <Card title="Completion Rate" icon="check-circle">
+    Percentage of jobs completed on time, and average time to complete
+  </Card>
+  
+  <Card title="Tech Performance" icon="users">
+    Jobs per tech, completion rate, and revenue per tech
+  </Card>
+</CardGroup>
+
+<Info>
+  Build custom reports in [Analytics](/features/analytics/overview).
+</Info>
+
+---
+
+## Jobs + Other Modules
+
+Jobs integrate with every part of FieldCamp:
+
+### Jobs + Clients
+Every job is linked to a client. View all jobs for a client from their profile page.
+
+### Jobs + Invoicing
+Convert completed jobs to invoices with one click. Job items automatically become invoice line items.
+
+<Info>
+  Learn more: [Invoicing Integration](/features/jobs/invoicing-integration)
+</Info>
+
+### Jobs + Products & Services
+Add items from your product catalog to jobs. FieldCamp tracks inventory usage and updates stock levels.
+
+<Info>
+  Learn more: [Job Items & Pricing](/features/jobs/job-items)
+</Info>
+
+### Jobs + Calendar
+Schedule visits for jobs directly from the calendar. Drag-and-drop to reschedule.
+
+<Info>
+  Learn more: [Calendar & Scheduling](/features/jobs/scheduling/calendar)
+</Info>
+
+### Jobs + Workflow Automation
+Automate job workflows:
+- "When job completed → create invoice"
+- "When visit scheduled → send customer confirmation SMS"
+- "When job created from high-value client → notify manager"
+
+<Info>
+  Learn more: [Workflow Automation](/features/workflow-automation/overview)
+</Info>
+
+### Jobs + Mobile App
+Techs manage jobs entirely from their phone — view assigned jobs, navigate to sites, log time, take photos, complete forms.
+
+<Info>
+  Learn more: [Mobile App](/mobile/overview)
+</Info>
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Use clear, specific descriptions">
+    ✅ "Replace water heater with 50-gallon electric model. Inspect and replace expansion tank if needed."
+    
+    ❌ "Water heater replacement"
+  </Accordion>
+  
+  <Accordion title="Add items before scheduling">
+    Adding products/services upfront helps you:
+    - Give accurate quotes to clients
+    - Track inventory needs
+    - Generate accurate invoices later
+  </Accordion>
+  
+  <Accordion title="Use job templates for common services">
+    Create templates for your most common jobs (AC tune-up, drain cleaning, etc.) to save time.
+    
+    <Info>Learn more: [Job Templates](/features/jobs/job-templates)</Info>
+  </Accordion>
+  
+  <Accordion title="Take before/after photos">
+    Photos are proof of work done and help with future troubleshooting. Encourage techs to take photos on every visit.
+  </Accordion>
+  
+  <Accordion title="Track actual vs estimated time">
+    Compare estimated visit duration to actual time logged. This helps you price more accurately over time.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't skip client assignment">
+    Every job must have a client. If you're doing internal work (shop maintenance, training), create a "House Account" client.
+  </Accordion>
+  
+  <Accordion title="Don't create multiple jobs for the same project">
+    One project = one job (even if it has multiple visits).
+    
+    ❌ Don't create "HVAC Install - Day 1" and "HVAC Install - Day 2" as separate jobs.
+    
+    ✅ Create one "HVAC Installation" job with two visits.
+  </Accordion>
+  
+  <Accordion title="Don't delete jobs">
+    Mark jobs as Cancelled instead. Deleting removes historical data you might need later.
+  </Accordion>
+  
+  <Accordion title="Don't forget to update job status">
+    If status doesn't update automatically (because techs aren't using mobile app), manually mark jobs as In Progress or Completed so your reports are accurate.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Keyboard Shortcuts
+
+Speed up job management with these shortcuts:
+
+| Action | Shortcut |
+|--------|----------|
+| Create new job | `Cmd/Ctrl + N` |
+| Open search | `Cmd/Ctrl + K` |
+| Open job detail (from list) | Click or `Enter` |
+| Edit job (in detail) | `Cmd/Ctrl + E` |
+| Next/previous job (in detail) | `←` / `→` |
+
+---
+
+## Troubleshooting
+
+### I can't see all jobs, only my assigned ones
+
+**Solution:** Check your role. Technicians can only see jobs assigned to them. If you need to see all jobs, ask an Admin or Owner to change your role to Manager or Admin.
+
+---
+
+### Jobs aren't showing in the mobile app
+
+**Solution:** Make sure:
+1. Techs are assigned to the job
+2. At least one visit is scheduled
+3. The mobile app is logged in with the correct account
+4. The app has synced recently (pull down to refresh)
+
+---
+
+### AI Dispatcher isn't recommending a tech
+
+**Solution:** The AI Dispatcher needs:
+1. At least one tech with matching skills (if skills are required)
+2. At least one tech with availability during the visit time window
+3. GPS coordinates for the job address (check that the address is valid)
+
+<Info>
+  Learn more: [AI Dispatcher](/features/jobs/ai-dispatcher)
+</Info>
+
+---
+
+### I deleted a job by accident
+
+**Solution:** Deleted jobs are soft-deleted (not permanently removed). Contact support to restore the job.
+
+---
+
+## API Access
+
+Manage jobs programmatically via the FieldCamp API:
+
+```bash
+# Create a job
+curl -X POST https://app.fieldcamp.ai/api/v1/jobs \
+  -H "X-Api-Key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "clientId": "507f1f77bcf86cd799439011",
+    "description": "Fix leaky faucet in kitchen",
+    "status": "Draft",
+    "priority": "Medium"
+  }'
+```
+
+```json
+// Response
+{
+  "success": true,
+  "data": {
+    "id": "507f1f77bcf86cd799439012",
+    "jobNumber": "JOB-1234",
+    "clientId": "507f1f77bcf86cd799439011",
+    "description": "Fix leaky faucet in kitchen",
+    "status": "Draft",
+    "priority": "Medium",
+    "createdAt": "2026-02-26T19:00:00Z"
+  }
+}
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Create Your First Job" icon="plus" href="/features/jobs/creating-jobs">
+    Step-by-step guide with screenshots and examples
+  </Card>
+  
+  <Card title="Understand Job Status" icon="traffic-light" href="/features/jobs/job-status">
+    Learn the job lifecycle and status transitions
+  </Card>
+  
+  <Card title="Schedule Visits" icon="calendar" href="/features/jobs/visits/creating-visits">
+    Learn how to schedule and manage appointments
+  </Card>
+  
+  <Card title="Add Pricing & Items" icon="dollar-sign" href="/features/jobs/job-items">
+    Learn how to add products, services, and pricing
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Job List & Views](/features/jobs/job-list) — Filter, sort, and organize jobs
+- [Job Detail Page](/features/jobs/job-detail) — Explore every tab and feature
+- [Job Types](/features/jobs/job-types) — One-time vs recurring jobs
+- [Job Templates](/features/jobs/job-templates) — Speed up job creation
+- [Visits Overview](/features/jobs/visits/overview) — Understand visits vs jobs
+- [AI Dispatcher](/features/jobs/ai-dispatcher) — Auto-assign jobs to the best tech
+- [Mobile App](/mobile/overview) — Complete jobs from your phone
+
+---
+
+<Check>
+  **You now understand:** What jobs are, how they work, the job lifecycle, job components, permissions, and how jobs integrate with the rest of FieldCamp.
+</Check>

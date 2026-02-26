@@ -1,0 +1,829 @@
+---
+title: "Creating Visits"
+description: "Schedule visits from the calendar, job page, or using AI-powered dispatch recommendations"
+icon: "calendar-plus"
+---
+
+## Overview
+
+Creating a visit is the process of assigning a technician, date, and time to perform work for a job. FieldCamp offers multiple ways to schedule visits depending on your workflow:
+
+<CardGroup cols={3}>
+  <Card title="From Calendar" icon="calendar">
+    Drag-and-drop scheduling with visual availability
+  </Card>
+  <Card title="From Job Page" icon="briefcase">
+    Schedule directly from job detail page
+  </Card>
+  <Card title="AI Dispatcher" icon="sparkles">
+    Get AI-recommended tech and time slot
+  </Card>
+</CardGroup>
+
+<Note>
+**Permissions required:** To create visits, you must have the **Dispatcher**, **Manager**, or **Admin** role. Technicians cannot create visits from the mobile app.
+</Note>
+
+---
+
+## Method 1: Schedule Visit from Calendar
+
+The calendar is the primary tool for dispatchers to schedule and visualize visits across all technicians.
+
+### Step-by-Step
+
+<Steps>
+  <Step title="Open Calendar">
+    Navigate to **Calendar** from the main navigation menu.
+    
+    Choose your preferred view:
+    - **Day** - See all techs' schedules for one day
+    - **Week** - See 7 days at a glance (default for scheduling)
+    - **Month** - High-level view of all visits
+  </Step>
+
+  <Step title="Click Empty Time Slot">
+    Click on an empty time slot in the calendar grid.
+    
+    - **Click specific tech's row** to pre-select that tech
+    - **Click time** to set start time
+    - The "Create Visit" modal will open
+  </Step>
+
+  <Step title="Select Job">
+    Choose which job this visit is for:
+    
+    - **Search by job #:** Enter job number (e.g., "J-1234")
+    - **Search by client name:** Start typing client name
+    - **Browse recent jobs:** See recently created jobs
+    - **Create new job:** If no job exists, create one first
+    
+    <Tip>
+    **Pro tip:** Jobs must be in "Draft" or "Scheduled" status to add visits. Completed or invoiced jobs cannot have new visits added.
+    </Tip>
+  </Step>
+
+  <Step title="Set Date & Time">
+    Configure when the visit will occur:
+    
+    **Start date:** Defaults to the clicked date (can change)
+    
+    **Start time:** Defaults to the clicked time (can change)
+    
+    **Duration:** Estimate how long the visit will take
+    - Pre-set options: 30 min, 1 hour, 2 hours, 4 hours, 8 hours
+    - Custom: Enter specific duration (e.g., 3.5 hours)
+    - Smart default: If job has template, duration auto-fills
+    
+    **End time:** Automatically calculated (start time + duration)
+    
+    <Warning>
+    **Avoid scheduling conflicts:** The system will warn you if the tech already has a visit during this time. You can override, but double-bookings may cause issues.
+    </Warning>
+  </Step>
+
+  <Step title="Assign Technician(s)">
+    Choose who will perform the work:
+    
+    ### Single Tech Assignment (Most Common)
+    - Select one technician from the dropdown
+    - Availability indicators:
+      - 🟢 **Available** - No conflicts
+      - 🟡 **Busy** - Has another visit during this time
+      - 🔴 **Off** - Time off or outside working hours
+    
+    ### Multiple Tech Assignment
+    - Click "+ Add Technician" to assign multiple techs
+    - Use for: Large jobs, training scenarios, team work
+    - All assigned techs see the visit on their mobile app
+    
+    <Accordion title="Skill Matching (Advanced)">
+      If the job requires specific skills (e.g., "HVAC Certified", "Electrical License"), the tech dropdown will:
+      - **Prioritize techs** with matching skills (shown first)
+      - **Gray out techs** without required skills (can still assign, but warning shown)
+      - **Show skill badges** next to tech names
+      
+      Example: Job requires "Pool CPO Certified" → Only techs with that skill are highlighted.
+    </Accordion>
+  </Step>
+
+  <Step title="Set Visit Address">
+    Visits default to the job address, but you can override:
+    
+    **Default:** Use job address (most common)
+    - Inherits from job's client address
+    - Tech navigates to this address in mobile app
+    
+    **Custom:** Enter different address
+    - Use for: Multi-location jobs, meet at different site
+    - Address autocomplete (Google Maps)
+    - GPS coordinates automatically saved
+    
+    <Tip>
+    **Why override address?**
+    - Equipment stored at warehouse, job site is elsewhere
+    - Meet client at office before going to job site
+    - Multi-property jobs (pool route, landscaping)
+    </Tip>
+  </Step>
+
+  <Step title="Add Visit Notes (Optional)">
+    Add internal notes for the technician:
+    
+    - **Arrival instructions:** "Use back gate, code is 1234"
+    - **Special equipment:** "Bring ladder and thermal camera"
+    - **Client preferences:** "Customer has dogs, call before entering"
+    - **Safety notes:** "Wear PPE, electrical hazard"
+    
+    <Note>
+    These notes are **internal only** (not visible to customer). For customer-facing notes, use job description.
+    </Note>
+  </Step>
+
+  <Step title="Assign Forms (Optional)">
+    Attach forms/checklists for the tech to complete during the visit:
+    
+    - **Service checklists** (HVAC maintenance, pool service)
+    - **Safety checklists** (site inspection, hazard assessment)
+    - **Customer surveys** (post-service feedback)
+    
+    Forms can also be assigned at the job level (applies to all visits) or visit level (specific to this visit).
+    
+    Learn more: [Job Forms & Checklists](/features/jobs/forms/overview)
+  </Step>
+
+  <Step title="Set Arrival Window (Optional)">
+    Define a customer-facing arrival time range:
+    
+    **Example:**
+    - Start time: 10:00 AM
+    - Duration: 2 hours
+    - Arrival window: "10:00 AM - 12:00 PM"
+    
+    **Customer sees:** "Your technician will arrive between 10:00 AM - 12:00 PM"
+    
+    **Tech sees:** Exact start time (10:00 AM) but knows they have a 2-hour window
+    
+    <Tip>
+    **Best practice:** Use arrival windows for:
+    - First visit of the day (traffic variability)
+    - Longer jobs (harder to estimate exact arrival)
+    - Customers with flexible schedules
+    
+    Avoid for:
+    - Emergency calls (exact time critical)
+    - Commercial jobs (specific time windows required)
+    </Tip>
+  </Step>
+
+  <Step title="Customer Confirmation">
+    Choose whether to notify the customer:
+    
+    **Auto-send confirmation** (default): Customer receives email/SMS immediately after scheduling
+    
+    **Manual confirmation:** You'll send confirmation later (or call customer directly)
+    
+    **No confirmation:** Internal visit (no customer notification needed)
+    
+    Confirmation message includes:
+    - Technician name and photo
+    - Date and arrival time/window
+    - Job description
+    - Link to track tech (if enabled)
+    - Link to reschedule (if self-service enabled)
+  </Step>
+
+  <Step title="Save Visit">
+    Click **"Create Visit"** to finalize.
+    
+    **What happens next:**
+    - Visit appears on calendar (color-coded by tech or job type)
+    - Assigned tech receives notification (email + mobile push)
+    - Customer receives confirmation (if enabled)
+    - Visit appears on tech's mobile app schedule
+    - Job status updates to "Scheduled" (if previously "Unscheduled")
+  </Step>
+</Steps>
+
+### Calendar Keyboard Shortcuts
+
+Speed up scheduling with keyboard shortcuts:
+
+| Shortcut | Action |
+|----------|--------|
+| `N` | Create new visit (opens modal) |
+| `Arrow keys` | Navigate between time slots |
+| `Enter` | Open selected time slot |
+| `Esc` | Close modal |
+| `Ctrl/Cmd + S` | Save visit |
+| `Ctrl/Cmd + F` | Search for job or client |
+
+---
+
+## Method 2: Schedule Visit from Job Page
+
+When viewing a job's detail page, you can schedule visits directly without going to the calendar.
+
+### Step-by-Step
+
+<Steps>
+  <Step title="Open Job Detail Page">
+    Navigate to **Jobs** → Click on a job → **Visits** tab
+  </Step>
+
+  <Step title="Click 'Schedule Visit'">
+    In the Visits tab, click the **"+ Schedule Visit"** button.
+    
+    The job is pre-selected (you're already on that job's page).
+  </Step>
+
+  <Step title="Choose Scheduling Method">
+    You'll see two options:
+    
+    **Quick Schedule:**
+    - Pick a tech, date, time, and duration
+    - Fastest method if you already know who and when
+    
+    **Open Calendar:**
+    - Opens calendar view with the job pre-selected
+    - Lets you visually see availability before scheduling
+  </Step>
+
+  <Step title="Complete Scheduling (Same as Calendar Method)">
+    Follow steps 4-10 from Method 1 above:
+    - Set date/time/duration
+    - Assign tech
+    - Add notes, forms, arrival window
+    - Send customer confirmation
+  </Step>
+</Steps>
+
+### When to Use Job Page Scheduling
+
+<CardGroup cols={2}>
+  <Card title="Use Job Page When:" icon="check">
+    - You're already reviewing the job details
+    - You know exactly which tech and time you want
+    - You're scheduling a follow-up visit
+    - You don't need to see calendar availability
+  </Card>
+
+  <Card title="Use Calendar When:" icon="calendar">
+    - You're scheduling multiple jobs at once
+    - You need to see tech availability visually
+    - You're optimizing routes for the day
+    - You're balancing workload across techs
+  </Card>
+</CardGroup>
+
+---
+
+## Method 3: AI Dispatcher Recommendations
+
+FieldCamp's AI Dispatcher analyzes all available technicians and recommends the best match for each job based on skills, location, availability, and workload.
+
+### How AI Dispatcher Works
+
+<Steps>
+  <Step title="Navigate to Unscheduled Jobs">
+    Go to **Jobs** → Filter by status: **"Unscheduled"**
+    
+    These are jobs that have been approved but don't have a visit scheduled yet.
+  </Step>
+
+  <Step title="Click 'AI Dispatch'">
+    On each unscheduled job card, click the **"AI Dispatch"** button (sparkles icon ✨).
+    
+    The AI will analyze:
+    - ✅ Tech skills (does tech have required certifications?)
+    - ✅ Tech location (who is closest to job site?)
+    - ✅ Tech availability (who has time in their schedule?)
+    - ✅ Drive time (minimize travel time)
+    - ✅ Workload balance (don't overload one tech)
+    - ✅ Historical performance (who completes similar jobs fastest?)
+  </Step>
+
+  <Step title="Review AI Recommendations">
+    The AI presents the **top 3 recommended techs** with confidence scores:
+    
+    ```
+    🥇 Sarah Johnson (Confidence: 95%)
+       ✅ Has HVAC Certified skill
+       📍 8 miles from job site (15 min drive)
+       ⏰ Available: Tomorrow 10am-2pm
+       📊 80% on-time completion rate for HVAC jobs
+       
+    🥈 Mike Chen (Confidence: 78%)
+       ✅ Has HVAC Certified skill
+       📍 12 miles from job site (22 min drive)
+       ⏰ Available: Tomorrow 2pm-5pm
+       📊 75% on-time completion rate
+       
+    🥉 Tom Garcia (Confidence: 62%)
+       ⚠️  Missing HVAC Certified skill (can still assign)
+       📍 5 miles from job site (10 min drive)
+       ⏰ Available: Tomorrow 9am-12pm
+       📊 85% on-time completion rate
+    ```
+    
+    <Accordion title="Understanding Confidence Scores">
+      **95% confidence:** Excellent match - skill + proximity + availability all optimal
+      
+      **75-85% confidence:** Good match - most factors align, minor tradeoffs
+      
+      **<70% confidence:** Acceptable match - some factors don't align (e.g., missing skills, farther away, or lower availability)
+      
+      **Why recommend lower confidence options?**
+      - You might prefer proximity over skills
+      - You might need someone available NOW vs waiting for better match
+      - You might be training a tech on new skills
+    </Accordion>
+  </Step>
+
+  <Step title="Accept or Override Recommendation">
+    **Accept AI Recommendation:**
+    - Click the recommended tech → Calendar opens with that tech pre-selected
+    - You still choose exact date/time (AI doesn't auto-schedule)
+    
+    **Override AI:**
+    - Ignore recommendations and manually select a different tech
+    - The AI learns from your choices over time
+    
+    <Tip>
+    **Pro tip:** When you override the AI, you can provide feedback:
+    - "Customer requested this specific tech"
+    - "Training new tech on this job type"
+    - "Balancing workload manually"
+    
+    This feedback helps the AI improve its recommendations.
+    </Tip>
+  </Step>
+</Steps>
+
+### AI Dispatcher Settings
+
+Configure how the AI prioritizes factors:
+
+Navigate to **Settings → AI Dispatcher**
+
+| Setting | Options | Default |
+|---------|---------|---------|
+| **Prioritize skills match** | High, Medium, Low | High |
+| **Prioritize proximity** | High, Medium, Low | Medium |
+| **Prioritize availability** | High, Medium, Low | High |
+| **Prioritize workload balance** | High, Medium, Low | Medium |
+| **Allow techs without required skills** | Yes, No | Yes (with warning) |
+| **Max drive time** | 15min, 30min, 60min, No limit | No limit |
+
+<Warning>
+**Important:** AI Dispatcher is available on **Pro** and **Enterprise** plans. Starter plan users can manually assign techs.
+</Warning>
+
+---
+
+## Team Availability Checking
+
+Before scheduling, always check if the tech is available:
+
+### Availability Indicators
+
+When selecting a tech, you'll see real-time availability:
+
+<AccordionGroup>
+  <Accordion title="🟢 Available" icon="circle-check">
+    **Meaning:** Tech has no conflicts during the selected time
+    
+    **Safe to schedule:** Yes
+    
+    **What it checks:**
+    - No other visits scheduled
+    - Within tech's working hours
+    - Not on time off (vacation/sick)
+    - Not on holiday
+  </Accordion>
+
+  <Accordion title="🟡 Busy (Conflict)" icon="triangle-exclamation">
+    **Meaning:** Tech already has a visit during this time
+    
+    **Can you still schedule?** Yes, but warning shown
+    
+    **Common scenarios:**
+    - Overlapping visits (previous job running late)
+    - Multiple techs working same job (team work)
+    - Emergency override (bump lower priority job)
+    
+    <Warning>
+    **Caution:** Double-booking a tech may cause:
+    - Late arrivals (previous job delays)
+    - Rushed work (trying to hit both appointments)
+    - Customer complaints
+    
+    Only double-book for intentional team work or emergencies.
+    </Warning>
+  </Accordion>
+
+  <Accordion title="🔴 Off (Unavailable)" icon="circle-xmark">
+    **Meaning:** Tech is not available during this time
+    
+    **Reasons:**
+    - Outside working hours (e.g., scheduling at 9pm when tech's hours are 8am-5pm)
+    - On time off (vacation, sick day, personal day)
+    - Holiday (company holiday)
+    
+    **Can you still schedule?** Yes, but requires manager override
+    
+    **Use cases:**
+    - Emergency after-hours call (tech agrees to work)
+    - Adjusting time off (tech cancelled vacation)
+  </Accordion>
+
+  <Accordion title="⚪ Tentative" icon="clock">
+    **Meaning:** Tech has a visit that isn't confirmed yet
+    
+    **Examples:**
+    - Estimate/quote scheduled (awaiting customer approval)
+    - Visit marked as "pending confirmation"
+    
+    **Safe to schedule?** Proceed with caution - confirm tentative visit won't conflict
+  </Accordion>
+</AccordionGroup>
+
+### Working Hours Override
+
+Technicians have default working hours (e.g., Mon-Fri 8am-5pm), but you can override:
+
+**Scenario:** Customer needs service at 7am (before tech's normal 8am start)
+
+**Solution:**
+1. Schedule visit for 7am (system shows 🔴 Off warning)
+2. Click "Override" → Select reason: "Emergency early start"
+3. System notifies tech of schedule change
+4. Tech can accept/decline override request
+
+Learn more: [Team Availability](/features/jobs/scheduling/team-availability)
+
+---
+
+## Travel Time Estimation
+
+FieldCamp automatically calculates travel time using Google Maps:
+
+### How It Works
+
+<Steps>
+  <Step title="System Detects Tech's Location">
+    **If tech has previous visit:** Uses previous visit's address as starting point
+    
+    **If no previous visit:** Uses tech's home address (set in team settings)
+    
+    **Real-time location:** If tech has mobile app GPS enabled, uses current location
+  </Step>
+
+  <Step title="Calculates Drive Time to Job">
+    Google Maps API calculates:
+    - Distance (miles/km)
+    - Drive time (minutes)
+    - Traffic conditions (real-time or historical)
+    - Optimal route
+  </Step>
+
+  <Step title="Displays Travel Estimate">
+    You'll see:
+    ```
+    🚗 15 minutes from previous job (8.2 miles)
+    ```
+    
+    This helps you:
+    - Leave buffer time between visits
+    - Avoid scheduling visits too close together
+    - Optimize routes for the day
+  </Step>
+
+  <Step title="Adds Travel Time to Schedule">
+    **Option 1 (Recommended):** Add travel time as buffer
+    - Previous visit ends at 10:00am
+    - Travel time: 15 minutes
+    - Next visit starts at 10:15am or later
+    
+    **Option 2:** Use arrival windows
+    - Schedule next visit at 10:00am
+    - Set arrival window: 10:00am-10:30am
+    - Accounts for traffic variability
+  </Step>
+</Steps>
+
+<Tip>
+**Pro tip:** Enable **Route Optimization** to automatically schedule visits in the most efficient order, minimizing total drive time for the day.
+
+Learn more: [Route Optimization](/features/jobs/scheduling/route-optimization)
+</Tip>
+
+---
+
+## Recurring Visits
+
+For jobs that repeat on a schedule (e.g., weekly pool cleaning, monthly maintenance), you can create recurring visits:
+
+### Quick Setup
+
+<Steps>
+  <Step title="Start Creating a Visit">
+    Follow steps above, but check the **"Recurring"** checkbox
+  </Step>
+
+  <Step title="Set Recurrence Pattern">
+    Choose frequency:
+    - **Daily** (rare, but available)
+    - **Weekly** (e.g., every Monday)
+    - **Bi-weekly** (every 2 weeks)
+    - **Monthly** (e.g., 1st of each month, or 2nd Tuesday)
+    - **Quarterly** (every 3 months)
+    - **Yearly** (annual inspection)
+    - **Custom** (every X days/weeks/months)
+  </Step>
+
+  <Step title="Set End Condition">
+    When should recurring visits stop?
+    
+    - **Never** (ongoing maintenance contract)
+    - **After X occurrences** (e.g., 12 visits for annual contract)
+    - **Until date** (e.g., end of season, end of year)
+  </Step>
+
+  <Step title="Review and Create">
+    System generates all visits and shows preview:
+    ```
+    Creating 24 visits:
+    - Every 2 weeks on Monday at 10:00 AM
+    - Ends after 24 occurrences (12 months)
+    ```
+    
+    Click **"Create Recurring Visits"** to finalize.
+  </Step>
+</Steps>
+
+### Managing Recurring Visits
+
+After creating recurring visits, you can:
+- **Edit one visit:** Change just this occurrence (e.g., reschedule due to holiday)
+- **Edit future visits:** Change this and all future occurrences
+- **Edit all visits:** Change entire series (e.g., change tech for all visits)
+- **Cancel series:** Stop recurring visits early
+- **Pause series:** Temporarily pause (e.g., customer vacation)
+
+Learn more: [Recurring Visits](/features/jobs/visits/recurring-visits)
+
+---
+
+## Conflict Detection
+
+FieldCamp automatically detects scheduling conflicts and warns you:
+
+### Types of Conflicts
+
+<AccordionGroup>
+  <Accordion title="Double-Booking (Same Tech, Overlapping Times)" icon="calendar-xmark">
+    **Example:**
+    - Existing visit: Monday 10am-12pm (Sarah)
+    - New visit: Monday 11am-1pm (Sarah)
+    
+    **Conflict:** Sarah cannot be in two places at once
+    
+    **Warning:** "⚠️ Sarah is already scheduled for a visit from 10am-12pm. Scheduling this visit will create an overlap."
+    
+    **Options:**
+    - Choose different time
+    - Choose different tech
+    - Override (for intentional team work)
+  </Accordion>
+
+  <Accordion title="Outside Working Hours" icon="clock">
+    **Example:**
+    - Tech's hours: Mon-Fri 8am-5pm
+    - New visit: Monday 7pm-9pm
+    
+    **Conflict:** Outside normal working hours
+    
+    **Warning:** "⚠️ This visit is outside Sarah's normal working hours (8am-5pm). She may need to approve overtime."
+    
+    **Options:**
+    - Change to within working hours
+    - Request overtime approval (system notifies tech)
+  </Accordion>
+
+  <Accordion title="Time Off Conflict" icon="umbrella-beach">
+    **Example:**
+    - Tech has PTO: March 15-19
+    - New visit: March 17 at 10am
+    
+    **Conflict:** Tech is on vacation
+    
+    **Warning:** "⚠️ Sarah is on vacation from March 15-19. Choose a different date or assign a different tech."
+    
+    **Options:**
+    - Reschedule to different date
+    - Assign to different tech
+    - Cancel/modify time off (if tech agrees)
+  </Accordion>
+
+  <Accordion title="Skill Mismatch" icon="user-xmark">
+    **Example:**
+    - Job requires: "HVAC Certified"
+    - Tech selected: Tom (does not have this skill)
+    
+    **Conflict:** Tech doesn't have required certification
+    
+    **Warning:** "⚠️ Tom does not have the required skill 'HVAC Certified' for this job. Assign anyway?"
+    
+    **Options:**
+    - Choose a certified tech
+    - Override (if Tom is training or skill requirement is soft)
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+Warnings are advisory - you can still proceed with scheduling. However, conflicts may impact service quality or customer satisfaction.
+</Note>
+
+---
+
+## Bulk Scheduling
+
+Schedule multiple visits at once:
+
+### Use Cases
+- Schedule all unscheduled jobs for the week
+- Assign all emergency calls to on-call tech
+- Schedule follow-up visits for recently completed jobs
+
+### How to Bulk Schedule
+
+<Steps>
+  <Step title="Go to Jobs List">
+    Navigate to **Jobs** → Filter by status: "Unscheduled"
+  </Step>
+
+  <Step title="Select Multiple Jobs">
+    Check the boxes next to jobs you want to schedule (or click "Select All")
+  </Step>
+
+  <Step title="Click 'Bulk Schedule'">
+    From the bulk actions menu, choose **"Schedule Visits"**
+  </Step>
+
+  <Step title="Choose Scheduling Method">
+    **Option 1: Same tech, same day**
+    - Assign all selected jobs to one tech
+    - System auto-schedules them sequentially (optimizing drive time)
+    
+    **Option 2: AI Dispatcher**
+    - Let AI assign each job to the best tech
+    - You review and approve recommendations
+    
+    **Option 3: Manual one-by-one**
+    - Schedule each job individually (default method)
+  </Step>
+
+  <Step title="Review and Confirm">
+    Preview the schedule:
+    ```
+    10 visits will be scheduled:
+    - 5 visits assigned to Sarah
+    - 3 visits assigned to Mike
+    - 2 visits assigned to Tom
+    
+    Total drive time: 2.5 hours
+    Total work time: 18 hours
+    ```
+    
+    Click **"Confirm"** to create all visits at once.
+  </Step>
+</Steps>
+
+---
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Leave Buffer Time" icon="clock">
+    **Why:** Jobs run late, traffic happens, techs need breaks
+    
+    **How:** Add 15-30 min buffer between visits or use arrival windows
+  </Card>
+
+  <Card title="Check Weather" icon="cloud-rain">
+    **Why:** Outdoor jobs (roofing, landscaping, HVAC) impacted by weather
+    
+    **How:** Check forecast before scheduling, add note about weather contingency
+  </Card>
+
+  <Card title="Optimize Routes Daily" icon="route">
+    **Why:** Minimize drive time = more billable hours
+    
+    **How:** Use Route Optimization to sequence visits efficiently
+  </Card>
+
+  <Card title="Confirm High-Value Jobs" icon="phone">
+    **Why:** Reduce no-shows for expensive or complex jobs
+    
+    **How:** Call customer to confirm 24 hours before (in addition to auto SMS)
+  </Card>
+
+  <Card title="Assign Based on Skills" icon="medal">
+    **Why:** Right tech for the job = faster completion + quality
+    
+    **How:** Use AI Dispatcher or filter techs by required skills
+  </Card>
+
+  <Card title="Set Realistic Durations" icon="hourglass">
+    **Why:** Under-estimating duration causes delays and overlap
+    
+    **How:** Review historical data for similar jobs (avg duration)
+  </Card>
+</CardGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Why can't I schedule a visit for this job?">
+    **Possible reasons:**
+    
+    ✅ **Check job status:** Job must be in "Draft" or "Scheduled" status. Completed/invoiced jobs cannot have new visits.
+    
+    ✅ **Check permissions:** You need Dispatcher, Manager, or Admin role.
+    
+    ✅ **Check job assignment:** Job must have a client assigned.
+  </Accordion>
+
+  <Accordion title="Why don't I see any available techs?">
+    **Possible reasons:**
+    
+    ✅ **All techs are busy:** Choose a different time or date
+    
+    ✅ **Job requires skills no tech has:** Override skill requirement or train a tech
+    
+    ✅ **Tech filter applied:** Clear filters to see all techs
+    
+    ✅ **Techs are deactivated:** Check team settings
+  </Accordion>
+
+  <Accordion title="Customer didn't receive confirmation email/SMS">
+    **Troubleshooting:**
+    
+    ✅ **Check notification settings:** Settings → Notifications → Visit Confirmations (enabled?)
+    
+    ✅ **Verify customer contact info:** Does customer have email/phone on file?
+    
+    ✅ **Check spam folder:** Email may be filtered as spam
+    
+    ✅ **Resend confirmation:** Job detail → Visits tab → Click "⋯" → "Resend Confirmation"
+  </Accordion>
+
+  <Accordion title="How do I change a visit that's already scheduled?">
+    **Rescheduling:**
+    
+    - **From calendar:** Drag-and-drop the visit to a new time slot
+    - **From job page:** Visits tab → Click visit → "Reschedule"
+    
+    **What gets updated:**
+    - New date/time saved
+    - Assigned tech notified of change
+    - Customer receives reschedule notification (if enabled)
+    
+    **What stays the same:**
+    - Job items, pricing
+    - Visit logs (if any work already completed)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Track Visit Status" icon="location-crosshairs" href="/features/jobs/visits/visit-status">
+    Learn how visits progress from Scheduled → In Transit → Completed
+  </Card>
+
+  <Card title="Log Time & Materials" icon="clipboard-list" href="/features/jobs/visits/visit-logs">
+    Track travel time, work time, mileage, and materials used during visits
+  </Card>
+
+  <Card title="Set Up Recurring Visits" icon="repeat" href="/features/jobs/visits/recurring-visits">
+    Create maintenance contracts with auto-scheduled recurring visits
+  </Card>
+
+  <Card title="Optimize Routes" icon="route" href="/features/jobs/scheduling/route-optimization">
+    Use AI to optimize tech routes and minimize drive time
+  </Card>
+
+  <Card title="View Calendar" icon="calendar" href="/features/jobs/scheduling/calendar">
+    See all visits in calendar view, filter by tech, and drag-and-drop reschedule
+  </Card>
+
+  <Card title="Use AI Dispatcher" icon="sparkles" href="/features/jobs/ai-dispatcher">
+    Get AI-powered tech recommendations for every job
+  </Card>
+</CardGroup>

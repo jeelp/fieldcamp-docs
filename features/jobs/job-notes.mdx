@@ -1,0 +1,614 @@
+---
+title: "Job Notes"
+description: "Add internal and customer-facing notes to jobs"
+icon: "note-sticky"
+---
+
+## Overview
+
+Job notes are text comments attached to jobs for communication and documentation. Use notes to:
+
+- **Communicate with team** about job details
+- **Document customer requests** and special instructions
+- **Track changes** to job scope or pricing
+- **Record phone calls** and conversations
+- **Leave completion notes** for invoicing
+- **@ Mention teammates** to notify them
+
+<Frame>
+  <img src="/images/jobs/job-notes-section.png" alt="Job notes section showing recent notes" />
+</Frame>
+
+---
+
+## Note Types
+
+### Internal Notes (Team Only)
+
+Internal notes are **not visible to customers**. Use for team communication and internal documentation.
+
+**Use cases:**
+- Tech notes: "Customer's dog is friendly but jumps"
+- Office notes: "Call customer before arriving"
+- Admin notes: "Requires permit - filed 2/20"
+- Manager notes: "Upsell opportunity for maintenance contract"
+
+<Info>
+**Default visibility:** All notes are internal by default. You must explicitly mark notes as "Customer-Visible" to share them.
+</Info>
+
+### Customer-Facing Notes
+
+Customer-visible notes appear in the **Client Portal** and on invoices/estimates.
+
+**Use cases:**
+- Work summary: "Replaced water heater, tested all connections"
+- Instructions: "New thermostat set to 68°F, see manual for programming"
+- Recommendations: "AC unit is 15 years old, consider replacement in 1-2 years"
+- Completion notes: "Job completed on 2/26, all systems operational"
+
+<Warning>
+**Professional language only:** Customer-facing notes should be clear, professional, and typo-free. Avoid slang, abbreviations, or internal jargon.
+</Warning>
+
+### Visit Notes
+
+Notes specific to a single visit (for multi-visit jobs).
+
+**Use cases:**
+- Visit 1 notes: "Installed new unit, return for final inspection"
+- Visit 2 notes: "Passed inspection, job complete"
+
+**How to add visit-specific notes:**
+1. Open job → **Visits** tab
+2. Click on a visit
+3. Add note in the visit detail panel
+4. Note is automatically tagged with the visit
+
+### Completion Notes
+
+Summary notes added when marking a job complete.
+
+**Use cases:**
+- "All work completed as requested, customer signed off"
+- "Left site clean, no issues"
+- "Customer declined recommendation for water softener"
+
+<Tip>
+**Auto-prompt:** When you mark a job "Completed," FieldCamp prompts you to add a completion note. This ensures documentation of every completed job.
+</Tip>
+
+---
+
+## Adding Notes
+
+### From Job Detail Page
+
+1. Open any job
+2. Go to **Notes** section (sidebar or tab)
+3. Type your note in the text box
+4. Choose visibility:
+   - **Internal Only** (default)
+   - **Customer-Visible**
+5. Click **Post Note**
+
+<Frame>
+  <img src="/images/jobs/add-note-interface.png" alt="Add note interface with rich text editor" />
+</Frame>
+
+### From Mobile App
+
+1. Open job in mobile app
+2. Tap **Notes** tab
+3. Tap **+ Add Note**
+4. Type note (voice-to-text supported)
+5. Toggle **Customer Visible** if needed
+6. Tap **Save**
+
+<Info>
+**Offline mode:** Notes written offline are queued and auto-post when internet connection is restored.
+</Info>
+
+### Quick Notes (Templates)
+
+Save time with pre-written note templates.
+
+**Common templates:**
+- "Customer not home, left business card"
+- "Rescheduled to [DATE] at customer request"
+- "Parts ordered, ETA [DATE]"
+- "Job completed, all systems tested and operational"
+
+**How to create templates:**
+1. Go to **Settings → Jobs → Note Templates**
+2. Click **+ New Template**
+3. Enter template text (use `[DATE]` for dynamic dates)
+4. Save
+
+**How to use templates:**
+1. Click **Add Note**
+2. Click **Templates** button
+3. Select a template
+4. Edit if needed (fill in `[DATE]` placeholders)
+5. Post note
+
+<Frame>
+  <img src="/images/jobs/note-templates-picker.png" alt="Note templates picker dropdown" />
+</Frame>
+
+---
+
+## Note Formatting
+
+### Plain Text
+
+Default note format—simple, no formatting.
+
+```
+Called customer to confirm appointment.
+Arriving at 2pm today.
+```
+
+### Rich Text
+
+Format notes with bold, italic, lists, and links.
+
+**Formatting toolbar:**
+- **Bold** - Highlight important info
+- *Italic* - Emphasize text
+- Lists (bullet, numbered)
+- Links (clickable URLs)
+
+**Example:**
+```
+**Work completed:**
+- Replaced water heater
+- Tested all connections
+- Flushed lines
+
+**Recommendations:**
+Customer should schedule annual maintenance.
+See pricing: https://fieldcamp.ai/maintenance
+```
+
+<Tip>
+**Enable rich text:** Go to Settings → Jobs → Notes and toggle "Enable Rich Text Editor" to ON.
+</Tip>
+
+### Markdown (Advanced)
+
+Power users can write notes in Markdown.
+
+**Example:**
+```markdown
+## Work Summary
+- Replaced **AC compressor**
+- Recharged refrigerant
+- Tested cooling performance
+
+## Customer Notes
+Customer requested quiet operation. Installed sound-dampening pads.
+
+**Next steps:** Schedule follow-up in 30 days.
+```
+
+**Rendered output:**
+
+<Frame>
+  <img src="/images/jobs/markdown-note-rendered.png" alt="Markdown note rendered with formatting" />
+</Frame>
+
+<Info>
+**Markdown support:** Enable in Settings → Jobs → Notes → "Allow Markdown". Requires Pro or Enterprise plan.
+</Info>
+
+---
+
+## @Mentions (Notify Team)
+
+Tag teammates in notes to send them a notification.
+
+**How to @mention:**
+1. Type `@` in the note
+2. Start typing a teammate's name
+3. Select from the autocomplete list
+4. Mentioned person receives a notification
+
+**Example:**
+```
+@john Can you call the customer to confirm the install date?
+Parts arrived, ready to schedule.
+```
+
+**Notification delivered via:**
+- In-app notification (bell icon)
+- Email (if email notifications enabled)
+- Mobile push notification (if mobile app installed)
+
+<Tip>
+**Use @mentions for action items:** When you need a teammate to do something, @mention them with a clear request. Helps prevent tasks from slipping through the cracks.
+</Tip>
+
+---
+
+## Note Attachments
+
+Attach files or photos to notes.
+
+**How to attach:**
+1. Write a note
+2. Click **Attach** button (paperclip icon)
+3. Choose:
+   - **Photo** from job gallery
+   - **File** from job files
+   - **Upload new** file/photo
+4. Post note with attachment
+
+**Use cases:**
+- "See attached photo of leak location" (attach photo)
+- "Customer signed waiver" (attach PDF)
+- "Invoice attached for review" (attach invoice PDF)
+
+<Frame>
+  <img src="/images/jobs/note-with-attachment.png" alt="Note with photo attachment" />
+</Frame>
+
+---
+
+## Note History & Editing
+
+### View Note History
+
+All notes are timestamped and attributed to the user who posted them.
+
+**Note metadata:**
+- Posted by: User name + avatar
+- Posted at: Date and time
+- Edited: "Edited 5 mins ago" (if note was edited)
+- Visibility: Internal or Customer-Visible (icon badge)
+
+<Frame>
+  <img src="/images/jobs/note-history-timeline.png" alt="Note history timeline" />
+</Frame>
+
+### Editing Notes
+
+Edit notes after posting (if you have permission).
+
+**How to edit:**
+1. Click **Edit** (pencil icon) on your note
+2. Make changes
+3. Click **Save**
+
+**Edit tracking:**
+- Edited notes show "Edited X mins ago" timestamp
+- Editing history is tracked (admins can view original text)
+
+<Warning>
+**Edit policy:** Only the note author or admins can edit notes. Techs cannot edit managers' notes.
+</Warning>
+
+### Deleting Notes
+
+**How to delete:**
+1. Click **Delete** (trash icon) on your note
+2. Confirm deletion
+
+**Deletion policy:**
+- Deleted notes are soft-deleted (moved to trash)
+- Admins can restore deleted notes within 30 days
+- After 30 days, notes are permanently deleted
+
+<Info>
+**Audit trail:** Even deleted notes remain in the audit log (for compliance). They're just hidden from the job view.
+</Info>
+
+---
+
+## Note Permissions
+
+Control who can add, edit, and delete notes.
+
+### Permission Levels
+
+| Role | Add Notes | View Internal | View Customer | Edit Own | Edit All | Delete Own | Delete All |
+|------|-----------|---------------|---------------|----------|----------|------------|------------|
+| **Admin** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Manager** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Technician** | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **Office Staff** | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **Viewer** | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Customer** | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+**Custom permissions:**
+Go to **Settings → Roles → [Role]** to customize note permissions.
+
+---
+
+## Note Search & Filtering
+
+### Search Notes
+
+Find notes by keyword:
+
+1. Open job **Notes** tab
+2. Type in search box
+3. Results highlight matching text
+
+**Search operators:**
+- `@john` - Find notes mentioning John
+- `"exact phrase"` - Find exact phrase matches
+- `tag:completion` - Find notes with specific tags
+
+### Filter Notes
+
+Filter notes by:
+- **Author** - Show only notes from specific user
+- **Visibility** - Internal only or Customer-Visible only
+- **Date range** - Last 7 days, last 30 days, custom range
+- **Visit** - Show only notes from specific visit
+
+<Frame>
+  <img src="/images/jobs/note-filter-panel.png" alt="Note filter sidebar" />
+</Frame>
+
+---
+
+## Notes in Client Portal
+
+Customer-visible notes appear in the Client Portal.
+
+**What customers see:**
+- All notes marked "Customer-Visible"
+- Posted by: Technician name or "FieldCamp Team"
+- Posted at: Date and time
+- Attachments: Photos, PDFs (if included)
+
+**What customers DON'T see:**
+- Internal notes
+- @Mentions
+- Edit history
+- Note author's internal role
+
+<Frame>
+  <img src="/images/jobs/customer-portal-notes-view.png" alt="Customer view of notes in client portal" />
+</Frame>
+
+<Tip>
+**Customer communication:** Use customer-facing notes to keep clients informed without needing separate emails or phone calls. Clients can check the portal for updates anytime.
+</Tip>
+
+---
+
+## Notes in Invoices & Estimates
+
+Include notes in invoices and estimates.
+
+### Auto-Include Completion Notes
+
+**Setting:**
+Go to **Settings → Invoicing → Include Completion Notes** and toggle ON.
+
+**Result:**
+- When you create an invoice from a job, all customer-visible completion notes are automatically added to the invoice
+- Appears below line items, before total
+
+**Example invoice:**
+```
+Invoice #1234
+
+Line Items:
+- Water heater installation ........... $850.00
+- Parts ................................ $120.00
+
+Notes:
+Replaced 50-gallon water heater with new energy-efficient model.
+Tested all connections, no leaks. System operational.
+Customer should flush tank annually.
+
+Total: $970.00
+```
+
+### Manual Note Selection
+
+Manually choose which notes to include:
+
+1. Create invoice from job
+2. Go to **Notes** section in invoice editor
+3. Check boxes next to notes to include
+4. Save invoice
+
+---
+
+## Note Analytics
+
+Track note usage across your team.
+
+Go to **Reports → Notes** to view:
+
+| Metric | Description |
+|--------|-------------|
+| **Total Notes** | All-time count |
+| **Notes This Month** | Current month count |
+| **Avg Notes per Job** | Average notes per job |
+| **Top Note Authors** | Who adds the most notes |
+| **Jobs Missing Notes** | Jobs with 0 notes (QA flag) |
+| **@Mentions** | How often team members use @mentions |
+
+<Frame>
+  <img src="/images/jobs/note-analytics-dashboard.png" alt="Note analytics dashboard" />
+</Frame>
+
+**Quality metrics:**
+- **Avg Notes per Job Goal:** 2-4 notes (shows good communication)
+- **Jobs Missing Notes Goal:** <10% (most jobs should have at least 1 note)
+
+---
+
+## Best Practices
+
+### ✅ Do This
+
+- **Add notes at key milestones** (job scheduled, work started, job completed)
+- **Use @mentions for action items** to notify teammates
+- **Mark important info as customer-visible** to keep clients informed
+- **Use templates for common notes** to save time
+- **Add completion notes** for every job (documents work done)
+- **Be specific** - "Replaced water heater" is better than "Fixed it"
+
+### ❌ Avoid This
+
+- **Don't skip notes on completed jobs** (no documentation = no proof of work)
+- **Don't use internal jargon in customer-facing notes** (confuses clients)
+- **Don't leave customer complaints in internal notes only** (escalate to manager)
+- **Don't post sensitive info** (credit cards, passwords, SSN)
+- **Don't use notes as task management** (use Tasks feature instead)
+
+---
+
+## Troubleshooting
+
+### Notes Not Appearing in Client Portal
+
+**Cause:**
+Note visibility is set to "Internal Only".
+
+**Solution:**
+1. Find the note in the job
+2. Click **Edit**
+3. Toggle **Customer-Visible** to ON
+4. Save
+
+### @Mentions Not Sending Notifications
+
+**Possible causes:**
+- Mentioned user has notifications turned off
+- Incorrect spelling of username
+
+**Solution:**
+1. Use autocomplete when typing @mention (don't type full name manually)
+2. Check mentioned user's notification settings (Settings → Notifications)
+
+### Can't Edit Note
+
+**Cause:**
+Only the note author or admins can edit notes.
+
+**Solution:**
+If you're not the author and need to edit:
+- Ask the original author to edit it
+- Or ask an admin to edit it
+- Or add a new note with corrected information
+
+---
+
+## API Integration
+
+Add and retrieve notes programmatically.
+
+### Add Note
+
+```bash
+curl -X POST https://api.fieldcamp.ai/v1/jobs/{job_id}/notes \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "Customer confirmed appointment for 2pm",
+    "visibility": "internal",
+    "author_id": "user_123"
+  }'
+```
+
+**Response:**
+```json
+{
+  "note_id": "note_789",
+  "job_id": "job_456",
+  "text": "Customer confirmed appointment for 2pm",
+  "visibility": "internal",
+  "author": {
+    "id": "user_123",
+    "name": "Sarah Johnson"
+  },
+  "created_at": "2026-02-26T14:22:00Z"
+}
+```
+
+### List Job Notes
+
+```bash
+curl -X GET https://api.fieldcamp.ai/v1/jobs/{job_id}/notes \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+### Update Note
+
+```bash
+curl -X PUT https://api.fieldcamp.ai/v1/jobs/{job_id}/notes/{note_id} \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "Customer confirmed appointment for 3pm (updated)",
+    "visibility": "customer-visible"
+  }'
+```
+
+<Tip>
+See full API documentation at [Notes API Reference](/api-reference/notes).
+</Tip>
+
+---
+
+## Related Topics
+
+<CardGroup cols={2}>
+  <Card title="Job Detail Page" icon="file-invoice" href="/features/jobs/job-detail">
+    View all job details including notes
+  </Card>
+  
+  <Card title="Visit Logs" icon="clock" href="/features/jobs/visits/visit-logs">
+    Track time and activities during visits
+  </Card>
+  
+  <Card title="Client Portal" icon="browser" href="/features/client-portal/overview">
+    Customer-facing notes appear in portal
+  </Card>
+  
+  <Card title="Invoicing" icon="file-invoice-dollar" href="/features/invoicing/overview">
+    Include notes in invoices and estimates
+  </Card>
+</CardGroup>
+
+---
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can customers reply to notes?">
+    Not currently. Customers can view customer-facing notes in the portal but cannot reply or add their own notes. This is on the roadmap for 2026.
+  </Accordion>
+
+  <Accordion title="Are notes backed up?">
+    Yes. All notes are stored with database redundancy and backed up daily. Deleted notes remain in the system (soft-deleted) for 30 days before permanent removal.
+  </Accordion>
+
+  <Accordion title="Can I bulk edit notes?">
+    No. Notes must be edited one at a time. This ensures accountability and prevents accidental bulk changes.
+  </Accordion>
+
+  <Accordion title="Do notes have a character limit?">
+    Yes. Notes are limited to 5,000 characters. For longer documentation, use the Files feature to attach a PDF or Word document.
+  </Accordion>
+
+  <Accordion title="Can I export all notes for a job?">
+    Yes. Go to job → Notes → Export → PDF or CSV. All notes (internal and customer-visible) are included in the export.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Need Help?
+
+<Card title="Contact Support" icon="headset" href="mailto:support@fieldcamp.ai">
+  Questions about job notes? We can help you set up note workflows for your team.
+</Card>

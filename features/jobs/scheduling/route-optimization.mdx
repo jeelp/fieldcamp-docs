@@ -1,0 +1,745 @@
+---
+title: 'Route Optimization'
+description: 'Optimize daily routes to minimize drive time, maximize visits, and balance workloads'
+icon: 'route'
+---
+
+## Overview
+
+Route optimization is FieldCamp's intelligent scheduling feature that automatically organizes your team's daily visits to minimize drive time, reduce fuel costs, and maximize the number of jobs completed per day. Instead of manually juggling visits and calculating drive times, let the AI-powered optimizer create the most efficient routes for your team.
+
+<Info>
+**One-time optimization vs continuous routing:** Route optimization is typically run once per day (morning dispatch) to organize the day's visits. For real-time routing adjustments (traffic, cancellations), see [AI Dispatcher](/features/jobs/ai-dispatcher).
+</Info>
+
+---
+
+## What Is Route Optimization?
+
+Route optimization solves the "traveling salesman problem" for field service teams:
+
+**Input:**
+- List of unscheduled visits (jobs that need to be done)
+- Available techs (with skills, working hours, locations)
+
+**Output:**
+- Optimized schedule (which tech, what time, in what order)
+- Estimated drive times between visits
+- Total distance and duration per tech
+
+**Goal:**
+- Minimize total drive time (less fuel, more billable hours)
+- Balance workload across team (no one overworked or idle)
+- Respect constraints (tech skills, customer time windows, visit priorities)
+
+<Frame>
+  <img src="/images/screenshots/route-optimization-overview.png" alt="Route optimization overview" />
+</Frame>
+
+---
+
+## Use Cases
+
+### 1. Morning Dispatch
+
+**Scenario:** You have 20 unscheduled service calls and 5 techs available today.
+
+**Manual approach:**
+- Assign visits one-by-one
+- Guess which tech is closest
+- Check calendar for conflicts
+- Calculate drive times manually (Google Maps)
+- Time spent: 30-60 minutes
+
+**Route optimization approach:**
+- Click **Optimize Routes**
+- AI assigns all 20 visits in < 10 seconds
+- Routes minimize drive time and respect skills
+- Time spent: 2 minutes (review + accept)
+
+---
+
+### 2. Maximize Visits Per Day
+
+**Scenario:** Techs typically complete 4-5 visits/day. You want to increase to 6-7 without working longer hours.
+
+**Solution:**
+- Route optimization minimizes drive time between visits
+- Extra 30-60 minutes saved per day = 1-2 additional visits
+- Result: 20-40% more revenue without overtime
+
+---
+
+### 3. Reduce Fuel Costs
+
+**Scenario:** Rising gas prices are cutting into margins.
+
+**Solution:**
+- Route optimization reduces total daily mileage by 15-30%
+- Example: Team drives 500 miles/day → Optimized routes = 350 miles/day
+- Savings: 150 miles/day × $0.50/mile = $75/day = $1,500/month
+
+---
+
+### 4. Balance Workload
+
+**Scenario:** Some techs finish at 2 PM, others work until 7 PM.
+
+**Solution:**
+- Route optimization balances visits across techs
+- Each tech gets 5-6 visits/day (similar workload)
+- Reduces overtime and burnout
+
+---
+
+## How Route Optimization Works
+
+FieldCamp uses a proprietary algorithm that considers multiple factors:
+
+### 1. Tech Skills Match
+
+**Constraint:** Only assign visits to techs with required skills.
+
+**Example:**
+- Visit requires "HVAC Certification"
+- Techs available: John (HVAC certified), Jane (plumber), Mike (electrician)
+- Result: Visit assigned to John only
+
+**Why it matters:** Prevents assigning jobs to unqualified techs (rework, customer complaints).
+
+---
+
+### 2. Tech Location (Proximity)
+
+**Constraint:** Minimize drive time by assigning visits to the nearest available tech.
+
+**Example:**
+- Visit at 123 Main St (Los Angeles)
+- Techs: John (Santa Monica, 15 min away), Jane (Pasadena, 45 min away)
+- Result: Visit assigned to John (saves 30 min drive time)
+
+**Data sources:**
+- Tech's home address (starting location)
+- Tech's last visit location (if already on the road)
+- Real-time GPS (from mobile app)
+
+---
+
+### 3. Tech Availability (Working Hours)
+
+**Constraint:** Only schedule visits during tech's working hours.
+
+**Example:**
+- Tech working hours: 8 AM – 5 PM
+- Visit duration: 2 hours
+- Latest start time: 3 PM (finish by 5 PM)
+- Time off: Tech on vacation Mar 10–14 (unavailable)
+
+**Result:** Optimizer skips unavailable techs.
+
+---
+
+### 4. Visit Duration
+
+**Input:** Estimated duration per visit (from job template, historical data, or manual entry).
+
+**Example:**
+- Visit A: 1 hour (routine maintenance)
+- Visit B: 3 hours (installation)
+- Visit C: 30 minutes (inspection)
+
+**Result:** Optimizer schedules shorter visits between longer ones to maximize total visits.
+
+---
+
+### 5. Drive Time (Google Maps)
+
+**Calculation:** Optimizer queries Google Maps API for real-time drive times.
+
+**Factors considered:**
+- Distance (miles)
+- Traffic conditions (current or predicted)
+- Route type (highway vs surface streets)
+
+**Example:**
+- Visit A → Visit B: 10 miles, 15 min (light traffic)
+- Visit B → Visit C: 5 miles, 20 min (heavy traffic on I-405)
+
+**Result:** Optimizer may choose a slightly longer route to avoid traffic.
+
+---
+
+### 6. Visit Priority
+
+**Constraint:** Schedule high-priority visits first.
+
+**Priority levels:**
+- **Urgent:** ASAP (broken heater, leak, emergency)
+- **High:** Within 24 hours (installation deadline)
+- **Medium:** Within 3 days (routine service)
+- **Low:** Within 7 days (non-urgent maintenance)
+
+**Example:**
+- 3 urgent visits, 10 medium visits
+- Result: All urgent visits scheduled first (even if slightly longer drive)
+
+---
+
+### 7. Customer Time Windows
+
+**Constraint:** Schedule visits within customer's availability window.
+
+**Example:**
+- Customer: "I'm available 9 AM – 11 AM"
+- Optimizer schedules visit between 9–11 AM
+- If no tech available, flags as "Unschedulable" (manual review)
+
+**Time window types:**
+- **Exact time:** "10:00 AM sharp"
+- **Range:** "9:00 AM – 12:00 PM"
+- **Anytime:** No preference (optimizer chooses optimal time)
+
+---
+
+### 8. Workload Balance
+
+**Goal:** Distribute visits evenly across techs (avoid overloading one tech).
+
+**Example (before optimization):**
+- John: 8 visits, 10 hours
+- Jane: 2 visits, 3 hours
+- Mike: 5 visits, 6 hours
+
+**After optimization:**
+- John: 5 visits, 6.5 hours
+- Jane: 5 visits, 6 hours
+- Mike: 5 visits, 6.5 hours
+
+**Result:** Balanced workload, reduced overtime, happier team.
+
+---
+
+## Running Route Optimization
+
+### Manual Optimization
+
+Manually trigger route optimization for a specific date.
+
+**Steps:**
+1. Open **Calendar** view
+2. Click **Optimize Routes** button (magic wand icon)
+3. **Optimization Settings** modal appears:
+   - **Date:** Today (or select future date)
+   - **Techs:** All Techs (or select specific techs)
+   - **Unscheduled Visits:** 20 visits found
+   - **Optimization Goal:** Minimize drive time (or Balance workload, Maximize visits)
+4. Click **Run Optimization**
+5. **Optimized Routes Preview** appears (see below)
+6. Review routes → Click **Accept** or **Reject**
+
+<Frame>
+  <img src="/images/screenshots/route-optimization-settings.png" alt="Route optimization settings modal" />
+</Frame>
+
+<Tip>
+**Pro tip:** Run optimization in the morning (6-7 AM) before techs start their day for best results.
+</Tip>
+
+---
+
+### Automatic Optimization (Scheduled)
+
+Schedule route optimization to run automatically every day.
+
+**Setup:**
+1. **Settings → Automation → Route Optimization**
+2. Toggle **Enable automatic optimization** to ON
+3. Set **Run time:** 6:00 AM (daily)
+4. Set **Optimization goal:** Minimize drive time
+5. Toggle **Auto-accept routes** (optional):
+   - ON: Routes applied automatically (no manual review)
+   - OFF: Routes saved as draft (requires manual approval)
+6. Click **Save**
+
+**Workflow:**
+- Every morning at 6 AM, optimizer runs
+- Unscheduled visits assigned to techs
+- Techs receive updated schedules via mobile app
+- Dispatcher reviews and adjusts if needed
+
+<Warning>
+**Auto-accept caution:** Only enable auto-accept if you trust the optimizer. Manual review is recommended to catch edge cases (e.g., customer called to reschedule).
+</Warning>
+
+---
+
+## Optimization Preview
+
+After running optimization, FieldCamp shows a preview of the optimized routes.
+
+### Route Map View
+
+**Interactive map showing:**
+- Tech starting locations (home addresses or current GPS)
+- Visit locations (pins color-coded by tech)
+- Optimized routes (polylines connecting visits in sequence)
+
+<Frame>
+  <img src="/images/screenshots/route-optimization-map.png" alt="Optimized route map view" />
+</Frame>
+
+**Map controls:**
+- Zoom in/out
+- Toggle: Show traffic layer
+- Toggle: Show visit numbers (sequence: 1, 2, 3...)
+- Click visit pin → View visit details
+
+---
+
+### Route Details (Per Tech)
+
+**List view showing each tech's optimized route:**
+
+**Example (John Smith):**
+
+| Visit # | Time | Client | Address | Duration | Drive Time | Notes |
+|---------|------|--------|---------|----------|------------|-------|
+| 1 | 8:00 AM | ABC Plumbing | 123 Main St | 1h | 0 min (start location) | HVAC repair |
+| 2 | 9:15 AM | XYZ Electric | 456 Oak Ave | 2h | 15 min | Installation |
+| 3 | 11:30 AM | Quick Fix | 789 Elm St | 30 min | 15 min | Inspection |
+| 4 | 12:15 PM | **Lunch Break** | - | 45 min | - | - |
+| 5 | 1:00 PM | HomeServ | 321 Pine Rd | 1h 30m | 10 min | Repair |
+| 6 | 2:45 PM | ProBuild | 654 Maple Ln | 1h | 15 min | Maintenance |
+
+**Summary:**
+- Total visits: 5
+- Total work time: 6h
+- Total drive time: 55 min
+- Total distance: 35 miles
+- End time: 3:45 PM
+
+<Frame>
+  <img src="/images/screenshots/route-optimization-details.png" alt="Route details per tech" />
+</Frame>
+
+---
+
+### Before/After Comparison
+
+**Compare optimized routes to current schedule:**
+
+| Metric | Before Optimization | After Optimization | Improvement |
+|--------|---------------------|-------------------|-------------|
+| **Total visits scheduled** | 15 | 20 | +5 visits (+33%) |
+| **Total drive time** | 4h 30m | 3h 15m | -1h 15m (-28%) |
+| **Total distance** | 180 miles | 135 miles | -45 miles (-25%) |
+| **Avg visits per tech** | 3 | 4 | +1 visit/tech |
+| **Longest workday** | 9h | 7h 30m | -1h 30m |
+
+<Info>
+Typical improvements: 15-30% reduction in drive time, 10-20% increase in visits per day.
+</Info>
+
+---
+
+## Accepting or Rejecting Optimized Routes
+
+### Accepting Routes
+
+After reviewing the optimized routes, click **Accept All Routes** to apply them.
+
+**What happens:**
+1. Visits are assigned to techs (replaces current assignments)
+2. Visit times are updated (start times adjusted)
+3. Techs receive notifications: "Your schedule has been updated"
+4. Calendar view refreshes with new routes
+
+**Partial acceptance:**
+- Click **Accept Route** next to individual tech (accept John's route, reject Jane's)
+- Useful if one route looks good, others need manual adjustment
+
+---
+
+### Rejecting Routes
+
+If optimized routes don't look right, click **Reject All Routes**.
+
+**What happens:**
+- Optimized routes discarded
+- Calendar remains unchanged
+- You can manually schedule visits or re-run optimization with different settings
+
+**Common reasons to reject:**
+- Customer called to cancel/reschedule (optimizer didn't know)
+- Tech skill mismatch (optimizer misidentified required skills)
+- Visit priority changed (urgent job came in after optimization)
+
+---
+
+### Manual Adjustments Post-Optimization
+
+You can tweak optimized routes manually:
+
+**Steps:**
+1. Click **Accept Routes** (apply optimized schedule)
+2. Review calendar
+3. Drag visits to adjust timing or reassign to different tech
+4. Add/remove visits as needed
+
+**Use case:** Optimizer did a great job, but you want to swap two visits for better customer experience.
+
+---
+
+## Re-Optimizing Routes
+
+Re-run optimization if conditions change during the day.
+
+### When to Re-Optimize
+
+- **New urgent visit:** Emergency call comes in, disrupts schedule
+- **Visit cancelled:** Customer cancels, creates open slot
+- **Tech unavailable:** Tech calls in sick, need to reassign visits
+- **Traffic delays:** Major accident on highway, routes need adjustment
+
+**Steps:**
+1. Click **Re-Optimize Routes**
+2. Select **Include only unscheduled visits** (don't disrupt in-progress visits)
+3. Click **Run Optimization**
+4. Review new routes → Accept
+
+<Warning>
+Re-optimizing during the day may disrupt techs already en route. Use sparingly and communicate changes immediately.
+</Warning>
+
+---
+
+## Optimization Settings
+
+Customize route optimization behavior to match your workflow.
+
+**Settings → Automation → Route Optimization:**
+
+### Optimization Goal
+
+Choose primary optimization objective:
+
+| Goal | Optimizes For | Best For |
+|------|---------------|----------|
+| **Minimize drive time** (default) | Shortest total drive time | Reducing fuel costs |
+| **Maximize visits** | Most visits scheduled per day | Increasing revenue |
+| **Balance workload** | Even distribution across techs | Preventing burnout |
+| **Minimize cost** | Lowest labor + drive cost | Budget-conscious teams |
+
+---
+
+### Constraints
+
+Set hard limits that optimizer must respect:
+
+| Constraint | Description | Example |
+|------------|-------------|---------|
+| **Max visits per tech** | Limit number of visits per day | 6 visits max (prevent overloading) |
+| **Max drive time per tech** | Limit total drive time per day | 2 hours max (reduce windshield time) |
+| **Max workday duration** | Limit total work hours per day | 8 hours max (prevent overtime) |
+| **Require skills match** | Only assign to qualified techs | ON (strict), OFF (allow mismatches) |
+| **Respect time windows** | Honor customer availability | ON (strict), OFF (flexible) |
+
+---
+
+### Preferences
+
+Adjust optimization priorities:
+
+| Preference | Description | Impact |
+|------------|-------------|--------|
+| **Prioritize urgent jobs** | Weight: 1-10 (10 = highest) | Higher weight → Urgent jobs scheduled first |
+| **Prefer shorter visits** | Weight: 1-10 | Higher weight → More short visits per day |
+| **Prefer closer visits** | Weight: 1-10 | Higher weight → Minimize drive distance |
+| **Avoid traffic** | Toggle ON/OFF | Use Google Traffic API for predictions |
+| **Include lunch breaks** | Toggle ON/OFF + duration | Auto-insert 30-60 min lunch breaks |
+
+<Tip>
+**Default settings work well for most teams.** Only adjust if you have specific requirements (e.g., "Always prioritize urgent jobs, even if it means more drive time").
+</Tip>
+
+---
+
+## Route Optimization Reports
+
+Analyze optimization performance over time.
+
+### Optimization Summary Report
+
+**To generate:**
+1. **Reports → Operations → Route Optimization Summary**
+2. Select date range (This Week, This Month, This Quarter)
+3. Click **Generate**
+
+**Report includes:**
+
+| Metric | This Week | Last Week | Change |
+|--------|-----------|-----------|--------|
+| **Total visits optimized** | 150 | 130 | +15% |
+| **Avg drive time per visit** | 12 min | 18 min | -33% |
+| **Total drive time saved** | 15h | - | - |
+| **Total distance saved** | 225 miles | - | - |
+| **Fuel cost savings (est.)** | $112.50 | - | - |
+| **Avg visits per tech/day** | 5.2 | 4.3 | +21% |
+| **Optimization acceptance rate** | 85% | 78% | +9% |
+
+<Frame>
+  <img src="/images/screenshots/route-optimization-report.png" alt="Route optimization summary report" />
+</Frame>
+
+---
+
+### Per-Tech Efficiency Report
+
+**To generate:**
+1. **Reports → Team → Tech Efficiency**
+2. Select date range
+3. Select techs (All Techs or specific)
+4. Click **Generate**
+
+**Report includes (per tech):**
+
+| Tech | Visits Completed | Drive Time | Drive Distance | Drive Time % | Efficiency Score |
+|------|------------------|------------|----------------|--------------|------------------|
+| John Smith | 30 | 6h | 120 miles | 15% | 92% |
+| Jane Doe | 28 | 8h | 150 miles | 22% | 85% |
+| Mike Johnson | 25 | 10h | 180 miles | 28% | 78% |
+
+**Efficiency Score = (Work Time) / (Work Time + Drive Time)**
+
+<Info>
+**Target efficiency:** 80-90%. Below 80% = too much drive time. Above 90% = excellent route optimization.
+</Info>
+
+---
+
+## Best Practices
+
+### 1. Run Optimization Daily (Morning Dispatch)
+
+**Why:** Schedules change overnight (new jobs, cancellations). Fresh optimization ensures optimal routes.
+
+**Workflow:**
+- Set automatic optimization for 6:00 AM
+- Dispatcher reviews routes by 7:00 AM
+- Techs start first visit by 8:00 AM
+
+---
+
+### 2. Group Visits by Geographic Area
+
+**Why:** Reduces drive time by keeping techs in the same neighborhood.
+
+**How:**
+- Route optimizer automatically clusters nearby visits
+- You can manually enforce: Settings → Optimization → "Prefer geographic clustering" (ON)
+
+---
+
+### 3. Factor in Lunch Breaks
+
+**Why:** Techs need breaks. Optimizer should account for this.
+
+**Setup:**
+- Settings → Optimization → **Include lunch breaks** (ON)
+- Set duration: 30-60 minutes
+- Set preferred time: 12:00 PM – 1:00 PM
+
+**Result:** Optimizer schedules visits around lunch (no visit from 12-1 PM).
+
+---
+
+### 4. Use Time Windows for VIP Clients
+
+**Why:** Some customers require specific arrival times. Optimizer respects this.
+
+**Setup:**
+- When creating visit, set **Arrival Window:** "9:00 AM – 11:00 AM"
+- Optimizer schedules within this window or flags as "Unschedulable"
+
+---
+
+### 5. Review Before Auto-Accepting
+
+**Why:** Optimizer is smart but not perfect. Manual review catches edge cases.
+
+**Recommended workflow:**
+- Automatic optimization runs at 6:00 AM
+- Routes saved as draft (not auto-accepted)
+- Dispatcher reviews by 7:00 AM
+- Click **Accept Routes** after review
+
+---
+
+### 6. Monitor Efficiency Metrics Weekly
+
+**Why:** Track ROI of route optimization (drive time saved, visits increased).
+
+**Workflow:**
+- Every Friday, generate **Route Optimization Summary Report**
+- Review: Drive time saved, visits increased, fuel cost savings
+- Adjust settings if efficiency drops below 80%
+
+---
+
+## Troubleshooting
+
+### Optimizer Assigns Visit to Unqualified Tech
+
+**Symptoms:** Visit requires "HVAC Certification" but assigned to tech without this skill.
+
+**Possible causes:**
+- Skills not configured in tech profile
+- "Require skills match" setting disabled
+
+**Fixes:**
+1. **Settings → Team → Tech Profile → Skills** → Add required skills
+2. **Settings → Optimization → Constraints → Require skills match** → Toggle ON
+3. Re-run optimization
+
+---
+
+### Optimizer Creates Unrealistic Drive Times
+
+**Symptoms:** Optimizer schedules 30 min between visits that are 1 hour apart.
+
+**Possible causes:**
+- Google Maps API not enabled (optimizer uses straight-line distance)
+- Traffic data not considered
+- Visit addresses incorrect
+
+**Fixes:**
+1. **Settings → Integrations → Google Maps** → Verify API key is active
+2. **Settings → Optimization → Avoid traffic** → Toggle ON
+3. Verify visit addresses in job details
+
+---
+
+### Optimizer Leaves Some Visits Unscheduled
+
+**Symptoms:** Optimizer assigns 15 visits but leaves 5 unscheduled.
+
+**Possible reasons:**
+- No available techs (all fully booked)
+- Skills mismatch (no tech has required skills)
+- Time window conflict (customer only available when no tech is free)
+- Max visits per tech reached
+
+**Fixes:**
+1. Review **Unschedulable Visits** panel (shows reason for each)
+2. Options:
+   - Relax constraints (increase max visits per tech)
+   - Hire additional techs (long-term)
+   - Reschedule low-priority visits to next day
+
+---
+
+### Optimizer Takes Too Long (> 30 seconds)
+
+**Symptoms:** "Optimizing routes..." spinner runs for minutes.
+
+**Possible causes:**
+- Too many visits (> 100) or techs (> 20)
+- Complex constraints (many time windows, skills)
+
+**Fixes:**
+1. Reduce optimization scope: Select specific techs (optimize John + Jane, then Mike + Dave)
+2. Pre-filter visits: Only optimize high-priority visits, manually assign low-priority
+3. Contact support if persistent (may need server-side optimization)
+
+---
+
+## API Access
+
+Integrate route optimization into custom apps or workflows.
+
+**Endpoints:**
+
+```bash
+# Run optimization
+POST /v1/optimization/routes
+{
+  "date": "2026-02-26",
+  "tech_ids": [123, 456, 789],
+  "goal": "minimize_drive_time",
+  "constraints": {
+    "max_visits_per_tech": 6,
+    "require_skills_match": true
+  }
+}
+```
+
+**Response:**
+
+```json
+{
+  "optimization_id": "opt_abc123",
+  "status": "completed",
+  "routes": [
+    {
+      "tech_id": 123,
+      "visits": [
+        {
+          "visit_id": 1001,
+          "start_time": "08:00",
+          "duration_minutes": 60,
+          "drive_time_from_previous": 0
+        },
+        {
+          "visit_id": 1002,
+          "start_time": "09:15",
+          "duration_minutes": 120,
+          "drive_time_from_previous": 15
+        }
+      ],
+      "total_work_time": 180,
+      "total_drive_time": 55,
+      "total_distance_miles": 35
+    }
+  ],
+  "summary": {
+    "total_visits_scheduled": 20,
+    "total_drive_time_saved_minutes": 75,
+    "total_distance_saved_miles": 45
+  }
+}
+```
+
+See [Route Optimization API Reference](/api-reference/optimization) for full details.
+
+---
+
+## Related Documentation
+
+<CardGroup cols={2}>
+  <Card title="Calendar & Scheduling" icon="calendar-days" href="/features/jobs/scheduling/calendar">
+    View and manage team schedules
+  </Card>
+  
+  <Card title="Team Availability" icon="user-clock" href="/features/jobs/scheduling/team-availability">
+    Set working hours and time off for accurate optimization
+  </Card>
+  
+  <Card title="AI Dispatcher" icon="robot" href="/features/jobs/ai-dispatcher">
+    AI-powered tech recommendations for single visits
+  </Card>
+  
+  <Card title="Creating Visits" icon="calendar-plus" href="/features/jobs/visits/creating-visits">
+    Schedule visits manually or with optimization
+  </Card>
+</CardGroup>
+
+---
+
+## Support
+
+Need help with route optimization?
+
+- **Live Chat:** Click the chat icon (bottom-right)
+- **Email:** support@fieldcamp.ai
+- **Help Center:** [help.fieldcamp.ai](https://help.fieldcamp.ai)
+- **Schedule Demo:** See optimization in action - [Book a call](https://fieldcamp.ai/demo)

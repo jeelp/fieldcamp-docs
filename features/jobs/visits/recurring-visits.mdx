@@ -1,0 +1,752 @@
+---
+title: "Recurring Visits"
+description: "Set up automatic recurring visits for maintenance contracts, subscriptions, and regular service schedules"
+icon: "repeat"
+---
+
+## What Are Recurring Visits?
+
+Recurring visits are visits that repeat on a regular schedule - weekly, monthly, quarterly, or custom intervals. They're ideal for maintenance contracts, subscription services, and any job that requires regular, ongoing service.
+
+<CardGroup cols={2}>
+  <Card title="One-Time Visit" icon="calendar-check">
+    Single scheduled appointment - created once, occurs once
+  </Card>
+  <Card title="Recurring Visit" icon="repeat">
+    Series of visits - created once, occurs multiple times automatically
+  </Card>
+</CardGroup>
+
+### Common Use Cases
+
+<AccordionGroup>
+  <Accordion title="Pool Maintenance" icon="water-ladder" defaultOpen>
+    **Frequency:** Weekly or bi-weekly
+    
+    **Service:** Pool cleaning, chemical balancing, equipment check
+    
+    **Example schedule:**
+    - Every Monday at 10:00 AM
+    - Duration: 1 hour
+    - Assigned tech: Sarah
+    - Continues until customer cancels contract
+    
+    **Billing:** Monthly subscription ($200/month for 4 weekly visits)
+  </Accordion>
+
+  <Accordion title="HVAC Maintenance Contracts" icon="temperature-full">
+    **Frequency:** Quarterly (every 3 months)
+    
+    **Service:** System inspection, filter replacement, tune-up
+    
+    **Example schedule:**
+    - 1st Tuesday of every 3rd month at 2:00 PM
+    - Duration: 2 hours
+    - Assigned tech: Mike
+    - Continues for 12 months (4 visits total)
+    
+    **Billing:** Annual contract ($400/year prepaid, or $110 per visit)
+  </Accordion>
+
+  <Accordion title="Lawn Care / Landscaping" icon="seedling">
+    **Frequency:** Weekly (seasonal - April to October)
+    
+    **Service:** Mowing, edging, blowing
+    
+    **Example schedule:**
+    - Every Wednesday at 8:00 AM
+    - Duration: 45 minutes
+    - Assigned tech: Tom
+    - Ends October 31st (28 visits total)
+    
+    **Billing:** Weekly or monthly ($40 per visit, or $160/month)
+  </Accordion>
+
+  <Accordion title="Pest Control" icon="bugs">
+    **Frequency:** Monthly or quarterly
+    
+    **Service:** Interior/exterior spraying, inspection
+    
+    **Example schedule:**
+    - 3rd Friday of each month at 1:00 PM
+    - Duration: 1 hour
+    - Assigned tech: Rotating (whoever is available)
+    - Continues for 12 months (annual contract)
+    
+    **Billing:** Monthly subscription ($75/month)
+  </Accordion>
+
+  <Accordion title="Equipment Inspections" icon="clipboard-check">
+    **Frequency:** Annually or semi-annually
+    
+    **Service:** Fire extinguisher inspection, elevator inspection, safety audit
+    
+    **Example schedule:**
+    - Every 6 months on January 15th and July 15th at 9:00 AM
+    - Duration: 3 hours
+    - Assigned tech: Certified inspector
+    - Continues indefinitely (as long as customer has contract)
+    
+    **Billing:** Per inspection ($250 each)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Creating Recurring Visits
+
+### Method 1: From Calendar (Visual Scheduling)
+
+<Steps>
+  <Step title="Open Calendar">
+    Navigate to **Calendar** → Choose week or month view
+  </Step>
+
+  <Step title="Click Time Slot">
+    Click on the date and time when you want the first visit to occur
+    
+    **Example:** Monday, March 3rd at 10:00 AM
+  </Step>
+
+  <Step title="Enable Recurring">
+    In the "Create Visit" modal, check the box: **☑ Recurring Visit**
+    
+    The form expands to show recurrence options.
+  </Step>
+
+  <Step title="Select Job">
+    Choose the job this visit series is for:
+    
+    - **Existing job:** Select from dropdown (e.g., "Pool Maintenance - 123 Oak St")
+    - **New job:** Create a new job first, then schedule recurring visits
+    
+    <Tip>
+    **Pro tip:** Create a "Master Job" for the entire contract (e.g., "Annual HVAC Maintenance Contract"), then schedule recurring visits under that job. This keeps all visits grouped together.
+    </Tip>
+  </Step>
+
+  <Step title="Set Recurrence Pattern">
+    Choose how often visits repeat:
+    
+    <AccordionGroup>
+      <Accordion title="Daily (Rare)">
+        **Repeats:** Every X days
+        
+        **Example:** Every 1 day (daily), Every 2 days (every other day)
+        
+        **Use case:** Rare in field services, but useful for multi-day projects or daily site monitoring
+      </Accordion>
+
+      <Accordion title="Weekly (Most Common)">
+        **Repeats:** Every X weeks on specific day(s)
+        
+        **Example:** Every 1 week on Monday (every Monday), Every 2 weeks on Monday (bi-weekly)
+        
+        **Multiple days:** Can select multiple days (e.g., every Monday and Friday)
+        
+        **Use case:** Pool maintenance, lawn care, cleaning services
+      </Accordion>
+
+      <Accordion title="Monthly (Common)">
+        **Two options:**
+        
+        **Option 1: Day of month**
+        - Every X months on the [1st, 15th, last day]
+        - Example: Every 1 month on the 15th (15th of each month)
+        
+        **Option 2: Day of week**
+        - Every X months on the [1st, 2nd, 3rd, 4th, last] [Monday, Tuesday, etc.]
+        - Example: Every 1 month on the 2nd Tuesday (2nd Tuesday of each month)
+        
+        **Use case:** Pest control, equipment inspections
+      </Accordion>
+
+      <Accordion title="Quarterly (Every 3 Months)">
+        **Repeats:** Every 3 months on specific date
+        
+        **Example:** Every 3 months on the 1st (Jan 1, Apr 1, Jul 1, Oct 1)
+        
+        **Use case:** HVAC seasonal maintenance, quarterly inspections
+      </Accordion>
+
+      <Accordion title="Yearly (Annual)">
+        **Repeats:** Every year on specific date
+        
+        **Example:** Every year on March 15th
+        
+        **Use case:** Annual inspections, certifications, contract renewals
+      </Accordion>
+
+      <Accordion title="Custom (Advanced)">
+        **Repeats:** Every X days/weeks/months with custom rules
+        
+        **Example:** Every 10 days, Every 5 weeks on Wednesday, Every 4 months on the last Friday
+        
+        **Use case:** Non-standard contracts, seasonal schedules
+      </Accordion>
+    </AccordionGroup>
+  </Step>
+
+  <Step title="Set Start Date">
+    **First visit date:** Defaults to the date you clicked in calendar
+    
+    **Can be changed:** If you want to create the series now but start visits later
+    
+    **Example:** Today is March 1st, but first visit should be April 1st
+  </Step>
+
+  <Step title="Set End Condition">
+    When should recurring visits stop?
+    
+    <CardGroup cols={3}>
+      <Card title="Never" icon="infinity">
+        Visits continue indefinitely until manually cancelled
+        
+        **Use case:** Ongoing maintenance contracts, subscriptions
+      </Card>
+
+      <Card title="After X Occurrences" icon="hashtag">
+        Stop after a specific number of visits
+        
+        **Example:** After 12 occurrences (1 year of monthly visits)
+        
+        **Use case:** Annual contracts with fixed visit count
+      </Card>
+
+      <Card title="Until Date" icon="calendar-xmark">
+        Stop on a specific end date
+        
+        **Example:** Until October 31, 2025 (end of lawn care season)
+        
+        **Use case:** Seasonal services, contract end dates
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Assign Technician">
+    **Option 1: Same tech for all visits** (recommended for consistency)
+    - Select one tech (e.g., Sarah)
+    - All visits in the series assigned to Sarah
+    
+    **Option 2: Rotating techs**
+    - Select "Rotate" and choose 2+ techs
+    - Visits alternate between techs (Visit 1: Sarah, Visit 2: Mike, Visit 3: Sarah, etc.)
+    
+    **Option 3: Auto-assign (no tech selected)**
+    - Visits created without tech assignment
+    - Dispatcher assigns techs later (more flexible but requires manual work)
+  </Step>
+
+  <Step title="Set Duration & Time">
+    **Start time:** Same for all visits (e.g., 10:00 AM)
+    
+    **Duration:** Same for all visits (e.g., 1 hour)
+    
+    <Note>
+    **Time consistency:** Customers appreciate predictable schedules (same time each week). Only change start time if absolutely necessary.
+    </Note>
+  </Step>
+
+  <Step title="Add Visit Notes (Optional)">
+    Internal notes for technicians:
+    
+    **Example:** "Customer prefers service in the morning. Dogs in backyard - use front gate."
+    
+    These notes are copied to all visits in the series.
+  </Step>
+
+  <Step title="Review & Create">
+    FieldCamp shows a preview of the series:
+    
+    ```
+    Recurring Visit Series:
+    - Job: Pool Maintenance - 123 Oak St
+    - Pattern: Every 1 week on Monday at 10:00 AM
+    - Start: March 3, 2025
+    - End: Never (ongoing)
+    - Tech: Sarah
+    - Estimated visits: 52 per year
+    
+    Next 5 visits:
+    1. Monday, March 3 at 10:00 AM
+    2. Monday, March 10 at 10:00 AM
+    3. Monday, March 17 at 10:00 AM
+    4. Monday, March 24 at 10:00 AM
+    5. Monday, March 31 at 10:00 AM
+    ```
+    
+    Click **"Create Recurring Visits"** to finalize.
+  </Step>
+
+  <Step title="Visits Generated">
+    **What happens:**
+    - All visits are created and added to calendar
+    - Tech receives notification (one notification for the series, not per visit)
+    - Customer receives confirmation (optional)
+    - Visits appear on calendar with a "recurrence" icon (🔁)
+  </Step>
+</Steps>
+
+---
+
+## Managing Recurring Visit Series
+
+After creating a recurring visit series, you can edit, pause, or cancel:
+
+### Editing Recurring Visits
+
+When you edit a visit that's part of a recurring series, you'll see three options:
+
+<AccordionGroup>
+  <Accordion title="Edit This Visit Only" icon="calendar-day">
+    **What changes:** Only the specific visit you clicked on
+    
+    **Use case:**
+    - Reschedule one visit due to holiday or customer conflict
+    - Assign different tech for one visit (regular tech is on vacation)
+    - Change time for one visit (customer has appointment)
+    
+    **Example:**
+    - Regular schedule: Every Monday at 10:00 AM
+    - Customer requests: Move March 17th visit to Tuesday March 18th at 2:00 PM
+    - Action: Edit March 17th visit only → move to March 18th
+    - Result: All other visits remain on Monday at 10:00 AM
+    
+    **Future visits:** Unaffected
+  </Accordion>
+
+  <Accordion title="Edit This and All Future Visits" icon="calendar-arrow-up">
+    **What changes:** The selected visit and all subsequent visits in the series
+    
+    **Use case:**
+    - Customer requests permanent time change (10am → 2pm going forward)
+    - Switch to different tech starting from a specific date
+    - Change visit duration for remaining visits
+    
+    **Example:**
+    - Regular schedule: Every Monday at 10:00 AM
+    - Customer requests: Starting April 1st, change to 2:00 PM
+    - Action: Edit April 1st visit → Select "This and all future visits" → Change time to 2:00 PM
+    - Result:
+      - Visits before April 1st: Still at 10:00 AM
+      - Visits April 1st and later: Now at 2:00 PM
+    
+    **Past visits:** Unaffected (already completed or locked)
+  </Accordion>
+
+  <Accordion title="Edit All Visits in Series" icon="calendar">
+    **What changes:** Every visit in the series (past, present, future)
+    
+    **Use case:**
+    - Change recurrence pattern (weekly → bi-weekly)
+    - Reassign all visits to different tech
+    - Change job (if job details were updated)
+    
+    **Example:**
+    - Regular schedule: Every 1 week on Monday
+    - Customer downgrades contract: Change to every 2 weeks
+    - Action: Edit any visit → Select "All visits in series" → Change pattern to "Every 2 weeks"
+    - Result: System deletes every other visit, keeps only bi-weekly visits
+    
+    <Warning>
+    **Caution:** Editing all visits affects completed visits too. If visits have already been completed and logged, you may not want to change those. Use "This and all future visits" instead.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+### Pausing Recurring Visits
+
+Temporarily stop recurring visits (e.g., customer on vacation, seasonal break):
+
+<Steps>
+  <Step title="Open Recurring Series Settings">
+    Calendar → Click any visit in the series → **"⋯"** → **"Manage Recurrence"**
+  </Step>
+
+  <Step title="Select 'Pause Series'">
+    Choose pause start and end dates:
+    
+    **Example:**
+    - Pause from: June 1, 2025
+    - Resume on: July 1, 2025
+  </Step>
+
+  <Step title="Confirm">
+    **What happens:**
+    - All visits between June 1 and July 1 are cancelled
+    - Visits after July 1 remain scheduled
+    - Customer is notified (optional)
+  </Step>
+
+  <Step title="Resume Series">
+    On July 1st, recurring visits automatically resume
+    
+    **Or manually resume early:**
+    - Open series settings → **"Resume Series"**
+  </Step>
+</Steps>
+
+**Use cases:**
+- Customer vacation (pause for 2 weeks)
+- Seasonal break (lawn care paused Nov-March)
+- Equipment offline (pool heater repair, pause pool service)
+
+---
+
+## Cancelling Recurring Visits
+
+Stop the recurring series permanently:
+
+### Full Cancellation (All Remaining Visits)
+
+<Steps>
+  <Step title="Open Recurring Series">
+    Calendar → Click any future visit → **"⋯"** → **"Cancel Series"**
+  </Step>
+
+  <Step title="Choose Cancellation Type">
+    **Option 1: Cancel all future visits**
+    - Keeps past completed visits
+    - Cancels all upcoming visits
+    
+    **Option 2: Cancel entire series**
+    - Deletes all visits (past and future)
+    - Use only if series was created by mistake
+  </Step>
+
+  <Step title="Select Reason">
+    **Common reasons:**
+    - Customer cancelled contract
+    - Service no longer needed
+    - Customer moved
+    - Switched to competitor
+    - Seasonal end (lawn care season over)
+    
+    Reason is logged for reporting and customer retention analysis.
+  </Step>
+
+  <Step title="Notify Customer">
+    **Optional:** Send cancellation confirmation to customer
+    
+    **Email/SMS includes:**
+    - Cancellation date
+    - Last completed visit
+    - Remaining balance (if prepaid contract)
+    - Next steps (refund, final invoice, etc.)
+  </Step>
+
+  <Step title="Confirm Cancellation">
+    Click **"Cancel Recurring Visits"**
+    
+    **What happens:**
+    - All future visits are cancelled
+    - Tech is notified (calendar clears)
+    - Customer is notified (if enabled)
+    - Cancelled visits remain in history (for reporting)
+  </Step>
+</Steps>
+
+<Tip>
+**Cancellation grace period:** Enable a 24-hour grace period before cancellations take effect (prevents accidental cancellations).
+
+Settings → Visits → Recurring Visit Cancellation → Require 24-hour notice
+</Tip>
+
+---
+
+## Auto-Scheduling vs Manual Scheduling
+
+When creating recurring visits, you can choose how visits are generated:
+
+<CardGroup cols={2}>
+  <Card title="Auto-Scheduling (Recommended)" icon="wand-magic-sparkles">
+    **How it works:** System automatically generates visits based on recurrence pattern
+    
+    **Example:** Create series on March 1st → System creates all 52 weekly visits for the year
+    
+    **Pros:**
+    - ✅ All visits visible on calendar immediately
+    - ✅ Techs can see their full schedule ahead
+    - ✅ Customers can see all upcoming visits
+    - ✅ No manual work required
+    
+    **Cons:**
+    - ❌ Large series (100+ visits) may clutter calendar
+    - ❌ If pattern changes, must edit all future visits
+    
+    **Best for:** Fixed contracts with known end date
+  </Card>
+
+  <Card title="Rolling Auto-Scheduling" icon="arrows-rotate">
+    **How it works:** System generates visits X weeks/months ahead (e.g., 4 weeks ahead)
+    
+    **Example:** On March 1st, system creates visits for March 1-31. On April 1st, creates April visits.
+    
+    **Pros:**
+    - ✅ Calendar stays cleaner (only shows next month)
+    - ✅ Easier to adjust pattern (fewer future visits to edit)
+    - ✅ Adapts to schedule changes automatically
+    
+    **Cons:**
+    - ❌ Techs can't see full schedule beyond X weeks
+    - ❌ Requires periodic system check (creates visits on schedule)
+    
+    **Best for:** Ongoing contracts with no end date
+    
+    Configure: **Settings → Recurring Visits → Auto-Schedule Ahead → 4 weeks**
+  </Card>
+</CardGroup>
+
+---
+
+## Recurring Visit Templates
+
+Save recurring patterns as templates for faster setup:
+
+### Creating a Template
+
+<Steps>
+  <Step title="Create Recurring Visit (Once)">
+    Set up a recurring visit with your desired pattern (e.g., weekly pool maintenance)
+  </Step>
+
+  <Step title="Save as Template">
+    After creating, click **"⋯"** → **"Save as Template"**
+    
+    Name the template: "Weekly Pool Maintenance"
+  </Step>
+
+  <Step title="Template Saves:">
+    - Recurrence pattern (every 1 week on Monday)
+    - Duration (1 hour)
+    - Visit notes
+    - Forms/checklists to assign
+    - Job items (if applicable)
+  </Step>
+
+  <Step title="Use Template for New Customers">
+    When setting up a new pool maintenance customer:
+    1. Create job for customer
+    2. Schedule visit → Select template: "Weekly Pool Maintenance"
+    3. Confirm start date and tech
+    4. Done! All pattern details auto-fill
+  </Step>
+</Steps>
+
+### Pre-Built Templates
+
+FieldCamp includes industry-specific templates:
+
+| Industry | Template | Pattern | Duration |
+|----------|----------|---------|----------|
+| **Pool Service** | Weekly Pool Maintenance | Every 1 week | 1 hour |
+| **Pool Service** | Bi-Weekly Pool Service | Every 2 weeks | 1 hour |
+| **HVAC** | Quarterly HVAC Maintenance | Every 3 months | 2 hours |
+| **HVAC** | Bi-Annual System Checkup | Every 6 months | 1.5 hours |
+| **Lawn Care** | Weekly Mowing (Seasonal) | Every 1 week (Apr-Oct) | 45 min |
+| **Pest Control** | Monthly Pest Service | Every 1 month (3rd Friday) | 1 hour |
+| **Cleaning** | Weekly Office Cleaning | Every 1 week (Friday) | 2 hours |
+| **Landscape** | Monthly Fertilization | Every 1 month (1st of month) | 1 hour |
+
+Navigate to **Settings → Recurring Visit Templates → Browse Industry Templates**
+
+---
+
+## Recurring Visit Analytics
+
+Track performance and revenue from recurring visits:
+
+### Key Metrics
+
+Navigate to **Reports → Recurring Visits**
+
+<CardGroup cols={2}>
+  <Card title="Completion Rate" icon="percent">
+    **What it measures:** % of recurring visits completed on schedule
+    
+    **Formula:** (Completed visits / Scheduled visits) × 100
+    
+    **Example:** 48 out of 52 weekly visits completed = 92% completion rate
+    
+    **Why it matters:** Low completion rate indicates scheduling issues or customer cancellations
+  </Card>
+
+  <Card title="Revenue per Series" icon="dollar-sign">
+    **What it measures:** Total revenue from each recurring visit series
+    
+    **Example:** Pool maintenance contract = $200/month × 12 months = $2,400/year
+    
+    **Why it matters:** Recurring revenue is more predictable and valuable than one-time jobs
+  </Card>
+
+  <Card title="Churn Rate" icon="arrow-right-from-bracket">
+    **What it measures:** % of recurring series cancelled before completion
+    
+    **Formula:** (Cancelled series / Total series) × 100
+    
+    **Example:** 5 out of 50 pool contracts cancelled = 10% churn rate
+    
+    **Why it matters:** High churn indicates customer dissatisfaction or competitive pressure
+  </Card>
+
+  <Card title="Average Series Duration" icon="calendar-days">
+    **What it measures:** How long customers keep recurring contracts
+    
+    **Example:** Average pool contract lasts 18 months
+    
+    **Why it matters:** Longer duration = higher customer lifetime value (CLV)
+  </Card>
+</CardGroup>
+
+### Recurring Revenue Report
+
+**Monthly Recurring Revenue (MRR):**
+```
+January 2025 MRR:
+- 25 pool contracts @ $200/month = $5,000
+- 10 lawn contracts @ $160/month = $1,600
+- 8 pest contracts @ $75/month = $600
+Total MRR: $7,200
+
+Annual Run Rate (ARR): $7,200 × 12 = $86,400
+```
+
+**Why MRR matters:**
+- Predictable revenue (easier to forecast)
+- Business valuation (SaaS-style multiples: 3-5× ARR)
+- Cash flow stability (recurring payments vs one-time jobs)
+
+---
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Assign Same Tech Each Visit" icon="user-check">
+    **Why:** Customers appreciate consistency (builds trust and relationship)
+    
+    **How:** Assign tech when creating series, only rotate if absolutely necessary
+  </Card>
+
+  <Card title="Use Same Day/Time" icon="clock">
+    **Why:** Predictability for customer (they know "every Monday at 10am")
+    
+    **How:** Avoid changing time unless customer requests it
+  </Card>
+
+  <Card title="Set Realistic End Dates" icon="calendar-check">
+    **Why:** Contracts should have clear end dates (auto-renew vs manual renewal)
+    
+    **How:** For annual contracts, set end date 1 year out (then renew if customer continues)
+  </Card>
+
+  <Card title="Monitor Completion Rates" icon="chart-line">
+    **Why:** Low completion = scheduling issues or customer dissatisfaction
+    
+    **How:** Weekly report of all recurring visits (completed vs skipped)
+  </Card>
+
+  <Card title="Automate Billing" icon="credit-card">
+    **Why:** Recurring visits = recurring invoices (reduce manual work)
+    
+    **How:** Set up auto-invoicing (monthly charge for all visits that month)
+  </Card>
+
+  <Card title="Proactive Communication" icon="comment">
+    **Why:** Remind customers before each visit (reduces no-shows)
+    
+    **How:** Enable auto-reminders (24 hours before visit)
+  </Card>
+</CardGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Customer wants to change from weekly to bi-weekly - how do I update?">
+    **Solution:**
+    
+    1. Open any future visit in the series
+    2. Click **"⋯"** → **"Manage Recurrence"**
+    3. Select **"Edit This and All Future Visits"**
+    4. Change pattern: Every 1 week → Every 2 weeks
+    5. Save
+    
+    **Result:** System deletes every other future visit, keeps only bi-weekly visits
+    
+    **Customer notification:** Send email explaining schedule change and new visit dates
+  </Accordion>
+
+  <Accordion title="Tech quit - how do I reassign all their recurring visits?">
+    **Solution:**
+    
+    1. Navigate to **Calendar** → Filter by departing tech
+    2. Select all future visits (bulk select)
+    3. Click **"Bulk Actions"** → **"Reassign"**
+    4. Choose new tech (or multiple techs if splitting workload)
+    5. Confirm
+    
+    **Result:** All future visits reassigned, new tech receives notification
+    
+    **Customer notification:** "Your regular technician [Old Tech] is no longer with us. [New Tech] will be handling your service going forward."
+  </Accordion>
+
+  <Accordion title="Customer paid for 12 visits upfront, but cancelled after 6 - how do I handle?">
+    **Billing approach:**
+    
+    1. Cancel remaining 6 visits (use "Cancel Series")
+    2. Calculate refund:
+       - Total paid: $1,200 (12 visits @ $100 each)
+       - Completed: 6 visits = $600
+       - Refund due: $600
+    3. Issue refund via your payment processor
+    4. Send customer confirmation of refund
+    
+    **Or offer credit instead of refund:**
+    - "We'll credit your account $600 for future service if you decide to resume"
+  </Accordion>
+
+  <Accordion title="Recurring visits aren't showing up on calendar">
+    **Troubleshooting:**
+    
+    ✅ **Check filter:** Calendar may be filtered by a specific tech (clear filters)
+    
+    ✅ **Check date range:** Calendar may be showing only this week (expand to month view)
+    
+    ✅ **Check auto-scheduling setting:** If using rolling auto-schedule (4 weeks ahead), visits beyond that aren't created yet
+    
+    ✅ **Check series status:** Series may be paused or cancelled (check series settings)
+    
+    ✅ **Force refresh:** Click "Sync" button to reload calendar data
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Creating Visits" icon="calendar-plus" href="/features/jobs/visits/creating-visits">
+    Learn how to schedule one-time visits (vs recurring)
+  </Card>
+
+  <Card title="Calendar & Scheduling" icon="calendar" href="/features/jobs/scheduling/calendar">
+    Master the calendar view for managing all visits
+  </Card>
+
+  <Card title="Job Types" icon="briefcase" href="/features/jobs/job-types">
+    Set up job types for different service contracts
+  </Card>
+
+  <Card title="Invoicing Recurring Jobs" icon="file-invoice" href="/features/invoicing/recurring-invoices">
+    Automate monthly billing for recurring visits
+  </Card>
+
+  <Card title="Visit Reports" icon="chart-line" href="/reports/visits">
+    Analyze recurring visit performance and revenue
+  </Card>
+
+  <Card title="Customer Notifications" icon="bell" href="/features/notifications/customer">
+    Customize reminders for recurring visit customers
+  </Card>
+</CardGroup>

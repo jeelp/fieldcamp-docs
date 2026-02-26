@@ -1,0 +1,650 @@
+---
+title: 'Team Availability'
+description: 'Manage working hours, time off, holidays, and availability for accurate scheduling'
+icon: 'user-clock'
+---
+
+## Overview
+
+Team availability is the foundation of accurate scheduling in FieldCamp. By setting each tech's working hours, time off, and holidays, you prevent double-bookings, reduce scheduling conflicts, and ensure customers receive realistic arrival times.
+
+<Info>
+**Availability vs Schedule:** Availability defines when a tech *can* work (working hours, time off). The calendar shows when a tech *is* scheduled (actual visits). FieldCamp uses availability to detect conflicts and recommend optimal scheduling.
+</Info>
+
+---
+
+## Working Hours
+
+Define default working hours for each tech to establish when they are available for visits.
+
+### Setting Default Working Hours
+
+**Steps:**
+1. Go to **Settings → Team → Team Members**
+2. Click a tech's name → **Availability** tab
+3. Set **Default Working Hours:**
+   - Monday: 8:00 AM – 5:00 PM
+   - Tuesday: 8:00 AM – 5:00 PM
+   - Wednesday: 8:00 AM – 5:00 PM
+   - Thursday: 8:00 AM – 5:00 PM
+   - Friday: 8:00 AM – 5:00 PM
+   - Saturday: Off (unchecked)
+   - Sunday: Off (unchecked)
+4. Click **Save**
+
+<Frame>
+  <img src="/images/screenshots/availability-working-hours.png" alt="Default working hours setup" />
+</Frame>
+
+**What this controls:**
+- ✅ Calendar time slots available for scheduling
+- ✅ Conflict detection (visits scheduled outside working hours trigger warnings)
+- ✅ AI Dispatcher recommendations (only suggest techs who are available)
+- ❌ Does not block scheduling (admins can override)
+
+<Tip>
+Use **company-wide defaults** (Settings → Company → Default Working Hours) to set hours for all techs at once. Individual techs can then customize their own hours.
+</Tip>
+
+---
+
+### Custom Hours per Day
+
+Override default hours for specific days (e.g., early start on Mondays, half-day on Fridays).
+
+**Steps:**
+1. Tech profile → **Availability** tab
+2. Click **Customize** next to a day (e.g., Friday)
+3. Set custom hours: 8:00 AM – 12:00 PM
+4. Click **Save**
+
+**Example use cases:**
+- **Early bird tech:** Monday–Wednesday 6:00 AM – 3:00 PM (avoid traffic)
+- **Part-time tech:** Friday only, 9:00 AM – 1:00 PM
+- **On-call rotation:** Every other Thursday, 5:00 PM – 9:00 PM
+
+<Frame>
+  <img src="/images/screenshots/availability-custom-hours.png" alt="Custom hours for specific days" />
+</Frame>
+
+---
+
+### Split Shifts
+
+Define multiple work periods in a single day (e.g., morning + evening, with lunch break).
+
+**Steps:**
+1. Tech profile → **Availability** → **Custom Hours**
+2. Click **+ Add Time Block**
+3. Set first shift: 8:00 AM – 12:00 PM
+4. Click **+ Add Time Block**
+5. Set second shift: 1:00 PM – 5:00 PM
+6. Click **Save**
+
+**Result:** Tech is unavailable 12:00 PM – 1:00 PM (blocked on calendar).
+
+<Info>
+Split shifts are useful for on-call services (e.g., 7 AM – 11 AM, then 5 PM – 9 PM for emergency calls).
+</Info>
+
+---
+
+## Time Off
+
+Track vacation, sick days, personal days, and other absences.
+
+### Requesting Time Off (Tech)
+
+Techs can request time off through the mobile app or desktop:
+
+**Steps (Desktop):**
+1. Click profile icon → **My Availability**
+2. Click **Request Time Off**
+3. Fill in:
+   - **Start Date** (e.g., 2026-03-10)
+   - **End Date** (e.g., 2026-03-14)
+   - **Type:** Vacation, Sick, Personal, Unpaid
+   - **Notes:** "Beach vacation, no service"
+4. Click **Submit Request**
+5. Manager receives notification to approve/deny
+
+**Steps (Mobile App):**
+1. Tap **Menu → My Schedule → Time Off**
+2. Tap **+ Request Time Off**
+3. Fill in dates, type, notes
+4. Tap **Submit**
+
+<Frame>
+  <img src="/images/screenshots/availability-time-off-request.png" alt="Time off request form" />
+</Frame>
+
+<Tip>
+**Pro tip:** Techs can request time off up to 12 months in advance. Managers can set minimum notice periods (e.g., "7 days notice required for vacation").
+</Tip>
+
+---
+
+### Approving Time Off (Manager)
+
+Managers review and approve/deny time off requests.
+
+**Steps:**
+1. **Notifications** panel → **Time Off Requests** (bell icon)
+2. Click a pending request (e.g., "John Smith - Vacation, Mar 10–14")
+3. Review:
+   - Dates
+   - Reason
+   - Impact: How many visits are scheduled during this period?
+   - Coverage: Are other techs available?
+4. Click **Approve** or **Deny**
+5. Optional: Add note (e.g., "Approved - enjoy your vacation!")
+6. Tech receives notification
+
+**Auto-approval rules:**
+- **Settings → Team → Time Off Policies**
+- Toggle: "Auto-approve sick days" (no manager approval required)
+- Toggle: "Auto-approve up to X days" (e.g., auto-approve requests ≤ 2 days)
+
+<Frame>
+  <img src="/images/screenshots/availability-approve-time-off.png" alt="Approve time off request" />
+</Frame>
+
+<Warning>
+Approving time off does **not** automatically cancel scheduled visits. You must manually reschedule visits that overlap with approved time off.
+</Warning>
+
+---
+
+### Time Off Calendar Integration
+
+Approved time off appears on the calendar as blocked time.
+
+**How it displays:**
+- **Team Calendar:** Gray/striped block across all time slots for the tech
+- **Hover tooltip:** "Vacation: Mar 10–14 (John Smith)"
+- **Conflict warning:** If you try to schedule a visit during time off, you'll see: ⚠️ "Tech is on vacation"
+
+**Overriding time off:**
+- Admins can still schedule visits during time off (e.g., emergency on-call)
+- Tech receives notification: "Visit scheduled during your time off (Mar 12, 10 AM)"
+
+---
+
+## Holidays
+
+Configure company-wide holidays when the entire team (or specific techs) are unavailable.
+
+### Setting Company Holidays
+
+**Steps:**
+1. **Settings → Company → Holidays**
+2. Click **+ Add Holiday**
+3. Fill in:
+   - **Name:** "Christmas Day"
+   - **Date:** December 25, 2026
+   - **Applies to:** All Techs (or select specific techs)
+   - **Type:** Paid Holiday, Unpaid Holiday
+4. Click **Save**
+
+**Repeat for all holidays:**
+- New Year's Day
+- Memorial Day
+- Independence Day
+- Labor Day
+- Thanksgiving
+- Christmas
+
+<Frame>
+  <img src="/images/screenshots/availability-holidays.png" alt="Company holidays setup" />
+</Frame>
+
+**Holiday display:**
+- Calendar shows gray/striped block for all techs
+- Tooltip: "🎄 Christmas Day (Company Holiday)"
+- Conflict warning if you try to schedule
+
+<Tip>
+Use **recurring holidays** (Settings → Holidays → Recurring) to auto-apply holidays every year (e.g., "Thanksgiving - 4th Thursday of November").
+</Tip>
+
+---
+
+### Regional Holidays (Multi-Location Teams)
+
+If your team operates in multiple states/countries, set region-specific holidays.
+
+**Example:**
+- **US techs:** Memorial Day (last Monday of May)
+- **Canada techs:** Victoria Day (Monday before May 25)
+
+**Steps:**
+1. **Settings → Holidays → + Add Holiday**
+2. Set **Name:** "Memorial Day (US)"
+3. Set **Date:** Last Monday of May (recurring)
+4. **Applies to:** Select US-based techs only
+5. Click **Save**
+6. Repeat for Victoria Day (Canada techs)
+
+---
+
+## Availability Types
+
+FieldCamp tracks four availability states:
+
+| State | Color | Meaning | Can Schedule? |
+|-------|-------|---------|---------------|
+| **Available** | Green | Tech is working and has no visits | ✅ Yes |
+| **Busy** | Blue | Tech has a visit scheduled | ⚠️ Yes (but creates conflict) |
+| **Off** | Gray | Time off, holiday, or outside working hours | ⚠️ Yes (with override) |
+| **Tentative** | Yellow | Visit scheduled but not confirmed | ✅ Yes |
+
+### Available (Green)
+
+Tech is within working hours and has no scheduled visits.
+
+**Ideal for:** Scheduling new visits without conflicts.
+
+---
+
+### Busy (Blue)
+
+Tech already has a visit scheduled during this time.
+
+**Scheduling behavior:**
+- FieldCamp shows conflict warning: ⚠️ "Tech has another visit at this time"
+- You can still schedule (creates overlapping visits)
+- Useful for: Team visits (multiple techs on same job)
+
+---
+
+### Off (Gray)
+
+Tech is unavailable (time off, holiday, or outside working hours).
+
+**Scheduling behavior:**
+- FieldCamp shows conflict warning: ⚠️ "Tech is off (Vacation)"
+- You can still schedule with admin override
+- Useful for: Emergency on-call during vacation
+
+---
+
+### Tentative (Yellow)
+
+Visit scheduled but awaiting confirmation (e.g., customer hasn't confirmed appointment).
+
+**Scheduling behavior:**
+- Slot is reserved but not fully committed
+- If customer cancels, slot becomes Available again
+
+<Info>
+Tentative visits are visible in the calendar but marked with "Pending Confirmation" badge.
+</Info>
+
+---
+
+## Availability Grid (Visual View)
+
+The availability grid shows your entire team's availability at a glance.
+
+**To open:**
+1. **Calendar → Team Availability** (button in toolbar)
+2. Or **Settings → Team → Availability Grid**
+
+**Grid display:**
+- **Rows:** Techs
+- **Columns:** Days of the week
+- **Cells:** Color-coded by availability (Green = Available, Blue = Busy, Gray = Off)
+
+<Frame>
+  <img src="/images/screenshots/availability-grid.png" alt="Team availability grid" />
+</Frame>
+
+**Use cases:**
+- **Quick overview:** See who is working today/this week
+- **Load balancing:** Identify techs with light schedules
+- **Coverage gaps:** Spot days when no one is available
+
+---
+
+## Checking Availability Before Scheduling
+
+Before scheduling a visit, check if the tech is available to avoid conflicts.
+
+### Real-Time Availability Indicator
+
+When creating a visit, FieldCamp shows availability status for each tech:
+
+**Visit creation modal:**
+1. Select **Date** and **Time**
+2. **Assigned Tech** dropdown shows:
+   - ✅ **John Smith** (Available)
+   - ⚠️ **Jane Doe** (Busy - 2 other visits)
+   - ❌ **Mike Johnson** (Off - Vacation)
+
+<Frame>
+  <img src="/images/screenshots/availability-indicator.png" alt="Real-time availability indicator" />
+</Frame>
+
+**AI Dispatcher integration:**
+- Click **AI Recommend** → FieldCamp suggests techs who are available *and* qualified
+
+---
+
+### Availability API
+
+Check availability programmatically via API:
+
+```bash
+GET /v1/techs/123/availability?date=2026-02-26
+```
+
+**Response:**
+```json
+{
+  "tech_id": 123,
+  "date": "2026-02-26",
+  "working_hours": {
+    "start": "08:00",
+    "end": "17:00"
+  },
+  "scheduled_visits": [
+    {
+      "visit_id": 456,
+      "start_time": "10:00",
+      "end_time": "12:00",
+      "job_id": 789,
+      "client": "ABC Plumbing"
+    }
+  ],
+  "available_slots": [
+    { "start": "08:00", "end": "10:00" },
+    { "start": "12:00", "end": "17:00" }
+  ],
+  "time_off": null
+}
+```
+
+See [Availability API Reference](/api-reference/availability) for full details.
+
+---
+
+## Conflict Detection
+
+FieldCamp automatically detects scheduling conflicts and displays warnings.
+
+### Conflict Types
+
+| Conflict | Description | Warning |
+|----------|-------------|---------|
+| **Double-booking** | Tech has two visits at the same time | 🔴 "Tech has another visit at 10 AM" |
+| **Insufficient travel time** | Visit scheduled too soon after previous visit | 🔴 "Only 15 min travel time (needs 30 min)" |
+| **Overtime** | Visit extends beyond working hours | ⚠️ "Visit ends at 6 PM (working hours end at 5 PM)" |
+| **Time off conflict** | Visit during approved time off | 🔴 "Tech is on vacation (Mar 10–14)" |
+| **Holiday conflict** | Visit on company holiday | 🔴 "Company holiday (Christmas)" |
+
+<Frame>
+  <img src="/images/screenshots/availability-conflict-warning.png" alt="Conflict warning in calendar" />
+</Frame>
+
+### Conflict Resolution Options
+
+When FieldCamp detects a conflict:
+
+1. **View alternatives:** Click conflict warning → See AI-recommended techs who are available
+2. **Reschedule:** Drag visit to a different time slot
+3. **Reassign:** Assign to a different tech
+4. **Override:** Click "Schedule anyway" (admin only)
+
+<Warning>
+Overriding conflicts may result in late arrivals, overtime charges, or customer dissatisfaction. Use sparingly.
+</Warning>
+
+---
+
+## Availability Sync with External Calendars
+
+Sync tech availability with Google Calendar or Outlook to block personal appointments.
+
+### Google Calendar Sync (Bidirectional)
+
+**How it works:**
+- Tech connects personal Google Calendar to FieldCamp
+- Personal events (dentist, lunch, etc.) appear as "Busy" in FieldCamp availability
+- FieldCamp visits appear in Google Calendar
+
+**Setup:**
+1. **Tech profile → Integrations → Google Calendar**
+2. Click **Connect Google Calendar**
+3. Authorize FieldCamp to read/write calendar
+4. Select which calendars to sync:
+   - ✅ Personal (block personal appointments)
+   - ❌ Family calendar (ignore)
+5. Click **Save**
+
+**Availability impact:**
+- Personal event "Dentist Appointment (2 PM – 3 PM)" → FieldCamp marks tech as "Busy" 2–3 PM
+- FieldCamp visit "Service Call (10 AM – 12 PM)" → Appears in Google Calendar
+
+<Tip>
+**Privacy:** FieldCamp only sees event times, not titles or descriptions. "Dentist Appointment" shows as "Personal Event" in FieldCamp.
+</Tip>
+
+---
+
+### Outlook / Microsoft 365 Sync
+
+Identical setup to Google Calendar:
+
+1. **Tech profile → Integrations → Outlook**
+2. Sign in with Microsoft 365 account
+3. Select calendars to sync
+4. Click **Save**
+
+---
+
+## Availability Notifications
+
+Techs receive notifications when their availability changes or when visits are scheduled during unusual times.
+
+### Notification Triggers
+
+| Event | Notification |
+|-------|--------------|
+| **Time off approved** | "Your vacation request (Mar 10–14) has been approved" |
+| **Time off denied** | "Your vacation request (Mar 10–14) was denied. Reason: Peak season" |
+| **Visit scheduled during time off** | "Visit scheduled on Mar 12 during your vacation (emergency on-call)" |
+| **Visit scheduled outside working hours** | "Visit scheduled at 7 PM (after your normal hours)" |
+| **Availability changed by manager** | "Your working hours on Friday have been updated to 8 AM – 12 PM" |
+
+**Notification channels:**
+- 📱 Push notification (mobile app)
+- 📧 Email
+- 💬 SMS (if enabled)
+
+**Settings:**
+- **Tech profile → Notifications → Availability**
+- Toggle: "Notify me of schedule changes"
+- Toggle: "Notify me of time off decisions"
+
+---
+
+## Availability Reports
+
+Generate reports to analyze team availability and workload.
+
+### Availability Summary Report
+
+**To generate:**
+1. **Reports → Team → Availability Summary**
+2. Select date range (This Week, This Month, Custom)
+3. Select techs (All Techs or specific)
+4. Click **Generate**
+
+**Report includes:**
+- Total working hours (per tech, per week)
+- Scheduled hours (visits booked)
+- Available hours (open slots)
+- Time off hours
+- Utilization rate (Scheduled ÷ Working Hours)
+
+<Frame>
+  <img src="/images/screenshots/availability-report.png" alt="Availability summary report" />
+</Frame>
+
+**Example:**
+
+| Tech | Working Hours | Scheduled Hours | Available Hours | Utilization |
+|------|---------------|-----------------|-----------------|-------------|
+| John Smith | 40 | 32 | 8 | 80% |
+| Jane Doe | 40 | 28 | 12 | 70% |
+| Mike Johnson | 20 (PTO) | 0 | 0 | 0% |
+
+---
+
+### Time Off Report
+
+**To generate:**
+1. **Reports → Team → Time Off Report**
+2. Select date range
+3. Click **Generate**
+
+**Report includes:**
+- Time off requests (approved, pending, denied)
+- Total days off (per tech, per type)
+- Time off balance (remaining vacation days)
+
+**Example:**
+
+| Tech | Vacation Days Taken | Sick Days Taken | Remaining Vacation | Pending Requests |
+|------|---------------------|-----------------|-------------------|------------------|
+| John Smith | 8 | 2 | 12 | 0 |
+| Jane Doe | 5 | 1 | 15 | 1 (Mar 10–14) |
+
+---
+
+## Best Practices
+
+### 1. Set Accurate Working Hours from Day One
+
+**Why:** Prevents scheduling conflicts and ensures customers receive realistic arrival times.
+
+**Workflow:**
+- During tech onboarding, set default working hours
+- Review and update quarterly (schedules change seasonally)
+
+---
+
+### 2. Encourage Techs to Request Time Off Early
+
+**Why:** Last-minute requests force rescheduling of customer visits.
+
+**Policy suggestion:**
+- Vacation: 14 days notice required
+- Sick days: Same-day notification (auto-approved)
+- Personal days: 7 days notice preferred
+
+---
+
+### 3. Use Tentative Status for Unconfirmed Visits
+
+**Why:** Reserves the slot but allows flexibility if customer cancels.
+
+**Workflow:**
+- When customer says "maybe," create visit with **Tentative** status
+- If confirmed, change to **Scheduled**
+- If cancelled, delete visit → Slot becomes Available
+
+---
+
+### 4. Block Personal Appointments via Calendar Sync
+
+**Why:** Prevents office staff from accidentally scheduling over tech's dentist appointments, lunch breaks, etc.
+
+**Setup:**
+- Each tech connects personal Google Calendar/Outlook
+- Personal events show as "Busy" (no details visible)
+
+---
+
+### 5. Review Availability Reports Weekly
+
+**Why:** Identify overworked techs and underutilized techs to balance workload.
+
+**Workflow:**
+- Every Monday, run Availability Summary Report
+- If Tech A is at 95% utilization, Tech B is at 60% → Reassign visits
+
+---
+
+## Troubleshooting
+
+### Tech Showing as "Available" But Says They're Busy
+
+**Possible causes:**
+- Working hours not set correctly
+- Personal calendar not synced
+- Time off request not approved
+
+**Fixes:**
+1. Check working hours: Tech profile → Availability
+2. Check calendar sync: Tech profile → Integrations → Calendar
+3. Check time off: Settings → Team → Time Off Requests
+
+---
+
+### Calendar Sync Not Blocking Personal Appointments
+
+**Symptoms:** Tech's personal Google Calendar events not appearing as "Busy" in FieldCamp.
+
+**Fixes:**
+1. Verify calendar connection: Tech profile → Integrations → Google Calendar → **Sync Status**
+2. If "Disconnected," reconnect calendar
+3. Check which calendars are selected: Only selected calendars sync
+4. Wait 5 minutes for sync to complete
+
+---
+
+### Conflict Warning Not Appearing
+
+**Symptoms:** FieldCamp allows double-booking without warning.
+
+**Possible causes:**
+- Conflict detection disabled
+- Admin override enabled for your role
+
+**Fixes:**
+1. **Settings → Calendar → Conflict Detection** → Toggle "Enable conflict warnings" to ON
+2. Check role permissions: Settings → Roles → Calendar → "Can override conflicts"
+
+---
+
+## Related Documentation
+
+<CardGroup cols={2}>
+  <Card title="Calendar & Scheduling" icon="calendar-days" href="/features/jobs/scheduling/calendar">
+    View and manage team schedules in the calendar
+  </Card>
+  
+  <Card title="Creating Visits" icon="calendar-plus" href="/features/jobs/visits/creating-visits">
+    Schedule visits with availability checking
+  </Card>
+  
+  <Card title="Route Optimization" icon="route" href="/features/jobs/scheduling/route-optimization">
+    Optimize routes based on tech availability
+  </Card>
+  
+  <Card title="Team Management" icon="users" href="/features/team">
+    Manage team members, roles, and permissions
+  </Card>
+</CardGroup>
+
+---
+
+## Support
+
+Need help managing team availability?
+
+- **Live Chat:** Click the chat icon (bottom-right)
+- **Email:** support@fieldcamp.ai
+- **Help Center:** [help.fieldcamp.ai](https://help.fieldcamp.ai)

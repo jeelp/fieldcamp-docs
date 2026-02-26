@@ -1,0 +1,1061 @@
+---
+title: "Creating Jobs"
+description: "Complete guide to creating jobs in FieldCamp — from simple one-field jobs to complex multi-visit projects"
+icon: "plus"
+---
+
+# Creating Jobs in FieldCamp
+
+Creating a job is the first step in every field service workflow. Whether you're scheduling a simple repair or planning a complex installation, FieldCamp makes it fast and flexible.
+
+<Info>
+  **New to jobs?** Read [Jobs Overview](/features/jobs/overview) first to understand the basics.
+</Info>
+
+---
+
+## Quick Start: Create a Job in 30 Seconds
+
+The fastest way to create a job:
+
+<Steps>
+  <Step title="Click + New Job">
+    From the **Jobs** page or dashboard, click the **+ New Job** button.
+  </Step>
+  
+  <Step title="Select Client">
+    Choose a client from the dropdown (or create a new one).
+  </Step>
+  
+  <Step title="Add Description">
+    Enter what needs to be done (e.g., "Fix leaky faucet in kitchen").
+  </Step>
+  
+  <Step title="Save">
+    Click **Create Job**. Done!
+  </Step>
+</Steps>
+
+That's all you need for a basic job. Everything else (pricing, scheduling, team assignment) is optional and can be added later.
+
+<!-- Screenshot: create-job-modal-minimal.png — Minimal create job form with just client + description -->
+
+---
+
+## Where to Create Jobs
+
+You can create jobs from multiple places in FieldCamp:
+
+<CardGroup cols={2}>
+  <Card title="Jobs Page" icon="briefcase">
+    Click **+ New Job** from the main Jobs page.
+    
+    **Best for:** Creating standalone jobs when you already know the details.
+  </Card>
+  
+  <Card title="Dashboard" icon="home">
+    Click **+ New Job** from the quick actions on your dashboard.
+    
+    **Best for:** Fast job creation without leaving your home screen.
+  </Card>
+  
+  <Card title="Client Profile" icon="user">
+    Open a client's profile and click **+ New Job**.
+    
+    **Best for:** Creating jobs directly from a client's page (client pre-selected).
+  </Card>
+  
+  <Card title="Requests Page" icon="inbox">
+    Convert a work request to a job with one click.
+    
+    **Best for:** Turning client inquiries into scheduled work.
+    
+    <Info>Learn more: [Converting Requests to Jobs](/features/requests/converting-to-jobs)</Info>
+  </Card>
+  
+  <Card title="Calendar" icon="calendar">
+    Click a date/time on the calendar and create a job + visit in one step.
+    
+    **Best for:** Scheduling jobs when you already know the date.
+  </Card>
+  
+  <Card title="Mobile App" icon="mobile">
+    Create jobs on the go from your phone.
+    
+    **Best for:** Creating emergency jobs in the field.
+  </Card>
+</CardGroup>
+
+---
+
+## The Create Job Modal
+
+Let's walk through every field in the create job modal.
+
+<!-- Screenshot: create-job-modal-full.png — Full create job modal with all fields visible -->
+
+---
+
+### Required Fields
+
+Only **two fields** are required to create a job:
+
+#### 1. Client
+
+<AccordionGroup>
+  <Accordion title="Select Existing Client">
+    Start typing the client's name or company. FieldCamp will auto-suggest matching clients.
+    
+    When you select a client, their address, phone number, and email auto-populate.
+  </Accordion>
+  
+  <Accordion title="Create New Client">
+    Don't see the client? Click **+ New Client** to create one inline.
+    
+    You'll need:
+    - Client name (required)
+    - Phone number (recommended)
+    - Address (recommended)
+    
+    Everything else can be added later.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  **Pro tip:** Add clients before creating jobs. It's faster and helps you keep client data clean.
+</Tip>
+
+<!-- Screenshot: client-selector-dropdown.png — Client selector with search and new client button -->
+
+---
+
+#### 2. Description
+
+A clear description of what needs to be done. This shows up:
+- In the mobile app (for techs)
+- On invoices and estimates
+- In job search results
+- In client-facing documents
+
+**Good examples:**
+- ✅ "Replace water heater with 50-gallon electric model. Inspect and replace expansion tank if needed."
+- ✅ "AC tune-up: clean coils, check refrigerant, replace filter, test thermostat"
+- ✅ "Fix leaky faucet in master bathroom sink. Client reports slow drain as well — inspect."
+
+**Bad examples:**
+- ❌ "Water heater" (too vague)
+- ❌ "Job 123" (not descriptive)
+- ❌ "Same as last time" (unclear)
+
+<Warning>
+  The description is the first thing techs see on their mobile app. Make it clear and specific so they know what to expect.
+</Warning>
+
+<!-- Screenshot: description-field.png — Description field with example text -->
+
+---
+
+### Optional Fields
+
+These fields are optional but recommended for better organization and tracking:
+
+#### Job Type
+
+Choose between **One-Time** (default) or **Recurring**.
+
+<Tabs>
+  <Tab title="One-Time Jobs">
+    Single projects with a clear start and end.
+    
+    **Examples:**
+    - Fix a leak
+    - Install new AC
+    - Paint a room
+    
+    Most jobs are one-time.
+  </Tab>
+  
+  <Tab title="Recurring Jobs">
+    Ongoing work that repeats on a schedule.
+    
+    **Examples:**
+    - Monthly pool service
+    - Quarterly HVAC maintenance
+    - Weekly lawn care
+    
+    When you choose recurring, you'll set:
+    - **Frequency:** Daily, Weekly, Monthly, Quarterly, Yearly, Custom
+    - **Start date:** When does the first occurrence happen?
+    - **End condition:** Never, After X occurrences, or Until a specific date
+    
+    <Info>Learn more: [Job Types](/features/jobs/job-types)</Info>
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: job-type-selector.png — Radio buttons for one-time vs recurring -->
+
+---
+
+#### Priority
+
+Set the urgency level:
+
+<CardGroup cols={4}>
+  <Card title="Low" icon="circle">
+    Non-urgent work. Can be scheduled flexibly.
+    
+    **Example:** Annual inspection due in 3 months
+  </Card>
+  
+  <Card title="Medium" icon="circle">
+    Standard priority (default).
+    
+    **Example:** Client requested service within a week
+  </Card>
+  
+  <Card title="High" icon="circle">
+    Needs attention soon.
+    
+    **Example:** AC not cooling well during summer
+  </Card>
+  
+  <Card title="Urgent" icon="circle">
+    Emergency — immediate dispatch needed.
+    
+    **Example:** Burst pipe flooding the basement
+  </Card>
+</CardGroup>
+
+Priority affects:
+- How jobs appear in lists (urgent jobs stand out)
+- AI Dispatcher recommendations (urgent jobs get faster techs)
+- Mobile app notifications (urgent jobs alert techs immediately)
+
+<!-- Screenshot: priority-dropdown.png — Priority selector with color-coded options -->
+
+---
+
+#### Status
+
+The job's current lifecycle stage:
+
+<Tabs>
+  <Tab title="Draft (Default)">
+    Job is being created but not ready to schedule yet.
+    
+    **Use when:**
+    - You're still gathering information
+    - Waiting for client approval
+    - Pricing isn't finalized
+  </Tab>
+  
+  <Tab title="Scheduled">
+    Job has at least one visit scheduled.
+    
+    **Auto-set when:** You schedule a visit
+  </Tab>
+  
+  <Tab title="Unscheduled">
+    Job is approved and ready to work on, but no visit scheduled yet.
+    
+    **Use when:**
+    - Client said yes but you haven't picked a date
+    - Waiting for tech availability
+  </Tab>
+</Tabs>
+
+<Info>
+  Most status changes happen automatically. Learn more: [Job Status](/features/jobs/job-status)
+</Info>
+
+<!-- Screenshot: status-dropdown.png — Status selector with descriptions -->
+
+---
+
+#### Tags
+
+Tag jobs for easy filtering and organization:
+
+**Common tags:**
+- By service type: "Plumbing", "HVAC", "Electrical"
+- By source: "Google Ad", "Referral", "Website"
+- By characteristic: "Emergency", "VIP Client", "Follow-up Needed"
+
+<Tip>
+  **Pro tip:** Create tags in advance from [Settings → Tags](/settings/tags). This keeps tagging consistent across your team.
+</Tip>
+
+You can add multiple tags to one job.
+
+<!-- Screenshot: tags-selector.png — Multi-select tag dropdown with color-coded tags -->
+
+---
+
+#### Internal Notes
+
+Add notes that only your team can see (not visible to clients).
+
+**Use for:**
+- Special instructions for techs
+- Access codes (gate codes, lockbox combinations)
+- Client preferences ("prefers morning appointments")
+- Historical context ("third callback for same issue")
+
+<Warning>
+  Internal notes are team-only. For customer-facing notes, add them after creating the job from the job detail page.
+</Warning>
+
+<!-- Screenshot: internal-notes-field.png — Text area for internal notes -->
+
+---
+
+### Job Items (Products & Services)
+
+Add billable products and services to the job.
+
+<!-- Screenshot: job-items-section.png — Job items interface in create modal -->
+
+#### Why Add Items Now?
+
+Adding items when you create a job helps you:
+- ✅ Give accurate quotes to clients upfront
+- ✅ Track inventory needs (know what parts to bring)
+- ✅ Generate invoices automatically later (items become invoice line items)
+
+<Tip>
+  You can always add items later from the job detail page.
+</Tip>
+
+---
+
+#### Adding Items from Your Catalog
+
+<Steps>
+  <Step title="Click Add Item">
+    In the **Job Items** section, click **+ Add Item**.
+  </Step>
+  
+  <Step title="Search Your Catalog">
+    Start typing a product or service name. FieldCamp searches your catalog.
+  </Step>
+  
+  <Step title="Select Item">
+    Click the item you want. Price and description auto-fill.
+  </Step>
+  
+  <Step title="Set Quantity">
+    Enter how many units you need (default: 1).
+  </Step>
+  
+  <Step title="Adjust Price (Optional)">
+    Override the default price if this job needs custom pricing.
+  </Step>
+</Steps>
+
+<!-- Screenshot: add-item-modal.png — Item picker with search and catalog items -->
+
+---
+
+#### Creating Custom Items
+
+Don't have the item in your catalog? Create a custom one:
+
+<Steps>
+  <Step title="Click Add Custom Item">
+    In the item picker, click **+ Custom Item**.
+  </Step>
+  
+  <Step title="Enter Details">
+    - **Name:** "Emergency service fee"
+    - **Unit Price:** $150
+    - **Quantity:** 1
+    - **Tax:** Choose tax rate or "No tax"
+  </Step>
+  
+  <Step title="Save">
+    Click **Add**. The item is added to this job only (not saved to catalog).
+  </Step>
+</Steps>
+
+<Info>
+  To add the item to your catalog for future use, go to [Products & Services](/features/product-service/overview).
+</Info>
+
+<!-- Screenshot: custom-item-form.png — Custom item creation form -->
+
+---
+
+#### Item Pricing Breakdown
+
+Each item shows:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| **Name** | Item description | "Water Heater - 50 Gallon Electric" |
+| **Quantity** | How many units | 1 |
+| **Unit Price** | Price per unit | $800.00 |
+| **Subtotal** | Quantity × Unit Price | $800.00 |
+| **Tax** | Tax amount (if applicable) | $80.00 (10%) |
+| **Total** | Subtotal + Tax | $880.00 |
+
+<!-- Screenshot: item-row-breakdown.png — Single item row showing all fields -->
+
+---
+
+#### Job Totals
+
+At the bottom of the items section, you'll see:
+
+- **Subtotal:** Sum of all item subtotals (before tax)
+- **Tax:** Total tax across all items
+- **Discount:** Any job-level discount (optional)
+- **Total:** Final amount
+
+<Info>
+  Learn more about pricing, discounts, and taxes: [Job Items & Pricing](/features/jobs/job-items)
+</Info>
+
+<!-- Screenshot: job-totals.png — Job totals summary with subtotal, tax, discount, total -->
+
+---
+
+### Team Assignment
+
+Assign one or more team members to the job.
+
+<Tabs>
+  <Tab title="Manual Assignment">
+    **How to assign:**
+    1. Click the **Team** dropdown
+    2. Select one or more techs
+    3. Assigned techs see the job in their mobile app
+    
+    **When to use:**
+    - You know which tech should handle it
+    - Client requested a specific tech
+    - You're assigning based on availability you already checked
+  </Tab>
+  
+  <Tab title="AI Dispatcher">
+    Let FieldCamp's AI recommend the best tech.
+    
+    **How it works:**
+    1. Click **AI Dispatcher** button
+    2. AI analyzes: skills, location, schedule, drive time, workload
+    3. Get top 3 recommendations with confidence scores
+    4. Click to assign
+    
+    **When to use:**
+    - You're not sure who's best for the job
+    - You want to minimize drive time
+    - You want to balance workload across techs
+    
+    <Info>Learn more: [AI Dispatcher](/features/jobs/ai-dispatcher)</Info>
+  </Tab>
+  
+  <Tab title="Unassigned">
+    Leave the job unassigned for now.
+    
+    **When to use:**
+    - You're creating the job but scheduling later
+    - You want to discuss assignment with your team first
+    - This is a draft that needs approval
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: team-assignment-dropdown.png — Team selector with AI Dispatcher button -->
+
+---
+
+### Skills & Equipment
+
+Specify what's needed for the job:
+
+#### Skills Required
+
+<AccordionGroup>
+  <Accordion title="What are skills?">
+    Skills are qualifications or expertise needed for a job.
+    
+    **Examples:**
+    - HVAC Certification
+    - Electrical License
+    - Plumbing License
+    - CPR Certified
+    - Commercial Kitchen Experience
+  </Accordion>
+  
+  <Accordion title="How to use skills">
+    1. Click **Skills Required** dropdown
+    2. Select one or more skills
+    3. FieldCamp filters techs by skills when assigning or dispatching
+  </Accordion>
+  
+  <Accordion title="Creating new skills">
+    Don't see a skill? Go to [Settings → Skills](/settings/skills) to create one, then assign it to team members.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: skills-selector.png — Multi-select dropdown for skills -->
+
+---
+
+#### Equipment Required
+
+<AccordionGroup>
+  <Accordion title="What is equipment?">
+    Tools, vehicles, or gear needed for the job.
+    
+    **Examples:**
+    - Drain Snake
+    - Ladder (40-foot)
+    - Compressor
+    - Truck with Lift Gate
+    - Inspection Camera
+  </Accordion>
+  
+  <Accordion title="How to use equipment">
+    1. Click **Equipment Required** dropdown
+    2. Select one or more items
+    3. Techs see this in the mobile app and know what to bring
+  </Accordion>
+  
+  <Accordion title="Creating new equipment">
+    Go to [Settings → Equipment](/settings/equipment) to add new items to the list.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: equipment-selector.png — Multi-select dropdown for equipment -->
+
+<Tip>
+  **Pro tip:** Use equipment requirements to prevent "forgot the ladder" situations. Techs can check the job before leaving.
+</Tip>
+
+---
+
+### Schedule a Visit (Optional)
+
+You can schedule a visit right from the create job modal — or schedule later.
+
+<Tabs>
+  <Tab title="Schedule Now">
+    **How to schedule:**
+    1. Check **Schedule a visit now**
+    2. Pick a date
+    3. Pick a start time
+    4. Enter estimated duration (e.g., 2 hours)
+    5. Assign a tech (if not already assigned)
+    
+    The job status automatically changes to **Scheduled**.
+    
+    **When to use:**
+    - You already know when the work needs to happen
+    - Client requested a specific date/time
+    - You're creating the job during scheduling time
+  </Tab>
+  
+  <Tab title="Schedule Later">
+    Leave **Schedule a visit** unchecked.
+    
+    You can schedule visits later from:
+    - The job detail page
+    - The calendar
+    - The mobile app
+    
+    **When to use:**
+    - You're still coordinating with the client
+    - Waiting for tech availability
+    - This is a draft job that needs approval first
+  </Tab>
+</Tabs>
+
+<Info>
+  Learn more about visit scheduling: [Creating Visits](/features/jobs/visits/creating-visits)
+</Info>
+
+<!-- Screenshot: schedule-visit-section.png — Visit scheduling fields in create modal -->
+
+---
+
+### Attach Forms (Optional)
+
+Attach forms or checklists for techs to complete on-site.
+
+**How to attach:**
+1. Click **Attach Forms**
+2. Select from your form templates
+3. Forms appear in the mobile app when techs open the job
+
+**Common forms:**
+- HVAC inspection checklist
+- Safety checklist
+- Customer survey
+- Service report (with photos and signatures)
+
+<Info>
+  Learn more: [Job Forms & Checklists](/features/jobs/forms/overview)
+</Info>
+
+<!-- Screenshot: attach-forms-dropdown.png — Form template selector -->
+
+---
+
+## Using Job Templates
+
+Job templates let you create jobs from pre-configured blueprints.
+
+### What's in a template?
+
+- Default description
+- Pre-selected items (products/services)
+- Pre-attached forms
+- Required skills and equipment
+- Estimated duration
+
+### How to use a template:
+
+<Steps>
+  <Step title="Click Use Template">
+    In the create job modal, click **Use Template** at the top.
+  </Step>
+  
+  <Step title="Pick a template">
+    Select from your saved templates (e.g., "AC Tune-Up", "Drain Cleaning", "Water Heater Install").
+  </Step>
+  
+  <Step title="Template auto-fills">
+    Description, items, forms, and settings are pre-filled from the template.
+  </Step>
+  
+  <Step title="Customize & Save">
+    Edit anything you need, then create the job.
+  </Step>
+</Steps>
+
+<Tip>
+  **Pro tip:** Create templates for your most common services. It saves tons of time.
+</Tip>
+
+<Info>
+  Learn how to create templates: [Job Templates](/features/jobs/job-templates)
+</Info>
+
+<!-- Screenshot: template-selector.png — Template picker with preview -->
+
+---
+
+## Creating Jobs from Requests
+
+If you use FieldCamp's **Requests** module (work request tracking), you can convert requests to jobs with one click.
+
+**How it works:**
+1. Open a request from the Requests page
+2. Click **Convert to Job**
+3. The create job modal opens with:
+   - Client pre-selected (from request)
+   - Description pre-filled (from request)
+   - Photos attached (if request had photos)
+4. Add items, schedule visits, and create
+
+<Info>
+  Learn more: [Converting Requests to Jobs](/features/requests/converting-to-jobs)
+</Info>
+
+<!-- Screenshot: convert-request-button.png — Request detail with Convert to Job button -->
+
+---
+
+## Creating Recurring Jobs
+
+For ongoing maintenance or subscription-based services, create a recurring job.
+
+### Step 1: Set Job Type to Recurring
+
+In the create job modal, select **Recurring** instead of One-Time.
+
+---
+
+### Step 2: Configure Recurrence Pattern
+
+<Tabs>
+  <Tab title="Daily">
+    **Example:** Daily pool service for a hotel
+    
+    - **Every X days:** 1 (daily), 2 (every other day), etc.
+  </Tab>
+  
+  <Tab title="Weekly">
+    **Example:** Weekly lawn care every Friday
+    
+    - **Every X weeks:** 1 (weekly), 2 (bi-weekly), 4 (monthly)
+    - **On days:** Monday, Tuesday, etc. (select multiple)
+  </Tab>
+  
+  <Tab title="Monthly">
+    **Example:** Monthly HVAC maintenance on the 1st
+    
+    - **Day of month:** 1–31 (e.g., "15th of every month")
+    - **OR Day of week:** "First Monday", "Last Friday", etc.
+  </Tab>
+  
+  <Tab title="Quarterly">
+    **Example:** Quarterly fire extinguisher inspection
+    
+    - **Start month:** January, April, July, October
+  </Tab>
+  
+  <Tab title="Yearly">
+    **Example:** Annual HVAC tune-up every spring
+    
+    - **Month and day:** March 1, May 15, etc.
+  </Tab>
+  
+  <Tab title="Custom">
+    **Example:** Every 45 days, every 3 weeks, etc.
+    
+    - **Frequency:** Days, Weeks, Months
+    - **Interval:** Number of periods between occurrences
+  </Tab>
+</Tabs>
+
+<!-- Screenshot: recurrence-pattern-selector.png — Recurrence settings with frequency options -->
+
+---
+
+### Step 3: Set End Condition
+
+Choose when the recurring job should stop:
+
+<AccordionGroup>
+  <Accordion title="Never">
+    Job repeats indefinitely until you manually cancel it.
+    
+    **Use for:** Ongoing maintenance contracts with no end date.
+  </Accordion>
+  
+  <Accordion title="After X occurrences">
+    Job stops after a specific number of visits.
+    
+    **Example:** "After 12 visits" for a 1-year monthly contract.
+  </Accordion>
+  
+  <Accordion title="Until a specific date">
+    Job stops after a certain date.
+    
+    **Example:** "Until December 31, 2026" for a calendar-year contract.
+  </Accordion>
+</AccordionGroup>
+
+<!-- Screenshot: end-condition-selector.png — End condition options with date picker -->
+
+---
+
+### Step 4: Auto-Create Visits (Optional)
+
+Check **Auto-create visits** to have FieldCamp automatically schedule visits on the recurrence pattern.
+
+**How it works:**
+- FieldCamp creates visits in advance (configurable, default: 30 days)
+- Visits appear on the calendar and in the mobile app
+- You can reschedule or cancel individual visits without affecting the series
+
+<Warning>
+  If you **don't** check auto-create visits, the job is marked recurring but you'll need to manually schedule each visit.
+</Warning>
+
+<Info>
+  Learn more: [Recurring Visits](/features/jobs/visits/recurring-visits)
+</Info>
+
+<!-- Screenshot: auto-create-visits-checkbox.png — Checkbox for auto-creating visits -->
+
+---
+
+## Creating Jobs on Mobile
+
+Techs can create jobs from the FieldCamp mobile app.
+
+**How it works:**
+1. Tap **+ New Job** from the Jobs tab
+2. Select client (or create new)
+3. Enter description
+4. Add items (optional)
+5. Take photos (optional)
+6. Tap **Create Job**
+
+<Tip>
+  **Pro tip:** Use mobile job creation for emergency calls in the field. Techs can create and start working on a job immediately.
+</Tip>
+
+<Info>
+  Learn more: [Mobile App](/mobile/overview)
+</Info>
+
+<!-- Screenshot: mobile-create-job.png — Mobile app create job screen -->
+
+---
+
+## Bulk Job Creation
+
+Need to create many jobs at once? Use bulk import.
+
+### Step 1: Prepare a CSV File
+
+Your CSV should have these columns:
+
+| Column | Required? | Description |
+|--------|-----------|-------------|
+| `clientName` | ✅ Yes | Client name (must match existing client) |
+| `description` | ✅ Yes | What needs to be done |
+| `status` | No | Draft, Scheduled, etc. (default: Draft) |
+| `priority` | No | Low, Medium, High, Urgent (default: Medium) |
+| `tags` | No | Comma-separated tags |
+| `assignedTo` | No | Tech email or name |
+
+**Example CSV:**
+
+```csv
+clientName,description,status,priority,tags,assignedTo
+ABC Plumbing,Monthly AC maintenance,Unscheduled,Medium,HVAC,john@example.com
+XYZ Electric,Fix outlet in kitchen,Draft,Low,Electrical,jane@example.com
+```
+
+---
+
+### Step 2: Import
+
+1. Go to **Jobs** page
+2. Click **⋮ More** → **Import Jobs**
+3. Upload your CSV
+4. Map columns (FieldCamp auto-detects)
+5. Click **Import**
+
+<!-- Screenshot: bulk-import-ui.png — CSV import interface with column mapping -->
+
+<Warning>
+  Bulk import requires **Owner** or **Admin** role.
+</Warning>
+
+---
+
+## Best Practices
+
+### ✅ DO
+
+<AccordionGroup>
+  <Accordion title="Use templates for common services">
+    If you do the same job 10+ times a month (AC tune-ups, drain cleaning, etc.), create a template.
+    
+    **Time saved:** 30–60 seconds per job = hours per month.
+  </Accordion>
+  
+  <Accordion title="Add items when you create the job">
+    Even if pricing might change, adding items upfront helps you:
+    - Give accurate quotes
+    - Track inventory needs
+    - Generate invoices faster later
+  </Accordion>
+  
+  <Accordion title="Use clear, specific descriptions">
+    ✅ "Replace water heater with 50-gallon electric model. Inspect expansion tank."
+    
+    ❌ "Water heater job"
+  </Accordion>
+  
+  <Accordion title="Set priority correctly">
+    Priority affects AI Dispatcher, mobile app sorting, and team awareness. Use it.
+  </Accordion>
+  
+  <Accordion title="Tag consistently">
+    Create a standard set of tags and train your team to use them. This makes filtering and reporting much better.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### ❌ DON'T
+
+<AccordionGroup>
+  <Accordion title="Don't skip client assignment">
+    Every job must have a client. If you're doing internal work, create a "House Account" client.
+  </Accordion>
+  
+  <Accordion title="Don't create duplicate jobs">
+    If a job already exists for a client, add a new visit instead of creating a second job.
+  </Accordion>
+  
+  <Accordion title="Don't over-schedule">
+    Don't schedule visits for jobs that don't have finalized scope or client approval. Keep them as Draft or Unscheduled.
+  </Accordion>
+  
+  <Accordion title="Don't forget skills/equipment">
+    If a job requires certifications or special tools, specify them. It prevents issues later.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Keyboard Shortcuts
+
+| Action | Shortcut |
+|--------|----------|
+| Open create job modal | `Cmd/Ctrl + N` |
+| Save and create | `Cmd/Ctrl + Enter` |
+| Close modal without saving | `Esc` |
+| Focus client search | `Cmd/Ctrl + F` |
+
+---
+
+## Troubleshooting
+
+### I can't find a client in the dropdown
+
+**Possible causes:**
+1. Client doesn't exist yet → Create a new client
+2. Client is archived → Go to [Clients](/features/clients/overview) and unarchive
+3. Spelling mismatch → Try searching by phone number or company name
+
+---
+
+### AI Dispatcher isn't showing up
+
+**Possible causes:**
+1. No job address → AI needs GPS coordinates to calculate drive time
+2. No available techs → All techs are busy or off during the visit time
+3. Skills required but no techs have them → Remove skill requirement or assign manually
+
+<Info>
+  Learn more: [AI Dispatcher Troubleshooting](/features/jobs/ai-dispatcher#troubleshooting)
+</Info>
+
+---
+
+### Items aren't showing in the picker
+
+**Possible causes:**
+1. Your catalog is empty → Go to [Products & Services](/features/product-service/overview) and add items
+2. Items are archived → Unarchive them from the catalog
+3. Search term doesn't match → Try broader search
+
+---
+
+### Job created but doesn't appear in the list
+
+**Possible causes:**
+1. Job status is Draft and your view filters Drafts → Change view or filter
+2. You created the job for a different organization (multi-org users) → Check org selector
+3. Your role can only see assigned jobs → Check that you're assigned to the job
+
+---
+
+## API: Create Jobs Programmatically
+
+Create jobs via the FieldCamp API:
+
+```bash
+curl -X POST https://app.fieldcamp.ai/api/v1/jobs \
+  -H "X-Api-Key: your_api_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "clientId": "507f1f77bcf86cd799439011",
+    "description": "Fix leaky faucet in kitchen",
+    "status": "Draft",
+    "priority": "Medium",
+    "tags": ["Plumbing", "Emergency"],
+    "items": [
+      {
+        "name": "Kitchen Faucet - Chrome",
+        "quantity": 1,
+        "unitPrice": 150.00,
+        "taxRate": 0.10
+      },
+      {
+        "name": "Labor - Plumbing",
+        "quantity": 1,
+        "unitPrice": 120.00,
+        "taxRate": 0.10
+      }
+    ]
+  }'
+```
+
+```json
+// Response
+{
+  "success": true,
+  "data": {
+    "id": "507f1f77bcf86cd799439012",
+    "jobNumber": "JOB-1234",
+    "clientId": "507f1f77bcf86cd799439011",
+    "description": "Fix leaky faucet in kitchen",
+    "status": "Draft",
+    "priority": "Medium",
+    "tags": ["Plumbing", "Emergency"],
+    "subtotal": 270.00,
+    "tax": 27.00,
+    "total": 297.00,
+    "createdAt": "2026-02-26T19:00:00Z"
+  }
+}
+```
+
+<Info>
+  Full API reference: [Jobs API](/features/jobs/api)
+</Info>
+
+---
+
+## Video Tutorial
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/placeholder"
+  title="Creating Jobs in FieldCamp"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+<Note>
+  **Duration:** 5 minutes | **Topics:** Creating a basic job, adding items, scheduling a visit, using templates
+</Note>
+
+---
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Schedule Visits" icon="calendar" href="/features/jobs/visits/creating-visits">
+    Learn how to schedule appointments for your jobs
+  </Card>
+  
+  <Card title="Add Items & Pricing" icon="dollar-sign" href="/features/jobs/job-items">
+    Master job items, discounts, and taxes
+  </Card>
+  
+  <Card title="Use Job Templates" icon="file-lines" href="/features/jobs/job-templates">
+    Speed up job creation with templates
+  </Card>
+  
+  <Card title="Understand Job Status" icon="traffic-light" href="/features/jobs/job-status">
+    Learn the job lifecycle and status transitions
+  </Card>
+</CardGroup>
+
+---
+
+## Related Articles
+
+- [Jobs Overview](/features/jobs/overview) — Understand the basics
+- [Job List & Views](/features/jobs/job-list) — Filter and organize jobs
+- [Job Detail Page](/features/jobs/job-detail) — Explore every tab
+- [Job Types](/features/jobs/job-types) — One-time vs recurring
+- [AI Dispatcher](/features/jobs/ai-dispatcher) — Auto-assign jobs
+- [Converting Requests to Jobs](/features/requests/converting-to-jobs) — Turn inquiries into work
+
+---
+
+<Check>
+  **You now know:** How to create jobs from multiple places, fill in every field, use templates, create recurring jobs, bulk import, and troubleshoot common issues.
+</Check>

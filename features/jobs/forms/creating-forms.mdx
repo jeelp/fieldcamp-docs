@@ -1,0 +1,964 @@
+---
+title: "Creating Job Forms"
+description: "Build custom forms and checklists with the drag-and-drop form builder"
+---
+
+## Overview
+
+FieldCamp's form builder lets you create custom inspection checklists, service forms, and customer surveys tailored to your exact workflows. The drag-and-drop interface makes it easy to design professional forms without coding.
+
+<Info>
+  **No-Code Form Builder:** Create complex forms with conditional logic, photo capture, digital signatures, and more—all without writing a single line of code.
+</Info>
+
+---
+
+## Accessing the Form Builder
+
+### From Settings
+
+1. Navigate to **Settings → Forms**
+2. Click **Create New Form** button
+3. Form builder opens in a new tab
+
+### From Job Type Settings
+
+1. Navigate to **Settings → Job Types**
+2. Edit existing job type or create new one
+3. Under **Default Forms**, click **Create New Form**
+4. Form builder opens with automatic assignment to that job type
+
+### From Template Library
+
+1. Navigate to **Settings → Forms**
+2. Browse pre-built templates
+3. Click **Clone Template** to customize an existing form
+4. Form builder opens with template fields pre-populated
+
+<Tip>
+  **Start with a Template:** Clone a pre-built template and modify it to save time. Industry-standard templates include best practices and commonly needed fields.
+</Tip>
+
+---
+
+## Form Builder Interface
+
+The form builder is organized into three main sections:
+
+### Left Sidebar: Field Palette
+
+Drag-and-drop field types available for adding to your form.
+
+**Basic Fields:**
+- Text Input (single line)
+- Text Area (multi-line)
+- Number Input
+- Checkbox
+- Radio Buttons
+- Dropdown (Select)
+
+**Advanced Fields:**
+- Date Picker
+- Time Picker
+- Date/Time Picker
+- Photo Capture
+- Signature Capture
+- GPS Location
+- Barcode Scanner
+- File Upload
+
+**Layout Elements:**
+- Section Header
+- Divider Line
+- Help Text Block
+- Page Break
+
+---
+
+### Center Canvas: Form Preview
+
+Live preview of your form as techs will see it on mobile and desktop.
+
+**Features:**
+- Real-time preview (see changes immediately)
+- Toggle between mobile/desktop views
+- Drag fields to reorder
+- Click field to edit properties
+- Delete fields (trash icon)
+
+---
+
+### Right Sidebar: Field Properties
+
+Configure selected field's settings, validation, and logic.
+
+**Common Properties:**
+- Field Label
+- Help Text
+- Placeholder Text
+- Default Value
+- Required (yes/no)
+- Conditional Logic (show/hide rules)
+
+**Advanced Properties (varies by field type):**
+- Validation rules (min/max, regex patterns)
+- Options (for dropdowns, radio buttons)
+- Camera settings (for photo fields)
+- GPS accuracy (for location fields)
+
+---
+
+## Step-by-Step: Creating a Form
+
+### Step 1: Form Details
+
+Start by configuring basic form information.
+
+**Form Name:**
+- Internal name for your reference (not shown to customers)
+- Example: "HVAC 20-Point Inspection Checklist"
+- Use descriptive names for easy identification
+
+**Form Description (Optional):**
+- Brief summary of form purpose
+- Shown to techs when selecting form
+- Example: "Seasonal maintenance checklist for residential HVAC systems"
+
+**Form Category:**
+- Organize forms by type (Inspections, Safety, Surveys)
+- Create custom categories in Settings
+- Helps with searching and filtering
+
+**Form Tags:**
+- Add keywords for searching (e.g., "HVAC", "residential", "maintenance")
+- Multiple tags supported
+- Improves discoverability in large form libraries
+
+---
+
+### Step 2: Add Fields
+
+Drag fields from the left sidebar onto the center canvas.
+
+#### Adding a Text Field
+
+1. **Drag "Text Input"** from sidebar to canvas
+2. **Click field** to open properties panel
+3. **Set properties:**
+   - **Label:** "Equipment Serial Number"
+   - **Placeholder:** "Enter serial number"
+   - **Help Text:** "Located on equipment nameplate"
+   - **Required:** Yes
+   - **Validation:** "Alphanumeric only"
+
+#### Adding a Number Field
+
+1. **Drag "Number Input"** from sidebar
+2. **Configure properties:**
+   - **Label:** "Refrigerant Pressure (PSI)"
+   - **Min Value:** 0
+   - **Max Value:** 200
+   - **Decimal Places:** 1
+   - **Unit Display:** "PSI" (shown after input)
+   - **Help Text:** "Normal range: 60-80 PSI"
+
+#### Adding a Checkbox
+
+1. **Drag "Checkbox"** from sidebar
+2. **Configure:**
+   - **Label:** "Filter replaced"
+   - **Default:** Unchecked
+   - **Required:** Yes (cannot submit unless checked)
+
+#### Adding Radio Buttons
+
+1. **Drag "Radio Buttons"** from sidebar
+2. **Configure:**
+   - **Label:** "Equipment Condition"
+   - **Options:**
+     - Good (working properly, no issues)
+     - Fair (working but shows wear, minor issues)
+     - Poor (needs immediate repair or replacement)
+   - **Layout:** Vertical
+   - **Required:** Yes
+
+<Info>
+  **Radio vs. Dropdown:** Use radio buttons for 2-5 options (easy to tap on mobile). Use dropdowns for 6+ options (saves screen space).
+</Info>
+
+#### Adding a Dropdown
+
+1. **Drag "Dropdown"** from sidebar
+2. **Configure:**
+   - **Label:** "Equipment Make"
+   - **Options:**
+     - Carrier
+     - Trane
+     - Lennox
+     - Goodman
+     - Rheem
+     - York
+     - Other
+   - **Allow Search:** Yes (techs can type to filter)
+   - **Allow Custom Entry:** Yes (for "Other")
+
+---
+
+### Step 3: Add Photo Fields
+
+Photo fields are essential for visual documentation.
+
+#### Single Photo Field
+
+1. **Drag "Photo Capture"** from sidebar
+2. **Configure:**
+   - **Label:** "Equipment Nameplate Photo"
+   - **Required:** Yes
+   - **Max Photos:** 1
+   - **Help Text:** "Capture photo of model and serial number plate"
+   - **Auto-Timestamp:** Yes
+   - **GPS Tag:** Yes
+
+#### Multi-Photo Field
+
+1. **Drag "Photo Capture"** from sidebar
+2. **Configure:**
+   - **Label:** "Site Photos"
+   - **Required:** No
+   - **Max Photos:** 10
+   - **Help Text:** "Document work area, equipment, and completed work"
+   - **Allow Annotation:** Yes (arrows, text, highlights)
+
+**Photo Field Options:**
+
+| Option | Description | Recommended Use |
+|--------|-------------|-----------------|
+| **Max Photos** | 1-20 photos per field | Equipment tags: 1-2; Work documentation: 5-10 |
+| **Required** | Must capture photo to submit form | Compliance items, critical documentation |
+| **Auto-Timestamp** | Add date/time overlay | All photos (proof of when work occurred) |
+| **GPS Tag** | Embed GPS coordinates | Site verification, asset location tracking |
+| **Allow Annotation** | Enable drawing tools | Highlight issues, add arrows to point out details |
+| **Camera Quality** | Low/Medium/High resolution | High for equipment details, Medium for general docs |
+
+<Warning>
+  **Photo Upload Time:** High-resolution photos (5-10MB each) take longer to upload on cellular connections. For forms with many photos, recommend WiFi upload or set Camera Quality to Medium.
+</Warning>
+
+---
+
+### Step 4: Add Signature Fields
+
+Digital signature capture for customer approval and technician acknowledgment.
+
+#### Customer Signature
+
+1. **Drag "Signature Capture"** from sidebar
+2. **Configure:**
+   - **Label:** "Customer Signature"
+   - **Required:** Yes
+   - **Signature Type:** Drawn (finger/stylus)
+   - **Include Name Field:** Yes ("Print Name")
+   - **Include Date:** Yes (auto-populated)
+   - **Agreement Text:** "I confirm that the work described above has been completed to my satisfaction."
+
+#### Technician Signature
+
+1. **Drag "Signature Capture"** from sidebar
+2. **Configure:**
+   - **Label:** "Technician Signature"
+   - **Required:** Yes
+   - **Auto-Fill Name:** Yes (from logged-in tech profile)
+   - **Include Date:** Yes
+
+**Signature Options:**
+
+- **Signature Type:**
+  - Drawn (default) - Finger/stylus on touchscreen
+  - Typed - Type name in cursive font (less secure, faster)
+  
+- **Clear Button:** Allow signer to redraw if signature looks wrong
+
+- **Agreement Text:** Display terms/conditions above signature line
+
+- **Dual Signatures:** Require both customer AND tech signature (checkbox: "Require both signatures")
+
+---
+
+### Step 5: Add Date/Time Fields
+
+For scheduling, expiration dates, and timestamp documentation.
+
+#### Date Picker
+
+1. **Drag "Date Picker"** from sidebar
+2. **Configure:**
+   - **Label:** "Next Service Due Date"
+   - **Default Value:** "90 days from today" (calculated)
+   - **Min Date:** Today (cannot select past dates)
+   - **Max Date:** "1 year from today"
+   - **Required:** No
+
+#### Time Picker
+
+1. **Drag "Time Picker"** from sidebar
+2. **Configure:**
+   - **Label:** "Arrival Time"
+   - **Default Value:** Current time
+   - **Format:** 12-hour (AM/PM)
+   - **Required:** Yes
+
+#### Date/Time Picker (Combined)
+
+1. **Drag "Date/Time Picker"** from sidebar
+2. **Configure:**
+   - **Label:** "Inspection Timestamp"
+   - **Default Value:** "Now" (auto-filled)
+   - **Editable:** No (locked to submission time)
+   - **Required:** Yes
+
+---
+
+### Step 6: Add GPS Location Fields
+
+Automatically capture device location for site verification and compliance.
+
+1. **Drag "GPS Location"** from sidebar
+2. **Configure:**
+   - **Label:** "Service Location Verification"
+   - **Auto-Capture:** On form open (captures location when tech opens form)
+   - **Accuracy Requirement:** High (within 50 feet)
+   - **Show Map:** Yes (display location on map in completed form)
+   - **Required:** Yes (cannot submit without GPS capture)
+   - **Timeout:** 30 seconds (if GPS not acquired, show error)
+
+**GPS Field Use Cases:**
+
+- **Site Verification:** Confirm tech is actually on-site (not completing form remotely)
+- **Asset Location:** Track where equipment is installed
+- **Compliance:** Prove work occurred at permitted location
+- **Safety:** Document location of hazard or incident
+
+<Tip>
+  **GPS Accuracy Indoors:** GPS signals are weak inside buildings. For indoor work, set Accuracy Requirement to Low (within 500 feet) or make field optional.
+</Tip>
+
+---
+
+### Step 7: Organize with Sections
+
+Group related fields into sections for better readability.
+
+#### Adding Section Headers
+
+1. **Drag "Section Header"** from sidebar
+2. **Configure:**
+   - **Header Text:** "Equipment Information"
+   - **Style:** Large, bold text
+   - **Collapsible:** Yes (techs can collapse section if not applicable)
+
+**Example Form Structure:**
+
+```
+📋 HVAC Maintenance Checklist
+
+━━━ EQUIPMENT INFORMATION ━━━
+  - Equipment Make
+  - Equipment Model
+  - Serial Number
+  - Installation Date
+
+━━━ VISUAL INSPECTION ━━━
+  - Electrical connections secure?
+  - Refrigerant lines intact?
+  - Drain line clear?
+  - Cabinet condition
+
+━━━ PERFORMANCE TESTING ━━━
+  - Supply air temperature (°F)
+  - Return air temperature (°F)
+  - Refrigerant pressure (PSI)
+  - Voltage (V)
+
+━━━ RECOMMENDATIONS ━━━
+  - Issues found (text area)
+  - Recommended repairs
+  - Estimated cost
+
+━━━ SIGN-OFF ━━━
+  - Customer Signature
+  - Technician Signature
+```
+
+#### Adding Divider Lines
+
+1. **Drag "Divider Line"** from sidebar
+2. Use to separate major form sections visually
+3. No configuration needed (purely visual)
+
+#### Adding Help Text Blocks
+
+1. **Drag "Help Text Block"** from sidebar
+2. **Configure:**
+   - **Text:** "Safety Note: Ensure power is disconnected before inspecting electrical components."
+   - **Style:** Info box (blue background)
+   - **Icon:** Warning triangle
+
+**Help Text Styles:**
+- **Info** (blue) - General guidance
+- **Warning** (yellow) - Caution notes
+- **Danger** (red) - Critical safety warnings
+- **Success** (green) - Best practices
+
+---
+
+### Step 8: Add Conditional Logic
+
+Show or hide fields based on answers to previous questions (dynamic forms).
+
+#### Simple Conditional: Show Field if Checkbox Checked
+
+**Scenario:** Only ask for repair details if equipment needs repair.
+
+1. **Add Checkbox:**
+   - Label: "Equipment needs repair?"
+   
+2. **Add Text Area (below checkbox):**
+   - Label: "Describe repairs needed"
+   
+3. **Configure Text Area → Conditional Logic:**
+   - **Show this field when:** "Equipment needs repair?" = Checked
+   - **Hide this field when:** "Equipment needs repair?" = Unchecked
+
+**Result:** Text area only appears if checkbox is checked.
+
+---
+
+#### Advanced Conditional: Multiple Conditions
+
+**Scenario:** Show different follow-up questions based on equipment condition rating.
+
+1. **Add Radio Buttons:**
+   - Label: "Equipment Condition"
+   - Options: Good / Fair / Poor
+
+2. **Add Text Area 1:**
+   - Label: "Describe issues" (maintenance notes)
+   - **Show when:** Condition = Fair
+
+3. **Add Text Area 2:**
+   - Label: "Urgent repair needed" (critical issues)
+   - **Show when:** Condition = Poor
+
+4. **Add Photo Field:**
+   - Label: "Photo of damage"
+   - **Show when:** Condition = Poor
+
+**Result:** Form adapts based on tech's condition assessment.
+
+---
+
+#### Conditional Logic Operators
+
+Configure complex rules with multiple conditions:
+
+**Single Condition:**
+- Show when [Field A] = [Value]
+- Hide when [Field A] = [Value]
+
+**Multiple Conditions (AND):**
+- Show when [Field A] = [Value] AND [Field B] = [Value]
+- Example: Show "Refrigerant Low Warning" when Pressure < 60 AND Equipment Type = "AC Unit"
+
+**Multiple Conditions (OR):**
+- Show when [Field A] = [Value] OR [Field B] = [Value]
+- Example: Show "Electrical Hazard Form" when Voltage > 250 OR Arcing Detected = Yes
+
+**Nested Conditions:**
+- Show when ([Field A] = [Value] AND [Field B] = [Value]) OR [Field C] = [Value]
+
+<Info>
+  **Conditional Logic Best Practice:** Don't overcomplicate forms. Use conditionals to hide irrelevant fields, not to create complex branching workflows. If your form needs 5+ conditionals, consider breaking it into multiple simpler forms.
+</Info>
+
+---
+
+### Step 9: Field Validation
+
+Ensure data quality by validating field inputs before submission.
+
+#### Text Field Validation
+
+**Alphanumeric Only:**
+- Regex: `^[a-zA-Z0-9]+$`
+- Use for: Serial numbers, part numbers
+
+**Email Format:**
+- Regex: `^[^\s@]+@[^\s@]+\.[^\s@]+$`
+- Use for: Email addresses
+
+**Phone Number:**
+- Regex: `^\d{3}-\d{3}-\d{4}$` (US format)
+- Use for: Phone numbers
+
+**Custom Pattern:**
+- Define your own regex
+- Example: "Permit numbers must start with 'P' followed by 6 digits" → `^P\d{6}$`
+
+**Character Limits:**
+- Min Length: 5 characters
+- Max Length: 500 characters
+- Use for: Ensure adequate detail in notes
+
+---
+
+#### Number Field Validation
+
+**Range Validation:**
+- Min Value: 32 (freezing point)
+- Max Value: 120 (max safe temp)
+- Use for: Temperature readings, pressure values
+
+**Precision:**
+- Decimal Places: 2
+- Use for: Currency, precise measurements
+
+**Warning Thresholds:**
+- Show warning if value outside normal range
+- Example: "Pressure is outside normal range (60-80 PSI). Please verify reading."
+
+---
+
+#### Date Field Validation
+
+**Min/Max Date:**
+- Cannot schedule before today
+- Cannot schedule more than 1 year out
+
+**Business Days Only:**
+- Exclude weekends
+- Use for: Next service scheduling
+
+**Custom Validation:**
+- "Expiration date must be at least 30 days from today"
+
+---
+
+### Step 10: Calculated Fields
+
+Auto-calculate values based on other field inputs.
+
+#### Example: Total Labor Hours
+
+**Fields:**
+- "Start Time" (time picker)
+- "End Time" (time picker)
+- "Total Hours" (calculated, read-only)
+
+**Calculation:**
+- Total Hours = End Time - Start Time
+- Display: "4.5 hours"
+
+#### Example: Efficiency Rating
+
+**Fields:**
+- "Expected Completion Time" (number, in hours)
+- "Actual Completion Time" (number, in hours)
+- "Efficiency Percentage" (calculated, read-only)
+
+**Calculation:**
+- Efficiency % = (Expected / Actual) × 100
+- Display: "125%" (completed faster than expected)
+
+#### Example: Invoice Subtotal
+
+**Fields:**
+- "Quantity" (number)
+- "Unit Price" (number)
+- "Subtotal" (calculated, read-only)
+
+**Calculation:**
+- Subtotal = Quantity × Unit Price
+- Display: "$450.00"
+
+**Calculated Field Operators:**
+- `+` Addition
+- `-` Subtraction
+- `×` Multiplication
+- `÷` Division
+- `SUM()` Sum of multiple fields
+- `AVG()` Average of multiple fields
+- `MIN()` Lowest value
+- `MAX()` Highest value
+
+---
+
+## Form Settings
+
+Configure form-level settings that apply to the entire form.
+
+### General Settings
+
+**Form Title:**
+- Displayed at top of form (customer-facing)
+- Example: "HVAC Seasonal Maintenance Report"
+
+**Form Instructions:**
+- Brief overview shown before form starts
+- Example: "Complete all required fields and capture photos of equipment. Customer signature required."
+
+**Form Color Theme:**
+- Choose brand colors for form header/buttons
+- Matches your company branding
+
+**Form Logo:**
+- Upload company logo (shown in PDF exports)
+
+---
+
+### Submission Settings
+
+**Auto-Save Drafts:**
+- Save progress every 30 seconds (prevents data loss)
+- Enabled by default
+
+**Allow Offline Completion:**
+- Forms can be completed without internet
+- Syncs when device reconnects
+- Enabled by default (highly recommended)
+
+**Submission Confirmation:**
+- Show success message after submission
+- Custom message: "Thank you! Your inspection report has been submitted."
+
+**Email Copy to Customer:**
+- Auto-send PDF copy to customer email
+- Sent immediately upon submission
+- Enabled by default
+
+**Email Copy to Office:**
+- CC office admin on all form submissions
+- Email: admin@yourcompany.com
+
+---
+
+### Advanced Settings
+
+**Form Expiration:**
+- Auto-lock form after 24 hours of visit completion
+- Prevents late/backdated form submissions
+- Recommended for compliance
+
+**Multi-Page Forms:**
+- Split long forms into pages (e.g., Page 1: Equipment Info, Page 2: Inspection, Page 3: Recommendations)
+- Progress indicator shown (Page 1 of 3)
+- Useful for 20+ field forms
+
+**Form Versioning:**
+- Track form revisions
+- Lock previous versions (historical forms remain unchanged)
+- Show version number in form header (v1.2)
+
+**Form Permissions:**
+- Who can complete this form?
+  - All Technicians
+  - Specific Roles (e.g., HVAC Certified Techs only)
+  - Specific Users (assign by name)
+
+---
+
+## Testing Your Form
+
+Before deploying a form to your team, test it thoroughly.
+
+### Preview Mode
+
+1. Click **Preview** button (top-right of form builder)
+2. Form opens in new tab (read-only preview)
+3. Toggle between mobile and desktop views
+4. Check:
+   - Field labels clear?
+   - Help text visible?
+   - Conditional logic working?
+   - Layout looks good on mobile?
+
+---
+
+### Test Submission
+
+1. Click **Test Submit** button
+2. Fill out form as a tech would
+3. Capture test photos (use sample images)
+4. Submit form
+5. Review completed form PDF
+6. Check:
+   - All fields captured correctly?
+   - Photos display properly?
+   - Signatures render correctly?
+   - PDF layout professional?
+
+<Tip>
+  **Field Testing:** Have 2-3 technicians complete a test form on their actual mobile devices before rolling out to entire team. This catches mobile-specific issues (small tap targets, slow photo uploads, GPS issues indoors).
+</Tip>
+
+---
+
+## Saving and Publishing Forms
+
+### Save as Draft
+
+- Click **Save Draft**
+- Form saved but not visible to technicians
+- Can continue editing later
+- Useful for complex forms built over multiple sessions
+
+### Publish Form
+
+1. Click **Publish** button
+2. Form becomes available in form library
+3. Can now be assigned to jobs
+4. Versioned as v1.0
+
+**Publishing Checklist:**
+- ✅ All required fields marked with asterisk
+- ✅ Conditional logic tested
+- ✅ Form previewed on mobile
+- ✅ Test submission completed
+- ✅ PDF export reviewed
+- ✅ Team trained on new form
+
+---
+
+## Cloning Forms
+
+Duplicate existing forms to create variations.
+
+**When to Clone:**
+- Create seasonal variants (Summer HVAC vs. Winter HVAC checklist)
+- Customer-specific forms (Standard vs. Premium service checklist)
+- Regional variations (different compliance requirements per state)
+
+**How to Clone:**
+
+1. Navigate to **Settings → Forms**
+2. Find form to clone
+3. Click **⋮** (three dots) → **Clone**
+4. New form created with " (Copy)" appended to name
+5. Edit cloned form as needed
+6. Publish
+
+<Info>
+  **Version Control:** Cloning creates a separate form (not a new version). Use cloning for variants. Use "Edit → Save" for updates to the same form (creates new version).
+</Info>
+
+---
+
+## Editing Published Forms
+
+### Minor Edits (Creates New Version)
+
+**Examples of minor edits:**
+- Add help text to existing field
+- Change field label wording
+- Add optional field
+- Update dropdown options
+
+**How It Works:**
+1. Click **Edit** on published form
+2. Make changes
+3. Click **Save**
+4. New version created (v1.0 → v1.1)
+5. **Historical forms unchanged** (completed forms show version used)
+6. **New form assignments use new version**
+
+---
+
+### Major Edits (Requires New Form)
+
+**Examples of major edits:**
+- Removing required fields
+- Changing field types (text → number)
+- Restructuring entire form
+
+**How It Works:**
+1. Clone existing form
+2. Make major changes
+3. Publish as new form
+4. Update job types to use new form
+5. Archive old form (prevents new assignments)
+6. Historical forms remain accessible
+
+<Warning>
+  **Breaking Changes:** Removing required fields or changing field types can cause issues with historical data. Always clone and create a new form for major restructuring.
+</Warning>
+
+---
+
+## Form Templates Library
+
+FieldCamp includes industry-specific form templates ready to use.
+
+### HVAC Templates
+
+- **Seasonal Maintenance Checklist** (20-point inspection)
+- **Filter Replacement Form** (quick service)
+- **Refrigerant Leak Inspection**
+- **Ductwork Inspection**
+- **Thermostat Calibration**
+
+### Plumbing Templates
+
+- **Water Heater Inspection**
+- **Backflow Preventer Test**
+- **Drain Cleaning Report**
+- **Pipe Leak Assessment**
+- **Fixture Installation Checklist**
+
+### Electrical Templates
+
+- **Panel Inspection Report**
+- **Outlet Testing Checklist**
+- **Lighting Audit**
+- **Generator Load Test**
+- **Electrical Safety Assessment**
+
+### General Templates
+
+- **Safety Pre-Job Checklist**
+- **Customer Satisfaction Survey**
+- **Site Inspection Report**
+- **Equipment Warranty Registration**
+- **Emergency Service Report**
+
+---
+
+## Best Practices
+
+### Form Design
+
+<AccordionGroup>
+  <Accordion title="Limit forms to 15-20 fields maximum">
+    **Why:** Long forms reduce completion rates and increase errors.
+    
+    **Solution:** Break long forms into multiple shorter forms or use multi-page forms with sections.
+  </Accordion>
+
+  <Accordion title="Use specific, actionable field labels">
+    **Why:** Vague labels like "Notes" or "Status" lead to inconsistent data entry.
+    
+    **Good:** "Describe any equipment damage observed"
+    **Bad:** "Notes"
+  </Accordion>
+
+  <Accordion title="Provide help text for technical fields">
+    **Why:** Techs may not remember acceptable ranges or units.
+    
+    **Example:** "Refrigerant Pressure (PSI)" → Help text: "Normal range: 60-80 PSI for R-410A systems"
+  </Accordion>
+
+  <Accordion title="Make critical fields required, leave nice-to-haves optional">
+    **Why:** Balances data completeness with form completion speed.
+    
+    **Required:** Safety checks, customer signature, equipment serial numbers
+    **Optional:** Additional notes, non-critical photos, recommendations
+  </Accordion>
+</AccordionGroup>
+
+### Field Organization
+
+<AccordionGroup>
+  <Accordion title="Group related fields into sections">
+    **Why:** Improves scannability and reduces cognitive load.
+    
+    **Example Sections:**
+    - Equipment Information
+    - Visual Inspection
+    - Performance Testing
+    - Recommendations
+    - Sign-Off
+  </Accordion>
+
+  <Accordion title="Order fields logically (mirror physical workflow)">
+    **Why:** Techs complete forms faster when field order matches their work sequence.
+    
+    **Good Order (HVAC):**
+    1. Equipment info (recorded first at nameplate)
+    2. Visual inspection (walking around unit)
+    3. Performance testing (turn on unit, take readings)
+    4. Recommendations (after testing complete)
+    5. Customer signature (final step)
+  </Accordion>
+
+  <Accordion title="Place signatures at the end">
+    **Why:** Signature implies "I've completed everything above." Don't ask for signature mid-form.
+  </Accordion>
+</AccordionGroup>
+
+### Conditional Logic
+
+<AccordionGroup>
+  <Accordion title="Use conditionals to reduce visual clutter">
+    **Why:** Showing 50 fields at once is overwhelming. Show only relevant fields.
+    
+    **Example:** Only show "Repair Estimate" field if tech selects "Equipment needs repair"
+  </Accordion>
+
+  <Accordion title="Don't over-complicate with nested conditionals">
+    **Why:** Complex conditional chains confuse techs and are hard to maintain.
+    
+    **Rule of Thumb:** Max 2-3 levels of conditional nesting. If you need more, break into multiple forms.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+### "Field not appearing in mobile preview"
+
+**Cause:** Conditional logic hiding field or field placed outside visible canvas.
+
+**Solution:**
+- Check conditional logic rules (might be triggered by default values)
+- Scroll down in canvas (field might be below fold)
+- Reset conditional logic and reconfigure
+
+---
+
+### "Dropdown options not saving"
+
+**Cause:** Browser auto-fill interfering or special characters in option text.
+
+**Solution:**
+- Disable browser auto-fill (Settings → Auto-fill → Off)
+- Remove special characters from option text (avoid emojis, symbols)
+- Refresh page and re-enter options
+
+---
+
+### "GPS field not capturing location"
+
+**Cause:** GPS permissions not granted on mobile device.
+
+**Solution:**
+- Mobile Settings → Apps → FieldCamp → Permissions → Location → Allow
+- Ensure GPS enabled on device (not just WiFi location)
+- Test outdoors (GPS signals weak indoors)
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Completing Forms" icon="check-square" href="/features/jobs/forms/completing-forms">
+    Learn how techs complete forms on mobile and desktop
+  </Card>
+  <Card title="Forms Overview" icon="clipboard-list" href="/features/jobs/forms/overview">
+    Understand form types, use cases, and permissions
+  </Card>
+  <Card title="Job Types" icon="briefcase" href="/features/jobs/job-types">
+    Assign default forms to job types for automation
+  </Card>
+  <Card title="Visit Logs" icon="clock" href="/features/jobs/visits/visit-logs">
+    Integrate forms with visit time tracking and photos
+  </Card>
+</CardGroup>
