@@ -1,0 +1,930 @@
+---
+title: "Advanced Filtering"
+description: "Find exactly the clients you need with powerful filter operators and combinations"
+---
+
+# Advanced Filtering
+
+FieldCamp's filtering system helps you find exactly the clients you need using powerful operators, filter combinations, and saved filter sets. Filter by any field — built-in or custom — to create precise client segments.
+
+## Quick Start
+
+### Basic Filtering (3 steps)
+
+1. Go to **Clients** page
+2. Click **Filter** button
+3. Click **+ Add Filter**
+4. Choose field, operator, and value
+5. Click **Apply**
+
+<Frame>
+  <img src="/images/clients/07-filter-panel-empty.png" alt="Empty filter panel" />
+</Frame>
+
+**Result:** Table updates to show only matching clients.
+
+<Frame>
+  <img src="/images/clients/08-filter-stage-active.png" alt="Filter setup for active clients" />
+</Frame>
+
+<Frame>
+  <img src="/images/clients/09-filtered-active-clients.png" alt="Filtered results showing only active clients" />
+</Frame>
+
+---
+
+## Filter Anatomy
+
+Every filter has three parts:
+
+```
+[Field] [Operator] [Value]
+```
+
+**Example:**
+```
+Stage | Is | Active Client
+↑       ↑    ↑
+Field   Op   Value
+```
+
+### Fields
+
+Choose which client attribute to filter by:
+
+**Built-in fields:**
+- First Name, Last Name
+- Email, Phone
+- Address, City, Region, Country, Zip Code
+- Stage (New Lead, Active Client, Inactive Client, Archived)
+- Company Name, Website, Tax Number
+- Date Added, Last Modified
+- Lifetime Value, Outstanding Balance
+- Tags
+
+**Custom fields:**
+- Any custom property you've created
+- See [Custom Fields](/features/clients/custom-fields) guide
+
+### Operators
+
+Operators define the comparison logic. Available operators depend on field type.
+
+**Text operators:**
+- Contains, Equals, Starts with, Ends with
+- Is empty, Is not empty
+
+**Number operators:**
+- Equals, Greater than, Less than, Between
+- Is empty, Is not empty
+
+**Date operators:**
+- Is, Is before, Is after, Is between
+- Is empty, Is not empty
+
+**Select/Stage operators:**
+- Is, Is any of, Is none of
+- Is empty, Is not empty
+
+**Checkbox operators:**
+- Is checked, Is unchecked
+
+### Values
+
+The comparison value or values.
+
+**Text:** Type the search text
+**Number:** Enter numeric value or range
+**Date:** Pick date(s) from calendar
+**Select:** Choose option(s) from dropdown
+**Checkbox:** No value needed
+
+---
+
+## Filter Operators Guide
+
+### Text Operators
+
+#### Contains
+
+Matches if field contains the text anywhere.
+
+**Example:**
+```
+Filter: Email | Contains | @gmail.com
+Result: All clients with Gmail addresses
+```
+
+**Use for:**
+- Partial email domain matching
+- Finding clients with keywords in notes
+- Searching addresses by street name
+
+**Case-insensitive:** "GMAIL" matches "gmail"
+
+#### Equals
+
+Exact match only.
+
+**Example:**
+```
+Filter: Last Name | Equals | Rodriguez
+Result: Only clients with exactly "Rodriguez" as last name
+```
+
+**Use for:**
+- Exact name matching
+- Specific value lookups
+
+**Case-sensitive:** "rodriguez" does NOT match "Rodriguez"
+
+#### Starts With
+
+Matches if field begins with the text.
+
+**Example:**
+```
+Filter: First Name | Starts with | Mar
+Result: Maria, Mark, Marcus, Marissa, etc.
+```
+
+**Use for:**
+- Name prefixes
+- Phone number area codes
+- Address street prefixes
+
+#### Ends With
+
+Matches if field ends with the text.
+
+**Example:**
+```
+Filter: Email | Ends with | .edu
+Result: All educational institution emails
+```
+
+**Use for:**
+- Email domain filtering (e.g., all .org, .gov)
+- Suffix matching
+
+#### Is Empty / Is Not Empty
+
+Checks for missing or present values.
+
+**Example:**
+```
+Filter: Email | Is empty
+Result: All clients without email addresses
+```
+
+**Use for:**
+- Finding incomplete records
+- Data quality audits
+- Identifying clients missing required info
+
+---
+
+### Number Operators
+
+#### Equals
+
+Exact numeric match.
+
+**Example:**
+```
+Filter: Property Square Footage | Equals | 2000
+Result: Properties exactly 2000 sq ft
+```
+
+**Use for:**
+- Specific value lookups
+- Rarely used (most number filters use ranges)
+
+#### Greater Than
+
+Value must be larger than threshold.
+
+**Example:**
+```
+Filter: Outstanding Balance | Greater than | 0
+Result: All clients with unpaid invoices
+```
+
+**Use for:**
+- Finding clients above a threshold
+- Minimum requirements
+- Debt collection (outstanding > 0)
+
+#### Less Than
+
+Value must be smaller than threshold.
+
+**Example:**
+```
+Filter: Lifetime Value | Less than | 500
+Result: Low-value clients
+```
+
+**Use for:**
+- Finding clients below a threshold
+- Maximum limits
+
+#### Between
+
+Value must fall within range (inclusive).
+
+**Example:**
+```
+Filter: Property Square Footage | Between | 1500 and 3000
+Result: Medium-sized properties
+```
+
+**Use for:**
+- Range-based filtering
+- Segmenting by size/value
+- Most common numeric filter
+
+**Tip:** Use for client segmentation (e.g., Small: 0-1000, Medium: 1000-3000, Large: 3000+)
+
+---
+
+### Date Operators
+
+#### Is
+
+Exact date match.
+
+**Example:**
+```
+Filter: Date Added | Is | 2026-02-26
+Result: Clients added on Feb 26, 2026
+```
+
+**Use for:**
+- Finding clients added on specific day
+- Anniversary dates
+
+#### Is Before
+
+Date must be earlier than threshold.
+
+**Example:**
+```
+Filter: Last Activity | Is before | 2025-12-31
+Result: Clients with no activity in 2026
+```
+
+**Use for:**
+- Finding old/stale data
+- Expired contracts
+- Overdue follow-ups
+
+#### Is After
+
+Date must be later than threshold.
+
+**Example:**
+```
+Filter: Date Added | Is after | 2026-01-01
+Result: Clients added in 2026
+```
+
+**Use for:**
+- Recent additions
+- Future dates
+
+#### Is Between
+
+Date must fall within range (inclusive).
+
+**Example:**
+```
+Filter: Contract Expiration | Is between | 2026-03-01 and 2026-03-31
+Result: Contracts expiring in March 2026
+```
+
+**Use for:**
+- Date range filtering
+- Monthly/quarterly segments
+- Most common date filter
+
+**Tip:** Use relative dates like "last 30 days" for dynamic filtering.
+
+#### Relative Date Filters (Smart Dates)
+
+<Note>
+  **Coming soon:** Relative date filtering (e.g., "Last 7 days", "This month", "Last quarter") will be available in a future update.
+</Note>
+
+---
+
+### Select/Multi-Select Operators
+
+#### Is
+
+Exact option match.
+
+**Example:**
+```
+Filter: Stage | Is | Active Client
+Result: Only active clients
+```
+
+**Use for:**
+- Single option filtering
+- Most common select filter
+
+#### Is Any Of
+
+Matches any of the selected options (OR logic).
+
+**Example:**
+```
+Filter: Stage | Is any of | Active Client, New Lead
+Result: Active clients OR new leads
+```
+
+**Use for:**
+- Multiple option inclusion
+- Broader matching
+
+#### Is None Of
+
+Excludes selected options (NOT logic).
+
+**Example:**
+```
+Filter: Stage | Is none of | Archived, Inactive Client
+Result: Only active and new leads (excludes archived/inactive)
+```
+
+**Use for:**
+- Exclusion filtering
+- Inverted matching
+
+---
+
+### Checkbox Operators
+
+#### Is Checked
+
+Field must be checked (true).
+
+**Example:**
+```
+Filter: Has Pool | Is checked
+Result: All clients with pools
+```
+
+#### Is Unchecked
+
+Field must be unchecked (false).
+
+**Example:**
+```
+Filter: Has Pool | Is unchecked
+Result: All clients without pools
+```
+
+---
+
+## Combining Filters (AND Logic)
+
+Add multiple filters to narrow results. All filters must match (AND logic).
+
+### Example 1: High-Value Active Clients
+
+```
+Filter 1: Stage | Is | Active Client
+AND
+Filter 2: Lifetime Value | Greater than | 5000
+AND
+Filter 3: Outstanding Balance | Equals | 0
+```
+
+**Result:** Active clients worth $5000+ with no unpaid invoices.
+
+### Example 2: Pool Owners in Texas Needing Service
+
+```
+Filter 1: Has Pool | Is checked
+AND
+Filter 2: Region | Equals | TX
+AND
+Filter 3: Last Service Date | Is before | 2025-12-31
+```
+
+**Result:** Texas pool owners who haven't been serviced in 2026.
+
+### How to Add Multiple Filters
+
+1. Click **Filter** button
+2. Click **+ Add Filter** (adds first filter)
+3. Configure Field, Operator, Value
+4. Click **+ Add Filter** again (adds second filter)
+5. Configure second filter
+6. Repeat for up to 10 filters
+7. Click **Apply**
+
+**Result:** Only clients matching ALL filters are shown.
+
+---
+
+## Filter Management
+
+### Applying Filters
+
+After configuring filters, click **Apply** to update the table.
+
+**Visual feedback:**
+- Filter count badge appears (e.g., "Filter 3" if 3 filters active)
+- Filter summary shown above table (e.g., "Stage: is Active Client")
+- Table updates to show only matching clients
+
+### Editing Active Filters
+
+To modify an active filter:
+
+1. Click the filter badge (e.g., "Filter 1")
+2. Filter panel reopens
+3. Change Field, Operator, or Value
+4. Click **Apply**
+
+### Removing a Single Filter
+
+To remove one filter:
+
+1. Open filter panel
+2. Click **×** (remove icon) next to the filter
+3. Click **Apply**
+
+### Clearing All Filters
+
+To remove all filters at once:
+
+1. Click **Reset all** button (appears when filters are active)
+2. Table returns to unfiltered view
+
+---
+
+## Saved Filters (Filter Sets)
+
+<Note>
+  **Saved Views** (which include filters + sorting + grouping + columns) are the recommended way to save filter combinations. See [Saved Views](/features/clients/views) guide.
+</Note>
+
+### Temporary vs Saved Filters
+
+**Temporary filters:**
+- Created on-the-fly
+- Lost when you navigate away
+- Good for one-time searches
+
+**Saved views (includes filters):**
+- Saved permanently
+- Accessible from Views dropdown
+- Good for recurring filter sets
+
+### Creating a Saved View with Filters
+
+1. Configure your filters
+2. Click **Save view** button
+3. Enter view name (e.g., "High-Value Active Clients")
+4. Choose visibility (Private or Shared)
+5. Click **Save**
+
+**Result:** View appears in Views dropdown for quick access.
+
+---
+
+## Common Filter Recipes
+
+### Sales & Lead Management
+
+#### New Leads This Month
+
+```
+Stage | Is | New Lead
+AND
+Date Added | Is after | 2026-02-01
+```
+
+#### Unconverted Leads (30+ days old)
+
+```
+Stage | Is | New Lead
+AND
+Date Added | Is before | 2026-01-26
+```
+
+#### High-Value Active Clients
+
+```
+Stage | Is | Active Client
+AND
+Lifetime Value | Greater than | 10000
+```
+
+### Service & Operations
+
+#### Clients Needing Follow-Up
+
+```
+Last Activity | Is before | 2025-12-31
+AND
+Stage | Is any of | Active Client, New Lead
+```
+
+#### Clients with Outstanding Balances
+
+```
+Outstanding Balance | Greater than | 0
+AND
+Stage | Is | Active Client
+```
+
+#### Pool Owners (Custom Field)
+
+```
+Has Pool | Is checked
+```
+
+### Geographic Segmentation
+
+#### All Texas Clients
+
+```
+Region | Equals | TX
+```
+
+#### Austin Clients
+
+```
+City | Equals | Austin
+AND
+Region | Equals | TX
+```
+
+#### Zip Code Range (Downtown Austin)
+
+```
+Zip Code | Between | 78701 and 78705
+```
+
+### Data Quality & Cleanup
+
+#### Missing Email Addresses
+
+```
+Email | Is empty
+```
+
+#### Incomplete Profiles
+
+```
+Phone | Is empty
+AND
+Email | Is empty
+```
+
+#### Clients with No Jobs
+
+```
+Total Jobs | Equals | 0
+AND
+Date Added | Is before | 2026-01-01
+```
+
+*Note: "Total Jobs" must be a custom field or use the Jobs filter if available*
+
+---
+
+## Performance Tips
+
+### Fast Filters
+
+These filters execute quickly:
+
+- **Stage** filtering (indexed)
+- **Date Added** filtering (indexed)
+- **Email** exact match (indexed)
+
+### Slow Filters (Use Sparingly)
+
+These filters can be slow on large datasets:
+
+- **Contains** on text fields (full scan)
+- **Starts with** / **Ends with** on text fields
+- Complex multi-filter combinations (5+ filters)
+
+### Optimization Tips
+
+<AccordionGroup>
+  <Accordion title="Use Select Fields Over Text Contains">
+    **Slow:**
+    ```
+    Notes | Contains | "Gold"
+    ```
+
+**Fast:**
+    ```
+    Service Tier | Is | Gold
+    ```
+
+Create a custom Select field instead of searching text fields.
+  </Accordion>
+
+  <Accordion title="Filter by Indexed Fields First">
+    Put indexed fields first in multi-filter combinations:
+
+**Faster:**
+    ```
+    1. Stage | Is | Active Client  (indexed, eliminates 70% of records)
+    2. Notes | Contains | "pool"   (slower text search on fewer records)
+    ```
+
+**Slower:**
+    ```
+    1. Notes | Contains | "pool"   (text search on all records)
+    2. Stage | Is | Active Client  (indexed, but still searched all)
+    ```
+  </Accordion>
+
+  <Accordion title="Limit Filter Count">
+    Use 1-3 filters when possible. More filters = slower performance.
+
+If you need 5+ filters regularly, consider:
+    1. Creating a custom field to consolidate criteria
+    2. Using tags to pre-categorize clients
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Mobile Filtering
+
+Filtering works on mobile (iOS/Android apps) with a simplified UI.
+
+### Mobile Filter Differences
+
+- Fewer operators shown (most common only)
+- Simplified date picker (presets like "Last 7 days")
+- Touch-optimized interface
+- Maximum 3 filters (performance)
+
+### Creating Filters on Mobile
+
+1. Tap **Clients** tab
+2. Tap **Filter** icon (funnel)
+3. Tap **+ Add Filter**
+4. Select field, operator, value
+5. Tap **Apply**
+
+---
+
+## Troubleshooting
+
+### No Results After Applying Filter
+
+**Cause:** Filter too restrictive or values don't exist.
+
+**Fix:**
+1. Click **Reset all** to clear filters
+2. Test each filter individually to find the problematic one
+3. Check if values exist (e.g., no clients in "Platinum" tier)
+
+### Filter Not Saving
+
+**Cause:** Using temporary filter, not a saved view.
+
+**Fix:**
+1. Click **Save view** after configuring filters
+2. Enter view name
+3. Click **Save**
+
+### Custom Field Not Showing in Filter
+
+**Cause:** Custom field not created yet or visibility restricted.
+
+**Fix:**
+1. Check **Settings → Clients → Custom Fields**
+2. Verify field exists
+3. Check visibility settings (Admins only?)
+
+### Filter Applies to Wrong Clients
+
+**Cause:** AND vs OR logic confusion.
+
+**Remember:** Multiple filters use AND logic (all must match).
+
+**Example:**
+```
+Stage | Is | Active Client
+AND
+Stage | Is | New Lead
+```
+
+**Result:** 0 clients (no client can be both Active AND New simultaneously)
+
+**Fix:**
+```
+Stage | Is any of | Active Client, New Lead
+```
+
+---
+
+## API Filtering
+
+Filter clients via REST API using query parameters.
+
+### Basic API Filters
+
+```bash
+# Filter by stage
+GET /v1/clients?filter[stage]=Active Client
+
+# Filter by city
+GET /v1/clients?filter[city]=Austin
+
+# Filter by email domain
+GET /v1/clients?filter[email][contains]=@gmail.com
+```
+
+### Numeric Filters
+
+```bash
+# Greater than
+GET /v1/clients?filter[lifetimeValue][gt]=5000
+
+# Less than
+GET /v1/clients?filter[outstandingBalance][lt]=100
+
+# Between (range)
+GET /v1/clients?filter[lifetimeValue][gte]=1000&filter[lifetimeValue][lte]=10000
+```
+
+### Date Filters
+
+```bash
+# After date
+GET /v1/clients?filter[dateAdded][gt]=2026-01-01
+
+# Before date
+GET /v1/clients?filter[lastActivity][lt]=2025-12-31
+
+# Between dates
+GET /v1/clients?filter[dateAdded][gte]=2026-01-01&filter[dateAdded][lte]=2026-01-31
+```
+
+### Multiple Filters (AND Logic)
+
+```bash
+GET /v1/clients?filter[stage]=Active Client&filter[region]=TX&filter[lifetimeValue][gt]=5000
+```
+
+### Custom Field Filters
+
+```bash
+# Filter by custom field
+GET /v1/clients?filter[customProperties.service_tier]=Gold
+
+# Custom field range
+GET /v1/clients?filter[customProperties.property_sqft][gt]=2000
+```
+
+Full API documentation: [Client API Reference](/features/clients/api)
+
+---
+
+## Advanced Techniques
+
+### Inverted Filtering (Find What's NOT)
+
+Find clients that DON'T match criteria:
+
+**Example: Clients without pools in Texas**
+```
+Region | Equals | TX
+AND
+Has Pool | Is unchecked
+```
+
+**Example: Clients NOT in Bronze tier**
+```
+Service Tier | Is none of | Bronze
+```
+
+### Multi-Criteria Inclusion
+
+Find clients matching ANY of several options:
+
+**Example: Premium clients (Gold or Platinum)**
+```
+Service Tier | Is any of | Gold, Platinum
+```
+
+### Empty Field Audits
+
+Find incomplete records:
+
+**Example: Clients missing contact info**
+```
+Email | Is empty
+AND
+Phone | Is empty
+```
+
+**Use for:** Data quality cleanup, finding records needing updates.
+
+### Date Range Segmentation
+
+Segment clients by time periods:
+
+**Example: Clients added in Q1 2026**
+```
+Date Added | Is between | 2026-01-01 and 2026-03-31
+```
+
+**Example: Inactive for 6+ months**
+```
+Last Activity | Is before | 2025-08-26
+```
+
+---
+
+## Best Practices
+
+### Filter Naming (Saved Views)
+
+<AccordionGroup>
+  <Accordion title="Use Descriptive Names">
+    **Good:**
+    - "High-Value Active Clients (LTV > $10K)"
+    - "Texas Pool Owners Needing Service"
+    - "Unconverted Leads (30+ Days)"
+
+**Bad:**
+    - "Filter 1"
+    - "My Clients"
+    - "Temp Filter"
+  </Accordion>
+
+  <Accordion title="Include Key Criteria in Name">
+    Help team members understand what the filter does:
+
+**Good:**
+    - "Active Clients - Unpaid Invoices" (criteria clear)
+    - "New Leads - This Month" (time period clear)
+
+**Bad:**
+    - "Important Clients" (subjective, unclear criteria)
+  </Accordion>
+</AccordionGroup>
+
+### Filter Organization
+
+<AccordionGroup>
+  <Accordion title="Create Department-Specific Views">
+    Different teams need different filters:
+
+**Sales team:**
+    - "New Leads This Week"
+    - "Unconverted Leads (Follow-Up)"
+    - "High-Value Prospects"
+
+**Operations team:**
+    - "Clients Needing Service (30 Days)"
+    - "Outstanding Balances"
+    - "Active Contracts Expiring Soon"
+
+**Finance team:**
+    - "Clients with Unpaid Invoices (60+ Days)"
+    - "Top 20 Revenue Clients"
+  </Accordion>
+
+  <Accordion title="Use Consistent Prefixes">
+    Organize saved views with prefixes:
+
+**Sales:** Sales - New Leads, Sales - Prospects
+    **Ops:** Ops - Service Due, Ops - Contracts
+    **Finance:** Finance - Unpaid, Finance - Top Clients
+
+**Benefit:** Views group together in sorted lists.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Saved Views" icon="bookmark" href="/features/clients/views">
+    Save filter combinations for quick access
+  </Card>
+  <Card title="Grouping" icon="layer-group" href="/features/clients/client-list">
+    Organize filtered results by field values
+  </Card>
+  <Card title="Bulk Operations" icon="tasks" href="/features/clients/bulk-operations">
+    Act on filtered client segments (bulk edit, tag, etc.)
+  </Card>
+</CardGroup>

@@ -30,8 +30,11 @@
                   "features/clients/overview",
                   "features/clients/creating-clients",
                   "features/clients/client-list",
+                  "features/clients/filtering",
+                  "features/clients/custom-fields",
                   "features/clients/importing",
                   "features/clients/client-detail",
+                  "features/clients/files",
                   "features/clients/stages-pipeline",
                   "features/clients/portal"
                 ]

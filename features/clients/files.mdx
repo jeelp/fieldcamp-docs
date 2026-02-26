@@ -1,0 +1,850 @@
+---
+title: "File Management"
+description: "Upload, organize, and share files with clients - photos, PDFs, contracts, and more"
+---
+
+# File Management
+
+Store all client-related files in one place — photos, PDFs, contracts, invoices, site diagrams, before/after images, and more. FieldCamp's file management system keeps every document organized and accessible to your team and (optionally) your clients.
+
+## What are Client Files?
+
+Client files are documents, images, and other files attached to a specific client record. They appear in the **Files** tab of the client detail page.
+
+### Why Use Client Files?
+
+<CardGroup cols={2}>
+  <Card title="Centralized Storage" icon="folder">
+    All client documents in one place — no more digging through email or shared drives.
+  </Card>
+  <Card title="Job Context" icon="briefcase">
+    Link files to specific jobs for quick reference during service calls.
+  </Card>
+  <Card title="Client Portal Sharing" icon="share">
+    Share invoices, estimates, and reports with clients via their portal.
+  </Card>
+  <Card title="Team Collaboration" icon="users">
+    Technicians can access site photos, equipment manuals, and diagrams in the field.
+  </Card>
+</CardGroup>
+
+<Frame>
+  <img src="/images/clients/11-files-tab-empty.png" alt="Files tab in client detail page" />
+</Frame>
+
+---
+
+## Supported File Types
+
+FieldCamp supports these file types:
+
+### Images
+- **PNG** (.png) - Screenshots, diagrams
+- **JPG/JPEG** (.jpg, .jpeg) - Photos
+- **GIF** (.gif) - Animated images
+- **WEBP** (.webp) - Modern image format
+- **HEIC** (.heic) - iPhone photos (auto-converted)
+
+### Documents
+- **PDF** (.pdf) - Invoices, contracts, manuals
+- **Word** (.doc, .docx) - Text documents
+- **Excel** (.xls, .xlsx) - Spreadsheets, quotes
+- **PowerPoint** (.ppt, .pptx) - Presentations
+
+### Other
+- **Text** (.txt, .csv) - Plain text, data files
+- **Zip** (.zip) - Compressed archives
+- **Video** (.mp4, .mov, .avi) - Site walkthroughs (limited support)
+
+### File Size Limits
+
+- **Maximum file size:** 50 MB per file
+- **Maximum total storage:** Varies by plan (see Settings → Billing)
+- **Recommended image size:** < 5 MB (large images are auto-compressed)
+
+<Warning>
+  **Video files:** Large videos (>50MB) should be stored in Google Drive and linked via file description or notes. Direct video upload support is limited.
+</Warning>
+
+---
+
+## Uploading Files
+
+### Method 1: Drag and Drop
+
+1. Open client detail page
+2. Click **Files** tab
+3. Drag file(s) from your computer
+4. Drop anywhere in the Files area
+5. Upload begins automatically
+
+**Supports:** Multiple files at once (up to 10)
+
+### Method 2: Browse and Select
+
+1. Open client detail page
+2. Click **Files** tab
+3. Click **+** (Add File button) or **Upload Files** button
+4. Browse your computer
+5. Select file(s)
+6. Click **Open**
+7. Upload begins
+
+### Method 3: Mobile Upload (Camera)
+
+On mobile (iOS/Android):
+
+1. Open client detail page
+2. Tap **Files** tab
+3. Tap **+** button
+4. Choose:
+   - **Take Photo** - Capture with camera
+   - **Choose from Library** - Select existing photo
+   - **Browse Files** - Upload document
+5. Confirm selection
+
+**Perfect for:** Before/after photos, equipment tags, site conditions
+
+### Method 4: Email Attachments
+
+<Note>
+  **Coming soon:** Forward emails to `client+[client_id]@fieldcamp.ai` to automatically attach files.
+</Note>
+
+---
+
+## Organizing Files
+
+### Folders
+
+Create folders to organize files by category.
+
+#### Creating a Folder
+
+1. Click **Files** tab
+2. Click **+ New Folder** button
+3. Enter folder name (e.g., "Invoices", "Site Photos", "Contracts")
+4. Press Enter or click **Create**
+
+#### Suggested Folder Structure
+
+```
+📁 Contracts
+📁 Invoices
+📁 Estimates
+📁 Site Photos
+   📁 Before
+   📁 After
+📁 Equipment Manuals
+📁 Permits
+📁 Reports
+```
+
+#### Moving Files to Folders
+
+**Drag-and-drop:**
+1. Click and hold file
+2. Drag to folder
+3. Drop
+
+**Or use Move command:**
+1. Click file ⋮ menu
+2. Select **Move to...**
+3. Choose folder
+4. Click **Move**
+
+### File Naming Conventions
+
+Good file names make files easy to find:
+
+**Good:**
+```
+2026-02-26_AC_Unit_Before.jpg
+Invoice_12345_Feb_2026.pdf
+Service_Contract_Signed.pdf
+Equipment_Manual_AC_ModelXYZ.pdf
+```
+
+**Bad:**
+```
+IMG_1234.jpg (not descriptive)
+Document.pdf (too generic)
+file (1).pdf (meaningless)
+```
+
+**Best practices:**
+- Include date (YYYY-MM-DD format sorts correctly)
+- Include type (Invoice, Contract, Photo, etc.)
+- Include subject (equipment, job number, etc.)
+- Avoid spaces (use underscores or hyphens)
+
+### Tags
+
+Tag files for better organization and filtering.
+
+#### Adding Tags to Files
+
+1. Click file to select
+2. Click **Add Tags** (in file details pane)
+3. Type tag name (e.g., "Equipment", "Warranty", "Urgent")
+4. Press Enter
+5. Repeat for multiple tags
+
+#### Filtering by Tags
+
+1. Click **All** dropdown (top of Files tab)
+2. Select tag from list
+3. Only files with that tag are shown
+
+**Common tags:**
+- Equipment
+- Warranty
+- Before/After
+- Completed Job
+- Pending Approval
+- Shared with Client
+
+---
+
+## File Actions
+
+### Viewing Files
+
+**Click file name or thumbnail** to open file viewer.
+
+**Image viewer features:**
+- Zoom in/out (pinch or scroll)
+- Rotate image
+- Download original
+- Share link
+
+**PDF viewer features:**
+- Page navigation
+- Search text
+- Download
+- Print
+
+### Downloading Files
+
+**Single file:**
+1. Click file ⋮ menu
+2. Select **Download**
+3. File saves to your Downloads folder
+
+**Multiple files:**
+1. Select files (checkboxes)
+2. Click **Download** (top toolbar)
+3. Files download as ZIP archive
+
+### Sharing Files
+
+#### Share Link (Anyone with Link)
+
+1. Click file ⋮ menu
+2. Select **Get shareable link**
+3. Copy link
+4. Share via email, SMS, or chat
+
+**Link permissions:**
+- View only (default)
+- Download allowed
+- Expires after 7 days (configurable)
+
+<Warning>
+  **Security:** Anyone with the link can view the file. Don't share sensitive documents this way.
+</Warning>
+
+#### Share via Client Portal
+
+Files marked as "Shared with Client" appear in the client's portal.
+
+1. Click file ⋮ menu
+2. Toggle **Share with Client**
+3. File appears in client portal under "Documents"
+
+**Use for:**
+- Invoices
+- Estimates
+- Service reports
+- Contracts
+- Equipment manuals (for reference)
+
+**Don't share:**
+- Internal notes
+- Technician checklists
+- Pricing information (unless final)
+
+### Renaming Files
+
+1. Click file ⋮ menu
+2. Select **Rename**
+3. Enter new name
+4. Press Enter or click **Save**
+
+**Tip:** File extension is preserved automatically.
+
+### Deleting Files
+
+<Warning>
+  **Permanent deletion:** Deleted files cannot be recovered. They are removed from all jobs, estimates, and client records.
+</Warning>
+
+**Single file:**
+1. Click file ⋮ menu
+2. Select **Delete**
+3. Confirm deletion
+
+**Multiple files:**
+1. Select files (checkboxes)
+2. Click **Delete** (top toolbar)
+3. Confirm deletion
+
+**Deleted files:**
+- Removed from client record
+- Removed from linked jobs/estimates
+- Freed storage space
+- Cannot be recovered (no trash/recycle bin)
+
+---
+
+## File Metadata
+
+### File Information Panel
+
+Click any file to see details:
+
+**Basic info:**
+- File name
+- File type (JPEG, PDF, etc.)
+- File size
+- Upload date/time
+- Uploaded by (team member)
+
+**Relationships:**
+- Linked jobs
+- Linked estimates
+- Linked invoices
+- Shared with client? (Yes/No)
+
+**Actions:**
+- Download
+- Share link
+- Move to folder
+- Add tags
+- Delete
+
+### Adding Descriptions
+
+Add context to files:
+
+1. Click file to open details
+2. Click **Add description**
+3. Enter text (e.g., "Before photo of broken AC compressor")
+4. Click **Save**
+
+**Good descriptions:**
+- Explain what the file shows
+- Note date/time context
+- Reference job number if applicable
+
+**Example:**
+```
+File: AC_Compressor_Broken.jpg
+Description: Before photo of failed compressor on 2/26/26. 
+Job #12345. Replacement recommended.
+```
+
+---
+
+## Advanced Features
+
+### Linking Files to Jobs
+
+Attach files to specific jobs for context:
+
+1. Upload file to client
+2. Open file details
+3. Click **Link to Job**
+4. Select job from list
+5. Click **Link**
+
+**Result:**
+- File appears in job detail page (Files tab)
+- File appears in client detail page (Files tab)
+- Technicians can access file when viewing job
+
+**Use for:**
+- Site photos per job
+- Job-specific estimates
+- Completed work photos
+- Equipment manuals for installed equipment
+
+### File Versioning
+
+<Note>
+  **Coming soon:** File versioning will allow you to upload new versions of files while preserving the history.
+</Note>
+
+**Current behavior:** Uploading a file with the same name creates a duplicate (e.g., `file.pdf` and `file (1).pdf`).
+
+**Workaround:**
+1. Delete old version before uploading new
+2. Use version numbers in filename (e.g., `Contract_v1.pdf`, `Contract_v2.pdf`)
+
+### Google Drive Integration
+
+Sync files between FieldCamp and Google Drive.
+
+#### Enabling Google Drive Sync
+
+1. Go to **Settings → Integrations → Google Drive**
+2. Click **Connect Google Drive**
+3. Authorize FieldCamp
+4. Choose sync mode:
+   - **One-way (FieldCamp → Drive):** Files uploaded to FieldCamp sync to Drive
+   - **Two-way:** Files sync both directions
+5. Click **Enable Sync**
+
+#### Folder Structure in Drive
+
+Files sync to:
+```
+Google Drive/
+└── FieldCamp/
+    └── Clients/
+        └── [Client Name]/
+            ├── Invoices/
+            ├── Photos/
+            └── Documents/
+```
+
+#### Viewing Drive Files in FieldCamp
+
+Files stored in Google Drive appear in FieldCamp with a Drive icon.
+
+**Click to:**
+- View in Drive
+- Download from Drive
+- Open in Google Docs/Sheets (if applicable)
+
+---
+
+## File Search
+
+Find files quickly with search:
+
+### Basic Search
+
+1. Click **Files** tab
+2. Enter search term in **Search** box
+3. Results update as you type
+
+**Searches:**
+- File names
+- Descriptions
+- Tags
+- Folder names
+
+**Example:**
+```
+Search: "invoice"
+Results: Invoice_12345.pdf, 2026_Feb_Invoice.pdf
+```
+
+### Advanced Search Filters
+
+<Note>
+  **Coming soon:** Advanced file search with filters for file type, date range, size, and upload user.
+</Note>
+
+---
+
+## AI File Chat
+
+<Note>
+  **Beta feature:** AI File Chat is available on Pro and Enterprise plans.
+</Note>
+
+Ask questions about uploaded files using AI.
+
+### How It Works
+
+1. Upload a file (PDF, Word doc, image with text)
+2. Click **Chat with File** button
+3. Ask questions in plain English
+4. AI analyzes the file and responds
+
+### Example Uses
+
+**For PDFs/Documents:**
+```
+Question: "What's the total amount on this invoice?"
+AI Response: "The total amount is $2,450.00."
+
+Question: "What's the warranty period mentioned in this contract?"
+AI Response: "The warranty period is 5 years from installation date, as stated in Section 3.2."
+```
+
+**For Images with Text:**
+```
+Question: "What's the model number on this equipment tag?"
+AI Response: "The model number is AC-2500X, visible in the upper right of the tag."
+```
+
+**For Site Photos:**
+```
+Question: "What damage is visible in this photo?"
+AI Response: "The photo shows a cracked compressor housing and visible refrigerant leak on the lower left side."
+```
+
+### Limitations
+
+- Works best with text-based PDFs (not scanned images)
+- Images must have clear, readable text
+- Video files not supported
+- Maximum 10 MB per file for AI chat
+
+---
+
+## Mobile File Management
+
+Manage files from the FieldCamp mobile app (iOS/Android).
+
+### Mobile Features
+
+**Upload:**
+- Take photo with camera
+- Choose from photo library
+- Browse device files
+
+**View:**
+- Tap file to view
+- Pinch to zoom (images)
+- Swipe to navigate (PDFs)
+
+**Download:**
+- Tap ⋮ menu → Download
+- Saves to device
+
+**Share:**
+- Tap ⋮ menu → Share
+- Opens system share sheet (email, SMS, AirDrop, etc.)
+
+### Offline Access
+
+<Note>
+  **Coming soon:** Offline file access will allow you to download files for viewing without internet.
+</Note>
+
+---
+
+## File Permissions
+
+Control who can view, upload, and delete files.
+
+### Permission Levels
+
+**By Role:**
+
+| Role | View Files | Upload Files | Delete Files |
+|------|-----------|-------------|-------------|
+| Owner | All | Yes | Yes |
+| Admin | All | Yes | Yes |
+| Manager | All assigned clients | Yes | Yes |
+| Technician | Assigned clients only | Yes | No |
+| View-only | Assigned clients only | No | No |
+
+**By File:**
+- **Internal files:** Visible to team only
+- **Client-shared files:** Visible to team + client (via portal)
+
+### Setting File Permissions
+
+1. Click file to open details
+2. Click **Permissions**
+3. Choose visibility:
+   - **Team only** (default)
+   - **Shared with client**
+   - **Custom** (select specific team members)
+4. Click **Save**
+
+---
+
+## Best Practices
+
+### Naming & Organization
+
+<AccordionGroup>
+  <Accordion title="Use Consistent Naming">
+    Pick a naming convention and stick to it:
+
+**Option 1: Date-first**
+    ```
+    2026-02-26_Invoice_12345.pdf
+    2026-02-26_AC_Before.jpg
+    2026-02-27_AC_After.jpg
+    ```
+
+**Option 2: Type-first**
+    ```
+    Invoice_2026-02-26_12345.pdf
+    Photo_Before_AC_2026-02-26.jpg
+    Photo_After_AC_2026-02-27.jpg
+    ```
+
+Choose one, train your team, stick with it.
+  </Accordion>
+
+  <Accordion title="Create Folder Templates">
+    Set up standard folders for all clients:
+
+```
+    📁 Contracts & Agreements
+    📁 Invoices
+    📁 Estimates & Quotes
+    📁 Site Photos
+       📁 Before
+       📁 After
+    📁 Equipment
+       📁 Manuals
+       📁 Warranty Docs
+    📁 Reports & Inspections
+    📁 Permits
+    ```
+
+Create once, copy to new clients.
+  </Accordion>
+
+  <Accordion title="Delete Redundant Files">
+    Audit files quarterly:
+    1. Find duplicates
+    2. Delete low-quality photos (keep best)
+    3. Remove outdated estimates/quotes
+    4. Archive old files to Google Drive
+
+**Why:** Reduces clutter, improves search, saves storage.
+  </Accordion>
+</AccordionGroup>
+
+### Security & Compliance
+
+<AccordionGroup>
+  <Accordion title="Don't Store Sensitive Data">
+    **Avoid uploading:**
+    - Credit card numbers (use Stripe vault instead)
+    - Social security numbers
+    - Passwords
+    - Banking information
+
+**Exception:** Signed contracts with redacted sensitive info.
+  </Accordion>
+
+  <Accordion title="Use Client Portal Sharing Carefully">
+    Only share finalized, approved documents:
+
+**Safe to share:**
+    - Final invoices
+    - Completed estimates (after approval)
+    - Service reports
+    - Equipment manuals
+
+**Don't share:**
+    - Internal notes
+    - Draft estimates (until approved)
+    - Team checklists
+    - Pricing strategies
+  </Accordion>
+
+  <Accordion title="Enable Two-Factor Authentication">
+    Protect file access:
+    1. Go to **Settings → Security**
+    2. Enable **Two-Factor Authentication (2FA)**
+    3. Require for all team members
+
+**Why:** Prevents unauthorized access if password is compromised.
+  </Accordion>
+</AccordionGroup>
+
+### Performance
+
+<AccordionGroup>
+  <Accordion title="Compress Large Images">
+    Before uploading photos:
+    1. Resize to max 2000px width (use TinyPNG, ImageOptim, or similar)
+    2. Compress to < 1 MB
+    3. Upload
+
+**Why:** Faster uploads, faster page loading, less storage used.
+  </Accordion>
+
+  <Accordion title="Use PDF for Multi-Page Documents">
+    Convert Word/Excel to PDF before uploading:
+
+**Benefits:**
+    - Smaller file size
+    - Universal compatibility
+    - Preserves formatting
+    - Cannot be accidentally edited
+
+**How:**
+    - Word: File → Save As → PDF
+    - Excel: File → Export → PDF
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Troubleshooting
+
+### File Upload Failed
+
+**Possible causes:**
+
+1. **File too large (>50MB)**
+   - **Fix:** Compress file or use Google Drive link
+
+2. **Unsupported file type**
+   - **Fix:** Convert to PDF, JPG, or PNG
+
+3. **Network timeout**
+   - **Fix:** Check internet connection, retry upload
+
+4. **Storage quota exceeded**
+   - **Fix:** Delete old files or upgrade plan
+
+### File Not Showing in Portal
+
+**Cause:** "Share with Client" not enabled.
+
+**Fix:**
+1. Click file ⋮ menu
+2. Toggle **Share with Client** ON
+3. File appears in client portal
+
+### Can't Delete File
+
+**Cause:** Insufficient permissions (Technician role).
+
+**Fix:** Ask Admin or Manager to delete.
+
+### Image Appears Rotated
+
+**Cause:** EXIF orientation data not processed.
+
+**Fix:**
+1. Download image
+2. Rotate in photo editor
+3. Re-upload
+
+### File Download Fails
+
+**Cause:** Browser popup blocker.
+
+**Fix:**
+1. Allow popups from `fieldcamp.ai` in browser settings
+2. Retry download
+
+---
+
+## Storage Management
+
+### Checking Storage Usage
+
+1. Go to **Settings → Billing → Storage**
+2. View:
+   - Total storage used
+   - Storage limit (by plan)
+   - Largest files
+   - Storage by client
+
+### Freeing Up Storage
+
+**Strategies:**
+
+1. **Delete old files**
+   - Filter files by upload date
+   - Delete files older than 2 years (if not needed)
+
+2. **Move large files to Google Drive**
+   - Identify files > 10 MB
+   - Upload to Google Drive
+   - Link in file description
+   - Delete from FieldCamp
+
+3. **Compress images**
+   - Download high-res images
+   - Compress with TinyPNG, ImageOptim
+   - Re-upload compressed version
+   - Delete original
+
+4. **Upgrade plan**
+   - Go to **Settings → Billing**
+   - Choose plan with more storage
+
+---
+
+## API Access
+
+Upload and manage files via API.
+
+### Upload File
+
+```bash
+POST /v1/clients/:client_id/files
+Content-Type: multipart/form-data
+
+{
+  "file": <binary>,
+  "folder": "Invoices",
+  "tags": ["invoice", "2026"],
+  "sharedWithClient": true
+}
+```
+
+### List Client Files
+
+```bash
+GET /v1/clients/:client_id/files
+
+Response:
+{
+  "files": [
+    {
+      "id": "file_abc123",
+      "name": "Invoice_12345.pdf",
+      "size": 245000,
+      "type": "application/pdf",
+      "uploadedAt": "2026-02-26T10:30:00Z",
+      "uploadedBy": "user_xyz789",
+      "folder": "Invoices",
+      "tags": ["invoice", "2026"],
+      "sharedWithClient": true,
+      "downloadUrl": "https://..."
+    }
+  ]
+}
+```
+
+### Delete File
+
+```bash
+DELETE /v1/clients/:client_id/files/:file_id
+```
+
+Full API documentation: [Client API Reference](/features/clients/api)
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Client Portal" icon="globe" href="/features/clients/portal">
+    Set up client portal for file sharing
+  </Card>
+  <Card title="Google Drive Integration" icon="cloud" href="/features/integrations">
+    Sync files with Google Drive
+  </Card>
+  <Card title="Mobile App" icon="mobile" href="/features/clients/mobile">
+    Manage files from your phone
+  </Card>
+</CardGroup>

@@ -1,0 +1,822 @@
+---
+title: "Custom Fields & Properties"
+description: "Add custom data fields to client records for business-specific information"
+---
+
+# Custom Fields & Properties
+
+Extend client records with custom fields to track business-specific information beyond the standard fields. Perfect for storing gate codes, HOA details, pet information, service preferences, or any other data unique to your business.
+
+## What are Custom Fields?
+
+Custom fields (also called Custom Properties in FieldCamp) are user-defined data fields that you add to client records. Unlike built-in fields (Name, Email, Phone), custom fields are tailored to your specific business needs.
+
+### Why Use Custom Fields?
+
+<CardGroup cols={2}>
+  <Card title="Industry-Specific Data" icon="industry">
+    Track HVAC equipment models, pool service chemicals, lawn square footage, or any field service-specific details.
+  </Card>
+  <Card title="Customer Preferences" icon="heart">
+    Store preferred appointment times, gate access codes, pet names, special instructions.
+  </Card>
+  <Card title="Better Filtering" icon="filter">
+    Filter clients by custom criteria: service type, equipment age, contract tier, region.
+  </Card>
+  <Card title="Flexible Reporting" icon="chart-bar">
+    Group and analyze clients by any custom property in analytics dashboards.
+  </Card>
+</CardGroup>
+
+---
+
+## Field Types
+
+FieldCamp supports 8 custom field types:
+
+### Text
+
+**Use for:** Names, notes, codes, addresses, free-form information
+
+**Examples:**
+- Gate Access Code
+- HOA Name
+- Preferred Contact Method
+- Special Instructions
+
+```
+Field Name: Gate Access Code
+Type: Text
+Value: "#1234 + Call on arrival"
+```
+
+### Number
+
+**Use for:** Quantities, measurements, square footage, equipment counts
+
+**Examples:**
+- Property Square Footage
+- Number of HVAC Units
+- Lot Size (acres)
+- Equipment Age (years)
+
+```
+Field Name: Property Square Footage
+Type: Number
+Value: 2400
+```
+
+### Checkbox
+
+**Use for:** Yes/No fields, flags, boolean values
+
+**Examples:**
+- Has Pool
+- Gated Community
+- Service Contract Active
+- Requires Lead Technician
+
+```
+Field Name: Has Pool
+Type: Checkbox
+Value: ✓ (checked)
+```
+
+### Date
+
+**Use for:** Important dates (no time component)
+
+**Examples:**
+- Service Contract Start Date
+- Last Equipment Replacement
+- Warranty Expiration
+- Next Inspection Due
+
+```
+Field Name: Warranty Expiration
+Type: Date
+Value: 2026-12-31
+```
+
+### Date & Time
+
+**Use for:** Timestamps, scheduled events with specific times
+
+**Examples:**
+- Last Service Date & Time
+- Next Scheduled Maintenance
+- Contract Renewal Meeting
+
+```
+Field Name: Next Scheduled Maintenance
+Type: Date & Time
+Value: 2026-03-15 10:00 AM
+```
+
+### Select (Single-choice dropdown)
+
+**Use for:** One option from a predefined list
+
+**Examples:**
+- Service Tier (Bronze | Silver | Gold | Platinum)
+- Property Type (Residential | Commercial | Industrial)
+- Priority Level (Low | Medium | High | Critical)
+
+```
+Field Name: Service Tier
+Type: Select
+Options: Bronze, Silver, Gold, Platinum
+Value: Gold
+```
+
+### Multi-Select (Multiple-choice)
+
+**Use for:** Multiple options from a predefined list
+
+**Examples:**
+- Equipment Types (AC, Furnace, Heat Pump, Ductwork)
+- Services Interested In (Maintenance, Repair, Installation, Emergency)
+- Communication Preferences (Email, SMS, Phone, Portal)
+
+```
+Field Name: Equipment Types
+Type: Multi-Select
+Options: AC, Furnace, Heat Pump, Ductwork, Thermostat
+Value: AC, Furnace, Thermostat
+```
+
+### Phone
+
+**Use for:** Additional phone numbers with formatting
+
+**Examples:**
+- Emergency Contact Phone
+- Property Manager Phone
+- After-Hours Contact
+
+```
+Field Name: Emergency Contact Phone
+Type: Phone
+Value: +1 (555) 987-6543
+```
+
+---
+
+## Creating a Custom Field
+
+### Step 1: Open Custom Field Creator
+
+1. Go to **Clients** page
+2. Click the **+ Add New Property** column header in the table
+
+<Frame>
+  <img src="/images/clients/12-add-custom-property-modal.png" alt="Add custom property modal showing field types" />
+</Frame>
+
+### Step 2: Name Your Field
+
+Enter a clear, descriptive name:
+
+**Good names:**
+- "Gate Access Code"
+- "Service Contract Tier"
+- "Property Square Footage"
+
+**Avoid:**
+- "Code" (too vague)
+- "Field 1" (not descriptive)
+- "asdf" (meaningless)
+
+### Step 3: Choose Field Type
+
+Click the appropriate field type icon:
+
+- **Text** - For codes, notes, free-form data
+- **Number** - For quantities and measurements
+- **Checkbox** - For yes/no flags
+- **Date** - For calendar dates
+- **Date & Time** - For timestamped events
+- **Select** - For single-choice dropdowns
+- **Multi-Select** - For multiple-choice
+- **Phone** - For formatted phone numbers
+
+### Step 4: Configure Options (Select/Multi-Select only)
+
+If you chose **Select** or **Multi-Select**, add the options:
+
+1. Enter option name
+2. Choose option color (optional)
+3. Click **+ Add Option**
+4. Repeat for all choices
+5. Reorder by dragging options
+
+**Example: Service Tier**
+```
+Options:
+1. Bronze (Gray)
+2. Silver (Blue)
+3. Gold (Yellow)
+4. Platinum (Purple)
+```
+
+### Step 5: Create Field
+
+Click **Create** button. The field appears as a new column in the client table.
+
+---
+
+## Using Custom Fields
+
+### Adding Data to Custom Fields
+
+**Option 1: During Client Creation**
+- Custom fields appear in the "Add Client" modal
+- Fill in values when creating a new client
+
+**Option 2: Edit Existing Client**
+1. Click client row to open detail page
+2. Click **Edit** button (top right)
+3. Scroll to custom fields section
+4. Enter values
+5. Click **Save**
+
+**Option 3: Inline Editing (Table View)**
+1. Click the custom field cell in the table
+2. Enter/select value
+3. Click outside cell to save
+
+### Viewing Custom Field Data
+
+Custom fields appear in three places:
+
+1. **Client Table** - As columns (if visible)
+2. **Client Detail Page** - In the "Additional" section (sidebar)
+3. **Exported Data** - Included in CSV/Excel exports
+
+---
+
+## Managing Custom Fields
+
+### Editing a Custom Field
+
+To rename or change field configuration:
+
+1. Go to **Settings → Clients → Custom Fields**
+2. Find the field in the list
+3. Click **Edit** (pencil icon)
+4. Update name, options, or settings
+5. Click **Save**
+
+<Warning>
+  **Changing field type** (e.g., Text → Number) can cause data loss. Existing values may be deleted if they're incompatible with the new type.
+</Warning>
+
+### Deleting a Custom Field
+
+<Warning>
+  **Permanent deletion:** Deleting a custom field removes all data stored in that field across all clients. This action cannot be undone.
+</Warning>
+
+To delete:
+
+1. Go to **Settings → Clients → Custom Fields**
+2. Find the field in the list
+3. Click **Delete** (trash icon)
+4. Confirm deletion warning
+5. Field and all data removed
+
+### Reordering Fields
+
+Change the order fields appear in forms:
+
+1. Go to **Settings → Clients → Custom Fields**
+2. Drag fields using the handle (⋮⋮) icon
+3. Drop in desired position
+4. Order saves automatically
+
+---
+
+## Advanced Features
+
+### Required Fields
+
+Make a custom field mandatory:
+
+1. Edit the custom field
+2. Toggle **Required** switch
+3. Save
+
+**Result:** Users cannot create/save clients without filling this field.
+
+**Use for:**
+- Critical business data (e.g., "Service Contract Number")
+- Compliance requirements (e.g., "Insurance Policy Number")
+
+### Default Values
+
+Set a default value that auto-fills for new clients:
+
+1. Edit the custom field
+2. Enter **Default Value**
+3. Save
+
+**Example:**
+- Field: "Service Tier"
+- Default: "Bronze"
+- Result: All new clients start as "Bronze" (can be changed)
+
+### Field Visibility
+
+Control who can see/edit custom fields:
+
+1. Edit the custom field
+2. Set **Visibility** level:
+   - **Everyone** - All team members
+   - **Admins Only** - Owners and Admins
+   - **Managers & Admins** - Managers, Admins, Owners
+3. Save
+
+**Use for:**
+- Hiding sensitive data from technicians (e.g., "Credit Card on File")
+- Restricting financial fields (e.g., "Discount Percentage")
+
+### Field Help Text
+
+Add guidance for team members:
+
+1. Edit the custom field
+2. Enter **Help Text** (appears as tooltip)
+3. Save
+
+**Example:**
+- Field: "Gate Access Code"
+- Help Text: "Enter # followed by code, or write 'Call on arrival' if code unknown"
+
+---
+
+## Using Custom Fields in Filters
+
+Custom fields are fully integrated with FieldCamp's filtering system.
+
+### Text Field Filters
+
+Available operators:
+- **Contains** - Partial match (e.g., "Code contains '1234'")
+- **Equals** - Exact match
+- **Starts with** - Begins with text
+- **Ends with** - Ends with text
+- **Is empty** - No value entered
+- **Is not empty** - Has any value
+
+**Example: Find all clients with gate codes**
+```
+Filter: Gate Access Code | Is not empty
+```
+
+### Number Field Filters
+
+Available operators:
+- **Equals** - Exact value
+- **Greater than** - Value >
+- **Less than** - Value <
+- **Between** - Range (e.g., 1000-5000)
+- **Is empty** / **Is not empty**
+
+**Example: Find large properties**
+```
+Filter: Property Square Footage | Greater than | 3000
+```
+
+### Checkbox Filters
+
+**Example: Find clients with pools**
+```
+Filter: Has Pool | Is checked
+```
+
+### Date Filters
+
+Available operators:
+- **Is** - Exact date
+- **Is before** - Earlier than date
+- **Is after** - Later than date
+- **Is between** - Date range
+- **Is empty** / **Is not empty**
+
+**Example: Find clients with expiring warranties**
+```
+Filter: Warranty Expiration | Is between | 2026-03-01 and 2026-03-31
+```
+
+### Select/Multi-Select Filters
+
+Available operators:
+- **Is** - Exact option match
+- **Is any of** - Multiple option match
+- **Is none of** - Exclusion filter
+- **Is empty** / **Is not empty**
+
+**Example: Find Gold and Platinum clients**
+```
+Filter: Service Tier | Is any of | Gold, Platinum
+```
+
+Learn more in the [Advanced Filtering](/features/clients/filtering) guide.
+
+---
+
+## Using Custom Fields in Grouping
+
+Group clients by custom field values in table view.
+
+### How to Group
+
+1. Go to **Clients** page
+2. Click **Group** button
+3. Select custom field (e.g., "Service Tier")
+4. Click **Apply**
+
+**Result:** Clients grouped by field value with collapsible sections.
+
+<Tip>
+  **Combine grouping with filtering:** Group by "Service Tier" + Filter by "Has Pool = Yes" to see pool-owning clients organized by service level.
+</Tip>
+
+### Group Subtotals
+
+When grouping, FieldCamp shows:
+- **Count** - Number of clients in each group
+- **Total LTV** - Sum of lifetime value per group (if applicable)
+- **Outstanding Balance** - Total unpaid invoices per group
+
+**Example:**
+```
+Gold Tier (12 clients, $84,500 LTV, $2,300 outstanding)
+  - Mike Rodriguez
+  - Sarah Mitchell
+  - [10 more...]
+
+Silver Tier (28 clients, $52,000 LTV, $1,800 outstanding)
+  - [28 clients...]
+```
+
+---
+
+## Using Custom Fields in Reports
+
+Custom fields appear in analytics and reporting:
+
+### Dashboard Widgets
+
+Create custom charts using custom field data:
+
+1. Go to **Analytics → Custom Dashboards**
+2. Click **+ Add Widget**
+3. Choose chart type (Bar, Pie, Line)
+4. Select custom field as dimension
+5. Choose metric (Count, Sum, Average)
+6. Save widget
+
+**Example: Clients by Service Tier**
+- Chart Type: Pie
+- Dimension: Service Tier
+- Metric: Count
+- Result: Visual breakdown of Bronze vs Silver vs Gold vs Platinum clients
+
+### Exporting Custom Field Data
+
+When exporting clients to CSV/Excel:
+
+1. Click **Import / Export → Export Clients**
+2. Custom fields automatically included as columns
+3. Download file
+4. Open in Excel/Google Sheets
+
+**Export includes:**
+- All standard fields (Name, Email, Phone, etc.)
+- All custom fields with values
+- Empty cells for missing custom field data
+
+---
+
+## Best Practices
+
+### Naming Conventions
+
+<AccordionGroup>
+  <Accordion title="Use Clear, Specific Names">
+    **Good:**
+    - "HOA Contact Phone"
+    - "Last AC Filter Change Date"
+    - "Preferred Appointment Time"
+
+**Bad:**
+    - "Code" (too vague)
+    - "Field 1" (meaningless)
+    - "Stuff" (not descriptive)
+  </Accordion>
+
+  <Accordion title="Be Consistent">
+    Pick a naming style and stick to it:
+
+**Option 1: Descriptive (recommended)**
+    - "Gate Access Code"
+    - "Service Contract Tier"
+    - "Property Square Footage"
+
+**Option 2: Short codes (for power users)**
+    - "Gate Code"
+    - "Contract Tier"
+    - "Sq Ft"
+
+Avoid mixing styles.
+  </Accordion>
+
+  <Accordion title="Group Related Fields with Prefixes">
+    Use prefixes for related fields:
+
+**Equipment fields:**
+    - "Equipment: AC Model"
+    - "Equipment: Furnace Age (years)"
+    - "Equipment: Last Service Date"
+
+**Property fields:**
+    - "Property: Square Footage"
+    - "Property: Lot Size (acres)"
+    - "Property: Has Pool"
+
+**Benefit:** Fields appear together when sorted alphabetically.
+  </Accordion>
+</AccordionGroup>
+
+### Field Organization
+
+<AccordionGroup>
+  <Accordion title="Start with Essential Fields Only">
+    Don't create 50 custom fields on day one. Start with 3-5 most critical fields:
+
+**HVAC business example:**
+    1. Equipment: Primary System Type (Select: AC, Furnace, Heat Pump, etc.)
+    2. Service Contract Tier (Select: Bronze, Silver, Gold, Platinum)
+    3. Gate Access Code (Text)
+    4. Property Square Footage (Number)
+
+Add more as needed.
+  </Accordion>
+
+  <Accordion title="Use Select Fields Over Text When Possible">
+    **Why:** Select fields enable better filtering, grouping, and reporting.
+
+**Instead of Text field "Service Tier":**
+    - User types: "gold", "Gold", "GOLD", "Glod" (inconsistent)
+
+**Use Select field:**
+    - Options: Bronze | Silver | Gold | Platinum (always consistent)
+
+**Exception:** Use Text when values are truly unique per client (e.g., "Gate Code").
+  </Accordion>
+
+  <Accordion title="Don't Duplicate Built-in Fields">
+    FieldCamp already has fields for:
+    - Name, Email, Phone, Website
+    - Address (Primary, Billing, Company)
+    - Stage, Tags, Notes
+    - Preferred Technicians
+
+Don't create custom fields for these. Use the built-in fields.
+  </Accordion>
+</AccordionGroup>
+
+### Data Quality
+
+<AccordionGroup>
+  <Accordion title="Use Required Fields Sparingly">
+    Only make fields required if absolutely necessary.
+
+**Too many required fields** = frustrated team, slow client creation.
+
+**Good use of required:**
+    - Service Contract Number (for contract-based businesses)
+    - Property Type (if critical for job assignment)
+
+**Don't require:**
+    - Optional details (e.g., "Preferred Appointment Time")
+    - Fields that may not apply to all clients
+  </Accordion>
+
+  <Accordion title="Provide Help Text for Ambiguous Fields">
+    If a field name isn't self-explanatory, add help text.
+
+**Example:**
+    - Field: "Equipment Tag Number"
+    - Help Text: "Found on silver sticker on equipment housing. If missing, leave blank."
+  </Accordion>
+
+  <Accordion title="Audit and Clean Up Unused Fields">
+    Every 6 months:
+    1. Review custom fields list
+    2. Check usage (how many clients have data in each field?)
+    3. Delete fields with <5% population or zero usage
+    4. Archive old fields you might need later (export data first)
+
+**Why:** Too many unused fields = cluttered UI, slower performance.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Common Use Cases
+
+### HVAC/Plumbing
+
+```
+Equipment: Primary System Type (Select)
+  Options: Central AC, Heat Pump, Furnace, Boiler, Mini-Split
+
+Equipment: System Age (years) (Number)
+
+Maintenance Contract Tier (Select)
+  Options: None, Basic, Premium, VIP
+
+Filter Change Frequency (weeks) (Number)
+  Default: 12
+
+Last Service Date (Date)
+
+Gate Access Code (Text)
+
+Has Pets (Checkbox)
+  Help Text: "Check if pet containment needed during service"
+```
+
+### Landscaping
+
+```
+Property Square Footage (Number)
+
+Lawn Type (Select)
+  Options: Bermuda, St. Augustine, Zoysia, Fescue, Mixed
+
+Irrigation System (Checkbox)
+
+Service Frequency (Select)
+  Options: Weekly, Bi-Weekly, Monthly, Seasonal
+
+Special Equipment Needed (Multi-Select)
+  Options: Edger, Blower, Trimmer, Mower (Riding), Aerator
+
+HOA Contact Info (Text)
+
+Gate Code (Text)
+```
+
+### Pool Service
+
+```
+Pool Type (Select)
+  Options: In-Ground, Above-Ground, Spa Only, Pool+Spa
+
+Pool Size (gallons) (Number)
+
+Heating System (Select)
+  Options: None, Gas, Electric, Solar, Heat Pump
+
+Salt System (Checkbox)
+
+Chemical Delivery Preference (Select)
+  Options: Leave at Door, Garage, Pool House, Hand to Customer
+
+Last Equipment Upgrade (Date)
+
+Service Day Preference (Select)
+  Options: Monday, Tuesday, Wednesday, Thursday, Friday
+```
+
+### Pest Control
+
+```
+Property Type (Select)
+  Options: Residential, Commercial, Multi-Unit, Industrial
+
+Treatment Plan (Select)
+  Options: Preventative, Targeted, Quarterly, Monthly
+
+Primary Pest Issue (Multi-Select)
+  Options: Ants, Roaches, Termites, Rodents, Spiders, Bedbugs
+
+Pets Present (Checkbox)
+
+Interior Access (Select)
+  Options: Customer Home, Lockbox, Key on File, Exterior Only
+
+Last Treatment Date (Date)
+
+Next Treatment Due (Date)
+```
+
+---
+
+## Troubleshooting
+
+### Custom Field Not Showing in Table
+
+**Cause:** Column hidden in column selector.
+
+**Fix:**
+1. Click **Columns** button
+2. Find custom field in list
+3. Check the checkbox
+4. Column appears
+
+### Can't Create Select Field
+
+**Cause:** No options entered.
+
+**Fix:**
+1. In the custom field modal, click field type **Select**
+2. Enter at least 1 option name
+3. Click **+ Add Option**
+4. Click **Create**
+
+### Custom Field Data Not Exporting
+
+**Cause:** Export filter excluding clients with custom field data.
+
+**Fix:**
+1. Remove filters before exporting
+2. Click **Reset all** (if filters active)
+3. Re-export
+
+### Custom Field Disappeared
+
+**Possible causes:**
+1. **Hidden column** - Check column selector
+2. **Deleted by admin** - Check with team admin
+3. **Wrong view** - Switch to "Default" view
+
+---
+
+## API Access
+
+Custom fields are accessible via FieldCamp's REST API.
+
+### Fetching Custom Fields
+
+```bash
+GET /v1/clients/:client_id
+```
+
+**Response:**
+```json
+{
+  "id": "cl_abc123",
+  "fullName": "Mike Rodriguez",
+  "email": "mike@quickfixhvac.com",
+  "customProperties": {
+    "service_tier": "Gold",
+    "property_sqft": 2400,
+    "has_pool": true,
+    "gate_code": "#1234",
+    "equipment_age_years": 3
+  }
+}
+```
+
+### Updating Custom Fields
+
+```bash
+PATCH /v1/clients/:client_id
+Content-Type: application/json
+
+{
+  "customProperties": {
+    "service_tier": "Platinum",
+    "property_sqft": 2800
+  }
+}
+```
+
+### Filtering by Custom Fields
+
+```bash
+GET /v1/clients?filter[service_tier]=Gold
+GET /v1/clients?filter[property_sqft][gt]=2000
+```
+
+Full API documentation: [Client API Reference](/features/clients/api)
+
+---
+
+## Next Steps
+
+<CardGroup cols={3}>
+  <Card title="Advanced Filtering" icon="filter" href="/features/clients/filtering">
+    Learn to filter clients by custom fields
+  </Card>
+  <Card title="Bulk Operations" icon="layer-group" href="/features/clients/bulk-operations">
+    Update custom fields for many clients at once
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/features/clients/analytics">
+    Create reports using custom field data
+  </Card>
+</CardGroup>
